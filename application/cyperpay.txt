@@ -1,0 +1,298 @@
+<?php
+
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class CipherPayController extends CI_Controller
+{
+    private static $mainurl = "https://api.cipherpay.in/api/v3/";
+    private static $key = "Q1AwMDQ3NTokMnkkMTIkMjNlVmlrVGlkYjBnSUdzY04ud1JmZVZiYWFYZnpqeVJJS1prOWprT0U5TThYNlFha1NZYU8="; // Token
+    private static $partnerid = "20221173"; // 2022XXXX
+    private static $headerJson = '{"partnerId":"CP00475","headerToken":"qMnxzjZajR-motEEJ67XE-fE9sX-RfOkS-SMzhKGDzDM"}';
+	
+    private static $publicKey = "-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwSJIDJCnfBiOftS7vHii
+0UGIiWbR7BBcDqUB19etNkyP6KpTkIvx/AJnvIlHiI7v/2h+VAOnEb91sS9bnu2O
+ErfratLvQwgH8ZzTIl4/uG/9ZNwzgOwGLie6+SU3MgM/CJc0WGAAoTS3a9gM5e91
+uzq65kBlDv62HueiQGeAoiJkx67Q26cXs5mw/VeUp/cjMAoisgEp0zk20P0gUdTV
+lJ5IAm3STLPewbZLJA17wlLREV/t/5AOiaob1+qKug9Z3g1kJTODuagFkFxVhbi8
+4GB4F2+hYWuB32zm6QCkyi5E1VMnM1H+ZzsEk074Tg/t5raP/ZNma6YY6AaE1yO5
+MwIDAQAB
+-----END PUBLIC KEY-----";
+    private static $privateKey = "-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAwSJIDJCnfBiOftS7vHii0UGIiWbR7BBcDqUB19etNkyP6KpT
+kIvx/AJnvIlHiI7v/2h+VAOnEb91sS9bnu2OErfratLvQwgH8ZzTIl4/uG/9ZNwz
+gOwGLie6+SU3MgM/CJc0WGAAoTS3a9gM5e91uzq65kBlDv62HueiQGeAoiJkx67Q
+26cXs5mw/VeUp/cjMAoisgEp0zk20P0gUdTVlJ5IAm3STLPewbZLJA17wlLREV/t
+/5AOiaob1+qKug9Z3g1kJTODuagFkFxVhbi84GB4F2+hYWuB32zm6QCkyi5E1VMn
+M1H+ZzsEk074Tg/t5raP/ZNma6YY6AaE1yO5MwIDAQABAoIBAQCfe5WPeqwzV3vj
+0/urKNsafUkoXVWf3+qE1VFuUVVhb1uuv2f+BvIuLjZHg/0kERSyDjGzYsjFaRrg
+08COvpABeQrXzZNyAOG+bMgUq0tnHGNctFF7dmusFXbaYhbwH6ofh+zbxXr/o66L
+SX9tKI5Jq7fGhwpslX0CjDh5gn7AYsJ3QqXqCqjvemHIW/+/RYCvbJVczQorgDxz
+uyrN3szQ/zvuVZnsHYzQBtr8npBoikJdY4ocDPjvV02TZL+xLJrtgJWn9EUekMuc
+s5bYg+H0Mvudd5hwXH7buzMAlVvxFPtZc2GRfW6qJVticbPH2wkZjvo3ZeL4YaB1
+3IyUGePxAoGBAOxaMF9aSGA0HKlwoWuoFU8N9OyEkbqUHnmRj2iGYEO8MYk7ibEO
+O1HK80rGwsCh7CxLVhgWnDVzbD1biMVzWBVdy8hGJI+rPgWB/HhZ/25/AaoPg4Ir
+i1LHZoIKbcZmyagA1nloh0xsbZp10Qe59PEb0vba1+VusGhmUpjkR3YtAoGBANEw
+XMRNlpjfai13DoribyeGmRKZKeIxWLUv89deuWJmgcgbeRRg8Goo27e8fRra8i1E
+Lgj2YbsJsg2M0sGC3cXITXoJc+BMVeBRSPr7NwAQOuIMQla1L3Wy43/EfRGKbvOE
+cfR4QD666dixrk/SlKr5ACu/f16FaP5rOBsi1+jfAoGAHCxT/8m/Pth3Yisu0qpi
+f93mCBt1U4w8ZblYItmBuBFCxlz2eMh9ga5zecJfjJ7AjDceuBhZ3nU3vcifcQni
+wglANUtHKGj9J6Lq+V2g+Qbip+bZgja2kNN8AJxFoZS3DPOsnSQ8nHuARR0uIYGl
+FOiAKTTE73BWTtuDlP4BFrECgYEAxF3xtxReWgLfWO556EXGsgPXjW3Zs0s/SlZJ
+P9Lbk1NGYOHpNwgIpp7UIhX+GkeNLpDh5efitgDT84ROEvkV1aPBlt1ouRTvSDMF
+nxRS/Ow/WhLH8z0B4CqdBEMeZGje3hlmH2cCZ+Btw8yHJMc4Z4Z2cprApan2dV2Q
+vWhn5WECgYB/9dkaPmH17QQ0SMIRCMJPWsmb8DfqrJOEjbBGO2ap82rK+HnaPEm8
+v51c66DN9GILHB2xnfEMybkJLnfaI9Xv+2AF0ovGfyv0fO3QojGMt5qcZfz9rs7q
+GaTtOFbDvCsRJN5eE5CUreCWCA/QjSgVpBZTTJrExiWIo5AtvoMI3w==
+-----END RSA PRIVATE KEY-----"; // Truncated for brevity
+
+    private static $aesKey = '';
+    private static $aesIv = '';
+    private static $publicKeyHeader = '-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwSJIDJCnfBiOftS7vHii
+0UGIiWbR7BBcDqUB19etNkyP6KpTkIvx/AJnvIlHiI7v/2h+VAOnEb91sS9bnu2O
+ErfratLvQwgH8ZzTIl4/uG/9ZNwzgOwGLie6+SU3MgM/CJc0WGAAoTS3a9gM5e91
+uzq65kBlDv62HueiQGeAoiJkx67Q26cXs5mw/VeUp/cjMAoisgEp0zk20P0gUdTV
+lJ5IAm3STLPewbZLJA17wlLREV/t/5AOiaob1+qKug9Z3g1kJTODuagFkFxVhbi8
+4GB4F2+hYWuB32zm6QCkyi5E1VMnM1H+ZzsEk074Tg/t5raP/ZNma6YY6AaE1yO5
+MwIDAQAB
+-----END PUBLIC KEY-----';
+
+    private static $partnerToken = 'Q1AwMDQ3NTokMnkkMTIkMjNlVmlrVGlkYjBnSUdzY04ud1JmZVZiYWFYZnpqeVJJS1prOWprT0U5TThYNlFha1NZYU8=';
+
+    public function __construct()
+    {
+        parent::__construct();
+        // Load necessary libraries or helpers here
+        $this->load->helper(['url']);
+    }
+
+    public function index()
+    {
+        echo "CipherPay API Controller Initialized.";
+    }
+
+    public function generateQRCode()
+    {
+        $qrData = 'Sample QR Data';
+        $this->load->library('ciqrcode');
+        $config['cacheable'] = true;
+        $config['quality'] = true;
+        $config['size'] = '1024';
+        $this->ciqrcode->initialize($config);
+
+        header("Content-Type: image/png");
+        $params['data'] = $qrData;
+        $params['level'] = 'H';
+        $params['size'] = 10;
+        $this->ciqrcode->generate($params);
+    }
+
+    public function encryptData($data)
+    {
+        // Example encryption logic
+        openssl_public_encrypt($data, $encryptedData, self::$publicKey);
+        return base64_encode($encryptedData);
+    }
+
+    public function apiRequestExample()
+    {
+        $url = self::$mainurl . 'example-endpoint';
+        $headers = [
+            'Content-Type: application/json',
+            'Header-Token: ' . self::$partnerToken
+        ];
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        echo $response;
+    }
+}
+
+
+
+
+<?php
+
+class PaymentController extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+        $this->load->helper(['url', 'form']);
+        $this->load->library('curl'); // Assuming you have a curl library
+    }
+	
+
+    public function initiate_collect()
+    {
+        $request = [
+            "method" => "POST",
+            "url" => "payin/initiate-collect",
+            "parameter" => [
+                "sender_vpa" => "patel6466bimal@okhdfcbank",
+                "sender_name" => "Bimal patel",
+                "sender_mobile" => "+919924276751",
+                "receiver_vpa" => "",
+                "amount" => "10",
+                "remarks" => "Initiate Collect",
+                "refid" => rand(1000, 9999),
+                "expiry" => "15"
+            ]
+        ];
+
+        $response = $this->hit($request);
+        $response = $this->final_response($response);
+        log_message('info', 'final Response - ' . json_encode($response));
+        echo json_encode($response);
+    }
+
+    public function status_enquiry()
+    {
+        $refid = $this->session->userdata('refid');
+        $data = [
+            "method" => "POST",
+            "url" => "payin/status-enquiry",
+            "parameter" => [
+                "refid" => $refid
+            ]
+        ];
+
+        $response1 = $this->hit($data);
+        $response = $this->final_response($response1);
+        $this->session->set_userdata('cipherResponse', $response);
+
+        $payment_message = $this->cipher_payment_status($response['data']['status']);
+        $url = $_SERVER['HTTP_REFERER'];
+        $path = parse_url($url, PHP_URL_PATH);
+        $segments = explode('/', trim($path, '/'));
+        $second_last_segment = $segments[count($segments) - 2];
+
+        $actual_return_url = $second_last_segment === 'self-apply' ? 'https://kreditbazar.com/self-apply/offer-3-response' : 'https://kreditbazar.com/loan-agent/offer-3-response';
+
+        $redirect_url = $payment_message === 'Transaction Successfull' ? $actual_return_url : 'https://kreditbazar.com/cipher-payment-failed/';
+        log_message('info', $redirect_url);
+        echo json_encode(['type' => 'SUCCESS', 'message' => $payment_message, 'redirectUrl' => $redirect_url, 'data' => $response]);
+    }
+
+    public function dynamic_qr()
+    {
+        $refid = rand(1000, 9999);
+        $request = [
+            "method" => "POST",
+            "url" => "payin/dynamic-qr",
+            "parameter" => [
+                'receiver_vpa' => "cpy.kreditbazar@finobank",
+                'amount' => "299",
+                'remarks' => "Dynamic QR",
+                'refid' => $refid,
+                'expiry' => "2",
+                'type' => "QR"
+            ]
+        ];
+
+        $this->session->set_userdata('refid', $refid);
+        log_message('info', json_encode($request));
+        $response = $this->hit($request);
+        $response = $this->final_response($response);
+        log_message('info', 'final Response - ' . json_encode($response));
+
+        $this->load->view('pg/cipherQR', ['response' => $response]);
+    }
+
+    private function hit($req_data)
+    {
+        $url = base_url() . $req_data['url'];
+        $jwt = $this->get_jwt_token();
+
+        $parameter = !empty($req_data['parameter']) ? json_encode($req_data['parameter']) : "";
+        $info = $this->final_request($parameter);
+
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => $req_data['method'],
+            CURLOPT_POSTFIELDS => json_encode($info['payload']),
+            CURLOPT_HTTPHEADER => [
+                "Token: $jwt",
+                "Auth: {$info['Auth']}",
+                "Key: {$info['Key']}",
+                "Content-Type: application/json",
+                "User-Agent: PostmanRuntime/7.29.2"
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        if (curl_errno($curl)) {
+            $resp = ["errorCode" => "PAYSPRINT-001", "error_code" => curl_errno($curl), "message" => curl_error($curl), "errorMessage" => "Unable to get response please try again later"];
+        } else {
+            $resp = $this->parse_response($response);
+        }
+        curl_close($curl);
+        return $resp;
+    }
+
+    private function final_request($parameters = "")
+    {
+        $salt = bin2hex(openssl_random_pseudo_bytes(8));
+        $data = $this->generate_aes_key($salt);
+        $key = $data[0];
+        $iv = $data[1];
+
+        if ($parameters !== "") {
+            $encrypted = openssl_encrypt(json_encode($parameters), 'aes-128-cbc', $key, OPENSSL_RAW_DATA, $iv);
+            $encrypted = base64_encode($encrypted);
+        }
+
+        $encrypted_salt = $this->rsa_encrypt($salt);
+
+        return [
+            'Auth' => $encrypted_salt,
+            'Key' => $encrypted_salt,
+            'payload' => $parameters ? ['requestData' => $encrypted] : null
+        ];
+    }
+
+    private function parse_response($response)
+    {
+        return json_decode($response, true);
+    }
+
+    private function final_response($response)
+    {
+        if (!isset($response['returnData'])) {
+            return $response;
+        }
+        $response_data = $response['returnData'];
+        $encrypted = base64_decode($response_data);
+        $decrypted = openssl_decrypt($encrypted, 'aes-128-cbc', $this->session->userdata('aesKey'), OPENSSL_RAW_DATA, $this->session->userdata('aesIv'));
+        return json_decode($decrypted, true);
+    }
+
+    private function generate_aes_key($salt)
+    {
+        $salt = hex2bin($salt);
+        $passphrase = 'CipherPay API Payout';
+        $iteration_count = 10000;
+        $key_size = 128;
+        $hash_algorithm = 'sha1';
+        $key = openssl_pbkdf2($passphrase, $salt, $key_size / 8, $iteration_count, $hash_algorithm);
+        $this->session->set_userdata('aesKey', $key);
+        $this->session->set_userdata('aesIv', bin2hex($salt));
+        return [$key, bin2hex($salt)];
+    }
+
+    private function rsa_encrypt($data)
+    {
+        $public_key = "YOUR_PUBLIC_KEY_HERE";
+        openssl_public_encrypt($data, $encrypted, $public_key);
+        return base64_encode($encrypted);
+    }
+}
