@@ -168,11 +168,11 @@ Class Manage_Account_Model extends CI_Model {
 		}
 
 		if($emailid != '') {
-			$subject = "Refund Payment Message - Manifincart";
+			$subject = "Refund Payment Message - Bharatfinpro";
 			
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your refund payment is successfully done. For any query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days).</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Manifincart.com</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Bharatfinpro.com</p>';
 			
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
