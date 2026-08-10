@@ -9,7 +9,7 @@
 		<?php if (isset($meta->title)) {
 			echo $meta->title;
 		} else {
-			echo "Prayosha Fincart – Personal Loan and Business Loan";
+			echo "Bharatfinpro – Personal Loan and Business Loan";
 		} ?>
 	</title>
 	<meta name="description" content="<?php if (isset($meta->descriptions)) {
@@ -26,17 +26,17 @@
 	<meta name="google-site-verification" content="bSZVJI1coQ9ImAJMiDt46_i3QMtA8YIQ7xHdEQIHBa0" />
 
 	<!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Prayosha Fincart - Personal & Business Loan Solutions">
-    <meta property="og:description" content="Explore personal and business loan options with Prayosha Fincart. Fast approvals and seamless application processes to meet your financial needs.">
-    <meta property="og:url" content="https://prayoshafincart.com/">
+    <meta property="og:title" content="Bharatfinpro - Personal & Business Loan Solutions">
+    <meta property="og:description" content="Explore personal and business loan options with Bharatfinpro. Fast approvals and seamless application processes to meet your financial needs.">
+    <meta property="og:url" content="https://bharatfinpro.com/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://prayoshafincart.com/assets/images/logo-light-2x.png">
+    <meta property="og:image" content="https://bharatfinpro.com/assets/images/logo-light-2x.png">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Prayosha Fincart - Personal & Business Loan Solutions">
-    <meta name="twitter:description" content="Apply for personal and business loans with Prayosha Fincart. Simplify your financial needs with quick approvals and transparent processes.">
-    <meta name="twitter:image" content="https://prayoshafincart.com/assets/images/logo-light-2x.png">
+    <meta name="twitter:title" content="Bharatfinpro - Personal & Business Loan Solutions">
+    <meta name="twitter:description" content="Apply for personal and business loans with Bharatfinpro. Simplify your financial needs with quick approvals and transparent processes.">
+    <meta name="twitter:image" content="https://bharatfinpro.com/assets/images/logo-light-2x.png">
 
 	<script type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "rfpn3lx866"); </script>
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('assets/images/apple-icon-180x180.png'); ?>">
@@ -140,10 +140,10 @@
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "name": "Prayosha Fincart",
-                "image": "https://prayoshafincart.com/assets/images/logo-light-2x.png",
+                "name": "Bharatfinpro",
+                "image": "https://bharatfinpro.com/assets/images/logo-light-2x.png",
                 "telephone": "+91-97241-57576",
-                "email": "support@prayoshafincart.com",
+                "email": "support@bharatfinpro.com",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "3rd Floor, Plot 28, Sy. No. 123/1, Parvati Nagar Co-op. Housing Society 2, Katargam, Surat, Gujarat, India, 395004",
@@ -152,7 +152,7 @@
                     "postalCode": "395009",
                     "addressCountry": "IN"
                 },
-                "url": "https://prayoshafincart.com/"
+                "url": "https://bharatfinpro.com/"
             },
             {
                 "@type": "BreadcrumbList",
@@ -161,45 +161,45 @@
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://prayoshafincart.com/"
+                        "item": "https://bharatfinpro.com/"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Personal Loan",
-                        "item": "https://prayoshafincart.com/digital/personalLoan"
+                        "item": "https://bharatfinpro.com/digital/personalLoan"
                     },
                     {
                         "@type": "ListItem",
                         "position": 3,
                         "name": "Business Loan",
-                        "item": "https://prayoshafincart.com/digital/businessLoan"
+                        "item": "https://bharatfinpro.com/digital/businessLoan"
                     },
                     {
                         "@type": "ListItem",
                         "position": 4,
                         "name": "FAQs",
-                        "item": "https://prayoshafincart.com/faqs"
+                        "item": "https://bharatfinpro.com/faqs"
                     },
                     {
                         "@type": "ListItem",
                         "position": 5,
                         "name": "Raise a Request",
-                        "item": "https://prayoshafincart.com/raise-request"
+                        "item": "https://bharatfinpro.com/raise-request"
                     },
                     {
                         "@type": "ListItem",
                         "position": 6,
                         "name": "Customer Login",
-                        "item": "https://prayoshafincart.com/customer"
+                        "item": "https://bharatfinpro.com/customer"
                     }
                 ]
             },
             {
                 "@type": "Organization",
-                "name": "Prayosha Fincart",
-                "url": "https://prayoshafincart.com/",
-                "logo": "https://prayoshafincart.com/assets/images/logo-light-2x.png",
+                "name": "Bharatfinpro",
+                "url": "https://bharatfinpro.com/",
+                "logo": "https://bharatfinpro.com/assets/images/logo-light-2x.png",
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "telephone": "+91-97241-57576",
@@ -208,10 +208,10 @@
                     "availableLanguage": "en"
                 },
                 "sameAs": [
-                    "https://www.facebook.com/PrayoshaFincart/",
-                    "https://www.instagram.com/prayoshafincart/",
-                    "https://x.com/prayoshaficart",
-                    "https://in.pinterest.com/prayoshafincart/",
+                    "https://www.facebook.com/Bharatfinpro/",
+                    "https://www.instagram.com/bharatfinpro/",
+                    "https://x.com/bharatfinpro",
+                    "https://in.pinterest.com/bharatfinpro/",
                     "https://www.linkedin.com/company/97877361/admin/dashboard/",
                     "https://www.youtube.com/channel/UC-CyyqSgp6YWgalbPdiOhvQ"
                 ]

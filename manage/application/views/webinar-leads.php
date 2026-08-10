@@ -251,7 +251,7 @@
                     <td>${i + 1}</td>
 
                     <td>
-                        <img src="<?= 'https://prayoshafincart.com/assets/images/webinarpage/' ?>${row.event_image}"
+                        <img src="<?= 'https://bharatfinpro.com/assets/images/webinarpage/' ?>${row.event_image}"
                              width="50"
                              class="img-thumbnail">
                     </td>

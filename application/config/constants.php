@@ -90,160 +90,152 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 
 // Project details
-define('PROJECT_NAME', 'Prayosha Fincart');
-define('COMPANY_NAME', 'Prayosha Fincart Pvt. Ltd.');
-define('COMPANY_EMAIL', 'support@prayoshafincart.com');
-define('COMPANY_MOBILE', '+91-87348-89547'); //+91-87348-89547
-define('COMPANY_CIN', 'U67190GJ2022PTC133009');
-define('COMPANY_GST', '24AAMCP9991N1ZC');
-define('COMPANY_SITE', 'https://prayoshafincart.com');
-//define('COMPANY_ADDRESS', '3rd Floor, Plot 28, Sy. No. 123/1, Parvati Nagar Co-op. Housing Society 2, Katargam, Surat, Gujarat, India, 395004');
-define('COMPANY_ADDRESS', '3rd Floor, Plot 28, Sy. No. 123/1, Parvati Nagar Co-op. Housing Society 2, Katargam, Surat, Gujarat, India, 395004');
-define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
+define('PROJECT_NAME', 'Bharatfinpro');
+define('COMPANY_NAME', '#');
+define('COMPANY_EMAIL', '#');
+define('COMPANY_MOBILE', '#');
+define('COMPANY_CIN', '#');
+define('COMPANY_GST', '#');
+define('COMPANY_SITE', '#');
+define('COMPANY_ADDRESS', '#');
+define('COMPANY_TIMING', '#');
 
 define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', 'https://www.facebook.com/PrayoshaFincart/');
-define('SM_INSTAGRAM', 'https://www.instagram.com/prayoshafincart/?next=%2F&hl=en');
-define('SM_TWITTER', 'https://x.com/prayoshaficart');
-define('SM_LINKEDIN', 'https://www.linkedin.com/company/97877361/admin/dashboard/');
-define('SM_PINTEREST', 'https://in.pinterest.com/prayoshafincart/');
-define('SM_YOUTUBE', 'https://www.youtube.com/channel/UC-CyyqSgp6YWgalbPdiOhvQ');
+define('SM_FACEBOOK', '#');
+define('SM_INSTAGRAM', '#');
+define('SM_TWITTER', '#');
+define('SM_LINKEDIN', '#');
+define('SM_PINTEREST', '#');
+define('SM_YOUTUBE', '#');
 
 // Email SMTP details
-define('SMTP_HOST', 'mail.prayoshafincart.com');
-define('SMTP_USER', 'info@prayoshafincart.com');
-define('SMTP_PASSWORD', 'fincart@7669');
+define('SMTP_HOST', '#');
+define('SMTP_USER', '#');
+define('SMTP_PASSWORD', '#');
 
 // SENDINBLUE details
-define('SIB_NAME', 'Prayoshafincart.com');
-define('SIB_EMAILID', 'info@prayoshafincart.com');
+define('SIB_NAME', '#');
+define('SIB_EMAILID', '#');
 define('SIB_APIKEY', '#');
 
 // SMS details
-/* define('SMS_API_KEY', 'EAjyxuIJREeeraXzsiNxrg');
-define('SMS_SENDER_ID', 'PRYSFN'); */
+define('SMS_API_KEY', '#');
+define('SMS_SENDER_ID', '#'); 
 
 // SMS details
-define('SMS_OBB_USERNAME', 'prayosha');
-define('SMS_OBB_PASSWORD', 'e284942d8cXX');
-define('SMS_OBB_SENDER_ID', 'PRYFIN'); // PFINCA
+define('SMS_OBB_USERNAME', '#');
+define('SMS_OBB_PASSWORD', '#');
+define('SMS_OBB_SENDER_ID', '#'); 
 
 // SMS details
-define('SMS_WEBINAR_OBB_USERNAME', 'prayosha');
-define('SMS_WEBINAR_OBB_PASSWORD', 'e284942d8cXX');
-define('SMS_WEBINAR_OBB_SENDER_ID', 'PYOSHA'); // PFINCA
+define('SMS_WEBINAR_OBB_USERNAME', '#');
+define('SMS_WEBINAR_OBB_PASSWORD', '#');
+define('SMS_WEBINAR_OBB_SENDER_ID', '#'); 
 
 // SMS details
-define('PLAN_SMS_OBB_USERNAME', 'privyleg');
-define('PLAN_SMS_OBB_PASSWORD', '1a813941ceXX');
-define('PLAN_SMS_OBB_SENDER_ID', 'PRVELG');
+define('PLAN_SMS_OBB_USERNAME', '#');
+define('PLAN_SMS_OBB_PASSWORD', '#');
+define('PLAN_SMS_OBB_SENDER_ID', '#');
 
 // SabPaisa details
-define('SABPAISA_MODE', 'PROD');
-define('SABPAISA_CLIENT_CODE', 'GHGO98');
-define('SABPAISA_USERNAME', 'payment_10002');
-define('SABPAISA_PASSWORD', 'GHGO98_SP10002');
-define('SABPAISA_AUTH_KEY', '4j4MbimdV1pyLrWn');
-define('SABPAISA_AUTH_IV', '4qsa6Iul4s95NQjI');
-
-/* define('SABPAISA_MODE', 'TEST');
-define('SABPAISA_CLIENT_CODE', 'LPSD1');
-define('SABPAISA_USERNAME', 'Abh789@sp');
-define('SABPAISA_PASSWORD', 'x0xzPnXsgTq0QqXx');
-define('SABPAISA_AUTH_KEY', 'P8c3WQ7ei');
-define('SABPAISA_AUTH_IV', 'oLA38cwT6IYNGqb3'); */
+define('SABPAISA_MODE', '#');
+define('SABPAISA_CLIENT_CODE', '#');
+define('SABPAISA_USERNAME', '#');
+define('SABPAISA_PASSWORD', '#');
+define('SABPAISA_AUTH_KEY', '#');
+define('SABPAISA_AUTH_IV', '#');
 
 // UPI Gateway details
-define('UPIGATEWAY_MODE', 'TEST');
-define('UPIGATEWAY_KEY','360bdc9b-df83-41c8-94f2-733b1cc586af');
+define('UPIGATEWAY_MODE', '#');
+define('UPIGATEWAY_KEY','#');
 
 // Worldline details
-define('WORLDLINE_MODE', 'TEST');
-define('WORLDLINE_MERCHANT_CODE', 'T953049');
-define('WORLDLINE_SCHEME_CODE', 'FIRST');
-define('WORLDLINE_KEY_SALT', '7048415467TDTUQP');
-define('WORLDLINE_KEY_IV', '2994040042AQNPQP');
+define('WORLDLINE_MODE', '#');
+define('WORLDLINE_MERCHANT_CODE', '#');
+define('WORLDLINE_SCHEME_CODE', '#');
+define('WORLDLINE_KEY_SALT', '#');
+define('WORLDLINE_KEY_IV', '#');
 
 // Step2pay details
-define('STEPPAY_MODE', 'TEST');
-define('STEPPAY_EMAIL', 'prayoshafincart@step2pay.com');
-define('STEPPAY_PASSWORD', 'prayoshafincart@2023');
+define('STEPPAY_MODE', '#');
+define('STEPPAY_EMAIL', '#');
+define('STEPPAY_PASSWORD', '#');
 
 // Phonepe details
-define('PHONEPE_MODE', 'PROD');
-define('PHONEPE_MID', 'M15VTOG3RN4F');
-define('PHONEPE_KEY', 'f4431de8-b2ea-4a9b-81f6-df2efa8e4a59');
-define('PHONEPE_KEY_INDEX', '1');
-
-/* define('PHONEPE_MODE', 'TEST');
-define('PHONEPE_MID', 'M15VTOG3RN4F');
-define('PHONEPE_KEY', 'f4431de8-b2ea-4a9b-81f6-df2efa8e4a59');
-define('PHONEPE_KEY_INDEX', '1'); */
+define('PHONEPE_MODE', '#');
+define('PHONEPE_MID', '#');
+define('PHONEPE_KEY', '#');
+define('PHONEPE_KEY_INDEX', '#');
 
 // Zaakpay details
-define('ZAAKPAY_MERCHANT_IDENTIFIER', '3ea305fbb30b4f998ea75a0258366a64');
-define('ZAAKPAY_SECRET_KEY', 'b2dbf829e2104cee81e9c7383d0228a7');
+define('ZAAKPAY_MERCHANT_IDENTIFIER', '#');
+define('ZAAKPAY_SECRET_KEY', '#');
 
 // Cashfree details
-define('CASHFREE_MODE', 'PROD');
-define('CASHFREE_APP_ID', '938342ea3a11f5e5b46a822c43243839');
+define('CASHFREE_MODE', '#');
+define('CASHFREE_APP_ID', '#');
 define('CASHFREE_SECRET_KEY', '#');
 
 // Razorpay details
 define('RAZOR_KEY_ID_DEMO', '#');
-define('RAZOR_KEY_ID', 'rzp_live_WsZGtHCSmEzAFo');
-define('RAZOR_KEY_SECRET', '6flrCagJnTRZiKS0WYjZmmXb');
+define('RAZOR_KEY_ID', '#');
+define('RAZOR_KEY_SECRET', '#');
 
 // PayU details
-define('PAYU_MODE', 'PROD');
-define('PAYU_MERCHANT_KEY', 'oOrgok');
-define('PAYU_SALT', 'ukkE05PmhJuKL3dtEj5HLHofCUC0Jurx');
+define('PAYU_MODE', '#');
+define('PAYU_MERCHANT_KEY', '#');
+define('PAYU_SALT', '#');
 
 // Lyra details
-define('LYRA_MODE', 'PROD');
-define('LYRA_LCO_ID', 'LC2409123505');
-define('LYRA_SHOP_ID', '93712862');
-define('LYRA_MCC', '7392');
-define('LYRA_SHOP_NAME', 'Prayosha Fincart Private Limited');
-define('LYRA_API_KEY', 'prodpassword_3L1o1ZgReCusTTqFVHNnZ621zKn0ziqfYHhZEsxMLadCx');
+define('LYRA_MODE', '#');
+define('LYRA_LCO_ID', '#');
+define('LYRA_SHOP_ID', '#');
+define('LYRA_MCC', '#');
+define('LYRA_SHOP_NAME', '#');
+define('LYRA_API_KEY', '#');
 
 // Airpay details
-define('AIRPAY_MERCHANT', '314761');
-define('AIRPAY_USERNAME', 'gszkXw7G5W');
-define('AIRPAY_KEY_PASSWORD', 'TZrZs5Xw');
-define('AIRPAY_SECRET', 'xkHKB9DjpWDrEY77');
+define('AIRPAY_MERCHANT', '#');
+define('AIRPAY_USERNAME', '#');
+define('AIRPAY_KEY_PASSWORD', '#');
+define('AIRPAY_SECRET', '#');
 
-define('PAYGIC_MID', 'PRAYOSHAFI');
-define('PAYGIC_PASSWORD', 'JVF#^d6F^5%');
+define('PAYGIC_MID', '#');
+define('PAYGIC_PASSWORD', '#');
 
 // Whatsapp API
-define('AISENSY_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWVmZWQ5Mzk4ODQ2N2Q2YzRmMjg2MSIsIm5hbWUiOiJEaWxpcCBHb3Jhc2F2YSIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2YTVlZmVkOTM5ODg0NjdkNmM0ZjI4NTgiLCJhY3RpdmVQbGFuIjoiTk9ORSIsImlhdCI6MTc4NDYxMDUyMX0.Ej7QrqhL0qT4ErfeIlEBk-ih3TQDeRhL25c5AeflmNI');
+define('AISENSY_KEY', '#');
 
 //UAT Mobile Mumbers list
-define('UAT_MOBILE_NUMBERS', serialize(array('9408881214', '9904466599', '8154909702','9157600271','8734889547','9998807363','9998807367','6358141826','9104586771')));
+define('UAT_MOBILE_NUMBERS', serialize(array('')));
 
 // Geoloc API Key
-define('GEOLOC_API_KEY', 'HbkTwslRMXHZOFfXgZhzy3WnJChCLlnhWfsj735H');
+define('GEOLOC_API_KEY', '#');
 
 // Whatsapp API
-define('INTERAKT_KEY', 'MTB5NzVWNEpxUGl5NzB4aE5zejZZS000WmNyMmxrMG5DWHI2eFljUUJfdzo=');
-define('INTERAKT_KEY_NEW_UE', 'MU9ybEJOVjlGaGR0WnVDNllSMzNTRzlJdDUyOFc2M1NVX3JrUWhiS1lrbzo=');
-define('INTERAKT_KEY_NEW_RM', 'MU9ybEJOVjlGaGR0WnVDNllSMzNTRzlJdDUyOFc2M1NVX3JrUWhiS1lrbzo=');
+define('INTERAKT_KEY', '#');
+define('INTERAKT_KEY_NEW_UE', '#');
+define('INTERAKT_KEY_NEW_RM', '#');
 
-define('PLAN_INTERAKT_KEY_NEW_UE', 'R2h0dWFMTDB4bnBENG16dzN6ejlvTnFyMm1SY0xEOS1wTGhvSUtVdUdNYzo=');
-define('PLAN_INTERAKT_KEY_RM', 'R2h0dWFMTDB4bnBENG16dzN6ejlvTnFyMm1SY0xEOS1wTGhvSUtVdUdNYzo=');
+define('PLAN_INTERAKT_KEY_NEW_UE', '#');
+define('PLAN_INTERAKT_KEY_RM', '#');
 
-define('INTERAKT_KEY_WEBINAR_RM', 'aFdBMG1tc1RXS3VBejFXcXRvZVFDU2dkVDBOTkJvcjdTMXpLLWdaTzIzbzo=');
-define('INTERAKT_KEY_WEBINAR_PS_PF', 'aFdBMG1tc1RXS3VBejFXcXRvZVFDU2dkVDBOTkJvcjdTMXpLLWdaTzIzbzo=');
+define('INTERAKT_KEY_WEBINAR_RM', '#');
+define('INTERAKT_KEY_WEBINAR_PS_PF', '#');
 
 // Facebook
 define('ACCESS_TOKEN', '#');
 
 // Remarketing Cycle Days Set
-define('LOCK_DAYS','-30 days');
+define('LOCK_DAYS','');
   
-define('COMPANY_CODE', 'PRYFI5678');
+define('COMPANY_CODE', '#');
 define('LOCAL_IP', '190.92.174.183');
+
+define('RCS_TOKEN_USERNAME', '#');
+define('RCS_TOKEN_PASSWORD', '#');
+
+define('JWT_SECERET_PARTNER_TOKEN', '#'); //Q1AwMDQ3NTokMnkkMTIkMjNlVmlrVGlkYjBnSUdzY04ud1JmZVZiYWFYZnpqeVJJS1prOWprT0U5TThYNlFha1NZYU8=

@@ -90,68 +90,67 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
  */
 
 // Project details
-define('PROJECT_NAME', 'Prayosha Fincart');
-define('COMPANY_NAME', 'Prayosha Fincart Pvt. Ltd.');
-define('COMPANY_EMAIL', 'support@prayoshafincart.com');
-define('COMPANY_MOBILE', '+91-87348-89547');
-define('COMPANY_CIN', 'U67190GJ2022PTC133009');
-define('COMPANY_GST', '24AAMCP9991N1ZC');
-define('COMPANY_SITE', 'https://prayoshafincart.com');
-define('COMPANY_ADDRESS', '3rd Floor, Plot 28, Sy. No. 123/1, Parvati Nagar Co-op. Housing Society 2, Katargam, Surat, Gujarat, India, 395004');
-define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
+define('PROJECT_NAME', 'Bharatfinpro');
+define('COMPANY_NAME', '#');
+define('COMPANY_EMAIL', '#');
+define('COMPANY_MOBILE', '#');
+define('COMPANY_CIN', '#');
+define('COMPANY_GST', '#');
+define('COMPANY_SITE', '#');
+define('COMPANY_ADDRESS', '#');
+define('COMPANY_TIMING', '#');
 
 define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=100083668596171');
-define('SM_INSTAGRAM', 'https://www.instagram.com/prayoshafincart/');
+define('SM_FACEBOOK', '#');
+define('SM_INSTAGRAM', '#');
 define('SM_TWITTER', '#');
 define('SM_LINKEDIN', '#');
 define('SM_PINTEREST', '#');
 define('SM_YOUTUBE', '#');
 
 // Email SMTP details
-define('SMTP_HOST', 'mail.prayoshafincart.com');
-define('SMTP_USER', 'info@prayoshafincart.com');
-define('SMTP_PASSWORD', 'fincart@7669');
+define('SMTP_HOST', '#');
+define('SMTP_USER', '#');
+define('SMTP_PASSWORD', '#');
 
 // SENDINBLUE details
-define('SIB_NAME', 'Prayoshafincart.in');
-define('SIB_EMAILID', 'info@prayoshafincart.in');
+define('SIB_NAME', '#');
+define('SIB_EMAILID', '#');
 define('SIB_APIKEY', '#');
 
 // SMS details
-/* define('SMS_API_KEY', 'EAjyxuIJREeeraXzsiNxrg');
-define('SMS_SENDER_ID', 'PRYSFN'); */
+define('SMS_API_KEY', '#');
+define('SMS_SENDER_ID', '#'); 
 
 // SMS details
-define('SMS_OBB_USERNAME', 'prayosha');
-define('SMS_OBB_PASSWORD', 'e284942d8cXX');
-define('SMS_OBB_SENDER_ID', 'PYOSHA');
+define('SMS_OBB_USERNAME', '#');
+define('SMS_OBB_PASSWORD', '#');
+define('SMS_OBB_SENDER_ID', '#');
 
 // SMS details
-// SMS details
-define('PLAN_SMS_OBB_USERNAME', 'privyleg');
-define('PLAN_SMS_OBB_PASSWORD', '1a813941ceXX');
-define('PLAN_SMS_OBB_SENDER_ID', 'PRVELG');
+define('PLAN_SMS_OBB_USERNAME', '#');
+define('PLAN_SMS_OBB_PASSWORD', '#');
+define('PLAN_SMS_OBB_SENDER_ID', '#');
 
 // SMS details
-define('SMS_WEBINAR_OBB_USERNAME', 'prayosha');
-define('SMS_WEBINAR_OBB_PASSWORD', 'e284942d8cXX');
-define('SMS_WEBINAR_OBB_SENDER_ID', 'PYOSHA'); // PFINCA
+define('SMS_WEBINAR_OBB_USERNAME', '#');
+define('SMS_WEBINAR_OBB_PASSWORD', '#');
+define('SMS_WEBINAR_OBB_SENDER_ID', '#'); // PFINCA
 
 
 // Geoloc API Key
-define('GEOLOC_API_KEY', 'HbkTwslRMXHZOFfXgZhzy3WnJChCLlnhWfsj735H');
+define('GEOLOC_API_KEY', '#');
 
 // Facebook
 define('ACCESS_TOKEN', '#');
 
 // Whatsapp API
-define('INTERAKT_KEY', 'MTB5NzVWNEpxUGl5NzB4aE5zejZZS000WmNyMmxrMG5DWHI2eFljUUJfdzo=');
-define('INTERAKT_KEY_NEW_UE', 'eHNEUDBHVkFGNDFmaEVrbndac0huS1J1VE9JR1JSbXRnblp2Ym1HZDF2MDo=');
-define('INTERAKT_KEY_NEW_RM', 'eHNEUDBHVkFGNDFmaEVrbndac0huS1J1VE9JR1JSbXRnblp2Ym1HZDF2MDo=');
+define('INTERAKT_KEY', '#');
+define('INTERAKT_KEY_NEW_UE', '#');
+define('INTERAKT_KEY_NEW_RM', '#');
 
 //  Dashboard
 define('PG_DIGITAL_PL', 'Zaakpay');
@@ -167,9 +166,9 @@ define('PG_MEGA_OFFER', 'Cashfree');
 define('PG_SUPER_OFFER', 'Payu'); // product offer page
 define('PG_QUICK_OFFER', 'Payu'); // product pffer page
 
-define('COMPANY_CODE', 'PRYFI5678');
-define('LOCAL_IP', '190.92.174.183');
-define('MASTER_API_KEY', 'Ny8zVkdhRGp6TnBVWXFvZ1pCRk5ZMFpFRENoRGV3ekJjalRPcVhXRk5EbTZoWGxzditDTmIrdm1DN2g3REFpOA==');
+define('COMPANY_CODE', '#');
+define('LOCAL_IP', '#');
+define('MASTER_API_KEY', '#');
 
 define('DATA_LOCK', 'YES'); // display datalock in remarketing page
 define('DAYS_LOCK', '#'); // display datalock in remarketing page

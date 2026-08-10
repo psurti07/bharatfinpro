@@ -19,7 +19,7 @@ Class Customer_Login_Model extends CI_Model {
 			'server_ip' => getUserIpAddr()
 		);
 		$this->db->insert('customer_log',$data);
-		$this->session->set_userdata('pyf-customerlogid',$this->db->insert_id());
+		$this->session->set_userdata('bfp-customerlogid',$this->db->insert_id());
 		return true;
 	}
 
@@ -55,7 +55,7 @@ Class Customer_Login_Model extends CI_Model {
 						->update('user_registration', $data); 
 
 			// Send SMS
-			$message = "Hello ".$account->fullname.", Your account new password is ".$password.". (Do not share it with anyone). Thanks & Regards, Prayosha Fincart";
+			$message = "Hello ".$account->fullname.", Your account new password is ".$password.". (Do not share it with anyone). Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'main');
 			return true;
 		}

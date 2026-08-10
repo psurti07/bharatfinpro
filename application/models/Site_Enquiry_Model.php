@@ -20,14 +20,14 @@ Class Site_Enquiry_Model extends CI_Model {
 		$url = '';
 		
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 			
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 			
 			$message = '<p>Dear Customer,</p>';
 			$message .= "<p>Thank you for showing interest for a ".$loan.". Your loan application has been successfully submitted. Our company executive will contact you shortly.</p>"; 

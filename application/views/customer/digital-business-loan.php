@@ -99,7 +99,7 @@ $this->load->view('customer/includes/header.php');
 								<a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a>
 								and
 								<a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a>
-								of Prayoshafincart.com
+								of Bharatfinpro.com
 							</small>
 						</p>
 					</div>
@@ -181,7 +181,7 @@ $this->load->view('customer/includes/header.php');
 								<a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a>
 								and
 								<a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a>
-								of Prayoshafincart.com
+								of Bharatfinpro.com
 							</small>
 						</p>
 						<p class="m-b-0"><small>Note - EMI starting at 2250 is an indicative amount on 1 lakh loan 12.5%

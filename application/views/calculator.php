@@ -73,7 +73,7 @@
 								<li>Option for a longer repayment tenor - It will help you spread the loan cost over a longer duration and help you pay in small installment </li>
 								<li>Negotiate with the loan consultancy for a lower rate of interest</li>
 								<li>Maintain a strong CIBIL score to enjoy lower interest rates and reduced EMI</li>
-								<li>Become a Prayosha Fincart Member for the best deals as per your needs and repaying capacity</li>
+								<li>Become a Bharatfinpro Member for the best deals as per your needs and repaying capacity</li>
 							</ul>
 						</div>
 					</div>
@@ -116,7 +116,7 @@
 								<li>Option for a longer repayment tenor - It will help you spread the loan cost over a longer duration and help you pay in small installment</li>
 								<li>Negotiate with the loan consultancy for a lower rate of interest</li>
 								<li>Maintain a strong CIBIL score to enjoy lower interest rates and reduced EMI</li>
-								<li>Become a Prayosha Fincart Member for the best deals as per your needs and repaying capacity</li>
+								<li>Become a Bharatfinpro Member for the best deals as per your needs and repaying capacity</li>
 							</ul>
 						</div>
 					</div>

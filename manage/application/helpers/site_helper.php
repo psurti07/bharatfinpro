@@ -533,7 +533,7 @@ function sendHTMLmail($to, $from, $subject, $message, $attachfile = '')
 
 	$ci = get_instance();
 	$ci->email->initialize($config);
-	$ci->email->from($from, 'Prayosha Fincart');
+	$ci->email->from($from, 'Bharatfinpro');
 	$ci->email->to($to);
 	$ci->email->subject($subject);
 	$ci->email->message($message);

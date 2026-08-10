@@ -242,7 +242,7 @@ Class Webinar extends MY_Controller {
         $id         = $this->input->post('id');
 
         $userdata = $this->Manage_Webinar_Model->getUserDetail($id);
-        $userdata['schedule_link'] = 'https://prayoshafincart.com/schedule-slot?id=' . encryptData($userdata['user']->id);
+        $userdata['schedule_link'] = 'https://bharatfinpro.com/schedule-slot?id=' . encryptData($userdata['user']->id);
         echo json_encode($userdata);
     }
 

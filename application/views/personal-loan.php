@@ -18,9 +18,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-12 m-b-20 text-justify">
-				<p>Following utmost transparency and an optimized approach in its functioning, Prayosha Fincart strives to provide you with the best ever personal loan experience in terms of services, assistance, and support. Prayosha Fincart offers you 100% Digital and Paperless Loan Processes for you to have the ease and comfort of applying for personal loans from your home. Prayosha Fincart is a dedicated platform for providing the instant personal loan that is completely paperless – and as the company is partnered with several Banks and NBFCs (other financial institutions), you can get multiple loan offers that will enable you to choose the most convenient loan offer in terms of the loan amount, repayment tenure, interest rate, processing fees, etc.</p>
+				<p>Following utmost transparency and an optimized approach in its functioning, Bharatfinpro strives to provide you with the best ever personal loan experience in terms of services, assistance, and support. Bharatfinpro offers you 100% Digital and Paperless Loan Processes for you to have the ease and comfort of applying for personal loans from your home. Bharatfinpro is a dedicated platform for providing the instant personal loan that is completely paperless – and as the company is partnered with several Banks and NBFCs (other financial institutions), you can get multiple loan offers that will enable you to choose the most convenient loan offer in terms of the loan amount, repayment tenure, interest rate, processing fees, etc.</p>
 
-				<p>With Prayosha Fincart, you can easily get a personal loan of up to Rs.10 Lakhs at the most attractive rates – so that you can fulfil your planned or urgent financial needs and pursuits. As instances of sudden money requirements can arise anytime, getting a personal loan through Prayosha Fincart can prove to be very handy. The loan documentation process at Prayosha Fincart is extremely easy that would just take minutes for you to get the best loan offers. Whether you are a salaried person or a self-employed individual, you will get your beneficial loan offers with absolutely no hidden charges. For you to get a clearer picture, check your loan eligibility through our loan calculator.</p>
+				<p>With Bharatfinpro, you can easily get a personal loan of up to Rs.10 Lakhs at the most attractive rates – so that you can fulfil your planned or urgent financial needs and pursuits. As instances of sudden money requirements can arise anytime, getting a personal loan through Bharatfinpro can prove to be very handy. The loan documentation process at Bharatfinpro is extremely easy that would just take minutes for you to get the best loan offers. Whether you are a salaried person or a self-employed individual, you will get your beneficial loan offers with absolutely no hidden charges. For you to get a clearer picture, check your loan eligibility through our loan calculator.</p>
 			</div>
 		</div>
 	</div>
@@ -85,12 +85,12 @@
 <section class="p-t-20 p-b-0">
 	<div class="container">
 		<div class="heading-text heading-plain text-center">
-			<h4 class="m-b-0">Why Prayosha Fincart?</h4>
+			<h4 class="m-b-0">Why Bharatfinpro?</h4>
 		</div>
 
 		<div class="row">
 			<div class="col-12 text-center">
-				<p class="lead">When it comes to aiding people with fast-paced and professional online loan services, Prayosha Fincart is an ace! With a humongous customer base that is ever-growing, Prayosha Fincart is racing ahead with its innovative Membership Cards for Instant Personal & Business Loan experience.</p>
+				<p class="lead">When it comes to aiding people with fast-paced and professional online loan services, Bharatfinpro is an ace! With a humongous customer base that is ever-growing, Bharatfinpro is racing ahead with its innovative Membership Cards for Instant Personal & Business Loan experience.</p>
 			</div>
 		</div>
 	</div>

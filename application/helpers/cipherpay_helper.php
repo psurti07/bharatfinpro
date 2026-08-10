@@ -30,7 +30,7 @@ header('Content-Type: text/html; charset=utf-8');
             'typ' => 'JWT'    // Type of token
         );
 
-        $secret='Q1AwMDQ3NTokMnkkMTIkMjNlVmlrVGlkYjBnSUdzY04ud1JmZVZiYWFYZnpqeVJJS1prOWprT0U5TThYNlFha1NZYU8='; //partnerToken
+        $secret=JWT_SECERET_PARTNER_TOKEN; //partnerToken
 
         // Generate JWT token
         $generatedToken = generateJwt($header, $tokendata, $secret);

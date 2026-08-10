@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 Class Login extends CI_Controller {
 
 	public function index() {	
-		if($this->session->userdata('pyf-customerid')) {
+		if($this->session->userdata('bfp-customerid')) {
 			return redirect('customer/dashboard');
 		}
 
@@ -25,9 +25,9 @@ Class Login extends CI_Controller {
 		if($validate) {
 			$logged = $this->Customer_Login_Model->loginlog($validate->id);
 			$enc_id = stringCrypt($validate->id, 'encrypt');
-			$this->session->set_userdata('pyf-customerid',$enc_id);
-			$this->session->set_userdata('pyf-customername',$validate->fullname);
-			$this->session->set_userdata('pyf-customermobile',$validate->mobile);
+			$this->session->set_userdata('bfp-customerid',$enc_id);
+			$this->session->set_userdata('bfp-customername',$validate->fullname);
+			$this->session->set_userdata('bfp-customermobile',$validate->mobile);
 
 			echo json_encode(array("success"=>true, "message"=>"Login successful."));
 		} 
@@ -62,9 +62,9 @@ Class Login extends CI_Controller {
 		$this->load->model('Customer_Login_Model');
 		$response = $this->Customer_Login_Model->updatecustomerlog($customerlogid);
 
-		$this->session->unset_userdata('customerid');
-        $this->session->unset_userdata('customername');
-        $this->session->unset_userdata('customermobile');
+		$this->session->unset_userdata('bfp-customerid');
+        $this->session->unset_userdata('bfp-customername');
+        $this->session->unset_userdata('bfp-customermobile');
 		$this->session->sess_destroy();
 		return redirect('customer/login');
 	}

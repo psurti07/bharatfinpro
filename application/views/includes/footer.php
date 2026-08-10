@@ -8,8 +8,7 @@
 								src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
 								alt="<?php echo PROJECT_NAME; ?>" class="img-fluid m-b-10" width="180"></a>
 					</p>
-					<p>When it comes to aiding people with fast-paced and professional online loan services, Prayosha
-						Fincart is
+					<p>When it comes to aiding people with fast-paced and professional online loan services, Bharatfinpro is
 						an ace! With a humongous customer base that is ever-growing.</p>
 
 					<P><strong>CIN NO.: </strong><?php echo COMPANY_CIN; ?></P>

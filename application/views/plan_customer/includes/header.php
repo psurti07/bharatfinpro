@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Prayosha Fincart – Personal Loan and Business Loan"; } ?></title>
+  <title><?php if(isset($meta->title)) { echo $meta->title; } else { echo "Bharatfinpro – Personal Loan and Business Loan"; } ?></title>
   <meta name="description" content="<?php if(isset($meta->descriptions)) { echo $meta->descriptions; } ?>" />
   <meta name="keywords" content="<?php if(isset($meta->keywords)) { echo $meta->keywords; } ?>" />
   <meta name="author" content="vw-team">
@@ -40,8 +40,8 @@
     <div id="mainMenu" class="menu-onclick menu-vertical">
       <div class="container">
         <nav>
-          <p class="text-center"><strong><?php echo $this->session->userdata('pyf-customername'); ?></strong><br/>
-             <strong><?php echo $this->session->userdata('pyf-customermobile'); ?></strong></p>
+          <p class="text-center"><strong><?php echo $this->session->userdata('bfp-customername'); ?></strong><br/>
+             <strong><?php echo $this->session->userdata('bfp-customermobile'); ?></strong></p>
           <hr/>
 
           <ul>

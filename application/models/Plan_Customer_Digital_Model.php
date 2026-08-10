@@ -38,7 +38,7 @@ Class Plan_Customer_Digital_Model extends CI_Model {
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 			
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<p><strong>Congratulations!</strong></p>';

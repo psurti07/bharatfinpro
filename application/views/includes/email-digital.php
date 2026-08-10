@@ -9,7 +9,7 @@ $templateEmail = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   <meta name="x-apple-disable-message-reformatting"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
   <meta content="telephone=no" name="format-detection"> 
-  <title>Prayosha Fincart</title> 
+  <title>Bharatfinpro</title> 
   <!--[if (mso 16)]>
     <style type="text/css">
     a {text-decoration: none;}
@@ -104,7 +104,7 @@ a[x-apple-data-detectors] {
                   <td align="center" valign="top" style="padding:0;Margin:0;width:540px"> 
                    <table cellpadding="0" cellspacing="0" width="100%" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:10px;Margin:0;font-size:0px"><img src="http://prayoshafincart.com/assets/images/logo.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="auto" height="30"></td> 
+                      <td align="center" style="padding:10px;Margin:0;font-size:0px"><img src="http://bharatfinpro.com/assets/images/logo.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="auto" height="30"></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -183,15 +183,15 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:10px;Margin:0;font-size:0"> 
                        <table cellpadding="0" cellspacing="0" class="es-table-not-adapt es-social" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px"> 
                          <tr style="border-collapse:collapse"> 
-                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Facebook" src="https://prayoshafincart.com/assets/images/icons/facebook-circle-colored.png" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Twitter" src="https://prayoshafincart.com/assets/images/icons/twitter-circle-colored.png" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Instagram" src="https://prayoshafincart.com/assets/images/icons/instagram-circle-colored.png" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
-                          <td align="center" valign="top" style="padding:0;Margin:0"><img title="Youtube" src="https://prayoshafincart.com/assets/images/icons/youtube-circle-colored.png" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Facebook" src="https://bharatfinpro.com/assets/images/icons/facebook-circle-colored.png" alt="Fb" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Twitter" src="https://bharatfinpro.com/assets/images/icons/twitter-circle-colored.png" alt="Tw" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td align="center" valign="top" style="padding:0;Margin:0;padding-right:10px"><img title="Instagram" src="https://bharatfinpro.com/assets/images/icons/instagram-circle-colored.png" alt="Inst" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
+                          <td align="center" valign="top" style="padding:0;Margin:0"><img title="Youtube" src="https://bharatfinpro.com/assets/images/icons/youtube-circle-colored.png" alt="Yt" width="32" height="32" style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"></td> 
                          </tr> 
                        </table></td> 
                      </tr> 
                      <tr style="border-collapse:collapse"> 
-                      <td align="center" style="padding:15px;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:11px;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:17px;color:#444343">Copyright &copy; 2022 Prayosha Fincart. All rights reseved.</p></td> 
+                      <td align="center" style="padding:15px;Margin:0"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:11px;font-family:roboto, helvetica neue, helvetica, arial, sans-serif;line-height:17px;color:#444343">Copyright &copy; 2022 Bharatfinpro. All rights reseved.</p></td> 
                      </tr> 
                    </table></td> 
                  </tr> 

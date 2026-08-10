@@ -8,6 +8,7 @@ Class Cronjob extends CI_Controller {
 
 	/* Digital personal loan customer marketing message */
 	public function custremarketing(){
+		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
@@ -69,6 +70,7 @@ Class Cronjob extends CI_Controller {
 	/* Whatsapp marketing message */
 	public function whatsappremarketing()
 	{
+		die;
 		$this->load->model('Site_Cronjob_Model');
 		//$schedule = 'z9999';
 		$schedule_arr = array();
@@ -89,6 +91,7 @@ Class Cronjob extends CI_Controller {
 
 	/* Whatsapp Interakt marketing message */
 	public function whatsappinteraktremarketing() {
+		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
@@ -128,6 +131,7 @@ Class Cronjob extends CI_Controller {
 
 	/* Whatsapp Interakt marketing message */
 	public function whatsappinteraktremarketing_new() {
+		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
@@ -170,6 +174,7 @@ Class Cronjob extends CI_Controller {
 
 	/* Whatsapp Interakt marketing message */
 	public function plan_interakt_remarketing() {
+		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
@@ -281,6 +286,7 @@ Class Cronjob extends CI_Controller {
 
 	public function custremarketing_intrekt_Webinar()
 	{
+		die;
 		$schedule = 'z9999';
 		$schedule_arr = array();
 
@@ -315,7 +321,7 @@ Class Cronjob extends CI_Controller {
 
 	public function custremarketing_Webinar()
 	{
-		
+		die;	
 		$schedule = 'z9999';
 		$schedule_arr = array();
 

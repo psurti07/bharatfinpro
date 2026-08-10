@@ -41,7 +41,7 @@
 				<?php 
 					}
 
-					echo "<p>Mail your updated CV at hr@prayoshafincart.com or Call on ".COMPANY_MOBILE."</p>";
+					echo "<p>Mail your updated CV at hr@bharatfinpro.com or Call on ".COMPANY_MOBILE."</p>";
 				}
 				else {
 					echo "<p>We are looking forward to seeing you in our team, and we will be looking for more helpful people in the future.</p>";

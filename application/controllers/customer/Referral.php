@@ -5,13 +5,13 @@ Class Referral extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if(! $this->session->userdata('pyf-customerid')) {
+		if(! $this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/login');
 		}
 	}
 
 	public function index() {	
-		$id = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);
@@ -31,7 +31,7 @@ Class Referral extends CI_Controller {
 	}
 
 	public function history(){
-		$id = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);

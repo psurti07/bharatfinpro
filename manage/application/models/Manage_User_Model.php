@@ -255,7 +255,7 @@ class Manage_User_Model extends CI_Model
 
 		if ($statusid == 1) {
 			$res = $this->getreferraldetails($id);
-			$message = "Dear Customer, Payout is successfully credited to your account. Please check your portal! Thanks & Regards, Prayosha Fincart";
+			$message = "Dear Customer, Payout is successfully credited to your account. Please check your portal! Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($res['refferaldetails']->mobile, $message, 'main');
 		}
 
@@ -458,7 +458,7 @@ class Manage_User_Model extends CI_Model
 				->update('user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . ", Your account new password is " . $password . ". (Do not share it with anyone). Thanks & Regards, Prayosha Fincart";
+			$message = "Hello " . $account->fullname . ", Your account new password is " . $password . ". (Do not share it with anyone). Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'main');
 
 			return true;
@@ -481,7 +481,7 @@ class Manage_User_Model extends CI_Model
 				->update('user_registration', $data);
 
 				if($status == 0) {
-					$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks &amp; Regards, PrayoshaFincart";
+					$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks &amp; Regards, Bharatfinpro";
 					$smsresponse = sendtextSMSobb($account->mobile, $message, 'main');
 				}
 				$this->db->close();
@@ -526,14 +526,14 @@ class Manage_User_Model extends CI_Model
 	public function sendSuccessGreetings($mobile = '', $emailid = '', $password = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
 		if ($emailid != '') {
 			// Send email
-			$subject = "Welcome to Prayosha Fincart";
+			$subject = "Welcome to Bharatfinpro";
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->welcomeemailtemplate($mobile, $password);
@@ -593,17 +593,17 @@ class Manage_User_Model extends CI_Model
 
 		if ($mobile != '') {
 			// no templ;ate
-			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Prayoshafincart";
+			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
 		if ($emailid != '') {
-			$subject = "Documents Verification Message - Prayoshafincart";
+			$subject = "Documents Verification Message - Bharatfinpro";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>The documents submitted by you are successfully verified. Our Company Executive will call you shortly regarding your loan process.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Prayoshafincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);

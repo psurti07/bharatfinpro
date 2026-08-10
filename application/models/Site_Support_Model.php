@@ -13,7 +13,7 @@ class Site_Support_Model extends CI_Model
 	public function sendmessage($ticketNum = '', $mobile = '', $email = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: " . $ticketNum . " We will contact you within 24-48 hours for a follow-up. Prayosha Fincart";
+			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: " . $ticketNum . " We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
@@ -30,7 +30,7 @@ class Site_Support_Model extends CI_Model
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($email, 'support@prayoshafincart.com', $subject, $content); */
+				/* $mailresponse = sendHTMLmail($email, 'support@bharatfinpro.com', $subject, $content); */
 				$maildata = array(
 					'fullname' => $mobile,
 					'email' => $email

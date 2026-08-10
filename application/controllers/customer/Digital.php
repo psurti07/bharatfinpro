@@ -5,7 +5,7 @@ Class Digital extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if(! $this->session->userdata('pyf-customerid')) {
+		if(! $this->session->userdata('bfp-customerid')) {
 			return redirect('customer/login');
 		}
 	}
@@ -17,7 +17,7 @@ Class Digital extends CI_Controller {
 	// START : PERSONAL LOAN FUNCTIONS
 	public function personalLoan($step = 's1') {
 		$flag = 0;
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$profiledata = $this->Customer_Profile_Model->getprofile($customerid);
@@ -68,7 +68,7 @@ Class Digital extends CI_Controller {
 		$data = array(
 			'step' => 's2',
 			'flag' => 1,
-			'userid' => $this->session->userdata('pyf-customerid'),
+			'userid' => $this->session->userdata('bfp-customerid'),
 			'applyid' => $response,
 			'loanamount' => $_REQUEST['loanamount'],
 			'income' => $_REQUEST['monincome'],
@@ -95,7 +95,7 @@ Class Digital extends CI_Controller {
 	// START : BUSINESS LOAN FUNCTIONS
 	public function businessloan($step = 's1') {
 		$flag = 0;
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$profiledata = $this->Customer_Profile_Model->getprofile($customerid);
 		if($profiledata->cardtype != 12) {
 			return redirect('customer/offers');
@@ -143,7 +143,7 @@ Class Digital extends CI_Controller {
 		$data = array(
 			'step' => 's2',
 			'flag' => 1,
-			'userid' => $this->session->userdata('pyf-customerid'),
+			'userid' => $this->session->userdata('bfp-customerid'),
 			'applyid' => $response,
 			'loanamount' => $_REQUEST['loanamount'],
 			'income' => $_REQUEST['monincome'],

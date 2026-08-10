@@ -94,7 +94,7 @@
 				<div class="blockquote">
 					<h4>Submit Documents</h4>
 					<p>Dear Sir / Madam,<br/>
-						Kindly submit a list of the following documents as per your profile. Send all documents by email to <a href="mailto:support@prayoshafincart.com" target="_blank"><strong>support@prayoshafincart.com</strong></a></p>
+						Kindly submit a list of the following documents as per your profile. Send all documents by email to <a href="mailto:support@bharatfinpro.com" target="_blank"><strong>support@bharatfinpro.com</strong></a></p>
 					<p><strong>If you are a salaried person</strong> - Aadhar Card, Pan Card, Bank Statement of 6 months, Photo, Cancelled Cheque, Salary Slip of 3 months, Form16 - 1 years / 2 years.</p>
 					<p><strong>If you are a self-employed person</strong> - Aadhar Card, Pan Card, Bank Statement of 6 months, Photo, Canceled Cheque, Business Proof, IT Return - 1 years / 2 years.</p>
 					<p><em>Note: Additional documents required as per customer profile.</em></p>

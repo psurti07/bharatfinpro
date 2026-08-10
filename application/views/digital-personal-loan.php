@@ -69,7 +69,7 @@ $this->load->view('includes/header-apply.php');
 												target="_blank" style="text-decoration: none;color:#000 !important" class="text-dark">Terms of Use</a>
 											and <a href="<?= base_url('privacy-policy') ?>" target="_blank"
 												style="text-decoration: none;color:#000 !important" class="text-dark">Privacy Policy</a> of
-											PrayoshaFincart.com.</label>
+											Bharatfinpro.com.</label>
 											<div class="help-block ms-0 ps-0 mb-2"></div>
 											</div>
 									</div>
@@ -79,7 +79,7 @@ $this->load->view('includes/header-apply.php');
 											value="1" style="width:auto;height:auto" checked required>
 											<label class="custom-control-label" for="promotion"
 											style="display:unset;font-size:70%;color:#000;letter-spacing: 0.7px;">I agree to receive
-											promotional & informational communications from PrayoshaFincart through Emails, calls or SMS
+											promotional & informational communications from Bharatfinpro through Emails, calls or SMS
 											Services.</label>
 											<div class="help-block ms-0 ps-0 mb-2"></div>
 									</div>
@@ -253,35 +253,35 @@ $this->load->view('includes/header-apply.php');
 					<div class="ac-item">
 						<h5 class="ac-title">What is the EMI for Rs.1 Lakh Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart offers loans at the lowest EMIs starting from Rs.2,224.</p>
+							<p>Bharatfinpro offers loans at the lowest EMIs starting from Rs.2,224.</p>
 						</div>
 					</div>
 					
 					<div class="ac-item">
 						<h5 class="ac-title">Which bank has the lowest interest rate for Loans?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides loan offers through top multiple banks in India that offer Lowest Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
+							<p>Bharatfinpro provides loan offers through top multiple banks in India that offer Lowest Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How can I get a low-interest Loan?</h5>
 						<div class="ac-content">
-							<p>Simply by becoming a Prayosha Fincart member. Get personalised consultation on getting loans at the lowest rates.</p>
+							<p>Simply by becoming a Bharatfinpro member. Get personalised consultation on getting loans at the lowest rates.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">What CIBIL Score is required for a Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides a loan if your CIBIL Score is 650 or higher.</p>
+							<p>Bharatfinpro provides a loan if your CIBIL Score is 650 or higher.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How long will it take for my Loan to be processed?</h5>
 						<div class="ac-content">
-							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your loan to get approved and a couple of days after that for the disbursement. Prayosha Fincart helps to get instant loan approvals.</p>
+							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your loan to get approved and a couple of days after that for the disbursement. Bharatfinpro helps to get instant loan approvals.</p>
 						</div>
 					</div>
 				</div>
@@ -294,9 +294,9 @@ $this->load->view('includes/header-apply.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-12 text-dark">
-				<p class="mb-1"><small>Disclosure: Loan tenure ranges from a minimum of 6 months to a maximum of 60 months (5 years), depending on the lender’s policies. The Annual Percentage Rate (APR) will be between 11.5% to 34% per annum, inclusive of interest rate and applicable charges. Processing fees may apply up to 2% of the approved loan amount. Representative Example, for a loan amount of ₹1,00,000 at an interest rate of 11.5% per annum for a tenure of 60 months (5 years), with a processing fee of 2% (₹2,000), the approximate EMI would be ₹2,301, the total interest payable would be approximately ₹38,059, and the total repayment amount would be approximately ₹1,38,059, resulting in an APR of approximately 14.41% including applicable charges. *T&C Apply. All these numbers are tentative/indicative, the final loan specifics may vary depending upon the customer profile and NBFCs’ criteria, rules & regulations, and terms & conditions. Prayosha Fincart Private Limited does not guarantee loan approval or disbursal. Terms & Conditions apply. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval.</small></p>
+				<p class="mb-1"><small>Disclosure: Loan tenure ranges from a minimum of 6 months to a maximum of 60 months (5 years), depending on the lender’s policies. The Annual Percentage Rate (APR) will be between 11.5% to 34% per annum, inclusive of interest rate and applicable charges. Processing fees may apply up to 2% of the approved loan amount. Representative Example, for a loan amount of ₹1,00,000 at an interest rate of 11.5% per annum for a tenure of 60 months (5 years), with a processing fee of 2% (₹2,000), the approximate EMI would be ₹2,301, the total interest payable would be approximately ₹38,059, and the total repayment amount would be approximately ₹1,38,059, resulting in an APR of approximately 14.41% including applicable charges. *T&C Apply. All these numbers are tentative/indicative, the final loan specifics may vary depending upon the customer profile and NBFCs’ criteria, rules & regulations, and terms & conditions. Bharatfinpro Private Limited does not guarantee loan approval or disbursal. Terms & Conditions apply. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval.</small></p>
 
-				<p class="mb-1"><small>Important Note: BE AWARE! We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">prayoshafincart.com</a> and NOT through any other source, directly or indirectly. Thanks!</small></p>
+				<p class="mb-1"><small>Important Note: BE AWARE! We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a> and NOT through any other source, directly or indirectly. Thanks!</small></p>
 
 				<p class="mb-1"><small>Company Registered Address: <?php echo COMPANY_ADDRESS; ?></small></p>
 			</div>

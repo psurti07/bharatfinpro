@@ -111,7 +111,7 @@ $amtpay = $productdata['payamount'];
 									<a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a>
 									and
 									<a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a>
-									of Prayoshafincart.com
+									of Bharatfinpro.com
 								</small>
 							</p>
 						</div>

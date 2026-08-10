@@ -117,8 +117,8 @@ class OnboardTransactionController extends CI_Controller {
         $dateFormat = date('d/m/Y');
         
         // Company details
-        $companyCode = 'PRYFI5678';  // Update with your company code
-        $companyName = 'Prayosha Fincart';
+        $companyCode = '#';  // Update with your company code
+        $companyName = 'Bharatfinpro';  // Update with your company name
         //$companyLocalIp = LOCAL_IP;  // Get from environment or config
         
         // API URL

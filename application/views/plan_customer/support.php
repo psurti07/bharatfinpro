@@ -21,7 +21,7 @@
 							echo "<strong>".COMPANY_NAME."</strong>";
 							echo "<br/><hr/><i class='fa fa-phone-square m-r-5'></i>".COMPANY_MOBILE;
 							echo "<br/><hr/><i class='fa fa-certificate m-r-5'></i>".COMPANY_CIN;
-							echo "<br/><hr/><i class='fa fa-envelope m-r-5'></i>suport@prayoshafincart.com";
+							echo "<br/><hr/><i class='fa fa-envelope m-r-5'></i>support@bharatfinpro.com";
 							echo "<br/><hr/><i class='fa fa-clock m-r-5'></i>".COMPANY_TIMING;
 							echo "<br/><hr/><i class='fa fa-map-marker m-r-5'></i>".COMPANY_ADDRESS;
 						?>

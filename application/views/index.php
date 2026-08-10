@@ -102,12 +102,12 @@ $this->load->view('includes/header.php');
 				</div>
 
 				<p class="text-justify">"A company's ideology and vision remain the core in deciding its customers'
-					wellbeing" – this is the exact mantra inculcated by Prayosha Fincart through which it lays a great
+					wellbeing" – this is the exact mantra inculcated by Bharatfinpro through which it lays a great
 					emphasis on customer satisfaction, wellbeing, contentment, and positive turnaround. With
-					high-standard loan services, Prayosha Fincart is on a mission to promote monetary inclusiveness so
+					high-standard loan services, Bharatfinpro is on a mission to promote monetary inclusiveness so
 					that every individual who at any point in life faces a money requirement, gets an online platform
 					wherein they can apply for an Instant Personal or Business Loan in an easy and efficient manner.
-					With complete online loan services, Prayosha Fincart is already garnering huge accolades and acclaim
+					With complete online loan services, Bharatfinpro is already garnering huge accolades and acclaim
 					– all thanks to the authentic, genuine, and ethical way of functioning.</p>
 				<p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/personalLoan'); ?>"
 						class="btn btn-rounded btn-primary">Avail Financial Consultation</a></p>
@@ -293,7 +293,7 @@ $this->load->view('includes/header.php');
 					<p><i class="fa fa-envelope m-r-5"></i> CIN No.:
 						<?php echo COMPANY_CIN; ?>
 					</p>
-					<p<a href="tel:<?php echo COMPANY_MOBILE; ?>"><i class="fa fa-phone m-r-5"></i> Call Support:
+					<p><a href="tel:<?php echo COMPANY_MOBILE; ?>"><i class="fa fa-phone m-r-5"></i> Call Support:
 						<?php echo COMPANY_MOBILE; ?>
 						</a></p>
 						<p><a href="mailto:<?php echo COMPANY_EMAIL; ?>"><i class="fa fa-envelope m-r-5"></i> Mail
@@ -392,7 +392,7 @@ $this->load->view('includes/header.php');
 									<a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy
 										Policy</a>
 									of
-									Prayoshafincart.com
+									Bharatfinpro.com
 								</small>
 							</label>
 							<div class="help-block font-small-3"></div>

@@ -61,7 +61,7 @@ class Manage_Support_Model extends CI_Model
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Here\'s an update on your ticket id: ' . $ticketno . '</p>';
 			$message .= '<p>' . $remarks . '</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team, Prayosha Fincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team, Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
@@ -80,7 +80,7 @@ class Manage_Support_Model extends CI_Model
 	public function sendTicketOpenMessage($ticketno = '', $emailid = '', $mobile='')
 	{
 		if($mobile != '') {
-			$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. PrayoshaFincart";
+			$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -89,13 +89,13 @@ class Manage_Support_Model extends CI_Model
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>This is to inform you that your request ticket is registered with us with the Ticket Id: ' . $ticketno . '. The current status of this ticket is OPEN. To address your query, we will contact you within 24-48 hours.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team, Prayosha Fincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team, Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, 'support@prayoshafincart.com', $subject, $content); */
+				/* $mailresponse = sendHTMLmail($emailid, 'support@bharatfinpro.com', $subject, $content); */
 				$maildata = array(
 					'fullname' => 'User',
 					'email' => $emailid
@@ -108,7 +108,7 @@ class Manage_Support_Model extends CI_Model
 	public function sendTicketProcessMessage($ticketno = '', $emailid = '', $mobile='')
 	{
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket ID: ".$ticketno." is under process. The query will be solved soon and it will be informed to you shortly. Thanks, PrayoshaFincart";
+			$message = "Hello, Your request with Ticket ID: ".$ticketno." is under process. The query will be solved soon and it will be informed to you shortly. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -117,13 +117,13 @@ class Manage_Support_Model extends CI_Model
 
 			$message = '<p>Hello,</p>';
 			$message .= '<p>The current status of your request with ticket id: ' . $ticketno . ' is Under Process. Your query will have a resolution soon and we will inform you about the update shortly.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team, Prayosha Fincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team, Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, 'support@prayoshafincart.com', $subject, $content); */
+				/* $mailresponse = sendHTMLmail($emailid, 'support@bharatfinpro.com', $subject, $content); */
 				$maildata = array(
 					'fullname' => 'User',
 					'email' => $emailid
@@ -136,7 +136,7 @@ class Manage_Support_Model extends CI_Model
 	public function sendTicketClosedMessage($ticketno = '', $emailid = '', $mobile='')
 	{
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is closed as the company tried calling you for the last 3 days but got no response. Thanks, PrayoshaFincart";
+			$message = "Hello, Your request with Ticket Id: ".$ticketno." is closed as the company tried calling you for the last 3 days but got no response. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -146,13 +146,13 @@ class Manage_Support_Model extends CI_Model
 			$message = '<p>Hello,</p>';
 			$message .= '<p>The current status of your request with ticket id: ' . $ticketno . ' is CLOSED because our company has been calling you for 3 days to address your query but there is absolutely no response or improper communication from your side.</p>';
 			$message .= '<p>Kindly raise a fresh request if you have further queries.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team, Prayosha Fincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team, Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, 'support@prayoshafincart.com', $subject, $content); */
+				/* $mailresponse = sendHTMLmail($emailid, 'support@bharatfinpro.com', $subject, $content); */
 				$maildata = array(
 					'fullname' => 'User',
 					'email' => $emailid
@@ -165,7 +165,7 @@ class Manage_Support_Model extends CI_Model
 	public function sendTicketResolvedMessage($ticketno = '', $emailid = '', $mobile='')
 	{
 		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is Solved. We thank you for the opportunity to serve you. Thanks, PrayoshaFincart";
+			$message = "Hello, Your request with Ticket Id: ".$ticketno." is Solved. We thank you for the opportunity to serve you. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -176,13 +176,13 @@ class Manage_Support_Model extends CI_Model
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your request with ticket id: ' . $ticketno . ' has been SOLVED.</p>';
 			$message .= '<p>We look forward to serving you in future.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Support Team, Prayosha Fincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Support Team, Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, 'support@prayoshafincart.com', $subject, $content); */
+				/* $mailresponse = sendHTMLmail($emailid, 'support@bharatfinpro.com', $subject, $content); */
 				$maildata = array(
 					'fullname' => 'User',
 					'email' => $emailid

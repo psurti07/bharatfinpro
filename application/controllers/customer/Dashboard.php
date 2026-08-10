@@ -5,13 +5,13 @@ Class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if(! $this->session->userdata('pyf-customerid')) {
+		if(! $this->session->userdata('bfp-customerid')) {
 			return redirect('customer/login');
 		}
 	}
 
 	public function index(){
-		$id = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);
@@ -37,7 +37,7 @@ Class Dashboard extends CI_Controller {
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 		$contentdetails = $this->Site_Info_Model->getpagedetails('customer-legal-agreement');
 
-		$id = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$this->load->model('Customer_Profile_Model');
 		$profiledata = $this->Customer_Profile_Model->getprofile($id);
 
@@ -45,7 +45,7 @@ Class Dashboard extends CI_Controller {
 	}
 
 	public function acceptlicence(){
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		
 		if(($customerid == stringCrypt($_REQUEST['customerid'], 'decrypt')) && ($_REQUEST['agree'] == 1)) {
 			$data = array(

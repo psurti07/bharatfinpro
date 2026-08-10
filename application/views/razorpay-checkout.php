@@ -43,7 +43,7 @@
           "amount": amount * 100,
           "currency": "INR",
           "order_id": orderid,
-          "name": "Prayosha Fincart",
+          "name": "Bharatfinpro",
           "description": description,
           "prefill": {
             "name": fullname,

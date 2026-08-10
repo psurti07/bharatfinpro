@@ -30,7 +30,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What is a personal loan?</h5>
 						<div class="ac-content">
-							<p>A personal loan is an unsecured loan, which means you don't need to pledge collateral to receive funds. You can use the money for any personal expense. You can easily apply for an online personal loan at PrayoshaFincart.com. Prayosha Fincart offers instant personal loans with paperless approval and quick disbursal. Prayosha Fincart provides loan offers from multiple banks.</p>
+							<p>A personal loan is an unsecured loan, which means you don't need to pledge collateral to receive funds. You can use the money for any personal expense. You can easily apply for an online personal loan at Bharatfinpro.com. Bharatfinpro offers instant personal loans with paperless approval and quick disbursal. Bharatfinpro provides loan offers from multiple banks.</p>
 						</div>
 					</div>
 
@@ -44,7 +44,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What is the eligibility for a Personal Loan?</h5>
 						<div class="ac-content">
-							<p>The following people are eligible to apply for an Instant Personal Loan at Prayosha Fincart:</p>
+							<p>The following people are eligible to apply for an Instant Personal Loan at Bharatfinpro:</p>
 							<ul>
 								<li>Individuals between 21 and 60 years of age.</li>
 								<li>Individuals who have had a job for at least 1 year.</li>
@@ -57,21 +57,21 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What is the EMI for Rs.1 Lakh Personal Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart offers personal loans at the lowest EMIs starting from Rs.2,224.</p>
+							<p>Bharatfinpro offers personal loans at the lowest EMIs starting from Rs.2,224.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Which bank has the lowest interest rate for Personal Loans?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides personal loan offers through top multiple banks in India that offer Lowest Personal Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
+							<p>Bharatfinpro provides personal loan offers through top multiple banks in India that offer Lowest Personal Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How can I get a low-interest Personal Loan?</h5>
 						<div class="ac-content">
-							<p>Simply by becoming a Prayosha Fincart member. Get personalised consultation on getting loans at the lowest rates.</p>
+							<p>Simply by becoming a Bharatfinpro member. Get personalised consultation on getting loans at the lowest rates.</p>
 						</div>
 					</div>
 
@@ -79,7 +79,7 @@
 						<h5 class="ac-title">How to apply for a personal loan?</h5>
 						<div class="ac-content">
 							<ol>
-								<li>Visit <a href="<?php echo base_url(); ?>">https://prayoshafincart.com</a></li>
+								<li>Visit <a href="<?php echo base_url(); ?>">https://bharatfinpro.com</a></li>
 								<li>Quick Registration</li>
 								<li>Click on Digital Personal Loan.</li>
 								<li>Register yourself as per bank register name and bank registered mobile number.</li>
@@ -92,14 +92,14 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What CIBIL Score is required for a Personal Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides a personal loan if your CIBIL Score is 650 or higher.</p>
+							<p>Bharatfinpro provides a personal loan if your CIBIL Score is 650 or higher.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How long will it take for my Personal Loan to be processed?</h5>
 						<div class="ac-content">
-							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your personal loan to get approved and a couple of days after that for the disbursement. Prayosha Fincart helps to get instant loan approvals.</p>
+							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your personal loan to get approved and a couple of days after that for the disbursement. Bharatfinpro helps to get instant loan approvals.</p>
 						</div>
 					</div>
 				</div>
@@ -110,7 +110,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">Can my CIBIL Score affect my loan sanction?</h5>
 						<div class="ac-content">
-							<p>As per CIBIL, credit score ranges from 300 to 900 and those with a score of at least 750 points get faster loan approvals from Prayosha Fincart.</p>
+							<p>As per CIBIL, credit score ranges from 300 to 900 and those with a score of at least 750 points get faster loan approvals from Bharatfinpro.</p>
 						</div>
 					</div>
 
@@ -124,7 +124,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">Can I apply for a personal loan online?</h5>
 						<div class="ac-content">
-							<p>Yes, with Prayosha Fincart, you can easily apply for an online personal loan with no paperwork needed and minimal documents.</p>
+							<p>Yes, with Bharatfinpro, you can easily apply for an online personal loan with no paperwork needed and minimal documents.</p>
 						</div>
 					</div>
 
@@ -138,7 +138,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">How to get a personal loan with the lowest interest rates?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart gives you personal loan offers from multiple banks and NBFCs with the best and most attractive interest rates.</p>
+							<p>Bharatfinpro gives you personal loan offers from multiple banks and NBFCs with the best and most attractive interest rates.</p>
 						</div>
 					</div>
 
@@ -156,21 +156,21 @@
 					<div class="ac-item">
 						<h5 class="ac-title">Where would I get an unsecured personal loan for a small business easily?</h5>
 						<div class="ac-content">
-							<p>The best option would be getting a loan easily from PrayoshaFincart.com with a 100% Online Process. Prayosha Fincart gives the best and most hassle-free loan experience.</p>
+							<p>The best option would be getting a loan easily from Bharatfinpro.com with a 100% Online Process. Bharatfinpro gives the best and most hassle-free loan experience.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Where can I get the best personal loans in India?</h5>
 						<div class="ac-content">
-							<p>Through Prayosha Fincart's industry-best loan services, you can get a personal loan from multiple banks and NBFCs at a single platform, that too in just 48 hours.</p>
+							<p>Through Bharatfinpro's industry-best loan services, you can get a personal loan from multiple banks and NBFCs at a single platform, that too in just 48 hours.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Which bank offers personal loans to the persons even with a very low salary?</h5>
 						<div class="ac-content">
-							<p>Even if you have a salary as low as Rs.15000 per month, Prayosha Fincart will provide you instant personal loan offers from multiple banks and NBFCs – 100% Online Loan Process.</p>
+							<p>Even if you have a salary as low as Rs.15000 per month, Bharatfinpro will provide you instant personal loan offers from multiple banks and NBFCs – 100% Online Loan Process.</p>
 						</div>
 					</div>
 				</div>
@@ -194,21 +194,21 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What is a Business loan?</h5>
 						<div class="ac-content">
-							<p>A business loan is an unsecured credit you can avail to meet your urgent business requirements. Business loans allow you to usher in funds for your enterprise to expand your business. You can apply for an online business loan at PrayoshaFincart.com. Prayosha Fincart offers instant Business Loans with paperless approval and quick disbursal. Prayosha Fincart provides loans to customers via banks only.</p>
+							<p>A business loan is an unsecured credit you can avail to meet your urgent business requirements. Business loans allow you to usher in funds for your enterprise to expand your business. You can apply for an online business loan at Bharatfinpro.com. Bharatfinpro offers instant Business Loans with paperless approval and quick disbursal. Bharatfinpro provides loans to customers via banks only.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Where can a business loan be used?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides Business Loans within 40 hours, you can use that money for any business expense like business expansion, boost production, buying new machinery, etc.</p>
+							<p>Bharatfinpro provides Business Loans within 40 hours, you can use that money for any business expense like business expansion, boost production, buying new machinery, etc.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">What is the eligibility for a business loan?</h5>
 						<div class="ac-content">
-							<p>The following people are eligible to apply for an Instant Business Loan at Prayosha Fincart:</p>
+							<p>The following people are eligible to apply for an Instant Business Loan at Bharatfinpro:</p>
 							<ul>
 								<li>Age should be between 21 to 65 years.</li>
 								<li>CIBIL Score must be 700 or more.</li>
@@ -222,21 +222,21 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What is the EMI for 1 lakhs in business loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart offers business loans at the lowest EMIs starting from Rs.2,174.</p>
+							<p>Bharatfinpro offers business loans at the lowest EMIs starting from Rs.2,174.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Which bank has the lowest interest rate for Business Loans?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides business loans through top banks in India that offer the lowest Business Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
+							<p>Bharatfinpro provides business loans through top banks in India that offer the lowest Business Loan Interest Rates. Loan approval is subjective to the applicant's documents.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How can I get a low-interest Business Loan?</h5>
 						<div class="ac-content">
-							<p>Simply by becoming a Prayosha Fincart member. Get personalised consultation on getting loans at the lowest rates.</p>
+							<p>Simply by becoming a Bharatfinpro member. Get personalised consultation on getting loans at the lowest rates.</p>
 						</div>
 					</div>
 				</div>
@@ -248,7 +248,7 @@
 						<h5 class="ac-title">How to Apply for a business loan?</h5>
 						<div class="ac-content">
 							<ol>
-								<li>Visit prayoshafincart.com</li>
+								<li>Visit bharatfinpro.com</li>
 								<li>Quick Registration</li>
 								<li>Click on Digital Business Loan</li>
 								<li>Register with your bank registered name and mobile number</li>
@@ -261,28 +261,28 @@
 					<div class="ac-item">
 						<h5 class="ac-title">What credit score is required for a Business Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides business loan offers if your Credit score is 700 or higher.</p>
+							<p>Bharatfinpro provides business loan offers if your Credit score is 700 or higher.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">What CIBIL Score is required for a Business Loan?</h5>
 						<div class="ac-content">
-							<p>Prayosha Fincart provides business loan offers if your CIBIL Score is 700 or higher.</p>
+							<p>Bharatfinpro provides business loan offers if your CIBIL Score is 700 or higher.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">How long will it take for my Business Loan to be processed?</h5>
 						<div class="ac-content">
-							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your business loan to get approved and a couple of days after that for the disbursement. Prayosha Fincart helps to get instant loan approvals.</p>
+							<p>Once your application is submitted along with your documents, it can take anywhere between 1-7 days for your business loan to get approved and a couple of days after that for the disbursement. Bharatfinpro helps to get instant loan approvals.</p>
 						</div>
 					</div>
 
 					<div class="ac-item">
 						<h5 class="ac-title">Can my CIBIL Score affect my loan sanction?</h5>
 						<div class="ac-content">
-							<p>As per CIBIL, credit score ranges from 300 to 900 and those with a score of at least 750 points, get faster loan approvals from Prayosha Fincart.</p>
+							<p>As per CIBIL, credit score ranges from 300 to 900 and those with a score of at least 750 points, get faster loan approvals from Bharatfinpro.</p>
 						</div>
 					</div>
 
@@ -321,9 +321,9 @@
 			<div class="col-6">
 				<div class="accordion white accordion-shadow">
 					<div class="ac-item">
-						<h5 class="ac-title">What is Prayosha Fincart Membership Card?</h5>
+						<h5 class="ac-title">What is Bharatfinpro Membership Card?</h5>
 						<div class="ac-content">
-							<p>A Membership Card is an identification of an individual as a member of PrayoshaFincart.com. The card entitles a member to use Prayosha Fincart's portal for loan purposes.</p>
+							<p>A Membership Card is an identification of an individual as a member of Bharatfinpro.com. The card entitles a member to use Bharatfinpro's portal for loan purposes.</p>
 						</div>
 					</div>
 
@@ -341,7 +341,7 @@
 					<div class="ac-item">
 						<h5 class="ac-title">Which Membership Card should I buy?</h5>
 						<div class="ac-content">
-							<p>PrayoshaFincart.com offers two types of Membership Cards:<p>
+							<p>Bharatfinpro.com offers two types of Membership Cards:<p>
 							<p>Gold Membership Card for Personal Loans</p>
 							<p>Diamond Membership Card for Business Loans</p>
 						</div>

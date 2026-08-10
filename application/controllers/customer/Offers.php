@@ -5,13 +5,13 @@ Class Offers extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if(! $this->session->userdata('pyf-customerid')) {
+		if(! $this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/login');
 		}
 	}
 
 	public function index(){
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($customerid);
 
@@ -29,12 +29,12 @@ Class Offers extends CI_Controller {
 	}
 
 	public function preapproved(){
-		if($this->session->userdata('pyf-customerid') == FALSE) {
+		if($this->session->userdata('bfp-customerid') == FALSE) {
 			return redirect('customer/login');
 			die;
 		}
 		
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($customerid);
 

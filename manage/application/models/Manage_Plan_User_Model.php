@@ -533,7 +533,7 @@ class Manage_Plan_User_Model extends CI_Model
 
 		if ($emailid != '') {
 			// Send email
-			$subject = "Welcome to Prayosha Fincart";
+			$subject = "Welcome to Bharatfinpro";
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->welcomeemailtemplate($mobile, $password);
@@ -598,12 +598,12 @@ class Manage_Plan_User_Model extends CI_Model
 		}
 
 		if ($emailid != '') {
-			$subject = "Documents Verification Message - Prayoshafincart";
+			$subject = "Documents Verification Message - Bharatfinpro";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
 			$message .= '<p>The documents submitted by you are successfully verified. Our Company Executive will call you shortly regarding your loan process.</p>';
-			$message .= '<p>Thanks & Regards,<br/>Prayoshafincart</p>';
+			$message .= '<p>Thanks & Regards,<br/>Bharatfinpro</p>';
 
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);

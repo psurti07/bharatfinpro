@@ -102,7 +102,7 @@ $this->load->view('includes/header-plan-apply.php');
 												target="_blank" style="text-decoration: none;color:#000 !important" class="text-dark">Terms of Use</a>
 											and <a href="<?= base_url('privacy-policy') ?>" target="_blank"
 												style="text-decoration: none;color:#000 !important" class="text-dark">Privacy Policy</a> of
-											PrayoshaFincart.com.</label>
+											Bharatfinpro.com.</label>
 											<div class="help-block ms-0 ps-0 mb-2"></div>
 											</div>
 									</div>
@@ -112,7 +112,7 @@ $this->load->view('includes/header-plan-apply.php');
 											value="1" style="width:auto;height:auto" checked required>
 											<label class="custom-control-label" for="promotion"
 											style="display:unset;font-size:70%;color:#000;letter-spacing: 0.7px;">I agree to receive
-											promotional & informational communications from PrayoshaFincart through Emails, calls or SMS
+											promotional & informational communications from Bharatfinpro through Emails, calls or SMS
 											Services.</label>
 											<div class="help-block ms-0 ps-0 mb-2"></div>
 									</div>
@@ -328,11 +328,11 @@ $this->load->view('includes/header-plan-apply.php');
 
 				<p class="mb-1"><small>All figures provided above are illustrative, indicative, and subject to change. Actual loan approval, interest rate, APR, loan amount, tenure, processing fees, charges, and disbursement timelines are determined solely by the respective lending partner based on the applicant's profile, credit assessment, internal policies, regulatory requirements, and applicable terms and conditions.</small></p>
 
-				<p class="mb-1"><small>Prayosha Fincart Private Limited is a financial services consultancy and loan facilitation platform and is not a lender. We do not provide loans, make credit decisions, guarantee loan approval, or guarantee loan disbursal. Loan products are offered by authorized Banks, NBFCs, and regulated financial institutions subject to their eligibility criteria and approval processes.</small></p>
+				<p class="mb-1"><small>Bharatfinpro Private Limited is a financial services consultancy and loan facilitation platform and is not a lender. We do not provide loans, make credit decisions, guarantee loan approval, or guarantee loan disbursal. Loan products are offered by authorized Banks, NBFCs, and regulated financial institutions subject to their eligibility criteria and approval processes.</small></p>
 
 				<p class="mb-1"><small>The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval.</small></p>
 
-				<p class="mb-1"><small>Important Note: BE AWARE! We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">prayoshafincart.com</a> and NOT through any other source, directly or indirectly. Thanks!</small></p>
+				<p class="mb-1"><small>Important Note: BE AWARE! We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a> and NOT through any other source, directly or indirectly. Thanks!</small></p>
 
 				<p class="mb-0"><small><strong>Registered Office Address:</strong> <?php echo COMPANY_ADDRESS; ?></small></p>
 

@@ -137,7 +137,7 @@ class Site_Digital_Model extends CI_Model
 
 				if ($emailid != '') {
 					// Send email
-					$subject = "Welcome Prayosha Fincart";
+					$subject = "Welcome Bharatfinpro";
 
 					$message = '<p>Hello,</p>';
 					$message .= '<p>Your Personal Loan Eligible Rs. '. $eligibilityamt .' in Your Account Get Starting Rate 10.25%. Apply Now : <a href="https://bit.ly/37hEQK0" target="_blank">https://bit.ly/37hEQK0</a></p>';
@@ -514,13 +514,13 @@ class Site_Digital_Model extends CI_Model
 	public function sendPaymentGreetings($name = '', $mobile = '', $emailid = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
 		if ($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= "<h3>Congratulations!</h3>";
@@ -546,13 +546,13 @@ class Site_Digital_Model extends CI_Model
 	public function sendOnlineGreetings($mobile = '', $emailid = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
 		if ($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<h3>Congratulations!</h3>';
@@ -602,7 +602,7 @@ class Site_Digital_Model extends CI_Model
 
 		if ($emailid != '') {
 			// Send email
-			$subject = "Welcome to Prayosha Fincart";
+			$subject = "Welcome to Bharatfinpro";
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->welcomeemailtemplate($mobile, $password);

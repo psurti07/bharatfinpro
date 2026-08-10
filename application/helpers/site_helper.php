@@ -136,7 +136,7 @@ function fbconversioncurl($userdata)
 	$data["event_time"] = round(microtime(true));
 	$data["event_id"] = $eventid;
 	$data["event_source_url"] = $userdata['sourceurl'];
-	//$data["event_source_url"] = 'https://purchase.prayoshafincart.com/';
+	//$data["event_source_url"] = 'https://purchase.bharatfinpro.com/';
 	$data["action_source"] = "website";
 
 	$idarr[] = hash("sha256", $userdata['userid']);
@@ -549,7 +549,7 @@ function sendHTMLmail($to, $from, $subject, $message, $attachfile = '')
 
 	$ci = get_instance();
 	$ci->email->initialize($config);
-	$ci->email->from($from, 'Prayosha Fincart');
+	$ci->email->from($from, 'Bharatfinpro');
 	$ci->email->to($to);
 	$ci->email->subject($subject);
 	$ci->email->message($message);
@@ -821,8 +821,8 @@ function plan_interakt_track_rm($postdata)
 function getRCSToken() {
     $api_url = "http://36.255.3.23:7111/rcsApi/getToken"; // Replace with your API URL
 
-    $username = 'prayosha_fincart'; // Replace with your username
-    $password = 'prayosha@$x7'; // Replace with your password
+    $username = RCS_TOKEN_USERNAME; // Replace with your username
+    $password = RCS_TOKEN_PASSWORD; // Replace with your password
 
     // Prepare the payload
 	$post_fields = json_encode([

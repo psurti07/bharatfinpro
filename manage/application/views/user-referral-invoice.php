@@ -22,7 +22,7 @@
             <tbody>
                 <tr>
                   <td style="word-wrap:break-word;float:left;width:50%;text-align:left;">
-                    <b>Prayosha Fincart</b>
+                    <b>Bharatfinpro</b>
                     <br>
                     <div>
                       <span style="white-
@@ -123,7 +123,7 @@
 
                   <td style="vertical-align:top;word-wrap:break-word;float:right;width:50%;text-align:right;">
                       <br/><br/><br/><br/>
-                      <p style="margin-top:7px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong>Prayosha Fincart</strong></span></p>
+                      <p style="margin-top:7px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;"><em>Authorized person</em><br/><span style="margin-top:20px;margin-bottom:7px;"><strong>Bharatfinpro</strong></span></p>
                   </td>
                 </tr>
             </tbody>

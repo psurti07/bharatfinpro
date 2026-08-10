@@ -7,14 +7,14 @@ class Profile extends CI_Controller
 	{
 		parent::__construct();
 
-		if (!$this->session->userdata('pyf-customerid')) {
+		if (!$this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/login');
 		}
 	}
 
 	public function index()
 	{
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($customerid);
@@ -34,7 +34,7 @@ class Profile extends CI_Controller
 
 	public function mcard()
 	{
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($customerid);
@@ -54,12 +54,12 @@ class Profile extends CI_Controller
 
 	public function documents()
 	{
-		if ($this->session->userdata('pyf-customerid') == FALSE) {
+		if ($this->session->userdata('bfp-customerid') == FALSE) {
 			return redirect('customer/login');
 			die;
 		}
 		
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($customerid);
@@ -166,7 +166,7 @@ class Profile extends CI_Controller
 
 	public function changeprofile()
 	{
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$data = array(
 			'fullname' => $_REQUEST['fullname'],
@@ -188,7 +188,7 @@ class Profile extends CI_Controller
 
 	public function changepassword()
 	{
-		$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$password = $_REQUEST['password'];
 		$retypepassword = $_REQUEST['retypepassword'];
 

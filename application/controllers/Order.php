@@ -306,25 +306,25 @@ class Order extends CI_Controller
 				$restrack2 = event_track($data3); */
 
 				// Whatsapp INTERAKT Code
-				$intkt_payment_success = $this->Site_Info_Model->getsmsmessage('intkt_payment_success');
+				// $intkt_payment_success = $this->Site_Info_Model->getsmsmessage('intkt_payment_success');
 
-				$data4 = array(
-					"fullPhoneNumber" => '+91' . $userdata->mobile,
-					"callbackData" => "some text here",
-					"type" => "Template",
-					"template" => array(
-						"name" => $intkt_payment_success,//"prayosha_ps",
-						"languageCode" => "en",
-						"headerValues" => array(
-							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/hnr3lXaqJTUR/prayosha_ps.jpg?se=2029-08-01T07%3A26%3A57Z&sp=rt&sv=2019-12-12&sr=b&sig=uffjoKwIUrvWtj9vDLw0kuxv4I4FMEaZmRtWwqhV7ks%3D"
-						),
-						"bodyValues" => array(
-							$userdata->fullname
-						),
-					)
+				// $data4 = array(
+				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+				// 	"callbackData" => "some text here",
+				// 	"type" => "Template",
+				// 	"template" => array(
+				// 		"name" => $intkt_payment_success,//"prayosha_ps",
+				// 		"languageCode" => "en",
+				// 		"headerValues" => array(
+				// 			"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/hnr3lXaqJTUR/prayosha_ps.jpg?se=2029-08-01T07%3A26%3A57Z&sp=rt&sv=2019-12-12&sr=b&sig=uffjoKwIUrvWtj9vDLw0kuxv4I4FMEaZmRtWwqhV7ks%3D"
+				// 		),
+				// 		"bodyValues" => array(
+				// 			$userdata->fullname
+				// 		),
+				// 	)
 
-				);
-				$restrack4 = interakt_track($data4);
+				// );
+				// $restrack4 = interakt_track($data4);
 				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/".$loantype."/true");
 				//$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
@@ -333,23 +333,23 @@ class Order extends CI_Controller
 				//if ($applyid > 0) {
 					$this->load->model('Site_Digital_Model');
 					$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
-					$data4 = array(
-						"fullPhoneNumber" => '+91' . $userdata->mobile,
-						"callbackData" => "some text here",
-						"type" => "Template",
-						"template" => array(
-							"name" => "28oct_fail",//"prayosha_ps",
-							"languageCode" => "en",
-							"headerValues" => array(
-								"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/EdHoUrF3mRHp/prayosha_fail.jpg?se=2029-10-22T04%3A44%3A17Z&sp=rt&sv=2019-12-12&sr=b&sig=f3uEVYecdGGiPJO2w2XSoTe3jo6VBmKahYOJj1CNhZk%3D"
-							),
-							"bodyValues" => array(
-								$userdata->fullname
-							),
-						)
+					// $data4 = array(
+					// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+					// 	"callbackData" => "some text here",
+					// 	"type" => "Template",
+					// 	"template" => array(
+					// 		"name" => "28oct_fail",//"prayosha_ps",
+					// 		"languageCode" => "en",
+					// 		"headerValues" => array(
+					// 			"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/EdHoUrF3mRHp/prayosha_fail.jpg?se=2029-10-22T04%3A44%3A17Z&sp=rt&sv=2019-12-12&sr=b&sig=f3uEVYecdGGiPJO2w2XSoTe3jo6VBmKahYOJj1CNhZk%3D"
+					// 		),
+					// 		"bodyValues" => array(
+					// 			$userdata->fullname
+					// 		),
+					// 	)
 	
-					);
-					$restrack4 = interakt_track($data4);
+					// );
+					// $restrack4 = interakt_track($data4);
 					$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 				//}
 				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/".$loantype."/false");

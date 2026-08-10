@@ -32,13 +32,13 @@ Class Customer_Digital_Model extends CI_Model {
 	
 	public function sendGreetings($mobile='', $emailid='', $loan){
 		if($mobile != '') {
-			$message = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Prayosha Fincart";
+			$message = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 			
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<p><strong>Congratulations!</strong></p>';

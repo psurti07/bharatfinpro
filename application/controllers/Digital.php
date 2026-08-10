@@ -162,7 +162,7 @@ class Digital extends CI_Controller
 				'loanamount' => $loanamount,
 				'mobile' => $mobile
 			);
-			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist'=>$banklist]);
+			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		}
 		if ($step == "s3" && $mobile != '') {
@@ -177,7 +177,7 @@ class Digital extends CI_Controller
 				'mobile' => $mobile,
 				'referralcode' => $referralcode
 			);
-			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist'=>$banklist]);
+			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		} else {
 			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step1', 'banklist' => $banklist]);
@@ -200,7 +200,7 @@ class Digital extends CI_Controller
 		} else {
 			$loanamount = '';
 		}
-		
+
 		if (isset($_REQUEST['fbclid'])) {
 			set_cookie('fbclidpl', $_REQUEST['fbclid'], '3600');
 			//$this->session->set_tempdata('fbclidpl', $_REQUEST['fbclid']);
@@ -490,33 +490,33 @@ class Digital extends CI_Controller
 	}
 
 	public function geoLocation()
-    {
+	{
 		$this->load->helper('geoloc');
 		$pincode = $_REQUEST['pincode'];
 
-        if(strlen($pincode) != 6){
-            echo json_encode([
-                'status' => 'error',
-                'message' => 'Invalid pincode'
-            ]);
-            return;
-        }
+		if (strlen($pincode) != 6) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => 'Invalid pincode'
+			]);
+			return;
+		}
 
-        $data = getGeolocation($pincode);
+		$data = getGeolocation($pincode);
 
-        if(isset($data['error'])){
-            echo json_encode([
-                'status' => 'error',
-                'message' => $data['error']
-            ]);
-        } else {
-            echo json_encode([
-                'status'   => 'success',
-                'city' => $data['cityname'] ?? '',
-                'state'    => $data['statename'] ?? ''
-            ]);
-        }
-    }
+		if (isset($data['error'])) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => $data['error']
+			]);
+		} else {
+			echo json_encode([
+				'status'   => 'success',
+				'city' => $data['cityname'] ?? '',
+				'state'    => $data['statename'] ?? ''
+			]);
+		}
+	}
 
 	public function userApply()
 	{
@@ -571,65 +571,65 @@ class Digital extends CI_Controller
 
 		$this->load->model('Site_Info_Model');
 
-		$this->load->helper('interakt');
-		 $data2 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'traits' => array(
-		 		'name' => $userdata->fullname
-		 	),
-		 	'tags' => array('Get Offer')
-		 );
-		
-		 $restrack2 = user_track($data2);
+		// $this->load->helper('interakt');
+		//  $data2 = array(
+		//  	'phoneNumber' => $userdata->mobile,
+		//  	'countryCode' => '+91',
+		//  	'traits' => array(
+		//  		'name' => $userdata->fullname
+		//  	),
+		//  	'tags' => array('Get Offer')
+		//  );
 
-		 $data3 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'event' => 'Get Offer',
-		 	'traits' => array(
-		 		'EligibleAmount' => $eligibilityamt
-		 	)
-		 );
-		 $restrack3 = event_track($data3);
+		//  $restrack2 = user_track($data2);
 
-		  $data4 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'traits' => array(
-		 		'name' => $userdata->fullname
-		 	),
-		 	'tags' => array('Get Offer')
-		 );
-		 
-		 $restrack4 = user_track_new_ue($data4);
+		//  $data3 = array(
+		//  	'phoneNumber' => $userdata->mobile,
+		//  	'countryCode' => '+91',
+		//  	'event' => 'Get Offer',
+		//  	'traits' => array(
+		//  		'EligibleAmount' => $eligibilityamt
+		//  	)
+		//  );
+		//  $restrack3 = event_track($data3);
 
-		 $data5 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'event' => 'Get Offer',
-		 	'traits' => array(
-		 		'EligibleAmount' => $eligibilityamt
-		 	)
-		 );
-		 $restrack5 = event_track_new_ue($data5);
+		//   $data4 = array(
+		//  	'phoneNumber' => $userdata->mobile,
+		//  	'countryCode' => '+91',
+		//  	'traits' => array(
+		//  		'name' => $userdata->fullname
+		//  	),
+		//  	'tags' => array('Get Offer')
+		//  );
 
-		 $data3 = array(
-				'apiKey' => AISENSY_KEY,
-				'campaignName' => 'get_22july',
-				'destination' => '+91' . $userdata->mobile,
-				'media' => array(
-					'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6a5efed93988467d6c4f2861/3842232_getoffr.jpeg',
-					'filename' => 'getoffr.jpeg'
-				),
-				'userName' => $userdata->fullname,
-				'templateParams' => array('$Name', '$EligibleAmount'),
-				'tags' => array('Get Offer'),
-				'attributes' => array(
-					'EligibleAmount' => strval($eligibilityamt)
-				)
-			);
-			$restrack3 = aisensy_track($data3);
+		//  $restrack4 = user_track_new_ue($data4);
+
+		//  $data5 = array(
+		//  	'phoneNumber' => $userdata->mobile,
+		//  	'countryCode' => '+91',
+		//  	'event' => 'Get Offer',
+		//  	'traits' => array(
+		//  		'EligibleAmount' => $eligibilityamt
+		//  	)
+		//  );
+		//  $restrack5 = event_track_new_ue($data5);
+
+		//  $data3 = array(
+		// 		'apiKey' => AISENSY_KEY,
+		// 		'campaignName' => 'get_22july',
+		// 		'destination' => '+91' . $userdata->mobile,
+		// 		'media' => array(
+		// 			'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6a5efed93988467d6c4f2861/3842232_getoffr.jpeg',
+		// 			'filename' => 'getoffr.jpeg'
+		// 		),
+		// 		'userName' => $userdata->fullname,
+		// 		'templateParams' => array('$Name', '$EligibleAmount'),
+		// 		'tags' => array('Get Offer'),
+		// 		'attributes' => array(
+		// 			'EligibleAmount' => strval($eligibilityamt)
+		// 		)
+		// 	);
+		// 	$restrack3 = aisensy_track($data3);
 
 		// $intekt_get_offer_name = $this->Site_Info_Model->getsmsmessage('intekt_get_offer_name');
 
@@ -660,7 +660,7 @@ class Digital extends CI_Controller
 	public function checkoutDigital()
 	{
 
-		
+
 		$this->load->model('Site_Digital_Model');
 		$userdata = $this->Site_Digital_Model->checkuserdata($_REQUEST['applyid']);
 		$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
@@ -731,7 +731,7 @@ class Digital extends CI_Controller
 
 	public function buycardDigital()
 	{
-$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
+		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 
 		$orderId = $_POST["orderId"];
 		$responseCode = $_POST["responseCode"];
@@ -775,12 +775,12 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 		$paymentdata = $this->Site_Digital_Model->getzaakpayentry($orderId);
 
 		$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
-		
+
 		$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
-		log_message('error', 'applyid userdata main 11 -- '. json_encode($userdata));
+		log_message('error', 'applyid userdata main 11 -- ' . json_encode($userdata));
 		$this->session->set_tempdata('applyid', $userdata->userid);
 		if ($checksum == $recd_checksum) {
-			
+
 			$zaakpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'orderamount' => $orderAmount,
@@ -792,7 +792,7 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 			$response1 = $this->Site_Digital_Model->updatezaakpayentry($paymentdata->id, $zaakpaydata);
 
 			if ($responseCode == 100 || $responseCode == 208 || $responseCode == 601) {
-				
+
 				$cardno = random_code(16);
 
 				$mbrdata = array(
@@ -820,7 +820,7 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 					'rec_date' => date('Y-m-d H:i:s'),
 					'update_date' => date('Y-m-d H:i:s'),
 					'password' => $passwordkey, // this field currently now working properly
-					'new_password' => $new_passwordkey, 
+					'new_password' => $new_passwordkey,
 					'refcode' => $refcode,
 					'process_step' => 4,
 					'isUser' => 2
@@ -895,21 +895,22 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 				$api_response = send_order_data(json_encode($remote_data));
 
 				$this->load->model('Site_Info_Model');
-				
-				$data_usr_pass = array(
-						"fullPhoneNumber"=> '+91'.$userdata->mobile,
-						"callbackData"=> "some text here",
-						"type"=> "Template",
-						"template"=> array(
-							"name"=> 'success_13july_1',
-							"languageCode"=> "en",
-							"bodyValues"=> array(
-								$userdata->mobile, $password
-							),
-						)
-				);
-				log_message('error', 'userpass' .json_encode($data_usr_pass));
-				$restrack4 = interakt_track($data_usr_pass);
+
+				// $data_usr_pass = array(
+				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+				// 	"callbackData" => "some text here",
+				// 	"type" => "Template",
+				// 	"template" => array(
+				// 		"name" => 'success_13july_1',
+				// 		"languageCode" => "en",
+				// 		"bodyValues" => array(
+				// 			$userdata->mobile,
+				// 			$password
+				// 		),
+				// 	)
+				// );
+				// log_message('error', 'userpass' . json_encode($data_usr_pass));
+				// $restrack4 = interakt_track($data_usr_pass);
 
 				$sent = $this->Site_Digital_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 
@@ -933,11 +934,11 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 		$meta = $this->Site_Info_Model->getmetakeywords('digital-personal');
 
 		$fbclidpl = "";
-		
+
 		$applyid = $this->session->tempdata('applyid');
 		$this->load->model('Site_Digital_Model');
 		$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
-		log_message('error', 'applyid userdata main -- '. json_encode($userdata));		
+		log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
 		$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
 		$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
 
@@ -978,61 +979,61 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 				$fbresponse = fbconversioncurl($fbdata);
 
 				$this->load->model('Site_Info_Model');
-				
-				$this->load->helper('interakt');
-				$data4 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'traits' => array(
-						'name' => $userdata->fullname
-					),
-					'tags' => array('Payment Successful')
-				);
-				
-				$restrack4 = user_track($data4);
 
-				 $data5 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'event' => 'Payment Successful'
-				);
-				$restrack5 = event_track($data5);
+				// $this->load->helper('interakt');
+				// $data4 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'traits' => array(
+				// 		'name' => $userdata->fullname
+				// 	),
+				// 	'tags' => array('Payment Successful')
+				// );
+
+				// $restrack4 = user_track($data4);
+
+				// $data5 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Successful'
+				// );
+				// $restrack5 = event_track($data5);
 
 
-				$data6 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'traits' => array(
-						'name' => $userdata->fullname
-					),
-					'tags' => array('Payment Successful')
-				);
-				
-				$restrack6 = user_track_new_ue($data6);
-				log_message('error', 'applyid restrack6 main -- '. json_encode($restrack6));
+				// $data6 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'traits' => array(
+				// 		'name' => $userdata->fullname
+				// 	),
+				// 	'tags' => array('Payment Successful')
+				// );
 
-				$data7 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'event' => 'Payment Successful',
-					'traits' => array(
-						'userid' => $userdata->mobile,
-						'userpass' => $this->session->tempdata('userpass')
-					),
-				);
-				$restrack7 = event_track_new_ue($data7);
-				log_message('error', 'applyid restrack7 main -- '. json_encode($restrack7));
-				
+				// $restrack6 = user_track_new_ue($data6);
+				// log_message('error', 'applyid restrack6 main -- ' . json_encode($restrack6));
+
+				// $data7 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Successful',
+				// 	'traits' => array(
+				// 		'userid' => $userdata->mobile,
+				// 		'userpass' => $this->session->tempdata('userpass')
+				// 	),
+				// );
+				// $restrack7 = event_track_new_ue($data7);
+				// log_message('error', 'applyid restrack7 main -- ' . json_encode($restrack7));
+
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
 				$applyid = $this->session->tempdata('applyid');
 
 				//if ($applyid > 0) {
-					$this->load->model('Site_Digital_Model');
-					$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
-					$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
+				$this->load->model('Site_Digital_Model');
+				$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
+				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 				//}
-				
+
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else {
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
@@ -1041,5 +1042,4 @@ $grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 			redirect('digital/personalLoan');
 		}
 	}
-
 }

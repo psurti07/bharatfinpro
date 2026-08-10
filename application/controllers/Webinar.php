@@ -511,7 +511,7 @@ class Webinar extends CI_Controller
 			$fbdata['fbclid'] = $fbclidpl;
 			$fbresponse = fbconversioncurl($fbdata);
 
-            $this->load->helper('interakt');
+            // $this->load->helper('interakt');
 			/* $data2 = array(
 				'phoneNumber' => $userdata->mobile,
 				'countryCode' => '+91',
@@ -530,20 +530,20 @@ class Webinar extends CI_Controller
 			);
 			$restrac3 = webinar_event_track($data3);*/
 
-			$intdata1 = array(
-				"fullPhoneNumber" => '+91' . $userdata->mobile,
-				"callbackData" => "some text here",
-				"type" => "Template",
-				"template" => array(
-					"name" => "success_8july_1",
-					"languageCode" => "en",
-					"bodyValues" => array(
-						$firstname,
-					),
-				)
+			// $intdata1 = array(
+			// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+			// 	"callbackData" => "some text here",
+			// 	"type" => "Template",
+			// 	"template" => array(
+			// 		"name" => "success_8july_1",
+			// 		"languageCode" => "en",
+			// 		"bodyValues" => array(
+			// 			$firstname,
+			// 		),
+			// 	)
 
-			);
-			$restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
+			// );
+			// $restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
 			
 			$this->load->view('webinar-payment-response', ['meta' => $meta, 'responsedata' => $status, 'community_link'=>$community_link]);
 		} 
@@ -551,28 +551,28 @@ class Webinar extends CI_Controller
 				$this->load->model('Site_Webinar_Model');
 				$userdata = $this->Site_Webinar_Model->checkuserdata($this->session->tempdata('userid'));
 				
-				$this->load->helper('interakt');
+				// $this->load->helper('interakt');
 				
-				/*$data3 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'event' => 'Payment Failed',
-				);
-				$restrac3 = webinar_event_track($data3);*/
+				// /*$data3 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Failed',
+				// );
+				// $restrac3 = webinar_event_track($data3);*/
 
-				$intdata1 = array(
-					"fullPhoneNumber" => '+91' . $userdata->mobile,
-					"callbackData" => "some text here",
-					"type" => "Template",
-					"template" => array(
-						"name" => "fail_8july_1",
-						"languageCode" => "en",
-						"bodyValues" => array(
-							$firstname,
-						),
-					)
-				);
-				$restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
+				// $intdata1 = array(
+				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+				// 	"callbackData" => "some text here",
+				// 	"type" => "Template",
+				// 	"template" => array(
+				// 		"name" => "fail_8july_1",
+				// 		"languageCode" => "en",
+				// 		"bodyValues" => array(
+				// 			$firstname,
+				// 		),
+				// 	)
+				// );
+				// $restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
 
 				$sent = $this->Site_Webinar_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 				

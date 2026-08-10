@@ -759,7 +759,7 @@ Class Site_Webinar_Model extends CI_Model {
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome to prayoshafincart.com";
+			$subject = "Welcome to bharatfinpro.com";
 			
 			$message = '<h3>Congratulations!</h3>';
 			$message .= '<p>Dear Customer,</p>';
@@ -807,7 +807,7 @@ Class Site_Webinar_Model extends CI_Model {
 		
 		if($maildata['email'] != '') {
 			// Send email
-			$subject = "Welcome to Prayoshafincart.com";
+			$subject = "Welcome to bharatfinpro.com";
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->customer_webinar_welcomeemailtemplate($maildata);
 

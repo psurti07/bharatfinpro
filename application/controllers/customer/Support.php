@@ -5,26 +5,26 @@ Class Support extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 
-		if(! $this->session->userdata('pyf-customerid')) {
+		if(! $this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/login');
 		}
 	}
 
 	public function index(){
 
-		$userid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');		
+		$userid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');		
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 		
 		$this->load->view('customer/support', ['meta'=>$meta, 'userid'=>$userid]);
 	}
 	public function submitrequest() {			
-		if($this->session->userdata('pyf-customerid') == FALSE) {
+		if($this->session->userdata('bfp-customerid') == FALSE) {
 			echo json_encode(array("success"=>false, "message"=>"Ops. Something goes wrong."));
 			die;
 		}
 		else {			
-			$customerid = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+			$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 			
 			if($customerid == $_REQUEST['userid']) {
 				$ticketno = date('mdh').random_code(4);

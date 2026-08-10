@@ -105,11 +105,11 @@ Class Site_Info_Model extends CI_Model {
 		$url = '';
 		if($loan == 11) {
 			$url = site_url('digital/personalLoan');
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email and submit the required documents. Our company executive call you back soon. Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email and submit the required documents. Our company executive call you back soon. Thanks & Regards, Bharatfinpro";
 		}
 		else if($loan == 12) {
 			$url = site_url('digital/businessLoan');
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please login to our customer portal to submit the required documents so our company executive will call back in 24 to 48 hours! Thanks & Regards, Prayosha Fincart";
+			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please login to our customer portal to submit the required documents so our company executive will call back in 24 to 48 hours! Thanks & Regards, Bharatfinpro";
 		}
 
 		if($mobile != '') {
@@ -118,7 +118,7 @@ Class Site_Info_Model extends CI_Model {
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Welcome Prayosha Fincart";
+			$subject = "Welcome Bharatfinpro";
 			$message = '<p>Dear Customer,</p>';
 			$message .= $smsmessage; 
 			$message .= '<p>Thanks & Regards,<br/>'.COMPANY_NAME.'</p>';
@@ -144,23 +144,23 @@ Class Site_Info_Model extends CI_Model {
 		$careerid = $this->db->insert_id();
 
 		if($data['mobile'] != '' && $careerid != '') {
-			$smsmessage = "We appreciate your interest in our company. Our HR team will call you shortly. Best Wishes, Prayosha Fincart";
+			$smsmessage = "We appreciate your interest in our company. Our HR team will call you shortly. Best Wishes, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($data['mobile'], $smsmessage, 'main');
 		}
 
 		if($data['email'] != '' && $careerid != '') {
 			// Send email
-			$subject1 = "Welcome to Prayosha Fincart";
+			$subject1 = "Welcome to Bharatfinpro";
 			$message1 = "<p>Hello ".$data['firstname']." ".$data['lastname'].",</p>"; 
-			$message1 .= "<p>You have successfully registered with Prayosha Fincart. We thank you for the interest you have shown in our organization.<br/>Our HR team will get back to you soon. Have a nice day.</p>";
-			$message1 .= "<p>For any queries/confusion, write to us at hr@prayoshafincart.com</p>";
+			$message1 .= "<p>You have successfully registered with Bharatfinpro. We thank you for the interest you have shown in our organization.<br/>Our HR team will get back to you soon. Have a nice day.</p>";
+			$message1 .= "<p>For any queries/confusion, write to us at hr@bharatfinpro.com</p>";
 			$message1 .= '<p>Thanks & Regards,<br/>'.COMPANY_NAME.'</p>';
 
 			$this->load->model('Site_General_Model');
 			$content1 = $this->Site_General_Model->simpleemailtemplate($message1);
 
 			if($content1 != '') {
-				/* $mailresponse = sendHTMLmail($emailid, 'hr@prayoshafincart.com', $subject1, $content1); */
+				/* $mailresponse = sendHTMLmail($emailid, 'hr@bharatfinpro.com', $subject1, $content1); */
 				$maildata = array(
 					'fullname' => $data['mobile'],
 					'email' => $data['email']
@@ -182,7 +182,7 @@ Class Site_Info_Model extends CI_Model {
 			$content2 = $this->Site_General_Model->simpleemailtemplate($message2);
 
 			if($content2 != '') {
-				/* $mailresponse = sendHTMLmail('hr@prayoshafincart.com', $data['email'], $subject2, $content2); */
+				/* $mailresponse = sendHTMLmail('hr@bharatfinpro.com', $data['email'], $subject2, $content2); */
 				$maildata = array(
 					'fullname' => $data['mobile'],
 					'email' => $data['email']

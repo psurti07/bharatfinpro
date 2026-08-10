@@ -163,7 +163,7 @@ Class Manage_Account_Model extends CI_Model {
 
 	public function sendrefundmessage($mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Greetings! Your refund payment is successfully done. If you've query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days). Regards, Finable India";
+			$smsmessage = "Greetings! Your refund payment is successfully done. If you've query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days). Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 

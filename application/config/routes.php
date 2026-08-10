@@ -86,7 +86,6 @@ $route['customer/license-agreement'] = 'customer/dashboard/license_agreement';
 $route['plan_customer'] = 'plan_customer/Login';
 $route['plan_customer/license-agreement'] = 'plan_customer/dashboard/license_agreement';
 
-
 $route['webinar/user-register'] = "webinar/user_register";
 $route['webinar/personal-details'] = "webinar/personal_details";
 $route['webinar/enroll-now'] = "webinar/enroll_now";

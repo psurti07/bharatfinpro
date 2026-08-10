@@ -121,14 +121,14 @@ Class Manage_Plan_Loan_Enquiry_Model extends CI_Model {
 
 	public function sendStatusMessage($remarks='', $mobile='', $emailid=''){
 		if($mobile != '') {
-			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://prayoshafincart.com/customer Privylege";
+			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://bharatfinpro.com/customer Privylege";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
 
 
 		if($emailid != '') {
 			// Send email
-			$subject = "Loan application status - Prayosha Fincart";
+			$subject = "Loan application status - Bharatfinpro";
 			
 			$message = "<h3>Loan application status update</h3>"; 
 			$message .= "<p>".$remarks."</p><br/>";

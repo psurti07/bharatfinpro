@@ -239,13 +239,13 @@ Class Users extends MY_Controller {
 
 				$api_response = send_order_data(json_encode($remote_data));
 
-				$this->load->helper('interakt');
-				 $us_track = array(
-					'phoneNumber' => $_REQUEST['mobile'],
-					'countryCode' => '+91',
-					'event' => 'Payment Successful'
-				);
-				$restrack2 = event_track($us_track);
+				// $this->load->helper('interakt');
+				// $us_track = array(
+				// 	'phoneNumber' => $_REQUEST['mobile'],
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Successful'
+				// );
+				// $restrack2 = event_track($us_track);
 				//$sent = $this->Manage_User_Model->sendSuccessGreetings($_REQUEST['mobile'], $_REQUEST['emailid'], $password);
 
 				echo json_encode(array("success"=>true, "message"=>"Customer account successfully created."));
@@ -694,13 +694,13 @@ Class Users extends MY_Controller {
 				);
 
 				$api_response = send_order_data(json_encode($remote_data));
-				$this->load->helper('interakt');
-				 $us_track = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'event' => 'Payment Successful'
-				);
-				$restrack2 = event_track($us_track);
+				// $this->load->helper('interakt');
+				//  $us_track = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Successful'
+				// );
+				// $restrack2 = event_track($us_track);
 
 				$sent = $this->Manage_User_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 			

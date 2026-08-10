@@ -694,7 +694,7 @@ class Site_Cronjob_Model extends CI_Model
 			$random_number = rand(1000, 9999);
 
 			$data1 = array(
-				"customerId"=>"Prayosha Fincart",
+				"customerId"=>"Bharatfinpro",
 				"campaignName"=>"cmp_11nov_4_".$random_number,                  
 				"TemplateName"=>"9nov",
 				"param_json"=>array("[custom_param]"=>"Dear Customer", "[custom_param1]"=>"5,00,000"), 

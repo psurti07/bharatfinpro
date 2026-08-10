@@ -115,7 +115,7 @@ $this->load->view('includes/header.php');
 						<small>By submitting the form &amp; proceeding, you agree to the
 							<a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of Use</a> and
 							<a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy Policy</a> of
-							Prayoshafincart.com
+							Bharatfinpro.com
 						</small>
 					</label>
 					<div class="help-block font-small-3"></div>

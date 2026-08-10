@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 Class Loan extends CI_Controller {
 
 	public function index() {	
-		if($this->session->userdata('pyf-customerid')) {
+		if($this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/dashboard');
 		}
 
@@ -14,7 +14,7 @@ Class Loan extends CI_Controller {
 	}
 
 	public function history(){
-		$id = stringCrypt($this->session->userdata('pyf-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);

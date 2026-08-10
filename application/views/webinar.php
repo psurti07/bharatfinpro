@@ -30,7 +30,7 @@
                                 <a href="#" rel="home">
                                    <img id="logo-header"
                                         src="<?php echo base_url() ?>assets/images/logo.png" width="160"
-                                        alt="Prayoshafincart" />
+                                        alt="Bharatfinpro" />
                                 </a>
                             </div>
                         </div>
