@@ -66,7 +66,7 @@ $this->load->view('includes/header-plan-apply.php');
                     <div class="form-group col-md-6">
                         <label class="text-dark" for="loanpurpose">Loan Purpose</label>
                         <select name="loanpurpose" aria-required="true" id="loanpurpose" class="form-control" required>
-                            <?php  if ($userdetails['loantype'] == 22) { ?>
+                            <?php if ($userdetails['loantype'] == 22) { ?>
                             <option value="">Select Loan Purpose</option>
                             <option value="Business Expansion">Business Expansion</option>
                             <option value="Maintain Cash Flow">Maintain Cash Flow</option>
@@ -123,7 +123,7 @@ $this->load->view('includes/header-plan-apply.php');
                         <div class="ac-item">
                             <h5 class="ac-title">Personal Detail</h5>
                             <div class="ac-content">
-                                 <ul class="list-group list-group-flush">
+                                <ul class="list-group list-group-flush">
                                     <li class="list-group-item">Loan : <?php echo $userdetails['loanname']; ?></li>
                                     <li class="list-group-item">Loan Amount :
                                         <?php echo formatePriceIndia($userdetails['loanamount']); ?></li>
@@ -158,7 +158,7 @@ $this->load->view('includes/header-plan-apply.php');
 <div class="container my-4">
     <div class="row g-3 text-center">
 
-         <div class="col-md-3 mt-2">
+        <div class="col-md-3 mt-2">
             <div class="stat-card">
                 <div>
                     <h4>5000+ </h4>

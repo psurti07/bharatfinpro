@@ -2,7 +2,8 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 header('Content-Type: text/html; charset=utf-8');
 
-function getpaymenturl($peurl, $key, $keyindex, $data) {
+function getpaymenturl($peurl, $key, $keyindex, $data)
+{
     $data_json = json_encode($data);
     $data_base64 = base64_encode($data_json);
     $data_sha256 = hash('sha256', ($data_base64 . "/pg/v1/pay" . $key));
@@ -17,19 +18,19 @@ function getpaymenturl($peurl, $key, $keyindex, $data) {
 
     $curl = curl_init();
     curl_setopt_array($curl, [
-      CURLOPT_URL => $peurl,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLOPT_ENCODING => "",
-      CURLOPT_MAXREDIRS => 10,
-      CURLOPT_TIMEOUT => 30,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_CUSTOMREQUEST => "POST",
-      CURLOPT_POSTFIELDS => $data_req2,
-      CURLOPT_HTTPHEADER => [
-        "Content-Type: application/json",
-        "X-VERIFY: " . $data_xvalue,
-        "accept: application/json"
-      ],
+        CURLOPT_URL => $peurl,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => $data_req2,
+        CURLOPT_HTTPHEADER => [
+            "Content-Type: application/json",
+            "X-VERIFY: " . $data_xvalue,
+            "accept: application/json"
+        ],
     ]);
 
     $response = curl_exec($curl);
@@ -43,5 +44,3 @@ function getpaymenturl($peurl, $key, $keyindex, $data) {
         return json_decode($response);
     }
 }
-
-?>

@@ -2,38 +2,41 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 class Schedule_Slot extends CI_Controller
 {
-	public function index(){
-		$this->load->model('Site_Webinar_Model');
+    public function index()
+    {
+        $this->load->model('Site_Webinar_Model');
         $id = decryptData($this->input->get('id'));
         $userdata = $this->Site_Webinar_Model->get_schedule_user_data($id);
-		$this->load->view('schedule-slot', ['userdata'=>$userdata]);
-	}
-    public function schedule(){
+        $this->load->view('schedule-slot', ['userdata' => $userdata]);
+    }
+    public function schedule()
+    {
         $this->load->model('Site_Webinar_Model');
         $data = array(
-                'user_id' => $_REQUEST['user_id'],
-                'date' => date('Y-m-d', strtotime($_REQUEST['date'])),
-                'time' => date('H:i', strtotime($_REQUEST['time'])),
-                'language' => $_REQUEST['language'],
-                'is_deleted' => 0
-            );
-		
-		$userid = $this->Site_Webinar_Model->insert_schedule_slot($data);
-        if($userid){
+            'user_id' => $_REQUEST['user_id'],
+            'date' => date('Y-m-d', strtotime($_REQUEST['date'])),
+            'time' => date('H:i', strtotime($_REQUEST['time'])),
+            'language' => $_REQUEST['language'],
+            'is_deleted' => 0
+        );
+
+        $userid = $this->Site_Webinar_Model->insert_schedule_slot($data);
+        if ($userid) {
             $userdata = $this->Site_Webinar_Model->get_schedule_user_data($userid);
             $slotData = $this->Site_Webinar_Model->get_schedule_slot($userid);
-             // ==========================================
+            // ==========================================
             // SEND DATA TO INDIAAKAROBAR API
             // ==========================================
             $this->sendScheduleToIndiakarobar($userdata, $slotData, 'create');
-            $this->load->view('schedule-sucess',['userdata'=>$userdata]);
+            $this->load->view('schedule-sucess', ['userdata' => $userdata]);
         } else {
             return redirect('Schedule_Slot');
         }
         //$this->load->view('schedule-sucess');
     }
 
-    public function reschedule(){
+    public function reschedule()
+    {
         $this->load->model('Site_Webinar_Model');
         $id = $_REQUEST['userid'];
         $update = $this->Site_Webinar_Model->upate_schedule_slot($id);
@@ -47,7 +50,7 @@ class Schedule_Slot extends CI_Controller
         if ($newSlotData) {
             $this->sendScheduleToIndiakarobar($userdata, $newSlotData, 'update', $newSlotData->slot_id);
         }
-        $this->load->view('schedule-slot', ['userdata'=>$userdata]);
+        $this->load->view('schedule-slot', ['userdata' => $userdata]);
     }
     /**
      * Send schedule data to Indiakarobar API

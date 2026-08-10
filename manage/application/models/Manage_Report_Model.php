@@ -109,8 +109,8 @@ class Manage_Report_Model extends CI_Model
 				if ($row->inv_for == 1 || $row->inv_for == 2) {
 					$this->load->model('Manage_User_Model');
 					$response_user = $this->Manage_User_Model->getuserdata($row->userid);
-					
-					if($response_user != ''){
+
+					if ($response_user != '') {
 						$resrow['fullname'] = $response_user->fullname;
 						$resrow['mobile'] = $response_user->mobile;
 						$resrow['email'] = $response_user->email;
@@ -122,14 +122,14 @@ class Manage_Report_Model extends CI_Model
 							$response_order = $this->Manage_User_Model->getmembershiprecord($row->cardid);
 							$resrow['paymentid'] = $response_order->paymentid;
 						}
-						
+
 						$resdata[] = $resrow;
 					}
 				} else if ($row->inv_for == 4 || $row->inv_for == 4) {
 					$this->load->model('Manage_Plan_User_Model');
 					$response_user = $this->Manage_Plan_User_Model->getuserdata($row->userid);
-					
-					if($response_user != ''){
+
+					if ($response_user != '') {
 						$resrow['fullname'] = $response_user->fullname;
 						$resrow['mobile'] = $response_user->mobile;
 						$resrow['email'] = $response_user->email;
@@ -141,7 +141,7 @@ class Manage_Report_Model extends CI_Model
 							$response_order = $this->Manage_Plan_User_Model->getplanrecord($row->cardid);
 							$resrow['paymentid'] = $response_order->paymentid;
 						}
-						
+
 						$resdata[] = $resrow;
 					}
 				}
@@ -150,7 +150,7 @@ class Manage_Report_Model extends CI_Model
 
 		return $resdata;
 	}
-	
+
 	public function getcashfreeentrylist($dt_to, $dt_from)
 	{
 
@@ -435,8 +435,9 @@ class Manage_Report_Model extends CI_Model
 		$query = $this->db->query($query1 . ' UNION ' . $query2 . ' UNION ' . $query3 . ' ORDER BY rec_date ASC');
 		return $query->result();
 	}
-	public function getworldlinelogentrylist($dt_to, $dt_from){
-			
+	public function getworldlinelogentrylist($dt_to, $dt_from)
+	{
+
 		$offer_code1 = array(11, 12);
 		$this->db->where('pe.rec_date >=', $dt_to . ' 00:00:00')
 			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
@@ -485,7 +486,6 @@ class Manage_Report_Model extends CI_Model
 
 		$query = $this->db->query($query1 . ' UNION ' . $query2 . '  UNION ' . $query3 . ' ORDER BY rec_date ASC');
 		return $query->result();
-		
 	}
 	public function getzaakpayentrylist($dt_to, $dt_from)
 	{
@@ -715,37 +715,38 @@ class Manage_Report_Model extends CI_Model
 		return $query->result();
 	}
 
-	public function getpaygicentryrecord($dt_to, $dt_from) {
+	public function getpaygicentryrecord($dt_to, $dt_from)
+	{
 		$offer_code1 = array(11, 12);
 		$this->db
-		 ->where('pe.rec_date >=', $dt_to . ' 00:00:00')
-		 ->where('pe.rec_date <=', $dt_from . ' 23:59:59')
-		 ->where_in('entryfor', $offer_code1)
-		 ->select('pe.rec_date, pe.entryfor, 
+			->where('pe.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code1)
+			->select('pe.rec_date, pe.entryfor, 
 						(CASE 
 							WHEN entryfor = 11 THEN "Personal Loan" 
 							WHEN entryfor = 12 THEN "Business Loan" 
 							ELSE entryfor 
 						END) AS entrydetail, 
 					orderid, orderamount, ordernote, transactionid, statuscode, paymentmode, r.fullname, r.mobile, r.email')
-		 ->from('paygic_entry pe')
-		 ->join('user_registration r', 'pe.userid = r.id', 'left');
+			->from('paygic_entry pe')
+			->join('user_registration r', 'pe.userid = r.id', 'left');
 		$query1 = $this->db->get_compiled_select();
 
 		$offer_code3 = array(21, 22);
 		$this->db
-		 ->where('pe.rec_date >=', $dt_to . ' 00:00:00')
-		 ->where('pe.rec_date <=', $dt_from . ' 23:59:59')
-		 ->where_in('entryfor', $offer_code2)
-		 ->select('pe.rec_date, pe.entryfor, 
+			->where('pe.rec_date >=', $dt_to . ' 00:00:00')
+			->where('pe.rec_date <=', $dt_from . ' 23:59:59')
+			->where_in('entryfor', $offer_code2)
+			->select('pe.rec_date, pe.entryfor, 
 						(CASE 
 							WHEN entryfor = 21 THEN "Plan Personal Loan" 
 							WHEN entryfor = 22 THEN "Plan Business Loan" 
 							ELSE entryfor 
 						END) AS entrydetail, 
 					orderid, orderamount, ordernote, transactionid, statuscode, paymentmode, r.fullname, r.mobile, r.email')
-		 ->from('paygic_entry pe')
-		 ->join('plan_user_registration r', 'pe.userid = r.id', 'left');
+			->from('paygic_entry pe')
+			->join('plan_user_registration r', 'pe.userid = r.id', 'left');
 		$query3 = $this->db->get_compiled_select();
 
 		$offer_code2 = array(3, 4, 5, 6, 7, 8);
@@ -948,7 +949,8 @@ class Manage_Report_Model extends CI_Model
 
 		return $allDates;
 	}
-	public function processstepdata($dt_to, $dt_from){
+	public function processstepdata($dt_to, $dt_from)
+	{
 		$statistics_res = [
 			'userregistration' => 0,
 			'usereligibility' => 0,
@@ -964,20 +966,20 @@ class Manage_Report_Model extends CI_Model
 		];
 
 		$query_res = $this->db->select('process_step, COUNT(*) as totalrec')
-					->where('update_date >=', $dt_to . ' 00:00:00')
-					->where('update_date <=', $dt_from . ' 23:59:59')
-					->where('isActive',1)
-					->where('isDelete',0)
-					->group_by('process_step')
-					->get('user_registration')
-					->result();
+			->where('update_date >=', $dt_to . ' 00:00:00')
+			->where('update_date <=', $dt_from . ' 23:59:59')
+			->where('isActive', 1)
+			->where('isDelete', 0)
+			->group_by('process_step')
+			->get('user_registration')
+			->result();
 
 		foreach ($query_res as $row) {
 			switch ($row->process_step) {
 				case '1':
 					$statistics_res['userregistration'] = $row->totalrec;
 					break;
-				
+
 				case '2':
 					$statistics_res['usereligibility'] = $row->totalrec;
 					break;
@@ -985,7 +987,7 @@ class Manage_Report_Model extends CI_Model
 				case '3':
 					$statistics_res['userpreapproved'] = $row->totalrec;
 					break;
-				
+
 				case '4':
 					$statistics_res['membershipcard'] = $row->totalrec;
 					break;
@@ -997,7 +999,7 @@ class Manage_Report_Model extends CI_Model
 				case '6':
 					$statistics_res['docverification'] = $row->totalrec;
 					break;
-				
+
 				case '7':
 					$statistics_res['appinprocess'] = $row->totalrec;
 					break;
@@ -1005,7 +1007,7 @@ class Manage_Report_Model extends CI_Model
 				case '8':
 					$statistics_res['appqueryprocess'] = $row->totalrec;
 					break;
-				
+
 				case '9':
 					$statistics_res['appfilereopen'] = $row->totalrec;
 					break;
@@ -1013,29 +1015,31 @@ class Manage_Report_Model extends CI_Model
 				case '10':
 					$statistics_res['apprejected'] = $row->totalrec;
 					break;
-				
+
 				case '11':
 					$statistics_res['appapproved'] = $row->totalrec;
 					break;
 			}
 		}
-	
+
 		return $statistics_res;
 	}
 
-	public function getuserprocessstep($step, $dt_to, $dt_from){
+	public function getuserprocessstep($step, $dt_to, $dt_from)
+	{
 		$query = $this->db->select('id, update_date, fullname, mobile, email, city, state, isActive, isUser')
-				->where('update_date >=', $dt_to.' 00:00:00')
-				->where('update_date <=', $dt_from.' 23:59:59')
-				->where('process_step',$step)
-				->where('isDelete',0)
-				->order_by('id asc')
-				->get('user_registration')
-				->result();
-		return $query;      
+			->where('update_date >=', $dt_to . ' 00:00:00')
+			->where('update_date <=', $dt_from . ' 23:59:59')
+			->where('process_step', $step)
+			->where('isDelete', 0)
+			->order_by('id asc')
+			->get('user_registration')
+			->result();
+		return $query;
 	}
 
-	public function remarketing_cron_data($corndays){
+	public function remarketing_cron_data($corndays)
+	{
 		$statistics_result = array();
 		foreach ($corndays as $cdays) {
 			$d = strtotime("-" . $cdays . " day");
@@ -1062,7 +1066,8 @@ class Manage_Report_Model extends CI_Model
 		return $statistics_result;
 	}
 
-	public function whatsapp_cron_data($corndays){
+	public function whatsapp_cron_data($corndays)
+	{
 		$statistics_result = array();
 		foreach ($corndays as $cdays) {
 			$d = strtotime("-" . $cdays . " day");
@@ -1088,7 +1093,8 @@ class Manage_Report_Model extends CI_Model
 		}
 		return $statistics_result;
 	}
-	public function interakt_cron_data($corndays){
+	public function interakt_cron_data($corndays)
+	{
 		$statistics_result = array();
 		foreach ($corndays as $cdays) {
 			$d = strtotime("-" . $cdays . " day");
@@ -1114,90 +1120,92 @@ class Manage_Report_Model extends CI_Model
 		}
 		return $statistics_result;
 	}
-	public function applicationdata(){
+	public function applicationdata()
+	{
 		$statistics_res = [];
 
 		$query_userapp = $this->db->select('a.id')
-					->from('user_registration r')
-					->join('user_application a', 'a.userid=r.id')
-					->where("CAST(a.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['userapplication'] = $query_userapp->num_rows(); 
+			->from('user_registration r')
+			->join('user_application a', 'a.userid=r.id')
+			->where("CAST(a.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['userapplication'] = $query_userapp->num_rows();
 
 		$query_reapplyapp = $this->db->select('a.id')
-					->from('user_registration r')
-					->join('user_application a', 'a.userid=r.id')
-					->where('a.userid in (SELECT userid FROM user_application GROUP BY userid HAVING COUNT(*) > 1)')
-					->where("CAST(a.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['reapplyapplication'] = $query_reapplyapp->num_rows(); 
+			->from('user_registration r')
+			->join('user_application a', 'a.userid=r.id')
+			->where('a.userid in (SELECT userid FROM user_application GROUP BY userid HAVING COUNT(*) > 1)')
+			->where("CAST(a.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['reapplyapplication'] = $query_reapplyapp->num_rows();
 
 		$query_oldapp = $this->db->select('a.id')
-					->from('user_registration r')
-					->join('user_application a', 'a.userid=r.id')
-					->where("a.rec_date < NOW() - INTERVAL 15 DAY")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['oldapplication'] = $query_oldapp->num_rows(); 
+			->from('user_registration r')
+			->join('user_application a', 'a.userid=r.id')
+			->where("a.rec_date < NOW() - INTERVAL 15 DAY")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['oldapplication'] = $query_oldapp->num_rows();
 
 
 		/* plan application data */
 
 		$query_plan_userapp = $this->db->select('a.id')
-					->from('plan_user_registration r')
-					->join('plan_user_application a', 'a.userid=r.id')
-					->where("CAST(a.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['plan_userapplication'] = $query_plan_userapp->num_rows(); 
+			->from('plan_user_registration r')
+			->join('plan_user_application a', 'a.userid=r.id')
+			->where("CAST(a.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['plan_userapplication'] = $query_plan_userapp->num_rows();
 
 		$query_plan_reapplyapp = $this->db->select('a.id')
-					->from('plan_user_registration r')
-					->join('plan_user_application a', 'a.userid=r.id')
-					->where('a.userid in (SELECT userid FROM plan_user_application GROUP BY userid HAVING COUNT(*) > 1)')
-					->where("CAST(a.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['plan_reapplyapplication'] = $query_plan_reapplyapp->num_rows(); 
+			->from('plan_user_registration r')
+			->join('plan_user_application a', 'a.userid=r.id')
+			->where('a.userid in (SELECT userid FROM plan_user_application GROUP BY userid HAVING COUNT(*) > 1)')
+			->where("CAST(a.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['plan_reapplyapplication'] = $query_plan_reapplyapp->num_rows();
 
 		$query_plan_oldapp = $this->db->select('a.id')
-					->from('plan_user_registration r')
-					->join('plan_user_application a', 'a.userid=r.id')
-					->where("a.rec_date < NOW() - INTERVAL 15 DAY")
-					->where('a.status',1)
-					->where('a.isDelete',0)
-					->where('r.isUser',2)
-					->where('r.isDelete',0)
-					->get();
-		$statistics_res['plan_oldapplication'] = $query_plan_oldapp->num_rows(); 
-		
+			->from('plan_user_registration r')
+			->join('plan_user_application a', 'a.userid=r.id')
+			->where("a.rec_date < NOW() - INTERVAL 15 DAY")
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->where('r.isUser', 2)
+			->where('r.isDelete', 0)
+			->get();
+		$statistics_res['plan_oldapplication'] = $query_plan_oldapp->num_rows();
+
 		return $statistics_res;
 	}
-	public function webinarcustomerdata(){
+	public function webinarcustomerdata()
+	{
 		$statistics_res = [];
 
 		$query_webinarleads = $this->db->select('uwr.*')
 			->from('user_webinar_registration uwr')
 			->join('webinar_order wo', 'wo.userid = uwr.id')
-			->where("CAST(uwr.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
-			->where('wo.isUser !=',2)
+			->where("CAST(uwr.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
+			->where('wo.isUser !=', 2)
 			->where('uwr.isDelete', 0)
 			->where('wo.isDelete', 0)
 			->order_by('uwr.id asc')
@@ -1207,36 +1215,34 @@ class Manage_Report_Model extends CI_Model
 		$query_webinarcust = $this->db->select('uwr.*')
 			->from('user_webinar_registration uwr')
 			->join('webinar_order wo', 'wo.userid = uwr.id')
-			->where("CAST(uwr.rec_date as date) = CAST('".date('Y-m-d')."' as date)")
+			->where("CAST(uwr.rec_date as date) = CAST('" . date('Y-m-d') . "' as date)")
 			->where('wo.isUser', 2)
 			->where('uwr.isDelete', 0)
 			->where('wo.isDelete', 0)
 			->order_by('uwr.id asc')
 			->get();
-		$statistics_res['webinarsellall'] = $query_webinarcust->num_rows(); 
+		$statistics_res['webinarsellall'] = $query_webinarcust->num_rows();
 
 
 		$query_custleads = $this->db->select('total_leads')
-				->from('onboarding_transaction')
-				->where('date >=', date('Y-m-d', strtotime('-1 day')))
-				->where('isDelete', 0)
-				->order_by('id', 'asc')
-				->get();
+			->from('onboarding_transaction')
+			->where('date >=', date('Y-m-d', strtotime('-1 day')))
+			->where('isDelete', 0)
+			->order_by('id', 'asc')
+			->get();
 
 		$statistics_res['onboardleadsell'] = $query_custleads ? $query_custleads->num_rows() : 0;
 
 		$query_customersellall = $this->db->select('total_customers')
-				->from('onboarding_transaction')
-				->where('date >=', date('Y-m-d', strtotime('-1 day')))
-				->where('isDelete', 0)
-				->order_by('id', 'asc')
-				->get();
+			->from('onboarding_transaction')
+			->where('date >=', date('Y-m-d', strtotime('-1 day')))
+			->where('isDelete', 0)
+			->order_by('id', 'asc')
+			->get();
 
 		$statistics_res['onboardsellall'] = $query_customersellall ? $query_customersellall->num_rows() : 0;
 
 		return $statistics_res;
-
-
 	}
 
 	public function getApplicationReport()

@@ -37,9 +37,6 @@ class Site_Support_Model extends CI_Model
 				);
 				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 			}
-
 		}
 	}
-
 }
-

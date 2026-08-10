@@ -329,7 +329,7 @@ class Loan extends CI_Controller
 			);
 			$this->load->helper('lyra');
 			$payurl = getpaymenturl($curlurl, $postData);
-			
+
 			$lyradata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'entryfor' => 4,
@@ -1036,7 +1036,7 @@ class Loan extends CI_Controller
 		} else {
 
 
-		$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
+			$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 			foreach ($uat_numbers as $uat_num) {
 				if ($uat_num == $mobileno) {
 					$grandamount = 1;
@@ -1099,7 +1099,6 @@ class Loan extends CI_Controller
 
 			$this->load->view('cashfree-checkout', ['pay_session_id' => $pay_sess_url, 'paymode' => $paymode]);
 		}
-		
 	}
 
 	public function megaofferresponse()
@@ -1550,6 +1549,4 @@ class Loan extends CI_Controller
 			$this->load->view('quickoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
-
-
 }

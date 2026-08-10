@@ -1,62 +1,66 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Apply extends CI_Controller {
-	
-	public function index(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Apply extends CI_Controller
+{
+
+	public function index()
+	{
 		return redirect()->to('Infopage');
 	}
 
-	public function sendotpCode(){
+	public function sendotpCode()
+	{
 		$mobile = $_REQUEST['mobile'];
 
 		$this->load->model('Site_General_Model');
 		$response = $this->Site_General_Model->generateotp($mobile, '');
 
-		if($response != 0){
-			echo json_encode(array("success"=>true, "message"=>"OTP sent to mobile.", "mobile"=>$mobile));
-		}
-		else {
-			echo json_encode(array("success"=>false, "message"=>"Ops. Something is wrong. Try again.", "mobile"=>""));
+		if ($response != 0) {
+			echo json_encode(array("success" => true, "message" => "OTP sent to mobile.", "mobile" => $mobile));
+		} else {
+			echo json_encode(array("success" => false, "message" => "Ops. Something is wrong. Try again.", "mobile" => ""));
 		}
 	}
 
-	public function checkotpCode(){
+	public function checkotpCode()
+	{
 		$mobile = $_REQUEST['mobile'];
 		$otpcode = $_REQUEST['otpcode'];
 
 		$this->load->model('Site_General_Model');
 		$response = $this->Site_General_Model->checkOTP($mobile, $otpcode);
 
-		if($response == true) {
-			echo json_encode(array("success"=>true, "message"=>"OTP verification successful.", "mobile"=>$mobile));
-		}
-		else {
-			echo json_encode(array("success"=>false, "message"=>"OTP is invalid.", "mobile"=>""));
+		if ($response == true) {
+			echo json_encode(array("success" => true, "message" => "OTP verification successful.", "mobile" => $mobile));
+		} else {
+			echo json_encode(array("success" => false, "message" => "OTP is invalid.", "mobile" => ""));
 		}
 	}
 
 
 	// START : PERSONAL LOAN FUNCTIONS
-	public function personalLoan(){
+	public function personalLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-personal-loan');
-		$this->load->view('apply-personal-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-personal-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function personalLoanForm($mobile = ''){
-		if($mobile != '') {
+	public function personalLoanForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-personal-loan');
-			$this->load->view('apply-personal-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-personal-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/personalLoan');	
+		} else {
+			redirect('apply/personalLoan');
 		}
 	}
 
-	public function personalLoanApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function personalLoanApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -70,42 +74,44 @@ Class Apply extends CI_Controller {
 
 			$this->load->model('Site_Enquiry_Model');
 			$enquiryid = $this->Site_Enquiry_Model->addEnquiry($data);
-			
+
 			$response = $this->Site_Enquiry_Model->sendOfflineGreetings($_REQUEST['mobile'], $_REQUEST['emailid'], 'personal loan');
 
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-personal-loan');
 
-			$this->load->view('apply-personal-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-personal-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/personalLoan');	
+		redirect('apply/personalLoan');
 	}
 	// END : PERSONAL LOAN FUNCTIONS
 
 
 	// START : BUSINESS LOAN FUNCTIONS
-	public function businessLoan(){
+	public function businessLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-business-loan');
-		$this->load->view('apply-business-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-business-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function businessLoanForm($mobile = ''){
-		if($mobile != '') {
+	public function businessLoanForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-business-loan');
-			$this->load->view('apply-business-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-business-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/businessLoan');	
+		} else {
+			redirect('apply/businessLoan');
 		}
 	}
 
-	public function businessLoanApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function businessLoanApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -125,36 +131,38 @@ Class Apply extends CI_Controller {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-business-loan');
 
-			$this->load->view('apply-business-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-business-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/businessLoan');	
+		redirect('apply/businessLoan');
 	}
 	// END : BUSINESS LOAN FUNCTIONS
 
 
 	// START : HOME LOAN FUNCTIONS
-	public function homeLoan(){
+	public function homeLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
-		$this->load->view('apply-home-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-home-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function homeLoanForm($mobile = ''){
-		if($mobile != '') {
+	public function homeLoanForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
-			$this->load->view('apply-home-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-home-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/homeLoan');	
+		} else {
+			redirect('apply/homeLoan');
 		}
 	}
 
-	public function homeLoanApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function homeLoanApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -174,36 +182,38 @@ Class Apply extends CI_Controller {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
 
-			$this->load->view('apply-home-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-home-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/homeLoan');	
+		redirect('apply/homeLoan');
 	}
 	// END : HOME LOAN FUNCTIONS
 
 
 	// START : HOME LOAN BT & TOPUP FUNCTIONS
-	public function homebtLoan(){
+	public function homebtLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
-		$this->load->view('apply-homebt-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-homebt-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function homeLoanbtForm($mobile = ''){
-		if($mobile != '') {
+	public function homeLoanbtForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
-			$this->load->view('apply-homebt-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-homebt-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/homebtLoan');	
+		} else {
+			redirect('apply/homebtLoan');
 		}
 	}
 
-	public function homeLoanbtApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function homeLoanbtApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -223,36 +233,38 @@ Class Apply extends CI_Controller {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-home-loan');
 
-			$this->load->view('apply-homebt-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-homebt-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/homebtLoan');	
+		redirect('apply/homebtLoan');
 	}
 	// END : HOME LOAN BT & TOPUP FUNCTIONS
 
 
 	// START : MORTGAGE LOAN FUNCTIONS
-	public function mortgageLoan(){
+	public function mortgageLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
-		$this->load->view('apply-mortgage-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-mortgage-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function mortgageLoanForm($mobile = ''){
-		if($mobile != '') {
+	public function mortgageLoanForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
-			$this->load->view('apply-mortgage-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-mortgage-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/mortgageLoan');	
+		} else {
+			redirect('apply/mortgageLoan');
 		}
 	}
 
-	public function mortgageLoanApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function mortgageLoanApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -272,36 +284,38 @@ Class Apply extends CI_Controller {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
 
-			$this->load->view('apply-mortgage-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-mortgage-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/mortgageLoan');	
+		redirect('apply/mortgageLoan');
 	}
 	// END : MORTGAGE LOAN FUNCTIONS
 
 
 	// START : MORTGAGE LOAN BT & TOPUP FUNCTIONS
-	public function mortgagebtLoan(){
+	public function mortgagebtLoan()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
-		$this->load->view('apply-mortgagebt-loan',['meta'=>$meta, 'processstep'=>'step1']);
+		$this->load->view('apply-mortgagebt-loan', ['meta' => $meta, 'processstep' => 'step1']);
 	}
 
-	public function mortgageLoanbtForm($mobile = ''){
-		if($mobile != '') {
+	public function mortgageLoanbtForm($mobile = '')
+	{
+		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
-			$this->load->view('apply-mortgagebt-loan',['meta'=>$meta, 'processstep'=>'step2', 'mobile'=>$mobile]);
+			$this->load->view('apply-mortgagebt-loan', ['meta' => $meta, 'processstep' => 'step2', 'mobile' => $mobile]);
 			return false;
-		}
-		else {
-			redirect('apply/mortgagebtLoan');	
+		} else {
+			redirect('apply/mortgagebtLoan');
 		}
 	}
 
-	public function mortgageLoanbtApply(){
-		if($_REQUEST['step'] == 'step2') {
+	public function mortgageLoanbtApply()
+	{
+		if ($_REQUEST['step'] == 'step2') {
 			$data = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'fullname' => $_REQUEST['fullname'],
@@ -317,34 +331,36 @@ Class Apply extends CI_Controller {
 			$enquiryid = $this->Site_Enquiry_Model->addEnquiry($data);
 
 			$response = $this->Site_Enquiry_Model->sendOfflineGreetings($_REQUEST['mobile'], $_REQUEST['emailid'], 'mortgage loan b.t. and top-up');
-			
+
 			$this->load->model('Site_Info_Model');
 			$meta = $this->Site_Info_Model->getmetakeywords('apply-mortgage-loan');
 
-			$this->load->view('apply-mortgagebt-loan',['meta'=>$meta, 'processstep'=>'step3']);
+			$this->load->view('apply-mortgagebt-loan', ['meta' => $meta, 'processstep' => 'step3']);
 			return false;
 		}
 
-		redirect('apply/mortgagebtLoan');	
+		redirect('apply/mortgagebtLoan');
 	}
 	// END : MORTGAGE LOAN BT & TOPUP FUNCTIONS
-	
 
-	public function career($slug){
+
+	public function career($slug)
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('career');
 		$jobdetails = $this->Site_Info_Model->getjobdetails($slug);
-		$this->load->view('apply-career',['meta'=>$meta, 'jobdetails'=>$jobdetails]);
+		$this->load->view('apply-career', ['meta' => $meta, 'jobdetails' => $jobdetails]);
 	}
 
-	public function careerSubmission(){
+	public function careerSubmission()
+	{
 		$resume = "";
 
-		if($_FILES['resume']['name'] != '') {
+		if ($_FILES['resume']['name'] != '') {
 			$this->load->model('Site_General_Model');
 			$resume = $this->Site_General_Model->single_file_upload('resume', 'resume', 'doc|docx|xls|xlsx|ppt|pptx|pdf|txt', 0);
 
-			if($resume == false) {
+			if ($resume == false) {
 				$resume = "";
 			}
 		}
@@ -367,15 +383,12 @@ Class Apply extends CI_Controller {
 		$this->load->model('Site_Info_Model');
 		$response = $this->Site_Info_Model->careersubmission($data);
 
-		if($response == true) {
+		if ($response == true) {
 			$message = '<div class="alert alert-success fade show" role="alert">Thank you for showing interest with us. Our HR team will get back to you soon. Have a nice day.</div>';
-			echo json_encode(array("success"=>true, "message"=>$message));
-		} 
-		else {
+			echo json_encode(array("success" => true, "message" => $message));
+		} else {
 			$message = '<div class="alert alert-danger fade show" role="alert">Ops. Something goes wrong.</div>';
-			echo json_encode(array("success"=>false, "message"=>$message));
+			echo json_encode(array("success" => false, "message" => $message));
 		}
 	}
-
-	
 }

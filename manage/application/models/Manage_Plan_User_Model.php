@@ -46,14 +46,15 @@ class Manage_Plan_User_Model extends CI_Model
 		return $orderid;
 	}
 
-	public function getplanrecord($id){
-		
-		$query = $this->db->where('id',$id)
-					->get('plan_order')
-					->row();
+	public function getplanrecord($id)
+	{
 
-				
-		return $query;  
+		$query = $this->db->where('id', $id)
+			->get('plan_order')
+			->row();
+
+
+		return $query;
 	}
 
 	public function applicationstatus($data)
@@ -458,7 +459,7 @@ class Manage_Plan_User_Model extends CI_Model
 				->update('plan_user_registration', $data);
 
 			// Send SMS
-			$message = "Hello ".$account->fullname." Your Privylege account's new password is ".$password.". Do not share it with anyone. Thanks, Privylege";
+			$message = "Hello " . $account->fullname . " Your Privylege account's new password is " . $password . ". Do not share it with anyone. Thanks, Privylege";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 
 			return true;
@@ -470,9 +471,9 @@ class Manage_Plan_User_Model extends CI_Model
 	public function manageaccountstatus($id, $status)
 	{
 		$account = $this->db->where('id', $id)
-							->where('isDelete',0)
-							->get('plan_user_registration')->row();
-		if($account) {
+			->where('isDelete', 0)
+			->get('plan_user_registration')->row();
+		if ($account) {
 			$data = array(
 				'isActive' => $status,
 			);
@@ -480,21 +481,20 @@ class Manage_Plan_User_Model extends CI_Model
 			$sql_query = $this->db->where('id', $id)
 				->update('plan_user_registration', $data);
 
-				if($status == 0) {
-					$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Privylege";
-					$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
-				}
-				$this->db->close();
-				$this->db->initialize();
-	
-				return true; 
-		} else {
-				$this->db->close();
-				$this->db->initialize();
-	
-				return false;
-		}
+			if ($status == 0) {
+				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Privylege";
+				$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
+			}
+			$this->db->close();
+			$this->db->initialize();
 
+			return true;
+		} else {
+			$this->db->close();
+			$this->db->initialize();
+
+			return false;
+		}
 	}
 
 	public function generateinvoice($data, $invoiceno)
@@ -512,13 +512,14 @@ class Manage_Plan_User_Model extends CI_Model
 		return $invoiceid;
 	}
 
-	public function invoce_log_data($data){
-		
-		$this->db->insert('invoice_log_data',$data);
+	public function invoce_log_data($data)
+	{
+
+		$this->db->insert('invoice_log_data', $data);
 		$log_id = $this->db->insert_id();
-		if($log_id != ''){
+		if ($log_id != '') {
 			return true;
-		} else {	
+		} else {
 			return false;
 		}
 	}
@@ -553,21 +554,21 @@ class Manage_Plan_User_Model extends CI_Model
 	public function manageaccountdeletepermanent($id)
 	{
 		$data = array(
-		   'isDelete' => 1
+			'isDelete' => 1
 		);
-		
+
 		$res1 = $this->db->where('userid', $id)
-						->update('plan_user_application', $data); 
+			->update('plan_user_application', $data);
 
 		$res2 = $this->db->where('id', $id)
-						->update('	plan_user_registration', $data);
-					
+			->update('	plan_user_registration', $data);
+
 		$res3 = $this->db->where('userid', $id)
-						->update('plan_order', $data);
-		
+			->update('plan_order', $data);
+
 		$res4 = $this->db->where('userid', $id)
-						->or_where(['inv_for'=>1,'inv_for'=>2])
-						->update('invoice', $data);
+			->or_where(['inv_for' => 1, 'inv_for' => 2])
+			->update('invoice', $data);
 
 		return true;
 	}
@@ -621,4 +622,3 @@ class Manage_Plan_User_Model extends CI_Model
 		return true;
 	}
 }
-

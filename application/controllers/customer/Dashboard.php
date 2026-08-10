@@ -1,38 +1,42 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Dashboard extends CI_Controller {
-	
-	function __construct(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Dashboard extends CI_Controller
+{
+
+	function __construct()
+	{
 		parent::__construct();
 
-		if(! $this->session->userdata('bfp-customerid')) {
+		if (! $this->session->userdata('bfp-customerid')) {
 			return redirect('customer/login');
 		}
 	}
 
-	public function index(){
+	public function index()
+	{
 		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);
 
-		if($isagree == 0) {
+		if ($isagree == 0) {
 			return redirect('customer/license-agreement');
 			die;
 		}
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
-		
+
 		$this->load->model('Customer_Profile_Model');
 		$statestics = $this->Customer_Profile_Model->getallstatestics($id);
 		$profiledata = $this->Customer_Profile_Model->getprofile($id);
 		$accountmsg = $this->Customer_Profile_Model->getaccountmsg();
-		
-		$this->load->view('customer/dashboard', ['meta'=>$meta, 'statestics'=>$statestics, 'profiledata'=>$profiledata, 'accountmsg'=>$accountmsg]);
+
+		$this->load->view('customer/dashboard', ['meta' => $meta, 'statestics' => $statestics, 'profiledata' => $profiledata, 'accountmsg' => $accountmsg]);
 	}
 
-	public function license_agreement(){
+	public function license_agreement()
+	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 		$contentdetails = $this->Site_Info_Model->getpagedetails('customer-legal-agreement');
@@ -41,13 +45,14 @@ Class Dashboard extends CI_Controller {
 		$this->load->model('Customer_Profile_Model');
 		$profiledata = $this->Customer_Profile_Model->getprofile($id);
 
-		$this->load->view('customer/license-agreement', ['meta'=>$meta, 'contentdetails'=>$contentdetails, 'profiledata'=>$profiledata]);
+		$this->load->view('customer/license-agreement', ['meta' => $meta, 'contentdetails' => $contentdetails, 'profiledata' => $profiledata]);
 	}
 
-	public function acceptlicence(){
+	public function acceptlicence()
+	{
 		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
-		
-		if(($customerid == stringCrypt($_REQUEST['customerid'], 'decrypt')) && ($_REQUEST['agree'] == 1)) {
+
+		if (($customerid == stringCrypt($_REQUEST['customerid'], 'decrypt')) && ($_REQUEST['agree'] == 1)) {
 			$data = array(
 				'iAgree' => $_REQUEST['agree']
 			);
@@ -59,5 +64,4 @@ Class Dashboard extends CI_Controller {
 		return redirect('customer/dashboard');
 		die;
 	}
-
 }

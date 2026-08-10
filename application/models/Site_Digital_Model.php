@@ -140,7 +140,7 @@ class Site_Digital_Model extends CI_Model
 					$subject = "Welcome Bharatfinpro";
 
 					$message = '<p>Hello,</p>';
-					$message .= '<p>Your Personal Loan Eligible Rs. '. $eligibilityamt .' in Your Account Get Starting Rate 10.25%. Apply Now : <a href="https://bit.ly/37hEQK0" target="_blank">https://bit.ly/37hEQK0</a></p>';
+					$message .= '<p>Your Personal Loan Eligible Rs. ' . $eligibilityamt . ' in Your Account Get Starting Rate 10.25%. Apply Now : <a href="https://bit.ly/37hEQK0" target="_blank">https://bit.ly/37hEQK0</a></p>';
 					$message .= '<p>Thanks & Regards,<br/>' . COMPANY_NAME . '</p>';
 
 					$this->load->model('Site_General_Model');
@@ -412,42 +412,48 @@ class Site_Digital_Model extends CI_Model
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
 	}
 
-	public function lyraentry($data) {
+	public function lyraentry($data)
+	{
 		$this->db->insert('lyra_entry', $data);
 		$id = $this->db->insert_id();
 		return $id;
 	}
 
-	public function getlyraentry($orderid) {
+	public function getlyraentry($orderid)
+	{
 		$query = $this->db->where('orderid', $orderid)
-		 ->get('lyra_entry')
-		 ->row();
+			->get('lyra_entry')
+			->row();
 		return $query;
 	}
 
-	public function updatelyraentry($id, $data) {
+	public function updatelyraentry($id, $data)
+	{
 		$query = $this->db->where('id', $id)
-		 ->update('lyra_entry', $data);
+			->update('lyra_entry', $data);
 		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
 		return $flag;
 	}
 
-	public function paygicentry($data) {
+	public function paygicentry($data)
+	{
 		$this->db->insert('paygic_entry', $data);
 		$id = $this->db->insert_id();
 		return $id;
 	}
 
-	public function getpaygicentry($orderid) {
+	public function getpaygicentry($orderid)
+	{
 		$query = $this->db->where('orderid', $orderid)
-		 ->get('paygic_entry')
-		 ->row();
+			->get('paygic_entry')
+			->row();
 		return $query;
 	}
 
-	public function updatepaygicentry($id, $data) {
+	public function updatepaygicentry($id, $data)
+	{
 		$query = $this->db->where('id', $id)
-		 ->update('paygic_entry', $data);
+			->update('paygic_entry', $data);
 		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
 		return $flag;
 	}
@@ -593,11 +599,10 @@ class Site_Digital_Model extends CI_Model
 		if ($mobile != '') {
 			$this->load->model('Site_Info_Model');
 			$message = $this->Site_Info_Model->getsmsmessage('account-sms');
-			
+
 			if ($message != '') {
 				$smsresponse = senddynamicSMSobb($mobile, $message, 'main');
 			}
-			
 		}
 
 		if ($emailid != '') {
@@ -620,37 +625,42 @@ class Site_Digital_Model extends CI_Model
 		return true;
 	}
 
-	public function airpayentry($data) {
+	public function airpayentry($data)
+	{
 		$this->db->insert('airpay_entry', $data);
 		$id = $this->db->insert_id();
 		return $id;
 	}
 
-	public function getairpayentry($orderid) {
+	public function getairpayentry($orderid)
+	{
 		$query = $this->db->where('orderid', $orderid)
-		 ->get('airpay_entry')
-		 ->row();
+			->get('airpay_entry')
+			->row();
 		return $query;
 	}
 
-	public function updateairpayentry($id, $data) {
+	public function updateairpayentry($id, $data)
+	{
 		$query = $this->db->where('id', $id)
-		 ->update('airpay_entry', $data);
+			->update('airpay_entry', $data);
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
 	}
 
-	public function getPendingOrdersData(){
+	public function getPendingOrdersData()
+	{
 		$this->db->select('*');
 		$this->db->from('zaakpay_entry');
-		$this->db->where('statuscode IS NULL', null, false); 
+		$this->db->where('statuscode IS NULL', null, false);
 		$this->db->where_in('entryfor', [11, 12]);
 		$this->db->where('rec_date >=', date('Y-m-d H:i:s', strtotime('-2 hours')));
-		$this->db->order_by('rec_date', 'DESC');          
+		$this->db->order_by('rec_date', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
 
-	public function updateZaakpayEntryOrder($orderId, $data){
+	public function updateZaakpayEntryOrder($orderId, $data)
+	{
 		$this->db->where('orderid', $orderId);
 		return $this->db->update('zaakpay_entry', $data);
 	}

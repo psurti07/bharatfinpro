@@ -3,31 +3,31 @@ include_once(APPPATH . 'views/includes/header.php');
 ?>
 
 <script type="text/javascript">
-	window.onload = function() {
-		document.getElementById("136").className += " active";
-		document.getElementById("1361").className += " active";
-	}
+window.onload = function() {
+    document.getElementById("136").className += " active";
+    document.getElementById("1361").className += " active";
+}
 </script>
 
 <style>
-    .overlay {
-        display: none;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        background: rgba(255, 255, 255, .8) url("<?php echo base_url('assets/images/spinner.gif'); ?>") center no-repeat;
-    }
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, .8) url("<?php echo base_url('assets/images/spinner.gif'); ?>") center no-repeat;
+}
 
-    body.loading {
-        overflow: hidden;
-    }
+body.loading {
+    overflow: hidden;
+}
 
-    body.loading .overlay {
-        display: block;
-    }
+body.loading .overlay {
+    display: block;
+}
 </style>
 
 <div class="content-header row">
@@ -238,87 +238,87 @@ include_once(APPPATH . 'views/includes/header.php');
 <?php include_once(APPPATH . 'views/includes/footer.php'); ?>
 
 <script>
-    $(document).on({
-        ajaxStart: function() {
-            $("body").addClass("loading");
+$(document).on({
+    ajaxStart: function() {
+        $("body").addClass("loading");
+    },
+    ajaxStop: function() {
+        $("body").removeClass("loading");
+    }
+});
+
+$('.model_data').click(function() {
+
+    $('#table_data').html('');
+    $('#subtotalapplication').html(0);
+
+    $.ajax({
+
+        url: '<?php echo base_url("report/applicationdaywise"); ?>',
+
+        type: 'POST',
+
+        dataType: 'json',
+
+        data: {
+            month: $(this).data('month'),
+            year: $(this).data('year')
         },
-        ajaxStop: function() {
-            $("body").removeClass("loading");
+
+        success: function(response) {
+            var html = '';
+
+            var approved = 0;
+            var rejected = 0;
+            var queryprocess = 0;
+            var customerdecline = 0;
+            var total = 0;
+
+            $.each(response, function(i, row) {
+
+                html += '<tr>';
+
+                html += '<td>' + row.recdate + '</td>';
+
+                html += '<td class="text-center">' + row.approved + '</td>';
+
+                html += '<td class="text-center">' + row.rejected + '</td>';
+
+                html += '<td class="text-center">' + row.queryprocess + '</td>';
+
+                html += '<td class="text-center">' + row.customerdecline + '</td>';
+
+                html += '<td class="text-center">' + row.totalapplication + '</td>';
+
+                html += '</tr>';
+
+                approved += parseInt(row.approved);
+                rejected += parseInt(row.rejected);
+                queryprocess += parseInt(row.queryprocess);
+                customerdecline += parseInt(row.customerdecline);
+                total += parseInt(row.totalapplication);
+
+            });
+
+            $('#table_data').html(html);
+
+            $('#totalapproved').html(approved);
+
+            $('#totalrejected').html(rejected);
+
+            $('#totalqueryprocess').html(queryprocess);
+
+            $('#totalcustomerdecline').html(customerdecline);
+
+            $('#grandtotal').html(total);
+
+            $('#clickmonthname').html(
+                $('.model_data:focus').data('statusname')
+            );
+
         }
-    });
-
-    $('.model_data').click(function() {
-
-        $('#table_data').html('');
-        $('#subtotalapplication').html(0);
-
-        $.ajax({
-
-            url: '<?php echo base_url("report/applicationdaywise"); ?>',
-
-            type: 'POST',
-
-            dataType: 'json',
-
-            data: {
-                month: $(this).data('month'),
-                year: $(this).data('year')
-            },
-
-            success: function(response) {
-                var html = '';
-
-                var approved = 0;
-                var rejected = 0;
-                var queryprocess = 0;
-                var customerdecline = 0;
-                var total = 0;
-
-                $.each(response, function(i, row) {
-
-                    html += '<tr>';
-
-                    html += '<td>' + row.recdate + '</td>';
-
-                    html += '<td class="text-center">' + row.approved + '</td>';
-
-                    html += '<td class="text-center">' + row.rejected + '</td>';
-
-                    html += '<td class="text-center">' + row.queryprocess + '</td>';
-
-                    html += '<td class="text-center">' + row.customerdecline + '</td>';
-
-                    html += '<td class="text-center">' + row.totalapplication + '</td>';
-
-                    html += '</tr>';
-
-                    approved += parseInt(row.approved);
-                    rejected += parseInt(row.rejected);
-                    queryprocess += parseInt(row.queryprocess);
-                    customerdecline += parseInt(row.customerdecline);
-                    total += parseInt(row.totalapplication);
-
-                });
-
-                $('#table_data').html(html);
-
-                $('#totalapproved').html(approved);
-
-                $('#totalrejected').html(rejected);
-
-                $('#totalqueryprocess').html(queryprocess);
-
-                $('#totalcustomerdecline').html(customerdecline);
-
-                $('#grandtotal').html(total);
-
-                $('#clickmonthname').html(
-                    $('.model_data:focus').data('statusname')
-                );
-
-            }
-
-        });
 
     });
+
+});
 </script>

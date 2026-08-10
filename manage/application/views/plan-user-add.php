@@ -1,5 +1,5 @@
 <?php
-    include_once(APPPATH.'views/includes/header.php');
+include_once(APPPATH . 'views/includes/header.php');
 ?>
 
 <script type="text/javascript">
@@ -29,7 +29,7 @@ window.onload = function() {
 
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            <?php echo form_open_multipart('plan/addUser', array('id'=>'submitForm', 'class'=>'form-horizontal', 'enctype'=>'multipart/form-data', 'novalidate'=>'novalidate')); ?>
+                            <?php echo form_open_multipart('plan/addUser', array('id' => 'submitForm', 'class' => 'form-horizontal', 'enctype' => 'multipart/form-data', 'novalidate' => 'novalidate')); ?>
 
                             <div class="form-body">
                                 <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
@@ -221,7 +221,7 @@ window.onload = function() {
                                     <div class="form-group col-md-6">
                                         <label for="paymentid">Payment Id</label>
                                         <input type="text" name="paymentid" id="paymentid" class="form-control"
-                                            value="<?php echo 'cash_'.random_password(13) ?>">
+                                            value="<?php echo 'cash_' . random_password(13) ?>">
                                     </div>
                                 </div>
 
@@ -244,7 +244,7 @@ window.onload = function() {
 </div>
 
 <?php
-    include_once(APPPATH.'views/includes/footer.php');
+include_once(APPPATH . 'views/includes/footer.php');
 ?>
 
 <script type="text/javascript">

@@ -1,28 +1,32 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Digital extends CI_Controller {
-	
-	function __construct(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Digital extends CI_Controller
+{
+
+	function __construct()
+	{
 		parent::__construct();
 
-		if(! $this->session->userdata('bfp-customerid')) {
+		if (! $this->session->userdata('bfp-customerid')) {
 			return redirect('customer/login');
 		}
 	}
-	public function index(){
+	public function index()
+	{
 		return redirect()->to('customer/dashboard');
 	}
 
 
 	// START : PERSONAL LOAN FUNCTIONS
-	public function personalLoan($step = 's1') {
+	public function personalLoan($step = 's1')
+	{
 		$flag = 0;
 		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$profiledata = $this->Customer_Profile_Model->getprofile($customerid);
 
-		if($profiledata->cardtype != 11) {
+		if ($profiledata->cardtype != 11) {
 			return redirect('customer/offers');
 			die;
 		}
@@ -33,24 +37,25 @@ Class Digital extends CI_Controller {
 		$this->load->model('Customer_Digital_Model');
 		$lastapplication = $this->Customer_Digital_Model->getlastrecord($customerid);
 
-		if($lastapplication->rec_date != "") {
+		if ($lastapplication->rec_date != "") {
 			$now = time(); // or your date as well
 			$your_date = strtotime($lastapplication->rec_date);
 			$datediff = $now - $your_date;
 			$days = round($datediff / (60 * 60 * 24));
-			$flag = ($days>=60) ? 1 : 0;
+			$flag = ($days >= 60) ? 1 : 0;
 		}
-		
+
 		$data = array(
 			'flag' => $flag,
 			'step' => $step,
 			'userid' => $customerid
 		);
 
-		$this->load->view('customer/digital-personal-loan', ['meta'=>$meta, 'userdetails'=>$data]);
+		$this->load->view('customer/digital-personal-loan', ['meta' => $meta, 'userdetails' => $data]);
 	}
 
-	public function userPersonalApply(){
+	public function userPersonalApply()
+	{
 		$data_res = array(
 			'userid' => stringCrypt($_REQUEST['userid'], 'decrypt'),
 			'loantype' => $_REQUEST['loantype'],
@@ -64,7 +69,7 @@ Class Digital extends CI_Controller {
 
 		$this->load->model('Customer_Digital_Model');
 		$response = $this->Customer_Digital_Model->applyapplication($data_res);
-	
+
 		$data = array(
 			'step' => 's2',
 			'flag' => 1,
@@ -87,17 +92,18 @@ Class Digital extends CI_Controller {
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		$this->load->view('customer/digital-personal-loan', ['meta'=>$meta, 'userdetails'=>$data]);
+		$this->load->view('customer/digital-personal-loan', ['meta' => $meta, 'userdetails' => $data]);
 	}
 	// END : PERSONAL LOAN FUNCTIONS
 
 
 	// START : BUSINESS LOAN FUNCTIONS
-	public function businessloan($step = 's1') {
+	public function businessloan($step = 's1')
+	{
 		$flag = 0;
 		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 		$profiledata = $this->Customer_Profile_Model->getprofile($customerid);
-		if($profiledata->cardtype != 12) {
+		if ($profiledata->cardtype != 12) {
 			return redirect('customer/offers');
 			die;
 		}
@@ -108,24 +114,25 @@ Class Digital extends CI_Controller {
 		$this->load->model('Customer_Digital_Model');
 		$lastapplication = $this->Customer_Digital_Model->getlastrecord($customerid);
 
-		if($lastapplication->rec_date != "") {
+		if ($lastapplication->rec_date != "") {
 			$now = time(); // or your date as well
 			$your_date = strtotime($lastapplication->rec_date);
 			$datediff = $now - $your_date;
 			$days = round($datediff / (60 * 60 * 24));
-			$flag = ($days>=60) ? 1 : 0;
+			$flag = ($days >= 60) ? 1 : 0;
 		}
-		
+
 		$data = array(
 			'flag' => $flag,
 			'step' => $step,
 			'userid' => $customerid
 		);
 
-		$this->load->view('customer/digital-business-loan', ['meta'=>$meta, 'userdetails'=>$data]);
+		$this->load->view('customer/digital-business-loan', ['meta' => $meta, 'userdetails' => $data]);
 	}
 
-	public function userBusinessApply(){
+	public function userBusinessApply()
+	{
 		$data_res = array(
 			'userid' => stringCrypt($_REQUEST['userid'], 'decrypt'),
 			'loantype' => $_REQUEST['loantype'],
@@ -162,12 +169,13 @@ Class Digital extends CI_Controller {
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		$this->load->view('customer/digital-business-loan', ['meta'=>$meta, 'userdetails'=>$data]);
+		$this->load->view('customer/digital-business-loan', ['meta' => $meta, 'userdetails' => $data]);
 	}
 	// END : BUSINESS LOAN FUNCTIONS
 
 
-	public function getpreApproval(){
+	public function getpreApproval()
+	{
 		$data = array(
 			'loantenure' => $_REQUEST['tenure']
 		);
@@ -178,11 +186,10 @@ Class Digital extends CI_Controller {
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		if($response == true) {
-			$this->load->view('customer/payment-response', ['meta'=>$meta, 'status'=>'true']);
-		}
-		else {
-			$this->load->view('customer/payment-response', ['meta'=>$meta, 'status'=>'false']);
+		if ($response == true) {
+			$this->load->view('customer/payment-response', ['meta' => $meta, 'status' => 'true']);
+		} else {
+			$this->load->view('customer/payment-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
 }

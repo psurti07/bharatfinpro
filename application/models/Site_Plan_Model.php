@@ -29,7 +29,6 @@ class Site_Plan_Model extends CI_Model
 			->get();
 
 		return $query->row();
-
 	}
 
 
@@ -47,7 +46,6 @@ class Site_Plan_Model extends CI_Model
 			->get('plan_user_registration');
 
 		return $query->row();
-
 	}
 
 
@@ -69,7 +67,6 @@ class Site_Plan_Model extends CI_Model
 			->get();
 
 		return $query->row();
-
 	}
 
 
@@ -91,7 +88,6 @@ class Site_Plan_Model extends CI_Model
 			->get();
 
 		return $query->row();
-
 	}
 
 
@@ -109,7 +105,6 @@ class Site_Plan_Model extends CI_Model
 			->get('plan_order');
 
 		return $query->row();
-
 	}
 
 
@@ -123,7 +118,6 @@ class Site_Plan_Model extends CI_Model
 		$userid = $this->db->insert_id();
 
 		return $userid;
-
 	}
 
 
@@ -137,7 +131,6 @@ class Site_Plan_Model extends CI_Model
 		$applyid = $this->db->insert_id();
 
 		return $applyid;
-
 	}
 
 
@@ -151,7 +144,6 @@ class Site_Plan_Model extends CI_Model
 			->update('plan_user_registration', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -165,7 +157,6 @@ class Site_Plan_Model extends CI_Model
 			->update('plan_user_application', $data);
 
 		return ($this->db->affected_rows() != 1) ? false : true;
-
 	}
 
 
@@ -191,9 +182,7 @@ class Site_Plan_Model extends CI_Model
 					if ($message != '') {
 
 						$smsresponse = senddynamicSMSobb($mobile, $message, 'plan');
-
 					}
-
 				}
 
 				break;
@@ -213,9 +202,7 @@ class Site_Plan_Model extends CI_Model
 					if ($message != '') {
 
 						$smsresponse = senddynamicSMSobb($mobile, $message, 'plan');
-
 					}
-
 				}
 
 				break;
@@ -227,13 +214,11 @@ class Site_Plan_Model extends CI_Model
 				# code...
 
 				break;
-
 		}
 
 
 
 		return true;
-
 	}
 
 
@@ -263,11 +248,8 @@ class Site_Plan_Model extends CI_Model
 						if ($premessage != '') {
 
 							$smsresponse = senddynamicSMSobb($mobile, $premessage, 'plan');
-
 						}
-
 					}
-
 				}
 
 
@@ -282,7 +264,7 @@ class Site_Plan_Model extends CI_Model
 
 					$message = '<p>Hello,</p>';
 
-					$message .= '<p>Your Personal Loan Eligible Rs. '. $eligibilityamt .' in Your Account Get Starting Rate 10.25%. Apply Now : <a href="https://bit.ly/37hEQK0" target="_blank">https://bit.ly/37hEQK0</a></p>';
+					$message .= '<p>Your Personal Loan Eligible Rs. ' . $eligibilityamt . ' in Your Account Get Starting Rate 10.25%. Apply Now : <a href="https://bit.ly/37hEQK0" target="_blank">https://bit.ly/37hEQK0</a></p>';
 
 					$message .= '<p>Thanks & Regards,<br/>' . COMPANY_NAME . '</p>';
 
@@ -307,9 +289,7 @@ class Site_Plan_Model extends CI_Model
 						);
 
 						$mailresponse = sendinblueHTMLmail($maildata, $subject, $content); */
-
 					}
-
 				}
 
 				break;
@@ -331,11 +311,8 @@ class Site_Plan_Model extends CI_Model
 						if ($premessage != '') {
 
 							$smsresponse = senddynamicSMSobb($mobile, $premessage, 'plan');
-
 						}
-
 					}
-
 				}
 
 				break;
@@ -347,13 +324,11 @@ class Site_Plan_Model extends CI_Model
 				# code...
 
 				break;
-
 		}
 
 
 
 		return true;
-
 	}
 
 
@@ -367,7 +342,6 @@ class Site_Plan_Model extends CI_Model
 		$appstausid = $this->db->insert_id();
 
 		return $appstausid;
-
 	}
 
 
@@ -381,7 +355,6 @@ class Site_Plan_Model extends CI_Model
 		$memberid = $this->db->insert_id();
 
 		return $memberid;
-
 	}
 
 
@@ -399,7 +372,6 @@ class Site_Plan_Model extends CI_Model
 			->num_rows();
 
 		return $query;
-
 	}
 
 
@@ -413,7 +385,6 @@ class Site_Plan_Model extends CI_Model
 			->get('plan_user_registration');
 
 		return $query->row();
-
 	}
 
 
@@ -427,7 +398,6 @@ class Site_Plan_Model extends CI_Model
 		$treeid = $this->db->insert_id();
 
 		return $treeid;
-
 	}
 
 
@@ -443,7 +413,6 @@ class Site_Plan_Model extends CI_Model
 
 
 		return $id;
-
 	}
 
 
@@ -457,7 +426,6 @@ class Site_Plan_Model extends CI_Model
 			->get('cashfree_entry');
 
 		return $query->row();
-
 	}
 
 
@@ -471,7 +439,6 @@ class Site_Plan_Model extends CI_Model
 			->update('cashfree_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -487,7 +454,6 @@ class Site_Plan_Model extends CI_Model
 
 
 		return $id;
-
 	}
 
 
@@ -501,7 +467,6 @@ class Site_Plan_Model extends CI_Model
 			->get('paytm_entry');
 
 		return $query->row();
-
 	}
 
 
@@ -515,7 +480,6 @@ class Site_Plan_Model extends CI_Model
 			->update('paytm_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 	public function subpaisaentry($data)
@@ -529,7 +493,6 @@ class Site_Plan_Model extends CI_Model
 
 
 		return $id;
-
 	}
 
 
@@ -543,7 +506,6 @@ class Site_Plan_Model extends CI_Model
 			->get('subpaisa_entry');
 
 		return $query->row();
-
 	}
 
 
@@ -557,7 +519,6 @@ class Site_Plan_Model extends CI_Model
 			->update('subpaisa_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -573,7 +534,6 @@ class Site_Plan_Model extends CI_Model
 
 
 		return $id;
-
 	}
 
 
@@ -587,7 +547,6 @@ class Site_Plan_Model extends CI_Model
 			->get('upipayment_entry');
 
 		return $query->row();
-
 	}
 
 
@@ -601,7 +560,6 @@ class Site_Plan_Model extends CI_Model
 			->update('upipayment_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -615,7 +573,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -631,7 +588,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -645,7 +601,6 @@ class Site_Plan_Model extends CI_Model
 			->update('zaakpay_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -659,7 +614,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -675,7 +629,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -689,7 +642,6 @@ class Site_Plan_Model extends CI_Model
 			->update('worldline_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -703,7 +655,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -719,7 +670,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -733,7 +683,6 @@ class Site_Plan_Model extends CI_Model
 			->update('phonepe_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -747,7 +696,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -763,7 +711,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -779,7 +726,6 @@ class Site_Plan_Model extends CI_Model
 		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
 
 		return $flag;
-
 	}
 
 
@@ -793,7 +739,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -807,7 +752,6 @@ class Site_Plan_Model extends CI_Model
 			->get('payu_entry');
 
 		return $query->row();
-
 	}
 
 
@@ -821,87 +765,86 @@ class Site_Plan_Model extends CI_Model
 			->update('payu_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
 
-	public function lyraentry($data) {
+	public function lyraentry($data)
+	{
 
 		$this->db->insert('lyra_entry', $data);
 
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
 
-	public function getlyraentry($orderid) {
+	public function getlyraentry($orderid)
+	{
 
 		$query = $this->db->where('orderid', $orderid)
 
-		 ->get('lyra_entry')
+			->get('lyra_entry')
 
-		 ->row();
+			->row();
 
 		return $query;
-
 	}
 
 
 
-	public function updatelyraentry($id, $data) {
+	public function updatelyraentry($id, $data)
+	{
 
 		$query = $this->db->where('id', $id)
 
-		 ->update('lyra_entry', $data);
+			->update('lyra_entry', $data);
 
 		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
 
 		return $flag;
-
 	}
 
 
 
-	public function paygicentry($data) {
+	public function paygicentry($data)
+	{
 
 		$this->db->insert('paygic_entry', $data);
 
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
 
-	public function getpaygicentry($orderid) {
+	public function getpaygicentry($orderid)
+	{
 
 		$query = $this->db->where('orderid', $orderid)
 
-		 ->get('paygic_entry')
+			->get('paygic_entry')
 
-		 ->row();
+			->row();
 
 		return $query;
-
 	}
 
 
 
-	public function updatepaygicentry($id, $data) {
+	public function updatepaygicentry($id, $data)
+	{
 
 		$query = $this->db->where('id', $id)
 
-		 ->update('paygic_entry', $data);
+			->update('paygic_entry', $data);
 
 		$flag = ($this->db->affected_rows() != 1) ? 'false' : 'true';
 
 		return $flag;
-
 	}
 
 
@@ -915,7 +858,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -931,7 +873,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -945,7 +886,6 @@ class Site_Plan_Model extends CI_Model
 			->update('steptopay_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -959,7 +899,6 @@ class Site_Plan_Model extends CI_Model
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
@@ -975,7 +914,6 @@ class Site_Plan_Model extends CI_Model
 			->row();
 
 		return $query;
-
 	}
 
 
@@ -989,7 +927,6 @@ class Site_Plan_Model extends CI_Model
 			->update('cardoffer_order', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
@@ -1019,7 +956,6 @@ class Site_Plan_Model extends CI_Model
 
 
 		return $invoiceid;
-
 	}
 
 
@@ -1033,7 +969,6 @@ class Site_Plan_Model extends CI_Model
 			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Privylege";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
-
 		}
 
 
@@ -1077,13 +1012,11 @@ class Site_Plan_Model extends CI_Model
 				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 
 			}
-
 		}
 
 
 
 		return true;
-
 	}
 
 
@@ -1097,7 +1030,6 @@ class Site_Plan_Model extends CI_Model
 			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Privylege";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
-
 		}
 
 
@@ -1141,13 +1073,11 @@ class Site_Plan_Model extends CI_Model
 				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
 
 			}
-
 		}
 
 
 
 		return true;
-
 	}
 
 
@@ -1167,13 +1097,10 @@ class Site_Plan_Model extends CI_Model
 			if ($message != '') {
 
 				$smsresponse = senddynamicSMSobb($mobile, $message, 'plan');
-
 			}
-
 		}
 
 		return true;
-
 	}
 
 
@@ -1188,16 +1115,12 @@ class Site_Plan_Model extends CI_Model
 
 			$message = $this->Site_Info_Model->getsmsmessage('plan-account-sms');
 
-			
+
 
 			if ($message != '') {
 
 				$smsresponse = senddynamicSMSobb($mobile, $message, 'plan');
-
 			}
-
-			
-
 		}
 
 
@@ -1229,86 +1152,81 @@ class Site_Plan_Model extends CI_Model
 				);
 
 				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
-
 			}
-
 		}
 
 
 
 		return true;
-
 	}
 
 
 
-	public function airpayentry($data) {
+	public function airpayentry($data)
+	{
 
 		$this->db->insert('airpay_entry', $data);
 
 		$id = $this->db->insert_id();
 
 		return $id;
-
 	}
 
 
 
-	public function getairpayentry($orderid) {
+	public function getairpayentry($orderid)
+	{
 
 		$query = $this->db->where('orderid', $orderid)
 
-		 ->get('airpay_entry')
+			->get('airpay_entry')
 
-		 ->row();
+			->row();
 
 		return $query;
-
 	}
 
 
 
-	public function updateairpayentry($id, $data) {
+	public function updateairpayentry($id, $data)
+	{
 
 		$query = $this->db->where('id', $id)
 
-		 ->update('airpay_entry', $data);
+			->update('airpay_entry', $data);
 
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
-
 	}
 
 
 
-	public function getPendingOrdersData(){
+	public function getPendingOrdersData()
+	{
 
 		$this->db->select('*');
 
 		$this->db->from('zaakpay_entry');
 
-		$this->db->where('statuscode IS NULL', null, false); 
+		$this->db->where('statuscode IS NULL', null, false);
 
 		$this->db->where_in('entryfor', [21, 22]);
 
 		$this->db->where('rec_date >=', date('Y-m-d H:i:s', strtotime('-2 hours')));
 
-		$this->db->order_by('rec_date', 'DESC');          
+		$this->db->order_by('rec_date', 'DESC');
 
 		$query = $this->db->get();
 
 		return $query->result();
-
 	}
 
 
 
-	public function updateZaakpayEntryOrder($orderId, $data){
+	public function updateZaakpayEntryOrder($orderId, $data)
+	{
 
 		$this->db->where('orderid', $orderId);
 
 		return $this->db->update('zaakpay_entry', $data);
-
 	}
-
 }
-

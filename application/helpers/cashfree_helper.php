@@ -2,25 +2,26 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 header('Content-Type: text/html; charset=utf-8');
 
-function getpaymenturl($csurl, $data) {
+function getpaymenturl($csurl, $data)
+{
   $cust_data = array(
-      "customer_id" => $data['customer_id'],
-      "customer_phone" => $data['customer_phone'],
-      "customer_name" => $data['customer_name'],
-      "customer_email" => $data['customer_email']
+    "customer_id" => $data['customer_id'],
+    "customer_phone" => $data['customer_phone'],
+    "customer_name" => $data['customer_name'],
+    "customer_email" => $data['customer_email']
   );
 
   $return_data = array(
-      "return_url" => $data['returnUrl']
+    "return_url" => $data['returnUrl']
   );
-  
+
   $data_req1 = array(
-      "order_id" => $data['order_id'],
-      "order_amount" => $data['order_amount'],
-      "order_currency" => "INR",
-      "customer_details" => $cust_data,
-      "order_meta" => $return_data,
-      "order_note" => $data['order_note']
+    "order_id" => $data['order_id'],
+    "order_amount" => $data['order_amount'],
+    "order_currency" => "INR",
+    "customer_details" => $cust_data,
+    "order_meta" => $return_data,
+    "order_note" => $data['order_note']
   );
   $data_req2 = json_encode($data_req1);
 
@@ -42,11 +43,11 @@ function getpaymenturl($csurl, $data) {
       "x-client-secret: " . CASHFREE_SECRET_KEY
     ]
   ]);
-  
+
   $response = curl_exec($curl);
   $err = curl_error($curl);
   curl_close($curl);
- 
+
   if ($err) {
     return "cURL Error #:" . $err;
   } else {
@@ -54,7 +55,8 @@ function getpaymenturl($csurl, $data) {
   }
 }
 
-function getorderdata($csurl) {
+function getorderdata($csurl)
+{
   $curl = curl_init();
   curl_setopt_array($curl, [
     CURLOPT_URL => $csurl,
@@ -82,6 +84,3 @@ function getorderdata($csurl) {
     return json_decode($response);
   }
 }
-
-
-?>

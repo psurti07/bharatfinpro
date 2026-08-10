@@ -1,45 +1,51 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Support extends MY_Controller {
-	
-	function __construct(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Support extends MY_Controller
+{
+
+	function __construct()
+	{
 		parent::__construct();
 
-		if($this->session->userdata('adminid') == FALSE) {
+		if ($this->session->userdata('adminid') == FALSE) {
 			redirect('login');
 		}
 	}
 
-	public function index(){
+	public function index()
+	{
 		redirect('dashboard');
 	}
 
-	public function ticket(){
+	public function ticket()
+	{
 		$dt_to = date('Y-m-d', strtotime('-2 days'));
 		$dt_from = date('Y-m-d');
 
-		if(isset($_REQUEST['dt_to'])) {
+		if (isset($_REQUEST['dt_to'])) {
 			$dt_to = $_REQUEST['dt_to'];
 		}
 
-		if(isset($_REQUEST['dt_from'])) {
+		if (isset($_REQUEST['dt_from'])) {
 			$dt_from = $_REQUEST['dt_from'];
 		}
-		
+
 		$this->load->model('Manage_Support_Model');
 		$ticketlist = $this->Manage_Support_Model->getsupportrequestlist($dt_to, $dt_from);
-		$this->load->view('support-request',['ticketlist'=>$ticketlist, 'dt_to'=>$dt_to, 'dt_from'=>$dt_from]);
+		$this->load->view('support-request', ['ticketlist' => $ticketlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
-	public function ticketdetails($id){
+	public function ticketdetails($id)
+	{
 		$this->load->model('Manage_Support_Model');
 		$details = $this->Manage_Support_Model->getsupportrequestdetails($id);
 		$staffreply = $this->Manage_Support_Model->getsupportstaffreply($id);
 
-		$this->load->view('support-request-details',['details'=>$details, 'staffreply'=>$staffreply]);
+		$this->load->view('support-request-details', ['details' => $details, 'staffreply' => $staffreply]);
 	}
 
-	public function addRequeststaffmsg(){
+	public function addRequeststaffmsg()
+	{
 		$this->load->model('Manage_Support_Model');
 		$reqdata = $this->Manage_Support_Model->getsupportrequestdetails($_REQUEST['requestid']);
 
@@ -55,14 +61,15 @@ Class Support extends MY_Controller {
 
 		$response2 = $this->Manage_Support_Model->sendTicketMessage($_REQUEST['remarks'], $reqdata->ticketnumber, $reqdata->email);
 
-		redirect('support/ticketdetails/'.$_REQUEST['requestid']);
+		redirect('support/ticketdetails/' . $_REQUEST['requestid']);
 	}
 
-	public function changeticketstatus($statusid, $id) {
+	public function changeticketstatus($statusid, $id)
+	{
 		$this->load->model('Manage_Support_Model');
 		$reqdata = $this->Manage_Support_Model->getsupportrequestdetails($id);
 
-		if($reqdata->id > 0){
+		if ($reqdata->id > 0) {
 			$this->Manage_Support_Model->changeticketstatus($statusid, $id);
 
 			switch ($statusid) {
@@ -81,13 +88,9 @@ Class Support extends MY_Controller {
 				case '4':
 					$response = $this->Manage_Support_Model->sendTicketResolvedMessage($reqdata->ticketnumber, $reqdata->email, $reqdata->mobile);
 					break;
-				
 			}
 		}
 
-		redirect('support/ticketdetails/'.$id);
+		redirect('support/ticketdetails/' . $id);
 	}
-
-	
 }
-?>

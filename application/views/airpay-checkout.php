@@ -38,48 +38,48 @@ $checksum = Checksum::calculateChecksumSha256($alldata . date('Y-m-d'), $keySha2
 $hiddenmod = "";
 ?>
 <!DOCTYPE html
-  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3./org/1999/xhtml">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Airpay</title>
-  <script type="text/javascript">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Airpay</title>
+    <script type="text/javascript">
     function submitForm() {
-      var form = document.forms[0];
-      form.submit();
+        var form = document.forms[0];
+        form.submit();
     }
-  </script>
+    </script>
 </head>
 
 <body onload="javascript:submitForm()">
-  <center>
-    <table width="500px;">
-      <tr>
-        <td align="center" valign="middle">Do Not Refresh or Press Back <br /> Redirecting to Airpay</td>
-      </tr>
-      <tr>
-        <td align="center" valign="middle">
-          <form action="<?php echo $url; ?>" method="post">
-            <input type="hidden" name="privatekey" value="<?php echo $privatekey; ?>">
-            <input type="hidden" name="mercid" value="<?php echo $mercid; ?>">
-            <input type="hidden" name="orderid" value="<?php echo $orderid; ?>">
-            <input type="hidden" name="currency" value="<?php echo $currency; ?>">
-            <input type="hidden" name="isocurrency" value="<?php echo $isocurrency; ?>">
-            <!-- <input type="hidden" name="arpyVer" value="3"> -->
-            <input type="hidden" name="chmod" value="<?php echo $hiddenmod; ?>">
-            <?php
+    <center>
+        <table width="500px;">
+            <tr>
+                <td align="center" valign="middle">Do Not Refresh or Press Back <br /> Redirecting to Airpay</td>
+            </tr>
+            <tr>
+                <td align="center" valign="middle">
+                    <form action="<?php echo $url; ?>" method="post">
+                        <input type="hidden" name="privatekey" value="<?php echo $privatekey; ?>">
+                        <input type="hidden" name="mercid" value="<?php echo $mercid; ?>">
+                        <input type="hidden" name="orderid" value="<?php echo $orderid; ?>">
+                        <input type="hidden" name="currency" value="<?php echo $currency; ?>">
+                        <input type="hidden" name="isocurrency" value="<?php echo $isocurrency; ?>">
+                        <!-- <input type="hidden" name="arpyVer" value="3"> -->
+                        <input type="hidden" name="chmod" value="<?php echo $hiddenmod; ?>">
+                        <?php
             Checksum::outputForm($checksum);
             ?>
 
-          </form>
-        </td>
+                    </form>
+                </td>
 
-      </tr>
+            </tr>
 
-    </table>
+        </table>
 
-  </center>
+    </center>
 </body>
 
 </html>

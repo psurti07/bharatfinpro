@@ -105,24 +105,24 @@ class Report extends MY_Controller
 		$gstlist = $this->Manage_Report_Model->getgstrecords($dt_to, $dt_from);
 		$this->load->view('report-gst-data', ['gstlist' => $gstlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
-	public function processstep($step = ''){
-		if($step != '') {
+	public function processstep($step = '')
+	{
+		if ($step != '') {
 			$dt_to = date('Y-m-d', strtotime('-2 days'));
 			$dt_from = date('Y-m-d');
 
-			if(isset($_REQUEST['dt_to'])) {
+			if (isset($_REQUEST['dt_to'])) {
 				$dt_to = $_REQUEST['dt_to'];
 			}
 
-			if(isset($_REQUEST['dt_from'])) {
+			if (isset($_REQUEST['dt_from'])) {
 				$dt_from = $_REQUEST['dt_from'];
 			}
-			
+
 			$this->load->model('Manage_Report_Model');
 			$userlist = $this->Manage_Report_Model->getuserprocessstep($step, $dt_to, $dt_from);
-			$this->load->view('report-processstep',['userlist'=>$userlist, 'step'=>$step, 'dt_to'=>$dt_to, 'dt_from'=>$dt_from]);
-		}
-		else {
+			$this->load->view('report-processstep', ['userlist' => $userlist, 'step' => $step, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+		} else {
 			redirect('dashboard/processstatistics');
 		}
 	}
@@ -211,7 +211,6 @@ class Report extends MY_Controller
 		$this->load->model('Manage_Report_Model');
 		$paymentlist = $this->Manage_Report_Model->getupientrylist($dt_to, $dt_from);
 		$this->load->view('upi-log', ['paymentlist' => $paymentlist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
-
 	}
 	public function worldlinelog()
 	{

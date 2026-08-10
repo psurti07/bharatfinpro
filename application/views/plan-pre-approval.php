@@ -28,11 +28,11 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 
             <div class="card shadow-none">
                 <div class="card-body">
-					 <h5>Select Your Suitable EMI Option:</h5>
+                    <h5>Select Your Suitable EMI Option:</h5>
                     <div class="row">
-						
+
                         <?php echo form_open('plan/getpreApproval', array('id' => 'submitForm2', 'class' => 'row', 'novalidate' => 'novalidate')); ?>
-						<input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>"
+                        <input type="hidden" name="applyid" value="<?php echo $userdetails['applyid']; ?>"
                             class="form-control" required>
 
                         <input type="hidden" name="userid" value="<?php echo $userdetails['userid']; ?>"
@@ -49,7 +49,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" checked="checked" name="tenure" id="years1" value="12">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>12 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 1, $eligibilityamt); ?></h4>
                                 </div>
@@ -61,7 +62,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" name="tenure" id="years2" value="24">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>24 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 2, $eligibilityamt); ?></h4>
                                 </div>
@@ -73,7 +75,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" name="tenure" id="years3" value="36">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>36 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 3, $eligibilityamt); ?></h4>
                                 </div>
@@ -85,7 +88,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" name="tenure" id="years4" value="48">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>48 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 4, $eligibilityamt); ?></h4>
                                 </div>
@@ -97,7 +101,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" name="tenure" id="years5" value="60">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>60 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 5, $eligibilityamt); ?></h4>
                                 </div>
@@ -109,16 +114,18 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <label class="w-100">
                                 <input type="radio" name="tenure" id="years6" value="72">
                                 <div class="radio-card">
-                                    <i class="fa fa-rupee-sign text-success d-none d-md-block" style="font-size: 20px;"></i>
+                                    <i class="fa fa-rupee-sign text-success d-none d-md-block"
+                                        style="font-size: 20px;"></i>
                                     <h3>72 Months</h3>
                                     <h4>Rs. <?php echo calPMT($userdetails['apr'], 6, $eligibilityamt); ?></h4>
                                 </div>
                             </label>
                         </div>
-						<div class="form-group mt-3 d-flex justify-content-center col-md-12 js-confetti">
-                            <button type="submit" id="form-submit2" class="btn btn-lg btn-primary btn-process">GET OFFER</button>
+                        <div class="form-group mt-3 d-flex justify-content-center col-md-12 js-confetti">
+                            <button type="submit" id="form-submit2" class="btn btn-lg btn-primary btn-process">GET
+                                OFFER</button>
                         </div>
-						<div class="form-group col-md-12 m-b-0">
+                        <div class="form-group col-md-12 m-b-0">
                             <hr />
                             <p class="m-b-0">
                                 <small>
@@ -130,7 +137,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 </small>
                             </p>
                         </div>
-						<?php echo form_close(); ?>
+                        <?php echo form_close(); ?>
                     </div>
                 </div>
 
@@ -183,8 +190,8 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 
         <div class="row d-flex align-items-center justify-content-center">
             <?php
-			foreach ($roipackages as $row) {
-				?>
+                foreach ($roipackages as $row) {
+                ?>
             <div class="col-md-3 col-12">
                 <div class="card">
                     <div class="card-header p-20">
@@ -218,7 +225,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                 </div>
             </div>
             <?php
-			} ?>
+                } ?>
         </div>
         <div class="text-left">
             <p class=""><small>Disclaimer - The above data is tentative and purely on the information provided
@@ -289,7 +296,7 @@ $(function() {
         $('#form-submit2').attr('disabled', true);
         $('#form-submit2').html(
             '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
-            );
+        );
     });
 });
 </script>

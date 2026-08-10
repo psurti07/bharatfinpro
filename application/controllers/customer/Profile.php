@@ -58,7 +58,7 @@ class Profile extends CI_Controller
 			return redirect('customer/login');
 			die;
 		}
-		
+
 		$customerid = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
@@ -75,7 +75,7 @@ class Profile extends CI_Controller
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
-		
+
 		$this->load->view('customer/kyc-documents', ['meta' => $meta, 'profiledata' => $profiledata, 'docflags' => $docflags]);
 	}
 
@@ -105,13 +105,12 @@ class Profile extends CI_Controller
 						}
 
 						$doc_response = $this->Customer_Profile_Model->createdocaccount($data);
-						
+
 						$response = array(
 							'status' => 'success',
 							'message' => 'Submitted successfully!'
 						);
 						$this->session->set_flashdata('docSuccess', $response['message']);
-							
 					} else {
 						$data = array(
 							'rec_date' => date('Y-m-d H:i:s'),
@@ -127,12 +126,12 @@ class Profile extends CI_Controller
 							'status' => 'success',
 							'message' => 'Submitted successfully!'
 						);
-						$this->session->set_flashdata('docSuccess', $response['message']);							
+						$this->session->set_flashdata('docSuccess', $response['message']);
 					}
 				}
 			}
 		}
-		
+
 		return redirect('customer/profile/documents');
 		die;
 	}

@@ -1,18 +1,20 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class PaymentGatewayStatusCron extends CI_Controller {
+class PaymentGatewayStatusCron extends CI_Controller
+{
 
-    public function __construct() {
-        parent::__construct();
-    }
-
-    public function updateZaakpayStatus()
+	public function __construct()
 	{
-	    die;
+		parent::__construct();
+	}
+
+	public function updateZaakpayStatus()
+	{
+		die;
 		$this->load->model('Site_Digital_Model');
 		$this->load->model('Site_Info_Model');
-		
+
 		$merchantIdentifier = ZAAKPAY_MERCHANT_IDENTIFIER;
 		$secretKey = ZAAKPAY_SECRET_KEY;
 		$mode = "0";
@@ -27,7 +29,7 @@ class PaymentGatewayStatusCron extends CI_Controller {
 			if (!empty($order->statuscode)) {
 				continue;
 			}
-	
+
 			$orderId = $order->orderid; // take orderid for update zaakpay data
 
 			$dataArray = [
@@ -43,7 +45,7 @@ class PaymentGatewayStatusCron extends CI_Controller {
 			// Correct checksum
 			$checksum = hash_hmac('sha256', $jsonData, $secretKey);
 			// POST fields
-			$postFields = "data=".$jsonData."&checksum=".$checksum;
+			$postFields = "data=" . $jsonData . "&checksum=" . $checksum;
 
 			$ch = curl_init("https://api.zaakpay.com/checkTxn?v=5");
 			curl_setopt_array($ch, [
@@ -58,7 +60,7 @@ class PaymentGatewayStatusCron extends CI_Controller {
 			$response = curl_exec($ch);
 			curl_close($ch);
 			$result = json_decode($response, true);
-			
+
 			if (!isset($result['orders'][0])) {
 				log_message('error', "Zaakpay missing order: " . json_encode($result));
 				continue;
@@ -68,9 +70,9 @@ class PaymentGatewayStatusCron extends CI_Controller {
 			$orderDetail = $orderData['orderDetail'] ?? [];
 
 			$responseCode = $orderData['responseCode'] ?? null;
-			$entryfor = $order->entryfor ?? null; 
+			$entryfor = $order->entryfor ?? null;
 
-			$orderAmount = ($orderDetail['amount']/100) ?? 0;
+			$orderAmount = ($orderDetail['amount'] / 100) ?? 0;
 			$txnId = $orderDetail['txnId'] ?? '';
 
 			$updateData = [
@@ -78,7 +80,7 @@ class PaymentGatewayStatusCron extends CI_Controller {
 				'statusdescription' => $orderData['responseDescription'] ?? null,
 			];
 			$this->Site_Digital_Model->updateZaakpayEntryOrder($orderId, $updateData);
-			
+
 			if (in_array($entryfor, [11, 12]) && in_array($responseCode, [100, 208, 601])) {
 				$paymentdata = $this->Site_Digital_Model->getzaakpayentry($orderId);
 				$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
@@ -100,8 +102,8 @@ class PaymentGatewayStatusCron extends CI_Controller {
 
 				$password = random_code(6);
 				$passwordkey = stringCrypt($password, 'encrypt');
-				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname),0,3));
-				$refcode .= substr($userdata->mobile,-4);
+				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
+				$refcode .= substr($userdata->mobile, -4);
 
 				$regdata = array(
 					'rec_date' => date('Y-m-d H:i:s'),
@@ -177,23 +179,24 @@ class PaymentGatewayStatusCron extends CI_Controller {
 				);
 
 				$api_response = send_order_data(json_encode($remote_data));
-				 
+
 				$intkt_userwelcomename = $this->Site_Info_Model->getsmsmessage('intkt_userwelcomename');
 				$data1 = array(
-						"fullPhoneNumber"=> '+91'.$userdata->mobile,
-						"callbackData"=> "some text here",
-						"type"=> "Template",
-						"template"=> array(
-							"name"=> $intkt_userwelcomename,
-							"languageCode"=> "en",
-							"bodyValues"=> array(
-								$userdata->mobile, $password
-							),
-						)
+					"fullPhoneNumber" => '+91' . $userdata->mobile,
+					"callbackData" => "some text here",
+					"type" => "Template",
+					"template" => array(
+						"name" => $intkt_userwelcomename,
+						"languageCode" => "en",
+						"bodyValues" => array(
+							$userdata->mobile,
+							$password
+						),
+					)
 				);
 				$restrack1 = interakt_track($data1);
 
-                $userdate = $this->Site_Digital_Model->checkuserdata($userdata->userid);
+				$userdate = $this->Site_Digital_Model->checkuserdata($userdata->userid);
 
 				$fbclidpl = "";
 
@@ -236,16 +239,13 @@ class PaymentGatewayStatusCron extends CI_Controller {
 					'countryCode' => '+91',
 					'event' => 'Payment Successful'
 				);
-                $this->load->helper('interakt');
+				$this->load->helper('interakt');
 				$restrack3 = event_track($data3);
-				
-				$sent = $this->Site_Digital_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 
-			} 
-			else {
+				$sent = $this->Site_Digital_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
+			} else {
 				echo "No action required";
 			}
-
 		}
 
 		echo "Cron completed at " . date('Y-m-d H:i:s') . "\n";

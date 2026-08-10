@@ -162,7 +162,7 @@ class Plan extends CI_Controller
 				'loanamount' => $loanamount,
 				'mobile' => $mobile
 			);
-			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist'=>$banklist]);
+			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		}
 		if ($step == "s3" && $mobile != '') {
@@ -177,7 +177,7 @@ class Plan extends CI_Controller
 				'mobile' => $mobile,
 				'referralcode' => $referralcode
 			);
-			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist'=>$banklist]);
+			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		} else {
 			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step1', 'banklist' => $banklist]);
@@ -200,7 +200,7 @@ class Plan extends CI_Controller
 		} else {
 			$loanamount = '';
 		}
-		
+
 		if (isset($_REQUEST['fbclid'])) {
 			set_cookie('fbclidpl', $_REQUEST['fbclid'], '3600');
 			//$this->session->set_tempdata('fbclidpl', $_REQUEST['fbclid']);
@@ -352,11 +352,11 @@ class Plan extends CI_Controller
 
 	public function preapproval($key = '')
 	{
-		
+
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
 		$banklist = $this->Site_Info_Model->getbanklist();
-					
+
 		$applyid = stringCrypt($key, 'decrypt');
 		$this->session->set_tempdata('applyid', $applyid, 3600);
 		$this->session->set_tempdata('companyemail', COMPANY_EMAIL, 3600);
@@ -490,33 +490,33 @@ class Plan extends CI_Controller
 	}
 
 	public function geoLocation()
-    {
+	{
 		$this->load->helper('geoloc');
 		$pincode = $_REQUEST['pincode'];
 
-        if(strlen($pincode) != 6){
-            echo json_encode([
-                'status' => 'error',
-                'message' => 'Invalid pincode'
-            ]);
-            return;
-        }
+		if (strlen($pincode) != 6) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => 'Invalid pincode'
+			]);
+			return;
+		}
 
-        $data = getGeolocation($pincode);
+		$data = getGeolocation($pincode);
 
-        if(isset($data['error'])){
-            echo json_encode([
-                'status' => 'error',
-                'message' => $data['error']
-            ]);
-        } else {
-            echo json_encode([
-                'status'   => 'success',
-                'city' => $data['cityname'] ?? '',
-                'state'    => $data['statename'] ?? ''
-            ]);
-        }
-    }
+		if (isset($data['error'])) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => $data['error']
+			]);
+		} else {
+			echo json_encode([
+				'status'   => 'success',
+				'city' => $data['cityname'] ?? '',
+				'state'    => $data['statename'] ?? ''
+			]);
+		}
+	}
 
 	public function userApply()
 	{
@@ -570,26 +570,26 @@ class Plan extends CI_Controller
 		$offerresponse = $this->Site_Plan_Model->sendOfferMessage($userdata->loantype, $eligibilityamt, $userdata->mobile, $userdata->email);
 
 		$this->load->helper('interakt');
-		 $data2 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'traits' => array(
-		 		'name' => $userdata->fullname
-		 	),
-		 	'tags' => array('Get Offer')
-		 );
-		
-		 $restrack2 = plan_user_track_ue($data2);
+		$data2 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+				'name' => $userdata->fullname
+			),
+			'tags' => array('Get Offer')
+		);
 
-		 $data3 = array(
-		 	'phoneNumber' => $userdata->mobile,
-		 	'countryCode' => '+91',
-		 	'event' => 'Get Offer',
-		 	'traits' => array(
-		 		'EligibleAmount' => $eligibilityamt
-		 	)
-		 );
-		 $restrack3 = plan_event_track_ue($data3);
+		$restrack2 = plan_user_track_ue($data2);
+
+		$data3 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'Get Offer',
+			'traits' => array(
+				'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack3 = plan_event_track_ue($data3);
 
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("plan/membershiporder/" . $key);
@@ -671,7 +671,7 @@ class Plan extends CI_Controller
 
 	public function buycardDigital()
 	{
-		
+
 		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 
 		if (isset($_POST["status"]) && $_POST["status"] != "") {
@@ -737,7 +737,7 @@ class Plan extends CI_Controller
 						'rec_date' => date('Y-m-d H:i:s'),
 						'update_date' => date('Y-m-d H:i:s'),
 						'password' => $passwordkey,
-						'new_password' => $new_passwordkey, 
+						'new_password' => $new_passwordkey,
 						'refcode' => $refcode,
 						'process_step' => 4,
 						'isUser' => 2
@@ -808,11 +808,11 @@ class Plan extends CI_Controller
 						'inv_grandtotal' => $grandtotal,
 					);
 
-				$api_response = send_order_data(json_encode($remote_data));
+					$api_response = send_order_data(json_encode($remote_data));
 
 
 					$sent = $this->Site_Plan_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
-					
+
 
 					return redirect("plan/paymentResponse/" . $paymentdata->entryfor . "/" . $response2);
 				} else {
@@ -828,14 +828,14 @@ class Plan extends CI_Controller
 
 	public function paymentResponse($loantype = '', $status = '')
 	{
-		
+
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
 
 		$fbclidpl = "";
-		
+
 		$applyid = $this->session->tempdata('applyid');
-		
+
 		//$apr = ($userdata->loantype == 22) ? 11.5 : 12.5;
 		//$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
 
@@ -847,7 +847,7 @@ class Plan extends CI_Controller
 		);
 		if ($status != '') {
 			$this->load->model('Site_Plan_Model');
-			$userdata = $this->Site_Plan_Model->checkuserregdata($this->session->tempdata('applyid'));	
+			$userdata = $this->Site_Plan_Model->checkuserregdata($this->session->tempdata('applyid'));
 			if ($status == "true" && $this->session->tempdata('applyid') != "") {
 
 				$firstname = strtok($userdata->fullname, " ");
@@ -887,7 +887,7 @@ class Plan extends CI_Controller
 					),
 					'tags' => array('Payment Successful')
 				);
-				
+
 				$restrack2 = plan_user_track_ue($data2);
 
 				$data3 = array(
@@ -900,29 +900,29 @@ class Plan extends CI_Controller
 					),
 				);
 				$restrack3 = plan_event_track_ue($data3);
-				
+
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
-					$applyid = $this->session->tempdata('applyid');
+				$applyid = $this->session->tempdata('applyid');
 
-					$this->load->model('Site_Plan_Model');
-					$userdata = $this->Site_Plan_Model->checkuserdata($applyid);
+				$this->load->model('Site_Plan_Model');
+				$userdata = $this->Site_Plan_Model->checkuserdata($applyid);
 
-					$intdata1 = array(
-						"fullPhoneNumber" => '+91' . $userdata->mobile,
-						"callbackData" => "some text here",
-						"type" => "Template",
-						"template" => array(
-							"name" => "payment_failed_26june",
-							"languageCode" => "en",
-						)
+				$intdata1 = array(
+					"fullPhoneNumber" => '+91' . $userdata->mobile,
+					"callbackData" => "some text here",
+					"type" => "Template",
+					"template" => array(
+						"name" => "payment_failed_26june",
+						"languageCode" => "en",
+					)
 
-					);
-					$restrack_intdata = plan_interakt_track_rm($intdata1);
+				);
+				$restrack_intdata = plan_interakt_track_rm($intdata1);
 
 
-					$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
-				
+				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
+
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else {
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
@@ -931,5 +931,4 @@ class Plan extends CI_Controller
 			redirect('plan/personalLoan');
 		}
 	}
-
 }

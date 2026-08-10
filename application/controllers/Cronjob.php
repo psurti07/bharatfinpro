@@ -1,13 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Cronjob extends CI_Controller {
-	
-	public function index(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Cronjob extends CI_Controller
+{
+
+	public function index()
+	{
 		return redirect()->to('Infopage');
 	}
 
 	/* Digital personal loan customer marketing message */
-	public function custremarketing(){
+	public function custremarketing()
+	{
 		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
@@ -25,15 +28,15 @@ Class Cronjob extends CI_Controller {
 		$cronjobs['a6'] = '0 12 * * *';
 
 		$cronjobs['a10'] = '0 14 * * *';
-		
-		foreach($cronjobs as $method=>$cron) {
+
+		foreach ($cronjobs as $method => $cron) {
 			$time = time();
-		        if(is_time_cron($time, $cron)) {
-		            $schedule = substr($method, 1);
-					$response = $this->Site_Cronjob_Model->customer_leads_marketing($schedule);
-				}
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->customer_leads_marketing($schedule);
+			}
 		}
-		
+
 		die;
 	}
 	/* Digital personal loan customer marketing message */
@@ -90,7 +93,8 @@ Class Cronjob extends CI_Controller {
 	}
 
 	/* Whatsapp Interakt marketing message */
-	public function whatsappinteraktremarketing() {
+	public function whatsappinteraktremarketing()
+	{
 		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
@@ -105,19 +109,19 @@ Class Cronjob extends CI_Controller {
 
 		$cronjobs['a2'] = '0 10 * * *';
 		$cronjobs['b2'] = '0 19 * * *';
-  
+
 		$cronjobs['a3'] = '0 11 * * *';
 		$cronjobs['b3'] = '0 18 * * *';
 
 		$cronjobs['a5'] = '0 12 * * *';
-		$cronjobs['b5'] = '0 17 * * *'; 
+		$cronjobs['b5'] = '0 17 * * *';
 
 		$cronjobs['a10'] = '0 13 * * *';
 
 		$cronjobs['a15'] = '0 15 * * *';
 
 		$cronjobs['a30'] = '0 23 * * *';
-		
+
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
@@ -130,7 +134,8 @@ Class Cronjob extends CI_Controller {
 	/* Whatsapp marketing message */
 
 	/* Whatsapp Interakt marketing message */
-	public function whatsappinteraktremarketing_new() {
+	public function whatsappinteraktremarketing_new()
+	{
 		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
@@ -160,8 +165,8 @@ Class Cronjob extends CI_Controller {
 		$cronjobs['a20'] = '30 8 * * *';
 
 		$cronjobs['a30'] = '30 9 * * *';
-		
-		
+
+
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
@@ -173,7 +178,8 @@ Class Cronjob extends CI_Controller {
 	}
 
 	/* Whatsapp Interakt marketing message */
-	public function plan_interakt_remarketing() {
+	public function plan_interakt_remarketing()
+	{
 		die;
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
@@ -201,7 +207,7 @@ Class Cronjob extends CI_Controller {
 		$cronjobs['a15'] = '30 15 * * *';
 
 		$cronjobs['a30'] = '0 23 * * *';
-		
+
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
@@ -245,8 +251,9 @@ Class Cronjob extends CI_Controller {
 	}*/
 	/* Whatsapp marketing message */
 
-	public function RCSremarketing() {
-		die;//
+	public function RCSremarketing()
+	{
+		die; //
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
@@ -272,7 +279,7 @@ Class Cronjob extends CI_Controller {
 		$cronjobs['a18'] = '0 22 * * *';
 
 		$cronjobs['a20'] = '30 22 * * *';
-		
+
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
@@ -321,7 +328,7 @@ Class Cronjob extends CI_Controller {
 
 	public function custremarketing_Webinar()
 	{
-		die;	
+		die;
 		$schedule = 'z9999';
 		$schedule_arr = array();
 
@@ -338,7 +345,7 @@ Class Cronjob extends CI_Controller {
 		$cronjobs['a4'] = '0 18 * * *';
 
 		$cronjobs['a7'] = '0 20 * * *';
-		
+
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
@@ -350,6 +357,4 @@ Class Cronjob extends CI_Controller {
 		die;
 	}
 	/* Digital personal loan customer marketing message */
-
-	
 }

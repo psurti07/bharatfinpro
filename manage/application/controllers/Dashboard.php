@@ -1,17 +1,20 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Dashboard extends MY_Controller {
-	
-	function __construct(){
+defined('BASEPATH') or exit('No direct script access allowed');
+class Dashboard extends MY_Controller
+{
+
+	function __construct()
+	{
 		parent::__construct();
 
-		if(! $this->session->userdata('adminid')) {
+		if (! $this->session->userdata('adminid')) {
 			redirect('login');
 		}
 		$this->role = $this->session->userdata('admintype');
 	}
-	
-	public function index(){
+
+	public function index()
+	{
 		$this->load->model('Manage_Site_Model');
 		$statestics = $this->Manage_Site_Model->gettodaystatestics();
 		$dt_to = $dt_from = date('Y-m-d');
@@ -37,13 +40,15 @@ Class Dashboard extends MY_Controller {
 			);
 		}
 
-		$this->load->view('dashboard', ['statestics' => $statestics, 'ac_data' => $ac_data,'userrole' => $this->role]);
+		$this->load->view('dashboard', ['statestics' => $statestics, 'ac_data' => $ac_data, 'userrole' => $this->role]);
 	}
-	public function processstatistics(){
+	public function processstatistics()
+	{
 		$this->load->view('statistics-processstep');
 	}
 
-	public function processstepdata(){
+	public function processstepdata()
+	{
 		$dt_to = date('Y-m-d', strtotime('-7 days'));
 		$dt_from = date('Y-m-d');
 
@@ -56,7 +61,7 @@ Class Dashboard extends MY_Controller {
 		}
 		$this->load->model('Manage_Report_Model');
 		$statistics = $this->Manage_Report_Model->processstepdata($dt_to, $dt_from);
-		$this->load->view('statistics-processstep', ["success"=>true, "statistics"=>$statistics, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+		$this->load->view('statistics-processstep', ["success" => true, "statistics" => $statistics, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
 	}
 
 	public function remarketingstatistics()
@@ -128,5 +133,4 @@ Class Dashboard extends MY_Controller {
 		$statistics = $this->Manage_Report_Model->webinarcustomerdata();
 		echo json_encode(array("success" => true, "statistics" => $statistics));
 	}
-
 }

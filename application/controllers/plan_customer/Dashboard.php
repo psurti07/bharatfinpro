@@ -1,28 +1,29 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-Class Dashboard extends CI_Controller {
+class Dashboard extends CI_Controller
+{
 
-	
 
-	function __construct(){
+
+	function __construct()
+	{
 
 		parent::__construct();
 
 
 
-		if(! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('pri-customerid')) {
 
 			return redirect('plan_customer/login');
-
 		}
-
 	}
 
 
 
-	public function index(){
+	public function index()
+	{
 
 		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
 
@@ -32,12 +33,11 @@ Class Dashboard extends CI_Controller {
 
 
 
-		if($isagree == 0) {
+		if ($isagree == 0) {
 
 			return redirect('plan_customer/license-agreement');
 
 			die;
-
 		}
 
 
@@ -54,14 +54,14 @@ Class Dashboard extends CI_Controller {
 
 		//$accountmsg = $this->Plan_Customer_Profile_Model->getaccountmsg();
 
-		
-		$this->load->view('plan_customer/dashboard', ['meta'=>$meta, 'statestics'=>$statestics, 'profiledata'=>$profiledata, 'accountmsg'=>$accountmsg]);
 
+		$this->load->view('plan_customer/dashboard', ['meta' => $meta, 'statestics' => $statestics, 'profiledata' => $profiledata, 'accountmsg' => $accountmsg]);
 	}
 
 
 
-	public function license_agreement(){
+	public function license_agreement()
+	{
 
 		$this->load->model('Site_Info_Model');
 
@@ -79,19 +79,19 @@ Class Dashboard extends CI_Controller {
 
 
 
-		$this->load->view('plan_customer/license-agreement', ['meta'=>$meta, 'contentdetails'=>$contentdetails, 'profiledata'=>$profiledata]);
-
+		$this->load->view('plan_customer/license-agreement', ['meta' => $meta, 'contentdetails' => $contentdetails, 'profiledata' => $profiledata]);
 	}
 
 
 
-	public function acceptlicence(){
+	public function acceptlicence()
+	{
 
 		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
 
-		
 
-		if(($customerid == stringCrypt($_REQUEST['customerid'], 'decrypt')) && ($_REQUEST['agree'] == 1)) {
+
+		if (($customerid == stringCrypt($_REQUEST['customerid'], 'decrypt')) && ($_REQUEST['agree'] == 1)) {
 
 			$data = array(
 
@@ -104,7 +104,6 @@ Class Dashboard extends CI_Controller {
 			$this->load->model('Plan_Customer_Profile_Model');
 
 			$response = $this->Plan_Customer_Profile_Model->updateprofile($data, stringCrypt($_REQUEST['customerid'], 'decrypt'));
-
 		}
 
 
@@ -112,10 +111,5 @@ Class Dashboard extends CI_Controller {
 		return redirect('plan_customer/dashboard');
 
 		die;
-
 	}
-
-
-
 }
-

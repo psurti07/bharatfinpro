@@ -5,34 +5,34 @@ header('Content-Type: text/html; charset=utf-8');
 function send_order_data($data)
 {
 
-  $curl = curl_init();
+	$curl = curl_init();
 
-  curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://bizfin.indiakarobar.com/api/channel-partners/turnover',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => $data,
-    CURLOPT_HTTPHEADER => array(
-      'Content-Type: application/json'
-    ),
-  ));
+	curl_setopt_array($curl, array(
+		CURLOPT_URL => 'https://bizfin.indiakarobar.com/api/channel-partners/turnover',
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS => $data,
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json'
+		),
+	));
 
-  $response = curl_exec($curl);
+	$response = curl_exec($curl);
 
-  curl_close($curl);
-  return $response;
-  die;
+	curl_close($curl);
+	return $response;
+	die;
 }
 
 function getFacebookPixel($pixel = 'facebookpixel')
 {
 	$value = null;
-	$ci =& get_instance();
+	$ci = &get_instance();
 	$ci->load->database();
 	$ci->db->select('option_value');
 	$ci->db->where('option_key', $pixel);
@@ -49,7 +49,7 @@ function getFacebookPixel($pixel = 'facebookpixel')
 function getFacebookDomain()
 {
 	$value = null;
-	$ci =& get_instance();
+	$ci = &get_instance();
 	$ci->load->database();
 	$ci->db->select('option_value');
 	$ci->db->where('option_key', 'facebookdomain');
@@ -86,37 +86,35 @@ function getFBConversionData($type = 'digital')
 	} else if ($type == 'plan') {
 
 		$query4 = $ci->db->where('option_key', 'plan_fbaccesstoken')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbaccesstoken'] = $query4->row();
 
 		$query5 = $ci->db->where('option_key', 'plan_fbeventname')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbeventname'] = $query5->row();
 
 		$query6 = $ci->db->where('option_key', 'plan_fbeventid')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbeventid'] = $query6->row();
-
 	} else if ($type == 'webinar') {
 
 		$query4 = $ci->db->where('option_key', 'fbaccesstokenwebinar')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbaccesstoken'] = $query4->row();
 
 		$query5 = $ci->db->where('option_key', 'fbeventnamewebinar')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbeventname'] = $query5->row();
 
 		$query6 = $ci->db->where('option_key', 'fbeventidwebinar')
-		->select('option_value')
-		->get('site_options');
+			->select('option_value')
+			->get('site_options');
 		$arr_data['fbeventid'] = $query6->row();
-
 	}
 
 	return $arr_data;
@@ -141,7 +139,7 @@ function fbconversioncurl($userdata)
 
 	$idarr[] = hash("sha256", $userdata['userid']);
 	$data["user_data"]["external_id"] = $idarr;
-	
+
 	$fnarr[] = hash("sha256", $userdata['firstname']);
 	$data["user_data"]["fn"] = $fnarr;
 
@@ -167,48 +165,46 @@ function fbconversioncurl($userdata)
 		$data["user_data"]["fbc"] = $userdata['fbclid'];
 	}
 
-	 if ($userdata['version'] == 'v11.0' || $userdata['version'] == 'v16.0') {
-      $contents["id"] = "MC2025";
-      $contents["quantity"] = 1;
-      $data["contents"][] = $contents;
+	if ($userdata['version'] == 'v11.0' || $userdata['version'] == 'v16.0') {
+		$contents["id"] = "MC2025";
+		$contents["quantity"] = 1;
+		$data["contents"][] = $contents;
 
-      $data["custom_data"]["currency"] = "INR";
-      $data["custom_data"]["value"] = 499.00;
-      $data["custom_data"]["order_id"] = $userdata['orderid'];
+		$data["custom_data"]["currency"] = "INR";
+		$data["custom_data"]["value"] = 499.00;
+		$data["custom_data"]["order_id"] = $userdata['orderid'];
+	} else if ($userdata['version'] == 'v19.0' || $userdata['version'] == 'v21.0') {
 
-   } else if ($userdata['version'] == 'v19.0' || $userdata['version'] == 'v21.0') {
+		$data["custom_data"]["currency"] = "INR";
+		$data["custom_data"]["value"] = 499.00;
+		$data["custom_data"]["num_items"] = 1;
+		$data["custom_data"]["content_type"] = "product";
+		$data["custom_data"]["order_id"] = $userdata['orderid'];
+		$data["custom_data"]["status"] = "registered";
 
-      $data["custom_data"]["currency"] = "INR";
-      $data["custom_data"]["value"] = 499.00;
-      $data["custom_data"]["num_items"] = 1;
-      $data["custom_data"]["content_type"] = "product";
-      $data["custom_data"]["order_id"] = $userdata['orderid'];
-      $data["custom_data"]["status"] = "registered";
-
-      $contents["id"] = "MC2025";
-      $contents["quantity"] = 1;
-      $contents["item_price"] = 499.00;
-      $data["custom_data"]["contents"] = json_encode(array($contents));
-
-   }
+		$contents["id"] = "MC2025";
+		$contents["quantity"] = 1;
+		$contents["item_price"] = 499.00;
+		$data["custom_data"]["contents"] = json_encode(array($contents));
+	}
 
 	// Turn Data to JSON
 	$data_json = json_encode(array($data));
 
 	if ($userdata['type'] == 'digital') {
-      $fbpixel = getFacebookPixel('facebookpixel');
-      $accesstoken = $fbaccesstoken;
-    } else if ($userdata['type'] == 'plan') {
-      $fbpixel = getFacebookPixel('plan_facebookpixel');
-      $accesstoken = $fbaccesstoken;
-    } else if ($userdata['type'] == 'webinar') {
-      $fbpixel = getFacebookPixel('facebookpixel-webinar');
-      $accesstoken = $fbaccesstoken;
-    } else {
-      $fbpixel = '';
-      $accesstoken = $fbaccesstoken;
-    }
-	
+		$fbpixel = getFacebookPixel('facebookpixel');
+		$accesstoken = $fbaccesstoken;
+	} else if ($userdata['type'] == 'plan') {
+		$fbpixel = getFacebookPixel('plan_facebookpixel');
+		$accesstoken = $fbaccesstoken;
+	} else if ($userdata['type'] == 'webinar') {
+		$fbpixel = getFacebookPixel('facebookpixel-webinar');
+		$accesstoken = $fbaccesstoken;
+	} else {
+		$fbpixel = '';
+		$accesstoken = $fbaccesstoken;
+	}
+
 	// Fill available fields
 	$fields = array();
 	$fields['access_token'] = $fbaccesstoken;
@@ -217,7 +213,7 @@ function fbconversioncurl($userdata)
 
 	$curl = curl_init();
 	curl_setopt_array($curl, array(
-		CURLOPT_URL => "https://graph.facebook.com/".$userdata['version']."/".$fbpixel."/events", 
+		CURLOPT_URL => "https://graph.facebook.com/" . $userdata['version'] . "/" . $fbpixel . "/events",
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_ENCODING => "",
 		CURLOPT_MAXREDIRS => 10,
@@ -266,52 +262,53 @@ function sendotpSMS($mobile, $message)
 
 function sendtextSMS($mobile, $message, $panel = 'main')
 {
-	$sms_text = rawurlencode($message);$sms_text = urlencode($message);
+	$sms_text = rawurlencode($message);
+	$sms_text = urlencode($message);
 
-    if ($panel == 'plan') {
-      $obbusername = PLAN_SMS_OBB_USERNAME;
-      $obbapikey = PLAN_SMS_OBB_PASSWORD;
-      $obbsenderid = PLAN_SMS_OBB_SENDER_ID;
-    } else {
-      $obbusername = SMS_OBB_USERNAME;
-      $obbapikey = SMS_OBB_PASSWORD;
-      $obbsenderid = SMS_OBB_SENDER_ID;
-    }
+	if ($panel == 'plan') {
+		$obbusername = PLAN_SMS_OBB_USERNAME;
+		$obbapikey = PLAN_SMS_OBB_PASSWORD;
+		$obbsenderid = PLAN_SMS_OBB_SENDER_ID;
+	} else {
+		$obbusername = SMS_OBB_USERNAME;
+		$obbapikey = SMS_OBB_PASSWORD;
+		$obbsenderid = SMS_OBB_SENDER_ID;
+	}
 
 	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	log_message('error', 'api url -- ' . $api_url);
 	$response = file_get_contents($api_url); */
-	
-	$xml_data ='<?xml version="1.0"?>
+
+	$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
-    <user>'.$obbusername.'</user>
-    <password>'.$obbapikey.'</password>
-    <message>'.$message.'</message>
-    <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$obbsenderid.'</senderid>
+    <user>' . $obbusername . '</user>
+    <password>' . $obbapikey . '</password>
+    <message>' . $message . '</message>
+    <mobiles>' . $mobile . '</mobiles>
+    <senderid>' . $obbsenderid . '</senderid>
     </sms>
     </smslist>';
-    
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
+
+	//$URL = "43.204.206.165/sendsms.jsp?"; 
 	$URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        log_message('error', 'cURL Error : ' . curl_error($ch));
-    }
-    
-    curl_close($ch);
-    
-    return $response;
+	$ch = curl_init($URL);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$response = curl_exec($ch);
+
+	if (curl_errno($ch)) {
+		log_message('error', 'cURL Error : ' . curl_error($ch));
+	}
+
+	curl_close($ch);
+
+	return $response;
 }
 
 function sendxmlSMS($dataset)
@@ -345,48 +342,48 @@ function sendotpSMSobb($mobile, $message, $panel = 'main')
 {
 	$sms_text = rawurlencode($message);
 
-	 if ($panel == 'plan') {
-      $obbusername = PLAN_SMS_OBB_USERNAME;
-      $obbapikey = PLAN_SMS_OBB_PASSWORD;
-      $obbsenderid = PLAN_SMS_OBB_SENDER_ID;
-    } else {
-      $obbusername = SMS_OBB_USERNAME;
-      $obbapikey = SMS_OBB_PASSWORD;
-      $obbsenderid = SMS_OBB_SENDER_ID;
-    }
+	if ($panel == 'plan') {
+		$obbusername = PLAN_SMS_OBB_USERNAME;
+		$obbapikey = PLAN_SMS_OBB_PASSWORD;
+		$obbsenderid = PLAN_SMS_OBB_SENDER_ID;
+	} else {
+		$obbusername = SMS_OBB_USERNAME;
+		$obbapikey = SMS_OBB_PASSWORD;
+		$obbsenderid = SMS_OBB_SENDER_ID;
+	}
 
 	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
 	return $response; */
-	
-	$xml_data ='<?xml version="1.0"?>
+
+	$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
-    <user>'.$obbusername.'</user>
-    <password>'.$obbapikey.'</password>
-    <message>'.$message.'</message>
-    <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$obbsenderid.'</senderid>
+    <user>' . $obbusername . '</user>
+    <password>' . $obbapikey . '</password>
+    <message>' . $message . '</message>
+    <mobiles>' . $mobile . '</mobiles>
+    <senderid>' . $obbsenderid . '</senderid>
     </sms>
     </smslist>';
-    
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
+
+	//$URL = "43.204.206.165/sendsms.jsp?"; 
 	$URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        log_message('error', 'cURL Error : ' . curl_error($ch));
-    }
-    
-    curl_close($ch);
+	$ch = curl_init($URL);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$response = curl_exec($ch);
+
+	if (curl_errno($ch)) {
+		log_message('error', 'cURL Error : ' . curl_error($ch));
+	}
+
+	curl_close($ch);
 	return $response;
 }
 
@@ -395,48 +392,48 @@ function sendtextSMSobb($mobile, $message, $panel = 'main')
 	$sms_text = rawurlencode($message);
 
 	if ($panel == 'plan') {
-      $obbusername = PLAN_SMS_OBB_USERNAME;
-      $obbapikey = PLAN_SMS_OBB_PASSWORD;
-      $obbsenderid = PLAN_SMS_OBB_SENDER_ID;
-    } else {
-      $obbusername = SMS_OBB_USERNAME;
-      $obbapikey = SMS_OBB_PASSWORD;
-      $obbsenderid = SMS_OBB_SENDER_ID;
-    }
+		$obbusername = PLAN_SMS_OBB_USERNAME;
+		$obbapikey = PLAN_SMS_OBB_PASSWORD;
+		$obbsenderid = PLAN_SMS_OBB_SENDER_ID;
+	} else {
+		$obbusername = SMS_OBB_USERNAME;
+		$obbapikey = SMS_OBB_PASSWORD;
+		$obbsenderid = SMS_OBB_SENDER_ID;
+	}
 
 	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
 	return $response; */
-	
-	$xml_data ='<?xml version="1.0"?>
+
+	$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
-    <user>'.$obbusername.'</user>
-    <password>'.$obbapikey.'</password>
-    <message>'.$message.'</message>
-    <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$obbsenderid.'</senderid>
+    <user>' . $obbusername . '</user>
+    <password>' . $obbapikey . '</password>
+    <message>' . $message . '</message>
+    <mobiles>' . $mobile . '</mobiles>
+    <senderid>' . $obbsenderid . '</senderid>
     </sms>
     </smslist>';
-    
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
+
+	//$URL = "43.204.206.165/sendsms.jsp?"; 
 	$URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        log_message('error', 'cURL Error : ' . curl_error($ch));
-    }
-    
-    curl_close($ch);
-    
+	$ch = curl_init($URL);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$response = curl_exec($ch);
+
+	if (curl_errno($ch)) {
+		log_message('error', 'cURL Error : ' . curl_error($ch));
+	}
+
+	curl_close($ch);
+
 	return $response;
 }
 
@@ -445,51 +442,51 @@ function senddynamicSMSobb($mobile, $message, $panel = 'main')
 	$sms_text = urlencode($message);
 
 	if ($panel == 'plan') {
-      $obbusername = PLAN_SMS_OBB_USERNAME;
-      $obbapikey = PLAN_SMS_OBB_PASSWORD;
-      $obbsenderid = getSMSsenderid('plansmssenderid');
-    } else if($panel == 'webinar') {
-      $obbusername = SMS_WEBINAR_OBB_USERNAME;
-      $obbapikey = SMS_WEBINAR_OBB_PASSWORD;
-      $obbsenderid = SMS_WEBINAR_OBB_SENDER_ID;
-    } else {
-      $obbusername = SMS_OBB_USERNAME;
-      $obbapikey = SMS_OBB_PASSWORD;
-      $obbsenderid = getSMSsenderid('smssenderid');
-    }
+		$obbusername = PLAN_SMS_OBB_USERNAME;
+		$obbapikey = PLAN_SMS_OBB_PASSWORD;
+		$obbsenderid = getSMSsenderid('plansmssenderid');
+	} else if ($panel == 'webinar') {
+		$obbusername = SMS_WEBINAR_OBB_USERNAME;
+		$obbapikey = SMS_WEBINAR_OBB_PASSWORD;
+		$obbsenderid = SMS_WEBINAR_OBB_SENDER_ID;
+	} else {
+		$obbusername = SMS_OBB_USERNAME;
+		$obbapikey = SMS_OBB_PASSWORD;
+		$obbsenderid = getSMSsenderid('smssenderid');
+	}
 
 	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
 	return $response; */
-	
-	$xml_data ='<?xml version="1.0"?>
+
+	$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
-    <user>'.$obbusername.'</user>
-    <password>'.$obbapikey.'</password>
-    <message>'.$message.'</message>
-    <mobiles>'.$mobile.'</mobiles>
-    <senderid>'.$obbsenderid.'</senderid>
+    <user>' . $obbusername . '</user>
+    <password>' . $obbapikey . '</password>
+    <message>' . $message . '</message>
+    <mobiles>' . $mobile . '</mobiles>
+    <senderid>' . $obbsenderid . '</senderid>
     </sms>
     </smslist>';
-    
-    //$URL = "43.204.206.165/sendsms.jsp?"; 
+
+	//$URL = "43.204.206.165/sendsms.jsp?"; 
 	$URL = "http://m.onlinebusinessbazaar.in/sendsms.jsp?";
-    $ch = curl_init($URL);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    $response = curl_exec($ch);
-    
-    if (curl_errno($ch)) {
-        log_message('error', 'cURL Error : ' . curl_error($ch));
-    }
-    
-    curl_close($ch);
+	$ch = curl_init($URL);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_ENCODING, 'UTF-8');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/xml'));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "$xml_data");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$response = curl_exec($ch);
+
+	if (curl_errno($ch)) {
+		log_message('error', 'cURL Error : ' . curl_error($ch));
+	}
+
+	curl_close($ch);
 
 	return $response;
 }
@@ -497,7 +494,7 @@ function senddynamicSMSobb($mobile, $message, $panel = 'main')
 function sendxmlSMSobb($dataset)
 {
 	$xmldataset = "<?xml version='1.0'?><smslist>" . $dataset . "</smslist>";
-	
+
 	$curl = curl_init();
 	curl_setopt_array(
 		$curl,
@@ -522,7 +519,7 @@ function sendxmlSMSobb($dataset)
 	$response = curl_exec($curl);
 	$err = curl_error($curl);
 	curl_close($curl);
-	
+
 	if ($err) {
 		return "cURL Error #:" . $err;
 	} else {
@@ -570,8 +567,9 @@ function sendHTMLmail($to, $from, $subject, $message, $attachfile = '')
 }
 
 
-function sendBrevoHtmlMail2($maildata, $subject = '', $message = '', $sendmail = '', $attachments = []){
-	
+function sendBrevoHtmlMail2($maildata, $subject = '', $message = '', $sendmail = '', $attachments = [])
+{
+
 	$data["sender"]["name"] = SIB_NAME;
 	$data["sender"]["email"] = SIB_EMAILID;
 
@@ -592,7 +590,9 @@ function sendBrevoHtmlMail2($maildata, $subject = '', $message = '', $sendmail =
 	$data_json = json_encode($data);
 
 	$curl = curl_init();
-	curl_setopt_array($curl, array(
+	curl_setopt_array(
+		$curl,
+		array(
 			CURLOPT_URL => "https://api.brevo.com/v3/smtp/email",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
@@ -818,36 +818,37 @@ function plan_interakt_track_rm($postdata)
 	return $response;
 }
 
-function getRCSToken() {
-    $api_url = "http://36.255.3.23:7111/rcsApi/getToken"; // Replace with your API URL
+function getRCSToken()
+{
+	$api_url = "http://36.255.3.23:7111/rcsApi/getToken"; // Replace with your API URL
 
-    $username = RCS_TOKEN_USERNAME; // Replace with your username
-    $password = RCS_TOKEN_PASSWORD; // Replace with your password
+	$username = RCS_TOKEN_USERNAME; // Replace with your username
+	$password = RCS_TOKEN_PASSWORD; // Replace with your password
 
-    // Prepare the payload
+	// Prepare the payload
 	$post_fields = json_encode([
-        'username' => $username,
-        'password' => $password
-    ]);
+		'username' => $username,
+		'password' => $password
+	]);
 
-    $ch = curl_init($api_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-        'Accept: application/json',
-    ]);
+	$ch = curl_init($api_url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+		'Content-Type: application/json',
+		'Accept: application/json',
+	]);
 
-    $response = curl_exec($ch);
-    curl_close($ch);
-	
-    $data = json_decode($response, true);
-    if (isset($data['jwttoken'])) {
-        return $data['jwttoken'];
-    } else {
-        return null;
-    }
+	$response = curl_exec($ch);
+	curl_close($ch);
+
+	$data = json_decode($response, true);
+	if (isset($data['jwttoken'])) {
+		return $data['jwttoken'];
+	} else {
+		return null;
+	}
 }
 
 function sendRCSSMS($dataset)
@@ -890,7 +891,7 @@ function sendRCSSMS($dataset)
 function send_schedule_call_data($data, $action = 'create', $slotId = null)
 {
 	$apiUrl = 'https://manage.indiakarobar.com/api/partner-schedule-slot-data';
-	
+
 	$payload = array_merge($data, [
 		'api_key' => 'INDIAKAROBAR@2026',
 		'action' => $action,
@@ -956,5 +957,3 @@ function webinar_interakt_payment_success_fail($postdata)
 
 	return $response;
 }
-
-?>

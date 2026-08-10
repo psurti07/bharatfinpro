@@ -77,10 +77,10 @@ class Manage_Support_Model extends CI_Model
 		}
 	}
 
-	public function sendTicketOpenMessage($ticketno = '', $emailid = '', $mobile='')
+	public function sendTicketOpenMessage($ticketno = '', $emailid = '', $mobile = '')
 	{
-		if($mobile != '') {
-			$message = "Your request ticket has been raised in our system with the Ticket Id: ".$ticketno.". We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
+		if ($mobile != '') {
+			$message = "Your request ticket has been raised in our system with the Ticket Id: " . $ticketno . ". We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -105,10 +105,10 @@ class Manage_Support_Model extends CI_Model
 		}
 	}
 
-	public function sendTicketProcessMessage($ticketno = '', $emailid = '', $mobile='')
+	public function sendTicketProcessMessage($ticketno = '', $emailid = '', $mobile = '')
 	{
-		if($mobile != '') {
-			$message = "Hello, Your request with Ticket ID: ".$ticketno." is under process. The query will be solved soon and it will be informed to you shortly. Thanks, Bharatfinpro";
+		if ($mobile != '') {
+			$message = "Hello, Your request with Ticket ID: " . $ticketno . " is under process. The query will be solved soon and it will be informed to you shortly. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -133,10 +133,10 @@ class Manage_Support_Model extends CI_Model
 		}
 	}
 
-	public function sendTicketClosedMessage($ticketno = '', $emailid = '', $mobile='')
+	public function sendTicketClosedMessage($ticketno = '', $emailid = '', $mobile = '')
 	{
-		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is closed as the company tried calling you for the last 3 days but got no response. Thanks, Bharatfinpro";
+		if ($mobile != '') {
+			$message = "Hello, Your request with Ticket Id: " . $ticketno . " is closed as the company tried calling you for the last 3 days but got no response. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -162,10 +162,10 @@ class Manage_Support_Model extends CI_Model
 		}
 	}
 
-	public function sendTicketResolvedMessage($ticketno = '', $emailid = '', $mobile='')
+	public function sendTicketResolvedMessage($ticketno = '', $emailid = '', $mobile = '')
 	{
-		if($mobile != '') {
-			$message = "Hello, Your request with Ticket Id: ".$ticketno." is Solved. We thank you for the opportunity to serve you. Thanks, Bharatfinpro";
+		if ($mobile != '') {
+			$message = "Hello, Your request with Ticket Id: " . $ticketno . " is Solved. We thank you for the opportunity to serve you. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
@@ -191,7 +191,4 @@ class Manage_Support_Model extends CI_Model
 			}
 		}
 	}
-
 }
-
-?>

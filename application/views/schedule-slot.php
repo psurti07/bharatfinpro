@@ -8,275 +8,275 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
 
-        }
+    }
 
-        body {
-            margin: 0;
-            font-family: "DM Sans", sans-serif;
-        }
+    body {
+        margin: 0;
+        font-family: "DM Sans", sans-serif;
+    }
 
-        .main {
-            max-width: 420px;
-            margin: auto;
-            background: #fff;
-            min-height: 100vh;
+    .main {
+        max-width: 420px;
+        margin: auto;
+        background: #fff;
+        min-height: 100vh;
 
-        }
-
-
-        .container {
-            width: 100%;
-            padding: 15px;
+    }
 
 
-        }
-
-        .header h1 {
-            font-weight: 600;
-            font-size: 24px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 0;
-            align-items: center;
-            margin-bottom: 30px;
-            margin-top: 35px;
-
-        }
-
-        .banner-main {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #f1f1f1;
-            margin-bottom: 20px;
-            padding: 0;
-            border-radius: 12px;
-        }
-
-        .banner-main .banner-text {
-            padding: 17px 0 0 17px;
-
-            text-align: start;
-        }
-
-        .banner-main .banner-text .fa {
-            font-size: 20px;
-        }
-
-        .fa {
-            font-size: 20px;
-            margin-right: 5px;
-        }
-
-        .banner-main img {
-            width: 150px;
-            height: 120px;
-        }
-
-        .banner-main .banner-text h2 {
-            font-size: 20px;
-            line-height: 25px;
-            color: #212529;
-            font-weight: 400;
-            margin-top: 15px;
-
-        }
-
-        .banner-main .banner-text .tag {
-            background: #144835;
-            color: #fff;
-            padding: 7px 17px;
-            border-radius: 6px;
-            font-size: 12px;
-        }
-
-        .banner-main .banner-text .tag svg {
-            vertical-align: middle;
-        }
-
-        p {
-            font-size: 15px;
-            line-height: 24px;
-            color: #212529;
-            margin-top: 0;
-            margin-bottom: 0;
-        }
+    .container {
+        width: 100%;
+        padding: 15px;
 
 
+    }
 
-        #form h4 {
-            font-size: 18px;
-            line-height: 24px;
-            margin: 10px 0 5px 0;
-            font-weight: 600;
-            color: #2E2E2E;
+    .header h1 {
+        font-weight: 600;
+        font-size: 24px;
+    }
 
-        }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 35px;
 
-        #form .select-languge {
-            margin-bottom: 35px;
-        }
+    }
 
-        #form .tabs-main {
-            display: flex;
-            gap: 7px;
-            flex-wrap: wrap;
-            margin-top: 16px;
-        }
+    .banner-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f1f1f1;
+        margin-bottom: 20px;
+        padding: 0;
+        border-radius: 12px;
+    }
 
-        #form .tabs-main .item {
-            padding: 6px 6px;
-            border: 1px solid #144835;
-            border-radius: 6px;
-            cursor: pointer;
-            width: 22.3%;
-            text-align: center;
-        }
+    .banner-main .banner-text {
+        padding: 17px 0 0 17px;
 
-        #slots .item {
-            width: 31.96% !important;
-        }
+        text-align: start;
+    }
 
-        #form .tabs-main .item.tabs-item {
-            width: 32%;
-        }
+    .banner-main .banner-text .fa {
+        font-size: 20px;
+    }
 
-        #form .active {
-            background: #e4f7f0;
-            color: #212529;
-        }
+    .fa {
+        font-size: 20px;
+        margin-right: 5px;
+    }
 
-        #form .tabs {
-            display: flex;
-            margin-top: 10px;
-            background: #f3f3f3;
-            margin-bottom: 20px;
-        }
+    .banner-main img {
+        width: 150px;
+        height: 120px;
+    }
 
-        #form .tab {
-            flex: 1;
-            text-align: center;
-            padding: 8px;
-            border: none;
-            cursor: pointer;
-        }
+    .banner-main .banner-text h2 {
+        font-size: 20px;
+        line-height: 25px;
+        color: #212529;
+        font-weight: 400;
+        margin-top: 15px;
 
-        #form .tab.active {
-            background: #144835;
-            color: #fff;
-            border: 1px solid #144835;
-            border-radius: 9px;
-        }
+    }
 
-        #form .tabs-main .item.active {
-            background: #e4f7f0;
-        }
+    .banner-main .banner-text .tag {
+        background: #144835;
+        color: #fff;
+        padding: 7px 17px;
+        border-radius: 6px;
+        font-size: 12px;
+    }
 
-        .footer {
-            text-align: center;
-            border-top: 1px solid #e4e4e7;
-            position: sticky;
-            bottom: 0;
-            z-index: 999;
-            background: #fff;
-        }
+    .banner-main .banner-text .tag svg {
+        vertical-align: middle;
+    }
 
-        .footer button.btn-submit {
-            min-width: 290px;
-            padding: 16px;
-            margin-top: 20px;
-            background: #144835;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 20px;
-            text-transform: uppercase;
-            margin: auto;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
+    p {
+        font-size: 15px;
+        line-height: 24px;
+        color: #212529;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 
-        .footer button.btn-submit:hover {
-            background-color: #336e59;
-        }
 
-        .footer .item {
-            text-align: center;
-            line-height: 1.4;
-        }
 
-        .box-agent {
-            background: #f1f1f1;
-            border-radius: 12px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-bottom: 60px;
-            padding: 25px 10px;
-        }
+    #form h4 {
+        font-size: 18px;
+        line-height: 24px;
+        margin: 10px 0 5px 0;
+        font-weight: 600;
+        color: #2E2E2E;
 
-        .box-agent .agent-img-list .agent-img-item {
-            height: 50px;
-            width: 50px;
-            border: 1px solid #144835;
-            border-radius: 50px;
-            padding: 4px;
-            background-color: #fff;
-            margin-right: -15px;
-            text-align: center;
-        }
+    }
 
-        .box-agent .agent-img-list {
-            display: flex;
-            align-items: center;
-            padding-left: 0;
+    #form .select-languge {
+        margin-bottom: 35px;
+    }
 
-        }
+    #form .tabs-main {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+    }
 
-        .box-agent .agent-img-list li {
-            list-style: none;
-        }
+    #form .tabs-main .item {
+        padding: 6px 6px;
+        border: 1px solid #144835;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 22.3%;
+        text-align: center;
+    }
 
-        .box-agent .agent-img-list .agent-img-item img {
-            width: 100%;
-        }
+    #slots .item {
+        width: 31.96% !important;
+    }
 
-        .box-agent span {
-            font-size: 22px;
-            padding-left: 10px;
-            color: #144835;
+    #form .tabs-main .item.tabs-item {
+        width: 32%;
+    }
 
-        }
+    #form .active {
+        background: #e4f7f0;
+        color: #212529;
+    }
 
+    #form .tabs {
+        display: flex;
+        margin-top: 10px;
+        background: #f3f3f3;
+        margin-bottom: 20px;
+    }
+
+    #form .tab {
+        flex: 1;
+        text-align: center;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+    }
+
+    #form .tab.active {
+        background: #144835;
+        color: #fff;
+        border: 1px solid #144835;
+        border-radius: 9px;
+    }
+
+    #form .tabs-main .item.active {
+        background: #e4f7f0;
+    }
+
+    .footer {
+        text-align: center;
+        border-top: 1px solid #e4e4e7;
+        position: sticky;
+        bottom: 0;
+        z-index: 999;
+        background: #fff;
+    }
+
+    .footer button.btn-submit {
+        min-width: 290px;
+        padding: 16px;
+        margin-top: 20px;
+        background: #144835;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 20px;
+        text-transform: uppercase;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .footer button.btn-submit:hover {
+        background-color: #336e59;
+    }
+
+    .footer .item {
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .box-agent {
+        background: #f1f1f1;
+        border-radius: 12px;
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 60px;
+        padding: 25px 10px;
+    }
+
+    .box-agent .agent-img-list .agent-img-item {
+        height: 50px;
+        width: 50px;
+        border: 1px solid #144835;
+        border-radius: 50px;
+        padding: 4px;
+        background-color: #fff;
+        margin-right: -15px;
+        text-align: center;
+    }
+
+    .box-agent .agent-img-list {
+        display: flex;
+        align-items: center;
+        padding-left: 0;
+
+    }
+
+    .box-agent .agent-img-list li {
+        list-style: none;
+    }
+
+    .box-agent .agent-img-list .agent-img-item img {
+        width: 100%;
+    }
+
+    .box-agent span {
+        font-size: 22px;
+        padding-left: 10px;
+        color: #144835;
+
+    }
+
+    .slot-days {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .slot-date {
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 12px;
+        margin-top: 5px;
+        color: #585d69;
+    }
+
+    @media screen and (max-width:767px) {
         .slot-days {
-            font-weight: 600;
-            font-size: 15px;
-            line-height: 24px;
-            margin-bottom: 8px;
-        }
-
-        .slot-date {
-            font-weight: normal;
             font-size: 13px;
-            line-height: 12px;
-            margin-top: 5px;
-            color: #585d69;
         }
-
-        @media screen and (max-width:767px) {
-            .slot-days {
-                font-size: 13px;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -296,7 +296,7 @@
                         </svg> FREE CALL</span>
                     <h2>Talk to a Hair expert and clear your hair doubts</h2>
                 </div>
-                <img src="<?php echo base_url()?>assets/images/img-2.png" alt="expert">
+                <img src="<?php echo base_url() ?>assets/images/img-2.png" alt="expert">
             </div>
 
 
@@ -337,13 +337,13 @@
                     <div class="box-agent">
                         <ul class="agent-img-list">
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url()?>assets/images/coach-dp-1.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/coach-dp-1.png" alt="">
                             </li>
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url()?>assets/images/coach-dp-2.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/coach-dp-2.png" alt="">
                             </li>
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url()?>assets/images/coach-dp-3.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/coach-dp-3.png" alt="">
                             </li>
 
                         </ul>
@@ -375,173 +375,176 @@
 
 
 
-            </form>
+    </form>
 
 
     <script>
-        let selectedDate = null;
+    let selectedDate = null;
 
-        // ------------------ LANGUAGE ------------------
-        document.querySelectorAll('#languageTabs .item').forEach(el => {
-            el.onclick = () => {
-                document.querySelectorAll('#languageTabs .item').forEach(i => i.classList.remove('active'));
-                el.classList.add('active');
-                document.getElementById('language').value = el.dataset.value;
-            };
-        });
+    // ------------------ LANGUAGE ------------------
+    document.querySelectorAll('#languageTabs .item').forEach(el => {
+        el.onclick = () => {
+            document.querySelectorAll('#languageTabs .item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('language').value = el.dataset.value;
+        };
+    });
 
-        // ------------------ DATES ------------------
-        function generateDates() {
-            let count = 0;
-            let i = 0;
-            let isFirst = true; // 👈 track first selectable date
+    // ------------------ DATES ------------------
+    function generateDates() {
+        let count = 0;
+        let i = 0;
+        let isFirst = true; // 👈 track first selectable date
 
-            const today = new Date();
+        const today = new Date();
 
-            while (count < 4) {
-                let d = new Date();
-                d.setDate(d.getDate() + i);
+        while (count < 4) {
+            let d = new Date();
+            d.setDate(d.getDate() + i);
 
-                if (d.getDay() !== 0) { // skip Sunday
+            if (d.getDay() !== 0) { // skip Sunday
 
-                    let line1 = '';
-                    let day = d.getDate();
-                    let month = d.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-                    let line2 = `${day} ${month}`;
+                let line1 = '';
+                let day = d.getDate();
+                let month = d.toLocaleString('en-US', {
+                    month: 'short'
+                }).toUpperCase();
+                let line2 = `${day} ${month}`;
 
-                    let diffDays = Math.floor((d - today) / (1000 * 60 * 60 * 24));
+                let diffDays = Math.floor((d - today) / (1000 * 60 * 60 * 24));
 
-                    if (diffDays === 0) {
-                        line1 = '<span class="slot-days">Today</span>';
-                    } else if (diffDays === 1) {
-                        line1 = '<span class="slot-days">Tomorrow</span>';
-                    } else {
-                        line1 = '<span class="slot-days">' + d.toLocaleString('en-US', { weekday: 'short' }) + '</span>';
-                    }
-
-                    let div = document.createElement('div');
-                    div.className = 'item';
-                    div.innerHTML = `${line1}<br><div class="slot-date">${line2}</div>`;
-
-                    div.onclick = () => {
-                        document.querySelectorAll('#dates .item').forEach(e => e.classList.remove('active'));
-                        div.classList.add('active');
-
-                        selectedDate = new Date(d);
-                        document.getElementById('date').value = selectedDate.toISOString().split('T')[0];
-
-                        generateSlots(getActiveTab());
-                    };
-
-                    document.getElementById('dates').appendChild(div);
-
-                    // 🔥 Auto select first date (Today)
-                    if (isFirst) {
-                        div.click();
-                        isFirst = false;
-                    }
-
-                    count++;
+                if (diffDays === 0) {
+                    line1 = '<span class="slot-days">Today</span>';
+                } else if (diffDays === 1) {
+                    line1 = '<span class="slot-days">Tomorrow</span>';
+                } else {
+                    line1 = '<span class="slot-days">' + d.toLocaleString('en-US', {
+                        weekday: 'short'
+                    }) + '</span>';
                 }
-                i++;
-            }
-        }
-
-        // ------------------ TIME SLOTS ------------------
-        function getActiveTab() {
-            return document.querySelector('.tab.active').dataset.type;
-        }
-
-        function generateSlots(type) {
-            const container = document.getElementById('slots');
-            container.innerHTML = '';
-
-            if (!selectedDate) return;
-
-            let start, end;
-
-            if (type === 'morning') {
-                start = 10;
-                end = 11.75;
-            } else if (type === 'afternoon') {
-                start = 12;
-                end = 15.75;
-            } else {
-                start = 16;
-                end = 18.5;
-            }
-
-            let now = new Date();
-
-            for (let t = start; t <= end; t += 0.25) {
-                let h = Math.floor(t);
-                let m = (t % 1) * 60;
-
-                let slotDate = new Date(selectedDate);
-                slotDate.setHours(h);
-                slotDate.setMinutes(m);
-                slotDate.setSeconds(0);
-
-                // 🔥 IMPORTANT: Skip past time for TODAY
-                if (
-                    selectedDate.toDateString() === now.toDateString() &&
-                    slotDate <= now
-                ) {
-                    continue;
-                }
-
-                let hour12 = h % 12 || 12; // convert 0 → 12
-                let ampm = h < 12 ? 'AM' : 'PM';
-
-                let formatted = hour12 + ':' + (m === 0 ? '00' : m) + ' ' + ampm;
 
                 let div = document.createElement('div');
                 div.className = 'item';
-                div.innerText = formatted;
+                div.innerHTML = `${line1}<br><div class="slot-date">${line2}</div>`;
 
                 div.onclick = () => {
-                    document.querySelectorAll('#slots .item').forEach(s => s.classList.remove('active'));
+                    document.querySelectorAll('#dates .item').forEach(e => e.classList.remove('active'));
                     div.classList.add('active');
-                    document.getElementById('time').value = formatted;
+
+                    selectedDate = new Date(d);
+                    document.getElementById('date').value = selectedDate.toISOString().split('T')[0];
+
+                    generateSlots(getActiveTab());
                 };
 
-                container.appendChild(div);
+                document.getElementById('dates').appendChild(div);
+
+                // 🔥 Auto select first date (Today)
+                if (isFirst) {
+                    div.click();
+                    isFirst = false;
+                }
+
+                count++;
             }
+            i++;
+        }
+    }
+
+    // ------------------ TIME SLOTS ------------------
+    function getActiveTab() {
+        return document.querySelector('.tab.active').dataset.type;
+    }
+
+    function generateSlots(type) {
+        const container = document.getElementById('slots');
+        container.innerHTML = '';
+
+        if (!selectedDate) return;
+
+        let start, end;
+
+        if (type === 'morning') {
+            start = 10;
+            end = 11.75;
+        } else if (type === 'afternoon') {
+            start = 12;
+            end = 15.75;
+        } else {
+            start = 16;
+            end = 18.5;
         }
 
-        // ------------------ TABS ------------------
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.onclick = () => {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                generateSlots(tab.dataset.type);
-            };
-        });
+        let now = new Date();
 
-        // ------------------ SUBMIT ------------------
-       /* document.getElementById('form').addEventListener('submit', function (e) {
-            e.preventDefault();
+        for (let t = start; t <= end; t += 0.25) {
+            let h = Math.floor(t);
+            let m = (t % 1) * 60;
 
-            let data = {
-                language: document.getElementById('language').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value
-            };
+            let slotDate = new Date(selectedDate);
+            slotDate.setHours(h);
+            slotDate.setMinutes(m);
+            slotDate.setSeconds(0);
 
-            if (!data.language || !data.date || !data.time) {
-                alert('Please select all fields');
-                return;
+            // 🔥 IMPORTANT: Skip past time for TODAY
+            if (
+                selectedDate.toDateString() === now.toDateString() &&
+                slotDate <= now
+            ) {
+                continue;
             }
 
-            console.log("Submitted:", data);
+            let hour12 = h % 12 || 12; // convert 0 → 12
+            let ampm = h < 12 ? 'AM' : 'PM';
 
-            alert("Slot booked successfully!");
-        });*/
+            let formatted = hour12 + ':' + (m === 0 ? '00' : m) + ' ' + ampm;
 
-        // INIT
-        generateDates();
-        generateSlots('morning');
+            let div = document.createElement('div');
+            div.className = 'item';
+            div.innerText = formatted;
 
+            div.onclick = () => {
+                document.querySelectorAll('#slots .item').forEach(s => s.classList.remove('active'));
+                div.classList.add('active');
+                document.getElementById('time').value = formatted;
+            };
+
+            container.appendChild(div);
+        }
+    }
+
+    // ------------------ TABS ------------------
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.onclick = () => {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            generateSlots(tab.dataset.type);
+        };
+    });
+
+    // ------------------ SUBMIT ------------------
+    /* document.getElementById('form').addEventListener('submit', function (e) {
+         e.preventDefault();
+
+         let data = {
+             language: document.getElementById('language').value,
+             date: document.getElementById('date').value,
+             time: document.getElementById('time').value
+         };
+
+         if (!data.language || !data.date || !data.time) {
+             alert('Please select all fields');
+             return;
+         }
+
+         console.log("Submitted:", data);
+
+         alert("Slot booked successfully!");
+     });*/
+
+    // INIT
+    generateDates();
+    generateSlots('morning');
     </script>
 
 </body>

@@ -15,10 +15,10 @@ window.onload = function() {
         <div class="col-12">
             <h2 class="text-bold-600 text-center">Data lock detail</h2>
             <h3>
-                <?php if(DATA_LOCK == 'YES'){ ?>
-                <?php if(DAYS_LOCK != '#'){ ?>
+                <?php if (DATA_LOCK == 'YES') { ?>
+                <?php if (DAYS_LOCK != '#') { ?>
                 <strong>Days Lock :</strong> <?php echo DAYS_LOCK; ?>
-                <?php } else if(DATE_LOCK != '#') {?>
+                <?php } else if (DATE_LOCK != '#') { ?>
                 <strong>Date Lock :</strong> <?php echo DATE_LOCK; ?>
                 <?php } ?>
                 <?php } else { ?>
@@ -52,7 +52,7 @@ window.onload = function() {
 
     </div>
 
-	<div class="row">
+    <div class="row">
         <div class="col-12">
             <h2 class="text-bold-600 text-center">Interakt Remarketing Users</h2>
             <hr />
@@ -136,7 +136,7 @@ function applicationdata() {
                 $('#whremarketingusers').html(html);
 
             }
-			/* Interakt remarketing user data display */
+            /* Interakt remarketing user data display */
             $('#intremarketingusers').html('');
             if (response['success'] == true) {
                 var html = "";

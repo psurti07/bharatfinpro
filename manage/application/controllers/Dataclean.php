@@ -49,18 +49,21 @@ class Dataclean extends MY_Controller
 	}
 
 
-	public function kycdata() {
+	public function kycdata()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$response = $this->Data_Test_And_Clean_Model->kycdatadelete();
 	}
 
-	public function userprocessstep() {
+	public function userprocessstep()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$response = $this->Data_Test_And_Clean_Model->userprocessstepset();
 	}
 
 	//for user registration table > if fullname is null then set name from email address
-	public function user_registration_data() {
+	public function user_registration_data()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$meta = $this->Data_Test_And_Clean_Model->update_user_registration_data();
 		echo $meta;
@@ -68,7 +71,8 @@ class Dataclean extends MY_Controller
 	}
 
 	// duplicate entry delete from memebership order and invoice table (do not change query order)
-	public function delete_duplicate_data() {
+	public function delete_duplicate_data()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$response = $this->Data_Test_And_Clean_Model->delete_duplicate_user_data();
 		echo $response;
@@ -76,7 +80,8 @@ class Dataclean extends MY_Controller
 	}
 
 	// delete data before given timestamp value
-	public function ci_sessions_data() {
+	public function ci_sessions_data()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$response = $this->Data_Test_And_Clean_Model->delete_ci_sessions_data();
 		echo $response;
@@ -84,7 +89,8 @@ class Dataclean extends MY_Controller
 	}
 
 	// For delete data between given time periods
-	public function sms_log_data() {
+	public function sms_log_data()
+	{
 		$this->load->model('Data_Test_And_Clean_Model');
 		$response = $this->Data_Test_And_Clean_Model->delete_sms_log_data();
 		echo $response;

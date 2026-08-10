@@ -17,30 +17,41 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/webinar/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/workshop_css.css">
     <?php echo link_tag('assets/css/validation/form-validation.css'); ?>
-<?php 
-$fbdomain = getFacebookDomain();
-if($fbdomain != Null) {
-  echo '<meta name="facebook-domain-verification" content="'.$fbdomain.'" />';
-}
+    <?php
+    $fbdomain = getFacebookDomain();
+    if ($fbdomain != Null) {
+        echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+    }
 
-$fbpixel = getFacebookPixel('facebookpixel-webinar');
-if($fbpixel != Null) {
-?>
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '<?php echo $fbpixel; ?>');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-<?php } ?>
-<!-- End Facebook Domain + Pixel Code -->
+    $fbpixel = getFacebookPixel('facebookpixel-webinar');
+    if ($fbpixel != Null) {
+    ?>
+    <script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '<?php echo $fbpixel; ?>');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
+    <?php } ?>
+    <!-- End Facebook Domain + Pixel Code -->
 </head>
 
 <body class="counter-scroll">
@@ -52,9 +63,8 @@ if($fbpixel != Null) {
                         <div class="header-left justify-left">
                             <div id="site-logo">
                                 <a href="#" rel="home">
-                                    <img id="logo-header"
-                                        src="<?php echo base_url() ?>assets/images/logo.png" width="160"
-                                        alt="Bharatfinpro" />
+                                    <img id="logo-header" src="<?php echo base_url() ?>assets/images/logo.png"
+                                        width="160" alt="Bharatfinpro" />
                                 </a>
                             </div>
                         </div>
@@ -94,7 +104,7 @@ if($fbpixel != Null) {
                         <form action="<?php echo base_url() ?>webinar/otp-verification" method="POST"
                             class="signup-form" novalidate="novalidate" id="signupform">
                             <?php
-                        if ($this->session->flashdata('danger')): ?>
+                            if ($this->session->flashdata('danger')): ?>
                             <div id="flash-message" class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <?= $this->session->flashdata('danger'); ?>
                                 <?= $this->session->unset_userdata('danger'); ?>
@@ -210,7 +220,7 @@ if($fbpixel != Null) {
                 </div>
             </div>
         </section>
-        
+
         <section>
             <div class="container">
                 <div class="feature-panel">
@@ -245,7 +255,7 @@ if($fbpixel != Null) {
                 </div>
             </div>
         </section>
-        
+
         <section class="journey">
             <div class="container">
                 <h2 class="center-title">How Your <span class="green">Fintech</span> Journey Works</h2>
@@ -270,7 +280,7 @@ if($fbpixel != Null) {
                 </div>
             </div>
         </section>
-        
+
         <section>
             <div class="container">
                 <h2 class="center-title">A Complete Ecosystem For <span class="green">Your Growth</span></h2>
@@ -355,7 +365,7 @@ if($fbpixel != Null) {
                 </div>
             </div>
         </section>
-        
+
         <section class="tc-about-style25">
             <div class="container">
                 <h2 class="center-title">What You Get With <span class="green">Urbansmallfinance</span></h2>
@@ -522,25 +532,28 @@ if($fbpixel != Null) {
             </div>
         </section>
         <footer id="footer" class="inverted text-light pt-0 pb-0" style="z-index:10;background-color:#000;">
-                <div class="copyright-content">
-                    <div class="container">
-                        <div class="row align-items-center py-3">
-                            <div class="col-lg-12 text-center">
-                                <div class="copyright-text">
-                                    <?php echo date('Y') . " &copy; " . COMPANY_NAME; ?> All rights reserved.</div>
-                            </div>
-
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="row align-items-center py-3">
+                        <div class="col-lg-12 text-center">
+                            <div class="copyright-text">
+                                <?php echo date('Y') . " &copy; " . COMPANY_NAME; ?> All rights reserved.</div>
                         </div>
+
                     </div>
                 </div>
-            </footer>
+            </div>
+        </footer>
 
         <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/js/plugins.js');?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/js/validation/jqBootstrapValidation.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/plugins/validate/form-validation.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/plugins/validate/form-validation.min.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/bootstrap.min.js') ?>"></script>     
+        <script type="text/javascript" src="<?php echo base_url('assets/js/plugins.js'); ?>"></script>
+        <script type="text/javascript" src="<?php echo base_url('assets/js/validation/jqBootstrapValidation.js'); ?>">
+        </script>
+        <script type="text/javascript" src="<?php echo base_url('assets/plugins/validate/form-validation.js'); ?>">
+        </script>
+        <script type="text/javascript" src="<?php echo base_url('assets/plugins/validate/form-validation.min.js'); ?>">
+        </script>
+        <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/bootstrap.min.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/swiper-bundle.min.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/countto.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/swiper.js') ?>"></script>

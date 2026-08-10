@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Manage_Site_Model extends CI_Model
 {
 
-    public function gettodaystatestics() {
+    public function gettodaystatestics()
+    {
         $statestics_res = [];
 
         /* Online Loan */
@@ -40,7 +41,7 @@ class Manage_Site_Model extends CI_Model
         /* Online Loan */
 
 
-         /* plan Online Loan */
+        /* plan Online Loan */
         $query_plan = $this->db->select('r.id')
             ->from('plan_user_registration r')
             ->where("CAST(r.update_date as date) = CAST('" . date('Y-m-d') . "' as date)")
@@ -190,34 +191,34 @@ class Manage_Site_Model extends CI_Model
         $statestics_res['bumperoffer'] = $query_offer->num_rows();
 
         $query_offer = $this->db->select('id')
-        ->where('registration_date', date('Y-m-d'))
-        ->where('offerpage', 4)
-        ->where('isDelete', 0)
-        ->get('cardoffer_order');
+            ->where('registration_date', date('Y-m-d'))
+            ->where('offerpage', 4)
+            ->where('isDelete', 0)
+            ->get('cardoffer_order');
         $statestics_res['staroffer'] = $query_offer->num_rows();
 
         $query_offer = $this->db->select('id')
-        ->where('registration_date', date('Y-m-d'))
-        ->where('offerpage', 5)
-        ->where('isDelete', 0)
-        ->get('cardoffer_order');
+            ->where('registration_date', date('Y-m-d'))
+            ->where('offerpage', 5)
+            ->where('isDelete', 0)
+            ->get('cardoffer_order');
         $statestics_res['primeoffer'] = $query_offer->num_rows();
 
         $query_offer = $this->db->select('id')
-        ->where('registration_date', date('Y-m-d'))
-        ->where('offerpage', 6)
-        ->where('isDelete', 0)
-        ->get('cardoffer_order');
+            ->where('registration_date', date('Y-m-d'))
+            ->where('offerpage', 6)
+            ->where('isDelete', 0)
+            ->get('cardoffer_order');
         $statestics_res['megaoffer'] = $query_offer->num_rows();
 
-         $query_offer = $this->db->select('id')
+        $query_offer = $this->db->select('id')
             ->where('registration_date', date('Y-m-d'))
             ->where('offerpage', 7)
             ->where('isDelete', 0)
             ->get('cardoffer_order');
         $statestics_res['superoffer'] = $query_offer->num_rows();
 
-         $query_offer = $this->db->select('id')
+        $query_offer = $this->db->select('id')
             ->where('registration_date', date('Y-m-d'))
             ->where('offerpage', 8)
             ->where('isDelete', 0)
@@ -262,7 +263,8 @@ class Manage_Site_Model extends CI_Model
         return $statestics_res;
     }
 
-    public function getnewsletterlist() {
+    public function getnewsletterlist()
+    {
         $query = $this->db->where('isDelete', 0)
             ->order_by('id asc')
             ->get('newsletter_subscribe')
@@ -270,7 +272,8 @@ class Manage_Site_Model extends CI_Model
         return $query;
     }
 
-    public function changesubscription($statusid, $id) {
+    public function changesubscription($statusid, $id)
+    {
         if ($statusid == 1) {
             $data = array(
                 'isActive' => 0,
@@ -289,7 +292,8 @@ class Manage_Site_Model extends CI_Model
         return ($this->db->affected_rows() != 1) ? false : true;
     }
 
-    public function deletesubscription($id) {
+    public function deletesubscription($id)
+    {
         $data = array(
             'isDelete' => 1,
         );
@@ -299,31 +303,36 @@ class Manage_Site_Model extends CI_Model
         return ($this->db->affected_rows() != 1) ? false : true;
     }
 
-    public function getpagedetails($pagename) {
+    public function getpagedetails($pagename)
+    {
         $query = $this->db->where('option_key', $pagename)
             ->get('site_options');
         return $query->row();
     }
 
-    public function editpage($id, $data) {
+    public function editpage($id, $data)
+    {
         $sql_query = $this->db->where('id', $id)
             ->update('site_options', $data);
         return $sql_query;
     }
 
-    public function getsmsdetails($id) {
+    public function getsmsdetails($id)
+    {
         $query = $this->db->where('id', $id)
             ->get('site_options');
         return $query->row();
     }
 
-    public function editsms($id, $data) {
+    public function editsms($id, $data)
+    {
         $sql_query = $this->db->where('id', $id)
             ->update('site_options', $data);
         return $sql_query;
     }
 
-    public function getsitesettings() {
+    public function getsitesettings()
+    {
         $settings = [];
 
         $query1 = $this->db->where('option_key', 'welcome-status')
@@ -354,32 +363,32 @@ class Manage_Site_Model extends CI_Model
             ->get('site_options');
         $settings['fbeventid'] = $query7->row();
 
-		$query11 = $this->db->where('option_key', 'wpcampaignmain')
-			->get('site_options');
-		$settings['wpcampaignmain'] = $query11->row();
+        $query11 = $this->db->where('option_key', 'wpcampaignmain')
+            ->get('site_options');
+        $settings['wpcampaignmain'] = $query11->row();
 
-		$query12 = $this->db->where('option_key', 'wpcampaignoffer')
-			->get('site_options');
-		$settings['wpcampaignoffer'] = $query12->row();
+        $query12 = $this->db->where('option_key', 'wpcampaignoffer')
+            ->get('site_options');
+        $settings['wpcampaignoffer'] = $query12->row();
 
-		$query13 = $this->db->where('option_key', 'wpcampaignsuccess')
-			->get('site_options');
-		$settings['wpcampaignsuccess'] = $query13->row();
+        $query13 = $this->db->where('option_key', 'wpcampaignsuccess')
+            ->get('site_options');
+        $settings['wpcampaignsuccess'] = $query13->row();
 
         $query14 = $this->db->where('option_key', 'intekt_get_offer_name')
-			->get('site_options');
-		$settings['intekt_get_offer_name'] = $query14->row();
+            ->get('site_options');
+        $settings['intekt_get_offer_name'] = $query14->row();
 
         $query15 = $this->db->where('option_key', 'intekt_rm_offer_name')
-			->get('site_options');
-		$settings['intekt_rm_offer_name'] = $query15->row();
+            ->get('site_options');
+        $settings['intekt_rm_offer_name'] = $query15->row();
 
         $query16 = $this->db->where('option_key', 'intkt_userwelcomename')
-        ->get('site_options');
+            ->get('site_options');
         $settings['intkt_userwelcomename'] = $query16->row();
 
         $query17 = $this->db->where('option_key', 'intkt_payment_success')
-        ->get('site_options');
+            ->get('site_options');
         $settings['intkt_payment_success'] = $query17->row();
 
         $query18 = $this->db->where('option_key', 'plansmssenderid')
@@ -417,50 +426,50 @@ class Manage_Site_Model extends CI_Model
         $settings['wpcampaignsuccessplan'] = $query25->row();
 
 
-          $query14 = $this->db->where('option_key', 'intekt_get_offer_name_plan')
-			->get('site_options');
-		$settings['intekt_get_offer_name_plan'] = $query14->row();
+        $query14 = $this->db->where('option_key', 'intekt_get_offer_name_plan')
+            ->get('site_options');
+        $settings['intekt_get_offer_name_plan'] = $query14->row();
 
         $query15 = $this->db->where('option_key', 'intekt_rm_offer_name_plan')
-			->get('site_options');
-		$settings['intekt_rm_offer_name_plan'] = $query15->row();
+            ->get('site_options');
+        $settings['intekt_rm_offer_name_plan'] = $query15->row();
 
         $query16 = $this->db->where('option_key', 'intkt_userwelcomename_plan')
-        ->get('site_options');
+            ->get('site_options');
         $settings['intkt_userwelcomename_plan'] = $query16->row();
 
         $query17 = $this->db->where('option_key', 'intkt_payment_success_plan')
-        ->get('site_options');
+            ->get('site_options');
         $settings['intkt_payment_success_plan'] = $query17->row();
 
 
         $query18 = $this->db->where('option_key', 'facebookpixel-webinar')
-		   ->get('site_options');
-		$settings['fbpixelvaluewebinar'] = $query18->row();
+            ->get('site_options');
+        $settings['fbpixelvaluewebinar'] = $query18->row();
 
-		$query19 = $this->db->where('option_key', 'fbaccesstokenwebinar')
-		 ->get('site_options');
-		$settings['fbaccesstokenwebinar'] = $query19->row();
+        $query19 = $this->db->where('option_key', 'fbaccesstokenwebinar')
+            ->get('site_options');
+        $settings['fbaccesstokenwebinar'] = $query19->row();
 
-		$query20 = $this->db->where('option_key', 'fbeventnamewebinar')
-		 ->get('site_options');
-		$settings['fbeventnamewebinar'] = $query20->row();
+        $query20 = $this->db->where('option_key', 'fbeventnamewebinar')
+            ->get('site_options');
+        $settings['fbeventnamewebinar'] = $query20->row();
 
-		$query21 = $this->db->where('option_key', 'fbeventidwebinar')
-		 ->get('site_options');
-		$settings['fbeventidwebinar'] = $query21->row();
+        $query21 = $this->db->where('option_key', 'fbeventidwebinar')
+            ->get('site_options');
+        $settings['fbeventidwebinar'] = $query21->row();
 
-		$query22 = $this->db->where('option_key', 'wpcampaignwebinar')
-		 ->get('site_options');
-		$settings['wpcampaignwebinar'] = $query22->row();
+        $query22 = $this->db->where('option_key', 'wpcampaignwebinar')
+            ->get('site_options');
+        $settings['wpcampaignwebinar'] = $query22->row();
 
-		$query23 = $this->db->where('option_key', 'wpcampaignofferwebinar')
-		 ->get('site_options');
-		$settings['wpcampaignofferwebinar'] = $query23->row();
+        $query23 = $this->db->where('option_key', 'wpcampaignofferwebinar')
+            ->get('site_options');
+        $settings['wpcampaignofferwebinar'] = $query23->row();
 
-		$query24 = $this->db->where('option_key', 'wpcampaignsuccesswebinar')
-		 ->get('site_options');
-		$settings['wpcampaignsuccesswebinar'] = $query24->row();
+        $query24 = $this->db->where('option_key', 'wpcampaignsuccesswebinar')
+            ->get('site_options');
+        $settings['wpcampaignsuccesswebinar'] = $query24->row();
 
 
 
@@ -468,7 +477,8 @@ class Manage_Site_Model extends CI_Model
         return $settings;
     }
 
-    public function updatemodelstatus($value) {
+    public function updatemodelstatus($value)
+    {
         $option_value = ($value == 1) ? 0 : 1;
 
         $data = array(
@@ -480,7 +490,8 @@ class Manage_Site_Model extends CI_Model
         return $sql_query;
     }
 
-    public function updatesiteonhold($value) {
+    public function updatesiteonhold($value)
+    {
         $option_value = ($value == 1) ? 0 : 1;
 
         $data = array(
@@ -492,7 +503,8 @@ class Manage_Site_Model extends CI_Model
         return $sql_query;
     }
 
-    public function updatesiteonsuspended($value) {
+    public function updatesiteonsuspended($value)
+    {
         $option_value = ($value == 1) ? 0 : 1;
 
         $data = array(
@@ -504,46 +516,53 @@ class Manage_Site_Model extends CI_Model
         return $sql_query;
     }
 
-    public function updatefacebookdata($data, $key) {
+    public function updatefacebookdata($data, $key)
+    {
         $sql_query = $this->db->where('option_key', $key)
             ->update('site_options', $data);
         return $sql_query;
     }
 
-    public function updatesitesettingdata($data, $key) {
+    public function updatesitesettingdata($data, $key)
+    {
         $query = $this->db->where('option_key', $key)
-           ->update('site_options', $data);
+            ->update('site_options', $data);
         $flag = ($this->db->affected_rows() != 1) ? false : true;
         return $flag;
     }
 
-    public function searchcustomer($mobile) {
+    public function searchcustomer($mobile)
+    {
         $query = $this->db->where('isDelete', 0)
             ->like('mobile', $mobile)
             ->get('user_registration');
         return $query->row();
     }
 
-     public function plan_searchcustomer($mobile) {
+    public function plan_searchcustomer($mobile)
+    {
         $query = $this->db->where('isDelete', 0)
             ->like('mobile', $mobile)
             ->get('plan_user_registration');
         return $query->row();
     }
 
-    public function searchcareer($mobile) {
+    public function searchcareer($mobile)
+    {
         $query = $this->db->like('mobile', $mobile)
             ->get('career_enquiry');
         return $query->row();
     }
 
-    public function searchbulksms($mobile) {
+    public function searchbulksms($mobile)
+    {
         $query = $this->db->like('mobileno', $mobile)
             ->get('bulksms');
         return $query->row();
     }
 
-    public function getimpupdatelist() {
+    public function getimpupdatelist()
+    {
         $query = $this->db->where('isDelete', 0)
             ->order_by('id asc')
             ->get('important_update')
@@ -551,14 +570,16 @@ class Manage_Site_Model extends CI_Model
         return $query;
     }
 
-    public function addimpupdate($data) {
+    public function addimpupdate($data)
+    {
         $this->db->insert('important_update', $data);
         $bankid = $this->db->insert_id();
 
         return ($this->db->affected_rows() != 1) ? false : true;
     }
 
-    public function impupdatestatus($statusid, $id) {
+    public function impupdatestatus($statusid, $id)
+    {
         if ($statusid == 1) {
             $data = array(
                 'isActive' => 0,
@@ -572,7 +593,8 @@ class Manage_Site_Model extends CI_Model
             ->update('important_update', $data);
     }
 
-    public function deleteimpupdate($id) {
+    public function deleteimpupdate($id)
+    {
         $data = array(
             'isDelete' => 1,
         );
@@ -580,7 +602,8 @@ class Manage_Site_Model extends CI_Model
             ->update('important_update', $data);
     }
 
-    public function getaccountmsg() {
+    public function getaccountmsg()
+    {
         $msgs = [];
 
         $query1 = $this->db->where('option_key', 'account-msg-customer')
@@ -590,113 +613,119 @@ class Manage_Site_Model extends CI_Model
         return $msgs;
     }
 
-    public function editaccountmsg($id, $data) {
+    public function editaccountmsg($id, $data)
+    {
         $sql_query = $this->db->where('id', $id)
             ->update('site_options', $data);
         return $sql_query;
     }
 
-    public function getinvoiceno() {
+    public function getinvoiceno()
+    {
         $query = $this->db->select('option_value')
             ->where('option_key', 'newinvoiceno')
             ->get('site_options')
             ->row();
         return $query->option_value;
     }
-	public function getstatuslist()
-	{
-		$query = $this->db->order_by('priorityno asc')
-			->get('loanstatus')
-			->result();
-		return $query;
-	}
-
-	public function getfileremarkslist()
-	{
-		$query = $this->db->select('r.*, s.statusname')
-			->from('loanstatus_remarks r')
-			->join('loanstatus s', 's.id=r.statusid')
-			->order_by('r.id asc')
-			->get()
-			->result();
-		return $query;
-	}
-
-	public function getremarkdetails($id)
-	{
-		$query = $this->db->where('id', $id)
-			->get('loanstatus_remarks')
-			->row();
-		return $query;
-	}
-
-	public function addfileremark($data)
-	{
-		$this->db->insert('loanstatus_remarks', $data);
-		$id = $this->db->insert_id();
-		return $id;
-	}
-
-	public function editfileremark($id, $data)
-	{
-		$query = $this->db->where('id', $id)
-			->update('loanstatus_remarks', $data);
-		return ($this->db->affected_rows() != 1) ? false : true;
-	}
-
-	public function deleteremark($id)
-	{
-		$data = array(
-			'isDelete' => 1
-		);
-		$query = $this->db->where('id', $id)
-			->update('loanstatus_remarks', $data);
-
-		return ($this->db->affected_rows() != 1) ? false : true;
-	}
-
-	public function restoreremark($id)
-	{
-		$data = array(
-			'isDelete' => 0
-		);
-		$query = $this->db->where('id', $id)
-			->update('loanstatus_remarks', $data);
-		return ($this->db->affected_rows() != 1) ? false : true;
-	}
-    
-    public function getstaffmemberlist() {
-        $query = $this->db->where('isDelete', 0)
-         ->order_by('id desc')
-         ->get('administration')
-         ->result();
+    public function getstatuslist()
+    {
+        $query = $this->db->order_by('priorityno asc')
+            ->get('loanstatus')
+            ->result();
         return $query;
     }
 
-    public function addstaffmember($data) {
+    public function getfileremarkslist()
+    {
+        $query = $this->db->select('r.*, s.statusname')
+            ->from('loanstatus_remarks r')
+            ->join('loanstatus s', 's.id=r.statusid')
+            ->order_by('r.id asc')
+            ->get()
+            ->result();
+        return $query;
+    }
+
+    public function getremarkdetails($id)
+    {
+        $query = $this->db->where('id', $id)
+            ->get('loanstatus_remarks')
+            ->row();
+        return $query;
+    }
+
+    public function addfileremark($data)
+    {
+        $this->db->insert('loanstatus_remarks', $data);
+        $id = $this->db->insert_id();
+        return $id;
+    }
+
+    public function editfileremark($id, $data)
+    {
+        $query = $this->db->where('id', $id)
+            ->update('loanstatus_remarks', $data);
+        return ($this->db->affected_rows() != 1) ? false : true;
+    }
+
+    public function deleteremark($id)
+    {
+        $data = array(
+            'isDelete' => 1
+        );
+        $query = $this->db->where('id', $id)
+            ->update('loanstatus_remarks', $data);
+
+        return ($this->db->affected_rows() != 1) ? false : true;
+    }
+
+    public function restoreremark($id)
+    {
+        $data = array(
+            'isDelete' => 0
+        );
+        $query = $this->db->where('id', $id)
+            ->update('loanstatus_remarks', $data);
+        return ($this->db->affected_rows() != 1) ? false : true;
+    }
+
+    public function getstaffmemberlist()
+    {
+        $query = $this->db->where('isDelete', 0)
+            ->order_by('id desc')
+            ->get('administration')
+            ->result();
+        return $query;
+    }
+
+    public function addstaffmember($data)
+    {
         $this->db->insert('administration', $data);
         $id = $this->db->insert_id();
         return $id;
     }
 
-     public function getStaffByEmail($email) {
+    public function getStaffByEmail($email)
+    {
         $this->db->where('emailid', $email);
         $this->db->where('isDelete', 0); // optional if using soft deletes
         $query = $this->db->get('administration'); // Replace 'staff' with your actual table name
-    
+
         if ($query && $query->num_rows() > 0) {
             return $query->row();
         }
-    
+
         return null;
     }
-    public function deletestaffaccount($id) {
+    public function deletestaffaccount($id)
+    {
         $data = array(
-         'isActive' => 0,
-         'isDelete' => 1
+            'isActive' => 0,
+            'isDelete' => 1
         );
         $query_reg = $this->db->where('id', $id)
-         ->update('administration', $data);
+            ->update('administration', $data);
 
         return ($this->db->affected_rows() != 1) ? false : true;
     }

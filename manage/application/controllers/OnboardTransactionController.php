@@ -1,8 +1,9 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class OnboardTransactionController extends CI_Controller {
+class OnboardTransactionController extends CI_Controller
+{
 
     public function __construct()
     {
@@ -73,7 +74,7 @@ class OnboardTransactionController extends CI_Controller {
 
             if ($exists) {
                 $this->db->where('id', $exists->id)
-                         ->update('onboarding_transaction', $insertData);
+                    ->update('onboarding_transaction', $insertData);
             } else {
                 $this->db->insert('onboarding_transaction', $insertData);
             }
@@ -82,7 +83,6 @@ class OnboardTransactionController extends CI_Controller {
                 'status' => true,
                 'message' => 'Data saved successfully'
             ]);
-
         } catch (\Exception $e) { // ✅ FIX 3
 
             echo json_encode([
@@ -92,70 +92,71 @@ class OnboardTransactionController extends CI_Controller {
         }
     }
 
-    public function onborad_transaction_detail(){
+    public function onborad_transaction_detail()
+    {
         $query = $this->db->order_by('id desc')
-				->get('onboarding_transaction')
-				->result();
+            ->get('onboarding_transaction')
+            ->result();
 
-		$this->db->close();
-		$this->db->initialize();
+        $this->db->close();
+        $this->db->initialize();
 
-        return $query; 
-
+        return $query;
     }
 
-     /**
+    /**
      * Cron job to send webinar/workshop data to indiakarobar
      * Run every hour
      */
-    public function send_webinar_data() {
+    public function send_webinar_data()
+    {
         // Log start
         log_message('info', 'SendWebinarDataToIndiakarobar started');
-        
+
         $date = date('Y-m-d');
         //$date = '2026-06-06';
         $dateFormat = date('d/m/Y');
-        
+
         // Company details
         $companyCode = '#';  // Update with your company code
         $companyName = 'Bharatfinpro';  // Update with your company name
         //$companyLocalIp = LOCAL_IP;  // Get from environment or config
-        
+
         // API URL
         $apiUrl = 'https://manage.indiakarobar.com/api/program-referral-data';
-        
+
         // 1 = Leads (Webinar Registrations) - Adjust table names as per your DB
-         $leadsQuery =  $this->db->select('uwr.*')
-			->from('user_webinar_registration uwr')
-			->join('webinar_order wo', 'wo.userid = uwr.id')
-			->where('DATE(uwr.rec_date)', $date)
-			->where('wo.isUser !=',2)
-			->where('uwr.isDelete', 0)
-			->where('wo.isDelete', 0)
-			->get();
+        $leadsQuery =  $this->db->select('uwr.*')
+            ->from('user_webinar_registration uwr')
+            ->join('webinar_order wo', 'wo.userid = uwr.id')
+            ->where('DATE(uwr.rec_date)', $date)
+            ->where('wo.isUser !=', 2)
+            ->where('uwr.isDelete', 0)
+            ->where('wo.isDelete', 0)
+            ->get();
         $totalLeads = $leadsQuery->num_rows();
-       
+
         // Get user IDs for leads
         $userIds = array();
         foreach ($leadsQuery->result() as $lead) {
             $userIds[] = $lead->id;
         }
-        
+
         // 2 = Customers (Paid Webinar Orders)
         $totalCustomers = 0;
         $totalAmount = 0;
-        
+
         if (!empty($userIds)) {
             $customersQuery = $this->db->select('uwr.*, wo.amount')
-                    ->from('user_webinar_registration uwr')
-                    ->join('webinar_order wo', 'wo.userid = uwr.id')
-                    ->where('DATE(uwr.rec_date)', $date)
-                    ->where('wo.isUser', 2)
-                    ->where('uwr.isDelete', 0)
-                    ->where('wo.isDelete', 0)
-                    ->get();
+                ->from('user_webinar_registration uwr')
+                ->join('webinar_order wo', 'wo.userid = uwr.id')
+                ->where('DATE(uwr.rec_date)', $date)
+                ->where('wo.isUser', 2)
+                ->where('uwr.isDelete', 0)
+                ->where('wo.isDelete', 0)
+                ->get();
             $totalCustomers = $customersQuery->num_rows();
-            
+
             // Calculate total amount
             $amount = 0;
             foreach ($customersQuery->result() as $order) {
@@ -163,7 +164,7 @@ class OnboardTransactionController extends CI_Controller {
             }
             $totalAmount = round($amount, 2);
         }
-        
+
         // Log data
         log_message('info', 'Webinar data prepared', [
             'date' => $date,
@@ -171,14 +172,14 @@ class OnboardTransactionController extends CI_Controller {
             'customers' => $totalCustomers,
             'amount' => $totalAmount
         ]);
-        
+
         // Skip if no data
         if ($totalLeads == 0 && $totalCustomers == 0 && $totalAmount == 0) {
             log_message('info', 'No data found for today, skipping sync');
             echo "No data to sync\n";
             return;
         }
-        
+
         // Prepare payload
         $payload = array(
             'api_key' => 'INDIAKAROBAR@2026',
@@ -191,15 +192,15 @@ class OnboardTransactionController extends CI_Controller {
             'total_customer' => $totalCustomers,
             'total_amount' => $totalAmount
         );
-        
+
         log_message('info', 'Sending payload to indiakarobar API', [
             'api_url' => $apiUrl,
             'payload' => json_encode($payload)
         ]);
-        
+
         // Send data
         $response = send_webinar_data($apiUrl, $payload);
-        
+
         if ($response && isset($response['status']) && $response['status'] === true) {
             log_message('info', 'Webinar data sent successfully', ['response' => $response]);
             echo "✅ Webinar data synced successfully!\n";
@@ -210,7 +211,7 @@ class OnboardTransactionController extends CI_Controller {
             log_message('error', 'Failed to send webinar data', ['response' => $response]);
             echo "❌ Failed to sync webinar data\n";
         }
-        
+
         log_message('info', 'SendWebinarDataToIndiakarobar completed');
     }
 }

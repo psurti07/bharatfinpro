@@ -1,54 +1,60 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Customer_Digital_Model extends CI_Model {
+defined('BASEPATH') or exit('No direct script access allowed');
+class Customer_Digital_Model extends CI_Model
+{
 
-	public function getlastrecord($customerid){
-		$query = $this->db->where('isDelete',0)
-					->where('userid',$customerid)
-					->order_by('id desc')
-					->limit(1)
-					->get('user_application')
-					->row();
+	public function getlastrecord($customerid)
+	{
+		$query = $this->db->where('isDelete', 0)
+			->where('userid', $customerid)
+			->order_by('id desc')
+			->limit(1)
+			->get('user_application')
+			->row();
 		return $query;
 	}
 
-	public function applyapplication($data){
-		$this->db->insert('user_application',$data);
+	public function applyapplication($data)
+	{
+		$this->db->insert('user_application', $data);
 		$applyid = $this->db->insert_id();
 		return $applyid;
 	}
 
-	public function updateapplication($id, $data){
-		$sql_query=$this->db->where('id', $id)
-					->update('user_application', $data); 
+	public function updateapplication($id, $data)
+	{
+		$sql_query = $this->db->where('id', $id)
+			->update('user_application', $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
 
-	public function applicationstatus($data){
-		$this->db->insert('user_application_status',$data);
+	public function applicationstatus($data)
+	{
+		$this->db->insert('user_application_status', $data);
 		$appstausid = $this->db->insert_id();
 		return $appstausid;
 	}
-	
-	public function sendGreetings($mobile='', $emailid='', $loan){
-		if($mobile != '') {
+
+	public function sendGreetings($mobile = '', $emailid = '', $loan)
+	{
+		if ($mobile != '') {
 			$message = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'main');
 		}
 
-		if($emailid != '') {
+		if ($emailid != '') {
 			// Send email
 			$subject = "Welcome Bharatfinpro";
-			
+
 			$message = '<p>Dear Customer,</p>';
 			$message .= '<p><strong>Congratulations!</strong></p>';
 			$message .= '<p>Submission of your loan application is done. Kindly check your registered email and login into the customer portal for submitting the required documents.</p>';
-			$message .= '<p>Thanks & Regards,<br/>'.COMPANY_NAME.'</p>';
+			$message .= '<p>Thanks & Regards,<br/>' . COMPANY_NAME . '</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
 
-			if($content != '') {
+			if ($content != '') {
 				/*$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content);*/
 				$maildata = array(
 					'fullname' => $emailid,
@@ -60,6 +66,4 @@ Class Customer_Digital_Model extends CI_Model {
 
 		return true;
 	}
-
 }
-

@@ -1,42 +1,46 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Site_Enquiry_Model extends CI_Model {
+defined('BASEPATH') or exit('No direct script access allowed');
+class Site_Enquiry_Model extends CI_Model
+{
 
-	public function addEnquiry($data){
-		$this->db->insert('enquiry',$data);
+	public function addEnquiry($data)
+	{
+		$this->db->insert('enquiry', $data);
 		$enquiryid = $this->db->insert_id();
 
 		return $enquiryid;
 	}
 
-	public function updateEnquiry($id, $data){
-		$sql_query=$this->db->where('id', $id)
-					->update('enquiry', $data); 
+	public function updateEnquiry($id, $data)
+	{
+		$sql_query = $this->db->where('id', $id)
+			->update('enquiry', $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
 
 
-	public function sendOfflineGreetings($mobile='', $emailid='', $loan=''){
+	public function sendOfflineGreetings($mobile = '', $emailid = '', $loan = '')
+	{
 		$url = '';
-		
-		if($mobile != '') {
+
+		if ($mobile != '') {
 			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
-			
+
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
-		if($emailid != '') {
+		if ($emailid != '') {
 			// Send email
 			$subject = "Welcome Bharatfinpro";
-			
+
 			$message = '<p>Dear Customer,</p>';
-			$message .= "<p>Thank you for showing interest for a ".$loan.". Your loan application has been successfully submitted. Our company executive will contact you shortly.</p>"; 
-			$message .= '<p>Thanks & Regards,<br/>'.COMPANY_NAME.'</p>';
+			$message .= "<p>Thank you for showing interest for a " . $loan . ". Your loan application has been successfully submitted. Our company executive will contact you shortly.</p>";
+			$message .= '<p>Thanks & Regards,<br/>' . COMPANY_NAME . '</p>';
 
 			$this->load->model('Site_General_Model');
 			$content = $this->Site_General_Model->simpleemailtemplate($message);
 
-			if($content != '') {
+			if ($content != '') {
 				/*$mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content);*/
 				$maildata = array(
 					'fullname' => $emailid,
@@ -48,6 +52,4 @@ Class Site_Enquiry_Model extends CI_Model {
 
 		return true;
 	}
-
 }
-

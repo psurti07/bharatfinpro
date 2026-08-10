@@ -126,12 +126,12 @@ class Order extends CI_Controller
 		$paymentdata = $this->Site_Digital_Model->getzaakpayentry($orderId);
 
 		$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
-		
+
 		$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
 
 		$this->session->set_tempdata('applyid', $userdata->id, 3600);
 		if ($checksum == $recd_checksum) {
-			
+
 			$zaakpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'orderamount' => $orderAmount,
@@ -143,7 +143,7 @@ class Order extends CI_Controller
 			$response1 = $this->Site_Digital_Model->updatezaakpayentry($paymentdata->id, $zaakpaydata);
 
 			if ($responseCode == 100 || $responseCode == 208 || $responseCode == 601) {
-				
+
 				$cardno = random_code(16);
 
 				$mbrdata = array(
@@ -218,7 +218,7 @@ class Order extends CI_Controller
 				$responseinvoice = $this->Site_Digital_Model->generateinvoice($invdata3, $invoiceno);
 
 				$this->load->model('Site_Info_Model');
-				
+
 				/* $intkt_userwelcomename = $this->Site_Info_Model->getsmsmessage('intkt_userwelcomename');
 				$data_usr_pass = array(
 					"fullPhoneNumber" => '+91' . $userdata->mobile,
@@ -253,7 +253,7 @@ class Order extends CI_Controller
 		$meta = $this->Site_Info_Model->getmetakeywords('digital-personal');
 
 		$fbclidpl = "";
-		
+
 		$applyid = $this->session->tempdata('applyid');
 		$this->load->model('Site_Digital_Model');
 		$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
@@ -325,42 +325,41 @@ class Order extends CI_Controller
 
 				// );
 				// $restrack4 = interakt_track($data4);
-				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/".$loantype."/true");
+				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/" . $loantype . "/true");
 				//$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
 				$applyid = $this->session->tempdata('applyid');
 
 				//if ($applyid > 0) {
-					$this->load->model('Site_Digital_Model');
-					$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
-					// $data4 = array(
-					// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
-					// 	"callbackData" => "some text here",
-					// 	"type" => "Template",
-					// 	"template" => array(
-					// 		"name" => "28oct_fail",//"prayosha_ps",
-					// 		"languageCode" => "en",
-					// 		"headerValues" => array(
-					// 			"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/EdHoUrF3mRHp/prayosha_fail.jpg?se=2029-10-22T04%3A44%3A17Z&sp=rt&sv=2019-12-12&sr=b&sig=f3uEVYecdGGiPJO2w2XSoTe3jo6VBmKahYOJj1CNhZk%3D"
-					// 		),
-					// 		"bodyValues" => array(
-					// 			$userdata->fullname
-					// 		),
-					// 	)
-	
-					// );
-					// $restrack4 = interakt_track($data4);
-					$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
+				$this->load->model('Site_Digital_Model');
+				$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
+				// $data4 = array(
+				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+				// 	"callbackData" => "some text here",
+				// 	"type" => "Template",
+				// 	"template" => array(
+				// 		"name" => "28oct_fail",//"prayosha_ps",
+				// 		"languageCode" => "en",
+				// 		"headerValues" => array(
+				// 			"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/EdHoUrF3mRHp/prayosha_fail.jpg?se=2029-10-22T04%3A44%3A17Z&sp=rt&sv=2019-12-12&sr=b&sig=f3uEVYecdGGiPJO2w2XSoTe3jo6VBmKahYOJj1CNhZk%3D"
+				// 		),
+				// 		"bodyValues" => array(
+				// 			$userdata->fullname
+				// 		),
+				// 	)
+
+				// );
+				// $restrack4 = interakt_track($data4);
+				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 				//}
-				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/".$loantype."/false");
+				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/" . $loantype . "/false");
 				//$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else {
 				//$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
-				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/".$loantype."/false");
+				return redirect("https://purchase.prayoshafincart.com/order/orderStatus/" . $loantype . "/false");
 			}
 		} else {
 			redirect('digital/personalLoan');
 		}
 	}
-
 }

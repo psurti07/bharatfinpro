@@ -207,4 +207,3 @@ a[x-apple-data-detectors] {
 </html>';
 
 return $templateEmail;
-?>

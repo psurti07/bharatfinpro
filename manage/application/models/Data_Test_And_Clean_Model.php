@@ -3,40 +3,40 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Data_Test_And_Clean_Model extends CI_Model
 {
 
-	 public function sync_invoice_data($start_date, $end_date, $product_code)
-    {
-        $table_map = [
-            'subscription' => [
-                'user_table' => 'user_registration',
-                'order_table' => 'subscription_order',
-                'inv_for'    => [6,7]
-            ],
-            'plan' => [
-                'user_table' => 'plan_user_registration',
-                'order_table' => 'plan_order',
-                'inv_for'    => [4, 5]
-            ],
-            'membership' => [
-                'user_table' => 'user_registration',
-                'order_table' => 'membership_order',
-                'inv_for'    => [1, 2]
-            ],
-            'default' => [
-                'user_table' => 'user_registration',
-                'order_table' => 'membership_order',
-                'inv_for'    => [1, 2]
-            ]
-        ];
+	public function sync_invoice_data($start_date, $end_date, $product_code)
+	{
+		$table_map = [
+			'subscription' => [
+				'user_table' => 'user_registration',
+				'order_table' => 'subscription_order',
+				'inv_for'    => [6, 7]
+			],
+			'plan' => [
+				'user_table' => 'plan_user_registration',
+				'order_table' => 'plan_order',
+				'inv_for'    => [4, 5]
+			],
+			'membership' => [
+				'user_table' => 'user_registration',
+				'order_table' => 'membership_order',
+				'inv_for'    => [1, 2]
+			],
+			'default' => [
+				'user_table' => 'user_registration',
+				'order_table' => 'membership_order',
+				'inv_for'    => [1, 2]
+			]
+		];
 
-        if (!isset($table_map[$product_code])) {
-            return ['error' => 'Invalid product code'];
-        }
+		if (!isset($table_map[$product_code])) {
+			return ['error' => 'Invalid product code'];
+		}
 
-        $order_table = $table_map[$product_code]['order_table'];
-        $user_table = $table_map[$product_code]['user_table'];
-        $inv_for = $table_map[$product_code]['inv_for'];
+		$order_table = $table_map[$product_code]['order_table'];
+		$user_table = $table_map[$product_code]['user_table'];
+		$inv_for = $table_map[$product_code]['inv_for'];
 
-        $this->db->select('
+		$this->db->select('
             u.fullname AS customer_name,
             u.email AS customer_email,
             u.mobile AS customer_mobile,
@@ -55,37 +55,38 @@ class Data_Test_And_Clean_Model extends CI_Model
             i.inv_igst,
             i.inv_grandtotal
         ');
-        $this->db->from('invoice i');
-        $this->db->join("$order_table so", 'so.userid = i.userid', 'left');
-        $this->db->join("$user_table u", 'u.id = i.userid', 'left');
-        $this->db->where('i.rec_date >=', $start_date . ' 00:00:00');
-        $this->db->where('i.rec_date <=', $end_date . ' 23:59:59');
-        $this->db->where_in('i.inv_for', $inv_for);
-        $this->db->where('u.isDelete', 0);
-        $this->db->where('u.isUser', 2);
-        $this->db->where('i.isDelete', 0);
-        $this->db->order_by('i.rec_date', 'DESC');
+		$this->db->from('invoice i');
+		$this->db->join("$order_table so", 'so.userid = i.userid', 'left');
+		$this->db->join("$user_table u", 'u.id = i.userid', 'left');
+		$this->db->where('i.rec_date >=', $start_date . ' 00:00:00');
+		$this->db->where('i.rec_date <=', $end_date . ' 23:59:59');
+		$this->db->where_in('i.inv_for', $inv_for);
+		$this->db->where('u.isDelete', 0);
+		$this->db->where('u.isUser', 2);
+		$this->db->where('i.isDelete', 0);
+		$this->db->order_by('i.rec_date', 'DESC');
 
-        $data = $this->db->get()->result_array();
+		$data = $this->db->get()->result_array();
 
-        foreach ($data as &$row) {
-            $row['company_code']     = COMPANY_CODE;
-            $row['company_local_ip'] = LOCAL_IP;
-            $row['product_code']     = $product_code;
-        }
+		foreach ($data as &$row) {
+			$row['company_code']     = COMPANY_CODE;
+			$row['company_local_ip'] = LOCAL_IP;
+			$row['product_code']     = $product_code;
+		}
 
-        return $data;
-    }
+		return $data;
+	}
 	// Model - dataclean/kycdata
-	public function kycdatadelete() {
+	public function kycdatadelete()
+	{
 		$dt_to = '2023-01-01';
 		$dt_from = '2023-03-31';
 
 		$query = $this->db->where('rec_date >=', $dt_to . ' 00:00:00')
-		 ->where('rec_date <=', $dt_from . ' 23:59:59')
-		 ->order_by('id asc')
-		 ->get('user_documents')
-		 ->result();
+			->where('rec_date <=', $dt_from . ' 23:59:59')
+			->order_by('id asc')
+			->get('user_documents')
+			->result();
 
 		if (count($query) > 0) {
 			foreach ($query as $row) {
@@ -207,16 +208,17 @@ class Data_Test_And_Clean_Model extends CI_Model
 	}
 
 	// Model - dataclean/userprocessstep
-	public function userprocessstepset() {
+	public function userprocessstepset()
+	{
 		$userlist = $this->db->select('a.id, a.rec_date, a.userid, a.status, r.process_step')
-		 ->from('user_application a')
-		 ->join('user_registration r', 'r.id=a.userid', 'LEFT')
-		 ->where('r.isUser >=', 2)
-		 ->where('a.rec_date >=', '2022-04-01 00:00:00')
-		 ->where('a.rec_date <=', '2022-05-31 23:59:59')
-		 ->order_by('a.id asc')
-		 ->get()
-		 ->result();
+			->from('user_application a')
+			->join('user_registration r', 'r.id=a.userid', 'LEFT')
+			->where('r.isUser >=', 2)
+			->where('a.rec_date >=', '2022-04-01 00:00:00')
+			->where('a.rec_date <=', '2022-05-31 23:59:59')
+			->order_by('a.id asc')
+			->get()
+			->result();
 
 		foreach ($userlist as $row) {
 			$processstep = 4;
@@ -224,9 +226,9 @@ class Data_Test_And_Clean_Model extends CI_Model
 			switch ($row->status) {
 				case '1':
 					$doclist = $this->db->select('id, rec_date, userid, isVerified')
-					 ->where('userid', $row->userid)
-					 ->get('user_documents')
-					 ->row();
+						->where('userid', $row->userid)
+						->get('user_documents')
+						->row();
 
 					if ($doclist) {
 						if ($doclist->isVerified == 0) {
@@ -261,12 +263,12 @@ class Data_Test_And_Clean_Model extends CI_Model
 			}
 
 			$data = array(
-			 'update_date' => date('Y-m-d H:i:s', strtotime($row->rec_date)),
-			 'process_step' => $processstep
+				'update_date' => date('Y-m-d H:i:s', strtotime($row->rec_date)),
+				'process_step' => $processstep
 			);
 
 			$query = $this->db->where('id', $row->userid)
-			 ->update('user_registration', $data);
+				->update('user_registration', $data);
 
 			echo $row->id . " - " . $row->userid . " - " . $processstep . "<br/>";
 		}
@@ -274,7 +276,8 @@ class Data_Test_And_Clean_Model extends CI_Model
 
 	// Model - dataclean/update_user_reg_data
 	//for user registration table > if fullname is null then set name from email address
-	public function update_user_registration_data() {
+	public function update_user_registration_data()
+	{
 		$sql = "UPDATE `user_registration` SET `fullname` = substring_index(email,'@',1) WHERE `fullname` = ''";
 		$query = $this->db->query($sql);
 		$affectedRows_user = $this->db->affected_rows();
@@ -289,7 +292,8 @@ class Data_Test_And_Clean_Model extends CI_Model
 
 	// Model - dataclean/delete_duplicate_data
 	// duplicate entry delete from memebership order and invoice table (do not change query order)
-	public function delete_duplicate_user_data() {
+	public function delete_duplicate_user_data()
+	{
 		$str = '';
 		$dt_to = '2019-12-01';
 		$dt_from = '2020-01-25';
@@ -318,7 +322,8 @@ class Data_Test_And_Clean_Model extends CI_Model
 	}
 
 	// Model - dataclean/ci_sessions_data
-	public function delete_ci_sessions_data() {
+	public function delete_ci_sessions_data()
+	{
 		$timestamp = '1685768241';
 		$sql_ci = "DELETE FROM ci_sessions WHERE timestamp <= '" . $timestamp . "' ";
 		$query_ci_session = $this->db->query($sql_ci);
@@ -334,7 +339,8 @@ class Data_Test_And_Clean_Model extends CI_Model
 	}
 
 	// Model - dataclean/sms_log_data
-	public function delete_sms_log_data() {
+	public function delete_sms_log_data()
+	{
 		$dt_from = '2023-01-01 00:00:00'; // Y-m-d
 		$dt_to = '2023-03-31 23:59:59'; // Y-m-d
 
@@ -350,5 +356,4 @@ class Data_Test_And_Clean_Model extends CI_Model
 
 		return $str;
 	}
-
 }

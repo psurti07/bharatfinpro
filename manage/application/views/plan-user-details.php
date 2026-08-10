@@ -1,5 +1,5 @@
 <?php
-    include_once(APPPATH.'views/includes/header.php');
+include_once(APPPATH . 'views/includes/header.php');
 ?>
 <script type="text/javascript">
 window.onload = function() {
@@ -13,7 +13,7 @@ window.onload = function() {
     <div class="content-header-left col-md-8 col-12 mb-1">
         <div class="badge badge-pill badge-light badge-square">Customer</div>
         <h1 class="content-header-title text-uppercase">Customer Details</h1>
-        <h1 class="text-primary text-uppercase"><?php echo $userdata['fullname']." - ".$userdata['mobile']; ?></h1>
+        <h1 class="text-primary text-uppercase"><?php echo $userdata['fullname'] . " - " . $userdata['mobile']; ?></h1>
     </div>
 
     <div class="content-header-right btn-group-sm text-right col-md-4 col-12">
@@ -27,12 +27,12 @@ window.onload = function() {
     <section id="input-validation">
         <div class="row">
             <?php
-              include_once(APPPATH.'views/includes/plan-user-menu.php');
-          ?>
+            include_once(APPPATH . 'views/includes/plan-user-menu.php');
+            ?>
 
             <div class="col-lg-9 col-md-9">
 
-                <?php if($userdetails['userinfo']->isActive == 0) { ?>
+                <?php if ($userdetails['userinfo']->isActive == 0) { ?>
                 <div class="alert alert-danger mb-2" role="alert">
                     <strong>Customer account is not activated.</strong> You can activate user account from action panel.
                 </div>
@@ -41,7 +41,7 @@ window.onload = function() {
                 <div class="card">
                     <div class="card-content collapse show">
                         <div class="card-body">
-                            <?php echo form_open('users/updateprofile', array('id'=>'submitForm', 'class'=>'form-horizontal', 'novalidate'=>'novalidate')); ?>
+                            <?php echo form_open('users/updateprofile', array('id' => 'submitForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
 
                             <div class="form-body">
                                 <input type="hidden" name="id" value="<?php echo $userdetails['userinfo']->id; ?>">
@@ -134,8 +134,8 @@ window.onload = function() {
                 </div>
 
                 <?php
-            if($userdetails['userreference'] !== NULL) {
-            ?>
+                if ($userdetails['userreference'] !== NULL) {
+                ?>
                 <div class="card">
                     <div class="card-content collapse show">
                         <div class="card-body">
@@ -161,7 +161,7 @@ window.onload = function() {
 </div>
 
 <?php
-    include_once(APPPATH.'views/includes/footer.php');
+include_once(APPPATH . 'views/includes/footer.php');
 ?>
 
 <script type="text/javascript">

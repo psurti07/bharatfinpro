@@ -17,30 +17,41 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/webinar/css/swiper-bundle.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/workshop_css.css">
     <?php echo link_tag('assets/css/validation/form-validation.css'); ?>
-<?php 
-$fbdomain = getFacebookDomain();
-if($fbdomain != Null) {
-  echo '<meta name="facebook-domain-verification" content="'.$fbdomain.'" />';
-}
+    <?php
+    $fbdomain = getFacebookDomain();
+    if ($fbdomain != Null) {
+        echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+    }
 
-$fbpixel = getFacebookPixel('facebookpixel-webinar');
-if($fbpixel != Null) {
-?>
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '<?php echo $fbpixel; ?>');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-<?php } ?>
-<!-- End Facebook Domain + Pixel Code -->
+    $fbpixel = getFacebookPixel('facebookpixel-webinar');
+    if ($fbpixel != Null) {
+    ?>
+    <script>
+    ! function(f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function() {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '<?php echo $fbpixel; ?>');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
+    <?php } ?>
+    <!-- End Facebook Domain + Pixel Code -->
 </head>
 
 <body class="counter-scroll">
@@ -52,9 +63,8 @@ if($fbpixel != Null) {
                         <div class="header-left justify-left">
                             <div id="site-logo">
                                 <a href="#" rel="home">
-                                    <img id="logo-header"
-                                        src="<?php echo base_url() ?>assets/images/logo.png" width="160"
-                                        alt="Bharatfinpro" />
+                                    <img id="logo-header" src="<?php echo base_url() ?>assets/images/logo.png"
+                                        width="160" alt="Bharatfinpro" />
                                 </a>
                             </div>
                         </div>
@@ -95,7 +105,8 @@ if($fbpixel != Null) {
                                                     style="font-size:13px">
                                                     <li class=""> Name : <?php echo $userdata->first_name ?> </li>
                                                     <li class=""> Mobile : <?php echo $userdata->mobile ?> </li>
-                                                    <li class=""> Current Occupation : <?php echo $userdata->occupation ?></li>
+                                                    <li class=""> Current Occupation :
+                                                        <?php echo $userdata->occupation ?></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -120,12 +131,16 @@ if($fbpixel != Null) {
                             <div class="row mb-3 mt-lg-0  mt-0 mb-lg-0">
                                 <div class="col-md-6 mb-3 mt-lg-0  mt-0 mb-lg-0">
                                     <?php echo form_open('webinar/chekoutwebinar', array('id' => 'submitForm3', 'class' => '', 'novalidate' => 'novalidate')); ?>
-                                    <input type="hidden" name="mobile" id="mobile" value="<?php echo $userdata->mobile ?>"
+                                    <input type="hidden" name="mobile" id="mobile"
+                                        value="<?php echo $userdata->mobile ?>" class="form-control" required>
+                                    <input type="hidden" name="program_id" id="program_id"
+                                        value="<?php echo $eventdetails->id ?>" class="form-control" required>
+                                    <input type="hidden" name="email" id="email" value="<?php echo $userdata->email ?>"
                                         class="form-control" required>
-                                    <input type="hidden" name="program_id" id="program_id" value="<?php echo $eventdetails->id ?>" class="form-control" required>
-                                    <input type="hidden" name="email" id="email" value="<?php echo $userdata->email ?>" class="form-control" required>
-                                    <input type="hidden" name="userid" id="userid" value="<?php echo $userdata->id ?>" class="form-control" required>
-                                    <input type="hidden" name="fullname" id="fullname" value="<?php echo $userdata->first_name ?>" class="form-control" required>
+                                    <input type="hidden" name="userid" id="userid" value="<?php echo $userdata->id ?>"
+                                        class="form-control" required>
+                                    <input type="hidden" name="fullname" id="fullname"
+                                        value="<?php echo $userdata->first_name ?>" class="form-control" required>
 
                                     <div class="sub-blog-card bg-white mb-20"
                                         style="border: 1px solid #ebebeb; box-shadow: none;">
@@ -156,18 +171,19 @@ if($fbpixel != Null) {
                                             <div class="date-tag mb-2" style="font-size:14px">
                                                 <span class="color-666">
                                                     <i class="fas fa-volume-up me-2 color-777 mt-1 th-10"></i>
-                                                   <?php echo ucfirst($eventdetails->language) ?>
+                                                    <?php echo ucfirst($eventdetails->language) ?>
                                                 </span>
                                             </div>
                                             <h3 class="fw-bold mb-15 color-highlight4">
-                                                <span class="color-666 text-decoration-line-through" style="font-size:16px">
+                                                <span class="color-666 text-decoration-line-through"
+                                                    style="font-size:16px">
                                                     <?php echo $eventdetails->event_main_price ?>
                                                 </span>
-                                                <?php if($eventdetails->event_offer_price == 0) { ?>
-                                                    <span>FREE</span>
+                                                <?php if ($eventdetails->event_offer_price == 0) { ?>
+                                                <span>FREE</span>
                                                 <?php } else { ?>
-                                                    <span><?php echo $eventdetails->event_offer_price ?></span>
-                                                <?php } ?>   
+                                                <span><?php echo $eventdetails->event_offer_price ?></span>
+                                                <?php } ?>
                                             </h3>
                                             <div class="mb-3">
                                                 <span class="text-danger" style="font-size:14px">
@@ -206,34 +222,34 @@ if($fbpixel != Null) {
                                                 <li>
                                                     <span> Price </span>
                                                     <span class="line"></span>
-                                                     <?php if($eventdetails->event_offer_price == 0) { ?>
-                                                        <strong>₹0.00</strong>
+                                                    <?php if ($eventdetails->event_offer_price == 0) { ?>
+                                                    <strong>₹0.00</strong>
                                                     <?php } else { ?>
-                                                        <strong><?php echo $eventdetails->event_offer_price ?></strong>
-                                                    <?php } ?>  
-                                                    
+                                                    <strong><?php echo $eventdetails->event_offer_price ?></strong>
+                                                    <?php } ?>
+
                                                 </li>
                                                 <li>
                                                     <span> GST </span>
                                                     <span class="line"></span>
-                                                    <?php if($eventdetails->event_offer_price > 0) { 
-                                                     $gst = $eventdetails->event_offer_price * 0.18;?>
-														   <strong><?php echo formatePriceIndia($gst);?></strong>
-                                                    <?php } else {?>
-                                                        <strong>₹0.00</strong>
+                                                    <?php if ($eventdetails->event_offer_price > 0) {
+                                                        $gst = $eventdetails->event_offer_price * 0.18; ?>
+                                                    <strong><?php echo formatePriceIndia($gst); ?></strong>
+                                                    <?php } else { ?>
+                                                    <strong>₹0.00</strong>
                                                     <?php } ?>
                                                 </li>
                                                 <hr class="color-999">
                                                 <li>
                                                     <span> To Pay </span>
                                                     <span class="line"></span>
-                                                    <?php if($eventdetails->event_offer_price > 0) { 
-                                                     $grandtotal = $eventdetails->event_offer_price + $gst;?>
-														   <strong><?php echo formatePriceIndia($grandtotal);?></strong>
-                                                    <?php } else {?>
-                                                        <strong> ₹0.00 </strong>
+                                                    <?php if ($eventdetails->event_offer_price > 0) {
+                                                        $grandtotal = $eventdetails->event_offer_price + $gst; ?>
+                                                    <strong><?php echo formatePriceIndia($grandtotal); ?></strong>
+                                                    <?php } else { ?>
+                                                    <strong> ₹0.00 </strong>
                                                     <?php } ?>
-                                                    
+
                                                 </li>
                                             </ul>
                                         </div>
@@ -241,7 +257,7 @@ if($fbpixel != Null) {
                                             <div style="font-size:12px">
                                                 <p><strong>🚀 Program Highlights</strong></p>
 
-                                               <?php echo $eventdetails->event_desc_1 ?>
+                                                <?php echo $eventdetails->event_desc_1 ?>
                                             </div>
                                         </div>
                                     </div>
@@ -253,25 +269,25 @@ if($fbpixel != Null) {
                 </div>
             </div>
         </section>
-       
-             <footer id="footer" class="inverted text-light pt-0 pb-0" style="z-index:10;background-color:#000;">
-                <div class="copyright-content">
-                    <div class="container">
-                        <div class="row align-items-center py-3">
-                            <div class="col-lg-12 text-center">
-                                <div class="copyright-text">
-                                    <?php echo date('Y') . " &copy; " . COMPANY_NAME; ?> All rights reserved.</div>
-                            </div>
 
+        <footer id="footer" class="inverted text-light pt-0 pb-0" style="z-index:10;background-color:#000;">
+            <div class="copyright-content">
+                <div class="container">
+                    <div class="row align-items-center py-3">
+                        <div class="col-lg-12 text-center">
+                            <div class="copyright-text">
+                                <?php echo date('Y') . " &copy; " . COMPANY_NAME; ?> All rights reserved.</div>
                         </div>
+
                     </div>
                 </div>
-            </footer>
-       <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
+            </div>
+        </footer>
+        <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/js/jqBootstrapValidation.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/js/form-validation.js'); ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/js/form-validation.min.js'); ?>"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/bootstrap.min.js') ?>"></script>     
+        <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/bootstrap.min.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/swiper-bundle.min.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/countto.js') ?>"></script>
         <script type="text/javascript" src="<?php echo base_url('assets/webinar/js/swiper.js') ?>"></script>

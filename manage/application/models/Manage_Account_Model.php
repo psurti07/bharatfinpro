@@ -1,25 +1,28 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Manage_Account_Model extends CI_Model {
+defined('BASEPATH') or exit('No direct script access allowed');
+class Manage_Account_Model extends CI_Model
+{
 
-	public function getinvoicedetails($id){
-		$query = $this->db->where('id',$id)
-					->get('invoice')
-					->row();   
-		return $query;    
+	public function getinvoicedetails($id)
+	{
+		$query = $this->db->where('id', $id)
+			->get('invoice')
+			->row();
+		return $query;
 	}
 
-	public function getinvoicelist($dt_to, $dt_from){
+	public function getinvoicelist($dt_to, $dt_from)
+	{
 		$resdata = array();
 		$queryres = $this->db->where('inv_date >=', $dt_to)
-					->where('inv_date <=', $dt_from)
-					->where('isDelete',0)
-					->order_by('inv_date desc')
-					->group_by('userid')
-					->get('invoice')
-					->result();
+			->where('inv_date <=', $dt_from)
+			->where('isDelete', 0)
+			->order_by('inv_date desc')
+			->group_by('userid')
+			->get('invoice')
+			->result();
 
-		if(count($queryres)) {
+		if (count($queryres)) {
 			foreach ($queryres as $row) {
 				$resrow = array();
 
@@ -33,10 +36,10 @@ Class Manage_Account_Model extends CI_Model {
 				$resrow['inv_grandtotal'] = $row->inv_grandtotal;
 				$resrow['isDelete'] = $row->isDelete;
 
-				if($row->inv_for == 1 || $row->inv_for == 2) {
+				if ($row->inv_for == 1 || $row->inv_for == 2) {
 					$this->load->model('Manage_User_Model');
 					$response_user = $this->Manage_User_Model->getuserdata($row->userid);
-					if($response_user != ''){
+					if ($response_user != '') {
 						$resrow['fullname'] = $response_user->fullname;
 						$resrow['mobile'] = $response_user->mobile;
 						$resrow['usertype'] = 'cust';
@@ -48,21 +51,20 @@ Class Manage_Account_Model extends CI_Model {
 
 						$resdata[] = $resrow;
 					}
-				}
-				else if($row->inv_for == 3) {
+				} else if ($row->inv_for == 3) {
 					$this->load->model('Manage_Channel_Model');
 					$response_channel = $this->Manage_Channel_Model->getpartnerdata($row->userid);
-					if($response_channel != ''){
-						$resrow['fullname'] = $response_channel->firstname." ".$response_channel->lastname;
+					if ($response_channel != '') {
+						$resrow['fullname'] = $response_channel->firstname . " " . $response_channel->lastname;
 						$resrow['mobile'] = $response_channel->mobileno;
 						$resrow['email'] = $response_channel->emailid;
 						$resrow['usertype'] = 'cp';
 						$resdata[] = $resrow;
 					}
-				} else if($row->inv_for == 4 || $row->inv_for == 5) {
+				} else if ($row->inv_for == 4 || $row->inv_for == 5) {
 					$this->load->model('Manage_Plan_User_Model');
 					$response_user = $this->Manage_Plan_User_Model->getuserdata($row->userid);
-					if($response_user != ''){
+					if ($response_user != '') {
 						$resrow['fullname'] = $response_user->fullname;
 						$resrow['mobile'] = $response_user->mobile;
 						$resrow['usertype'] = 'cust';
@@ -81,34 +83,37 @@ Class Manage_Account_Model extends CI_Model {
 		return $resdata;
 	}
 
-	public function deleteinvoice($id){
+	public function deleteinvoice($id)
+	{
 		$data = array(
-		   'isDelete' => 1
+			'isDelete' => 1
 		);
 		$query = $this->db->where('id', $id)
-					->update('invoice', $data); 
+			->update('invoice', $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
 
-	public function restoreinvoice($id){
+	public function restoreinvoice($id)
+	{
 		$data = array(
-		   'isDelete' => 0
+			'isDelete' => 0
 		);
 		$query = $this->db->where('id', $id)
-					->update('invoice', $data); 
+			->update('invoice', $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
 
-	public function getrefundlist($dt_to, $dt_from){
+	public function getrefundlist($dt_to, $dt_from)
+	{
 		$resdata = array();
 		$queryres = $this->db->where('ref_date >=', $dt_to)
-					->where('ref_date <=', $dt_from)
-					->where('isDelete',0)
-					->order_by('ref_date desc')
-					->get('refund')
-					->result();
+			->where('ref_date <=', $dt_from)
+			->where('isDelete', 0)
+			->order_by('ref_date desc')
+			->get('refund')
+			->result();
 
-		if(count($queryres)) {
+		if (count($queryres)) {
 			foreach ($queryres as $row) {
 				$resrow = array();
 
@@ -121,19 +126,18 @@ Class Manage_Account_Model extends CI_Model {
 				$resrow['paymentid'] = $row->paymentid;
 				$resrow['remarks'] = $row->remarks;
 
-				if($row->ref_for == 1 || $row->ref_for == 2) {
+				if ($row->ref_for == 1 || $row->ref_for == 2) {
 					$this->load->model('Manage_User_Model');
 					$response_user = $this->Manage_User_Model->getuserdata($row->userid);
-					
+
 					$resrow['fullname'] = $response_user->fullname;
 					$resrow['mobile'] = $response_user->mobile;
 					$resrow['usertype'] = 'cust';
-				}
-				else if($row->ref_for == 3) {
+				} else if ($row->ref_for == 3) {
 					$this->load->model('Manage_Channel_Model');
 					$response_channel = $this->Manage_Channel_Model->getpartnerdata($row->userid);
-					
-					$resrow['fullname'] = $response_channel->firstname." ".$response_channel->lastname;
+
+					$resrow['fullname'] = $response_channel->firstname . " " . $response_channel->lastname;
 					$resrow['mobile'] = $response_channel->mobileno;
 					$resrow['email'] = $response_channel->emailid;
 					$resrow['usertype'] = 'cp';
@@ -146,38 +150,41 @@ Class Manage_Account_Model extends CI_Model {
 		return $resdata;
 	}
 
-	public function raiserefund($data){
-		$this->db->insert('refund',$data);
+	public function raiserefund($data)
+	{
+		$this->db->insert('refund', $data);
 		$id = $this->db->insert_id();
-		return $id; 
+		return $id;
 	}
 
-	public function deleterefund($id){
+	public function deleterefund($id)
+	{
 		$data = array(
-		   'isDelete' => 1
+			'isDelete' => 1
 		);
 		$query = $this->db->where('id', $id)
-					->update('refund', $data); 
+			->update('refund', $data);
 		return ($this->db->affected_rows() != 1) ? false : true;
 	}
 
-	public function sendrefundmessage($mobile='', $emailid=''){
-		if($mobile != '') {
+	public function sendrefundmessage($mobile = '', $emailid = '')
+	{
+		if ($mobile != '') {
 			$smsmessage = "Greetings! Your refund payment is successfully done. If you've query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days). Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 
-		if($emailid != '') {
+		if ($emailid != '') {
 			$subject = "Refund Payment Message - Bharatfinpro";
-			
+
 			$message = '<p>Hello,</p>';
 			$message .= '<p>Your refund payment is successfully done. For any query, kindly call us between 10 AM to 5 PM (Mon-Sat only business days).</p>';
 			$message .= '<p>Thanks & Regards,<br/>Support Team,<br/>Bharatfinpro.com</p>';
-			
+
 			$this->load->model('Manage_General_Model');
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
-			if($content != '') {
+			if ($content != '') {
 				/* $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content, 1); */
 				$maildata = array(
 					'fullname' => $mobile,
@@ -189,7 +196,4 @@ Class Manage_Account_Model extends CI_Model {
 
 		return true;
 	}
-
 }
-
-?>

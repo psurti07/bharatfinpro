@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Webinar extends CI_Controller
 {
 
-	public function index(){
+	public function index()
+	{
 		$this->load->model('Site_Info_Model');
 		//$meta = $this->Site_Info_Model->getmetakeywords('webinar');
 		$this->load->view('webinar');
@@ -13,35 +14,35 @@ class Webinar extends CI_Controller
 		if ($_REQUEST['mobile_no'] != "") {
 			$this->load->model('Site_Webinar_Model');
 			$eventdetails = $this->Site_Webinar_Model->getwebinardetail();
-			
-			if($eventdetails != ''){
+
+			if ($eventdetails != '') {
 				$firstname = $_REQUEST['firstname'];
 				$lastname = $_REQUEST['lastname'];
 				$mobile = $_REQUEST['mobile_no'];
-				
+
 				$check_exists_user = $this->Site_Webinar_Model->check_exist_user($mobile, $eventdetails->id);
-				
-				if($check_exists_user == ''){
+
+				if ($check_exists_user == '') {
 					$this->load->model('Site_Webinar_Model');
 					$user_lead = $this->Site_Webinar_Model->checkuserentry($mobile);
-					
+
 					$this->session->set_tempdata('usermobile', $mobile);
 					$this->session->set_tempdata('firstname', $firstname);
 					$this->session->set_tempdata('lastname', $lastname);
 					$this->session->set_tempdata('programid', $eventdetails->id);
-					
-					if($user_lead == ''){
+
+					if ($user_lead == '') {
 						$data1 = array(
-							'program_id'=>$eventdetails->id,
-							'program_type'=>$_REQUEST['program_type'],
+							'program_id' => $eventdetails->id,
+							'program_type' => $_REQUEST['program_type'],
 							'rec_date' => date('Y-m-d H:i:s'),
 							'first_name' => $firstname,
 							'last_name' => $lastname,
 							'mobile' => $mobile,
-							'process_step'=>'1',
-							
+							'process_step' => '1',
+
 						);
-				
+
 						$userid = $this->Site_Webinar_Model->userregistration($data1);
 
 						$this->load->model('Site_General_Model');
@@ -51,31 +52,30 @@ class Webinar extends CI_Controller
 							$response = $this->Site_General_Model->generateotp($mobile);
 							$this->load->view('webinar_otp_verification');
 						} else {
-							
+
 							$message = "You have reached the OTP limit. Please contact customer support";
 							$this->session->set_flashdata('danger', $message);
 							return redirect('webinar/otp_verification');
 						}
-					} 
-					else {
+					} else {
 						$data1 = array(
-							'program_id'=>$eventdetails->id,
-							'program_type'=>$_REQUEST['program_type'],
+							'program_id' => $eventdetails->id,
+							'program_type' => $_REQUEST['program_type'],
 							'rec_date' => date('Y-m-d H:i:s'),
 							'first_name' => $firstname,
 							'last_name' => $lastname,
 							'mobile' => $mobile
 						);
-						
+
 						$userid = $this->Site_Webinar_Model->updateregistration($user_lead->id, $data1);
-						
-						if($user_lead->process_step == 1){ 
+
+						if ($user_lead->process_step == 1) {
 							$this->load->model('Site_General_Model');
 							$response = $this->Site_General_Model->generateotp($mobile);
 							$this->load->view('webinar_otp_verification');
-						}else if($user_lead->process_step == 2){
+						} else if ($user_lead->process_step == 2) {
 							return redirect('webinar/personal-details');
-						} else if($user_lead->process_step == 3){ 
+						} else if ($user_lead->process_step == 3) {
 							return redirect('webinar/enroll-now');
 						}
 					}
@@ -89,7 +89,6 @@ class Webinar extends CI_Controller
 				$this->session->set_flashdata('danger', $message);
 				return redirect('webinar');
 			}
-			
 		} else {
 			return redirect('webinar/user-register');
 		}
@@ -119,21 +118,21 @@ class Webinar extends CI_Controller
 		$this->load->model('Site_Webinar_Model');
 		if (isset($_REQUEST['otpmobile'])) {
 			$mobile = $_REQUEST['otpmobile'];
-			$otpcode = implode('',$_REQUEST['otpcode']);
-			
+			$otpcode = implode('', $_REQUEST['otpcode']);
+
 			//$this->session->set_tempdata('usermobile', $mobile);
 
 			$this->load->model('Site_General_Model');
 			$response = $this->Site_General_Model->checkOTP($mobile, $otpcode);
-			
+
 			if ($response == 1) {
 				$userdata = $this->Site_Webinar_Model->checkuserentry($mobile);
 				$data1 = array(
-					'process_step'=>'2',
+					'process_step' => '2',
 				);
 				$userid = $this->Site_Webinar_Model->updateregistration($userdata->id, $data1);
 
-				$this->session->set_tempdata('usermobile',$mobile);
+				$this->session->set_tempdata('usermobile', $mobile);
 				return redirect('webinar/personal-details');
 			} else {
 				$message = "OTP not match..!";
@@ -141,7 +140,6 @@ class Webinar extends CI_Controller
 				$this->load->view('webinar_otp_verification');
 			}
 		} else {
-			
 		}
 	}
 
@@ -149,44 +147,47 @@ class Webinar extends CI_Controller
 	{
 		$this->load->view('webinar-apply-now');
 	}
-	
-	public function personal_details(){
+
+	public function personal_details()
+	{
 		$this->load->model('Site_Webinar_Model');
 		$userdata = $this->Site_Webinar_Model->checkuser($this->session->tempdata('usermobile'));
-		$this->load->view('webinar-personal-detail', ['userdata'=>$userdata]);
+		$this->load->view('webinar-personal-detail', ['userdata' => $userdata]);
 	}
-	
-	public function enroll_now(){
+
+	public function enroll_now()
+	{
 		$this->load->model('Site_Webinar_Model');
 		$eventdetails = $this->Site_Webinar_Model->getwebinardetail();
 		$userdata = $this->Site_Webinar_Model->checkuser($this->session->tempdata('usermobile'));
-		$this->load->view('webinar-enroll-now',['eventdetails'=>$eventdetails, 'userdata'=>$userdata]);
+		$this->load->view('webinar-enroll-now', ['eventdetails' => $eventdetails, 'userdata' => $userdata]);
 	}
 
-	public function userregister(){
+	public function userregister()
+	{
 		$program_id = $_REQUEST['program_id'];
 		$mobile_no = $_REQUEST['mobile_no'];
 		$this->session->tempdata('usermobile', $mobile_no);
 		$this->load->model('Site_Webinar_Model');
 		$data = $this->Site_Webinar_Model->checkwebinar_exist_user($mobile_no, $program_id);
-		
+
 		/*if (isset($_REQUEST['fbclid'])) {
 					set_cookie('fbclidpl', $_REQUEST['fbclid'], '3600');
 					//$this->session->set_tempdata('fbclidpl', $_REQUEST['fbclid']);
 				}*/
 		if ($data != '') {
-			
+
 			$data1 = array(
 				'email' => $_REQUEST['email'],
 				'occupation' => $_REQUEST['current_occupation'],
 				'earning_goal' => $_REQUEST['earning_goal'],
-				'pincode'=>$_REQUEST['pincode'],
-				'city'=>$_REQUEST['city'],
-				'state'=>$_REQUEST['state'],
-				'process_step'=>'3',
+				'pincode' => $_REQUEST['pincode'],
+				'city' => $_REQUEST['city'],
+				'state' => $_REQUEST['state'],
+				'process_step' => '3',
 				'isUser' => 1,
 			);
-	
+
 			$userid = $this->Site_Webinar_Model->updateregistration($data->id, $data1);
 
 			$webinarorderdata = array(
@@ -216,28 +217,27 @@ class Webinar extends CI_Controller
 			);
 			$restrack3 = webinar_event_track($data3);*/
 
-			if($userid){
+			if ($userid) {
 				return redirect('webinar/enroll-now');
 			}
 		} else {
 			return redirect('webinar/enroll-now');
 		}
-		
 	}
 
 	public function chekoutwebinar()
 	{
 		$this->load->model('Site_Webinar_Model');
-		
+
 		$userdata = $this->Site_Webinar_Model->checkuserdata($_REQUEST['userid']);
 		$this->session->set_tempdata('userid', $_REQUEST['userid']);
 		$this->session->set_tempdata('programid', $_REQUEST['program_id']);
-		
+
 		$eventdetails = $this->Site_Webinar_Model->get_event_price($_REQUEST['program_id']);
 
 		$this->session->set_tempdata('community_link', $eventdetails->community_link);
-	
-		if($eventdetails->event_offer_price > 0){
+
+		if ($eventdetails->event_offer_price > 0) {
 			$this->session->set_tempdata('eventid', $eventdetails->id);
 
 			$amount = $eventdetails->event_offer_price;
@@ -250,7 +250,7 @@ class Webinar extends CI_Controller
 					$roundamount = 1;
 				}
 			}
-			
+
 			$orderid = number_format(microtime(true) * 1000, 0, '.', '');
 
 			$returnUrl = base_url('webinar/buycardWebinar');
@@ -278,12 +278,12 @@ class Webinar extends CI_Controller
 
 			$checksum = hash_hmac('sha256', $checksumData, ZAAKPAY_SECRET_KEY);
 
-			
+
 			$webinarorderdata = array(
 				'orderid' => $orderid,
 				'amount' => $roundamount,
 			);
-			
+
 			$orderentry = $this->Site_Webinar_Model->update_webinarorder($userdata->id, $eventdetails->id, $webinarorderdata);
 
 			$zaakpaydata = array(
@@ -298,26 +298,24 @@ class Webinar extends CI_Controller
 			$response = $this->Site_Webinar_Model->zaakpayentry($zaakpaydata);
 
 			$this->load->view('zaakpay-checkout', ['postData' => $postData, 'checksum' => $checksum, 'url' => $url]);
-
-			
 		} else {
-			$this->session->set_tempdata('usermobile',$userdata->mobile);
-			$this->session->set_tempdata('userid',$userdata->id);
-			$this->session->set_tempdata('community_link',$eventdetails->community_link);
-	
-		    $data = array(
-				'isUser'=>2,
+			$this->session->set_tempdata('usermobile', $userdata->mobile);
+			$this->session->set_tempdata('userid', $userdata->id);
+			$this->session->set_tempdata('community_link', $eventdetails->community_link);
+
+			$data = array(
+				'isUser' => 2,
 				'isActive' => 1,
 				'isDelete' => 0
 			);
 			$memberid = $this->Site_Webinar_Model->update_webinarorder($userdata->id, $userdata->program_id, $data);
-			
+
 			$maildata = array(
 				'fullname' => $userdata->first_name,
 				'mobile' => $userdata->mobile,
 				'email' => $userdata->email,
 				'userid' => $userdata->id,
-				'webinar_id'=>$userdata->program_id,
+				'webinar_id' => $userdata->program_id,
 				'cardid' => $memberid,
 				'communitylink' => $eventdetails->community_link,
 			);
@@ -331,7 +329,7 @@ class Webinar extends CI_Controller
 	public function buycardWebinar()
 	{
 		$this->load->model('Site_Webinar_Model');
-		
+
 		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 
 		$orderId = $_POST["orderId"];
@@ -388,11 +386,11 @@ class Webinar extends CI_Controller
 			$response1 = $this->Site_Webinar_Model->updatezaakpayentry($paymentdata->id, $zaakpaydata);
 
 			$userdata = $this->Site_Webinar_Model->checkuserregdata($paymentdata->userid);
-			$this->session->set_tempdata('userid',$userdata->id);
+			$this->session->set_tempdata('userid', $userdata->id);
 			if ($responseCode == 100) {
 				$cardno = random_code(16);
 				$data = array(
-					'isUser'=>2,
+					'isUser' => 2,
 					'paymentid' => $txnId,
 					'isActive' => 1,
 					'isDelete' => 0
@@ -407,7 +405,7 @@ class Webinar extends CI_Controller
 
 				$regdata = array(
 					'rec_date' => date('Y-m-d H:i:s'),
-					'process_step'=> 4,
+					'process_step' => 4,
 					'isActive' => 1,
 				);
 				$response2 = $this->Site_Webinar_Model->updateregistration($userdata->id, $regdata);
@@ -418,8 +416,8 @@ class Webinar extends CI_Controller
 				$this->load->model('Site_Info_Model');
 				$eventdetails = $this->Site_Webinar_Model->get_event_price($userdata->program_id);
 
-				$this->session->set_tempdata('community_link',$eventdetails->community_link);
-				
+				$this->session->set_tempdata('community_link', $eventdetails->community_link);
+
 				$netamount = $eventdetails->event_offer_price;
 
 				if ($userdata->state == 'Gujarat') {
@@ -454,7 +452,7 @@ class Webinar extends CI_Controller
 					'mobile' => $userdata->mobile,
 					'email' => $userdata->email,
 					'userid' => $userdata->id,
-					'webinar_id'=>$userdata->program_id,
+					'webinar_id' => $userdata->program_id,
 					'cardid' => $memberid,
 					'communitylink' => $eventdetails->community_link,
 				);
@@ -482,7 +480,7 @@ class Webinar extends CI_Controller
 
 		$fbclidpl = $applyid = $fbresponse = "";
 		$community_link = $this->session->tempdata('community_link');
-		
+
 		if ($status === "true" && $this->session->tempdata('userid') != '') {
 			$this->load->model('Site_Webinar_Model');
 			$userdata = $this->Site_Webinar_Model->checkuserdata($this->session->tempdata('userid'));
@@ -511,7 +509,7 @@ class Webinar extends CI_Controller
 			$fbdata['fbclid'] = $fbclidpl;
 			$fbresponse = fbconversioncurl($fbdata);
 
-            // $this->load->helper('interakt');
+			// $this->load->helper('interakt');
 			/* $data2 = array(
 				'phoneNumber' => $userdata->mobile,
 				'countryCode' => '+91',
@@ -544,97 +542,95 @@ class Webinar extends CI_Controller
 
 			// );
 			// $restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
-			
-			$this->load->view('webinar-payment-response', ['meta' => $meta, 'responsedata' => $status, 'community_link'=>$community_link]);
-		} 
-		elseif ($status === "false" && $this->session->tempdata('userid') != '') {
-				$this->load->model('Site_Webinar_Model');
-				$userdata = $this->Site_Webinar_Model->checkuserdata($this->session->tempdata('userid'));
-				
-				// $this->load->helper('interakt');
-				
-				// /*$data3 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'event' => 'Payment Failed',
-				// );
-				// $restrac3 = webinar_event_track($data3);*/
 
-				// $intdata1 = array(
-				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
-				// 	"callbackData" => "some text here",
-				// 	"type" => "Template",
-				// 	"template" => array(
-				// 		"name" => "fail_8july_1",
-				// 		"languageCode" => "en",
-				// 		"bodyValues" => array(
-				// 			$firstname,
-				// 		),
-				// 	)
-				// );
-				// $restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
+			$this->load->view('webinar-payment-response', ['meta' => $meta, 'responsedata' => $status, 'community_link' => $community_link]);
+		} elseif ($status === "false" && $this->session->tempdata('userid') != '') {
+			$this->load->model('Site_Webinar_Model');
+			$userdata = $this->Site_Webinar_Model->checkuserdata($this->session->tempdata('userid'));
 
-				$sent = $this->Site_Webinar_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
-				
+			// $this->load->helper('interakt');
+
+			// /*$data3 = array(
+			// 	'phoneNumber' => $userdata->mobile,
+			// 	'countryCode' => '+91',
+			// 	'event' => 'Payment Failed',
+			// );
+			// $restrac3 = webinar_event_track($data3);*/
+
+			// $intdata1 = array(
+			// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+			// 	"callbackData" => "some text here",
+			// 	"type" => "Template",
+			// 	"template" => array(
+			// 		"name" => "fail_8july_1",
+			// 		"languageCode" => "en",
+			// 		"bodyValues" => array(
+			// 			$firstname,
+			// 		),
+			// 	)
+			// );
+			// $restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
+
+			$sent = $this->Site_Webinar_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
+
 			$this->load->view('webinar-payment-response', ['meta' => $meta, 'responsedata' => $status]);
-		}
-		else {
+		} else {
 			return redirect('webinar');
 			die;
 		}
 	}
 
-	
+
 	public function geoLocation()
-    {
+	{
 		$this->load->helper('geoloc');
 		$pincode = $_REQUEST['pincode'];
 
-        if(strlen($pincode) != 6){
-            echo json_encode([
-                'status' => 'error',
-                'message' => 'Invalid pincode'
-            ]);
-            return;
-        }
+		if (strlen($pincode) != 6) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => 'Invalid pincode'
+			]);
+			return;
+		}
 
-        $data = getGeolocation($pincode);
+		$data = getGeolocation($pincode);
 
-        if(isset($data['error'])){
-            echo json_encode([
-                'status' => 'error',
-                'message' => $data['error']
-            ]);
-        } else {
-            echo json_encode([
-                'status'   => 'success',
-                'city' => $data['cityname'] ?? '',
-                'state'    => $data['statename'] ?? ''
-            ]);
-        }
-    }
-    
+		if (isset($data['error'])) {
+			echo json_encode([
+				'status' => 'error',
+				'message' => $data['error']
+			]);
+		} else {
+			echo json_encode([
+				'status'   => 'success',
+				'city' => $data['cityname'] ?? '',
+				'state'    => $data['statename'] ?? ''
+			]);
+		}
+	}
+
 	public function userProcess()
 	{
 		try {
 
 			// Step 1: Get user ID from URL
 			$encryptedId = $this->input->get('id');
-			
+
 			if (empty($encryptedId)) {
 				return redirect('webinar/user-register');
 			}
 
 			// Step 2: Decrypt user ID
 			$userId = decryptData($encryptedId);
-			
+
 			// Step 3: Find user
 			$userDetail = $this->db
 				->where('id', $userId)
 				->where('program_type', 0)
 				->get('user_webinar_registration')
 				->row();
-			
+
 			if (!$userDetail) {
 				return redirect('webinar/user-register');
 			}
@@ -645,12 +641,12 @@ class Webinar extends CI_Controller
 				$this->encryption->encrypt($userId)
 			);
 
-			
+
 			// Step 6: Redirect based on steps
 			switch ($userDetail->process_step) {
 
 				case 1:
-					
+
 					// OTP verified
 					$this->session->set_userdata('otp_verified', TRUE);
 
@@ -658,26 +654,26 @@ class Webinar extends CI_Controller
 					break;
 
 				case 2:
-					
+
 					$this->session->set_userdata(array(
 						'otp_verified'    => TRUE,
 						'step2_completed' => TRUE,
 					));
-						$this->session->set_tempdata('usermobile',$userDetail->mobile);
+					$this->session->set_tempdata('usermobile', $userDetail->mobile);
 					return redirect('webinar/personal-details');
 				case 3:
-					
+
 					$this->session->set_userdata(array(
 						'otp_verified'    => TRUE,
 						'step3_completed' => TRUE
 					));
-					$this->session->set_tempdata('usermobile',$userDetail->mobile);
+					$this->session->set_tempdata('usermobile', $userDetail->mobile);
 					redirect('webinar/enroll-now');
 					break;
 
 				case 4:
-					
-					$this->session->set_tempdata('usermobile',$userDetail->mobile);
+
+					$this->session->set_tempdata('usermobile', $userDetail->mobile);
 					redirect('webinar/paymentResponse/true');
 					break;
 
@@ -686,7 +682,6 @@ class Webinar extends CI_Controller
 					return redirect('webinar/user-register');
 					break;
 			}
-
 		} catch (Exception $e) {
 
 			return redirect('webinar/user-register');

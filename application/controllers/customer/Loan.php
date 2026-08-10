@@ -1,39 +1,43 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-Class Loan extends CI_Controller {
+defined('BASEPATH') or exit('No direct script access allowed');
+class Loan extends CI_Controller
+{
 
-	public function index() {	
-		if($this->session->userdata('bfp-customerid')) {
+	public function index()
+	{
+		if ($this->session->userdata('bfp-customerid')) {
 			return redirect()->to('customer/dashboard');
 		}
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		$this->load->view('customer/login', ['meta'=>$meta]);
+		$this->load->view('customer/login', ['meta' => $meta]);
 	}
 
-	public function history(){
+	public function history()
+	{
 		$id = stringCrypt($this->session->userdata('bfp-customerid'), 'decrypt');
 
 		$this->load->model('Customer_Profile_Model');
 		$isagree = $this->Customer_Profile_Model->getlicensestatus($id);
 
-		if($isagree == 0) {
+		if ($isagree == 0) {
 			return redirect('customer/license-agreement');
 			die;
 		}
-		
+
 		$this->load->model('Customer_Loan_Model');
 		$loanhistory = $this->Customer_Loan_Model->getloanhistory($id);
-		
+
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		$this->load->view('customer/loan-history',['meta'=>$meta, 'loanhistory'=>$loanhistory]);
+		$this->load->view('customer/loan-history', ['meta' => $meta, 'loanhistory' => $loanhistory]);
 	}
 
-	public function appdetails($id){
+	public function appdetails($id)
+	{
 		$id = stringCrypt($id, 'decrypt');
 		$this->load->model('Customer_Loan_Model');
 		$appdetails = $this->Customer_Loan_Model->getapplicationdetails($id);
@@ -41,15 +45,15 @@ Class Loan extends CI_Controller {
 
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
-		
-		$this->load->view('customer/loan-details',['meta'=>$meta, 'appdetails'=>$appdetails, 'statuslist'=>$statuslist]);
+
+		$this->load->view('customer/loan-details', ['meta' => $meta, 'appdetails' => $appdetails, 'statuslist' => $statuslist]);
 	}
 
-	public function downloadfile($sanctionletter, $id) {
+	public function downloadfile($sanctionletter, $id)
+	{
 		$this->load->model('Site_General_Model');
 		$sanction_letter = $this->Site_General_Model->filedownload('images/sanctionletter', $sanctionletter);
 
-		redirect('customer/loan/appdetails/'.$id);
+		redirect('customer/loan/appdetails/' . $id);
 	}
-
 }
