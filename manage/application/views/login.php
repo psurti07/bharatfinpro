@@ -42,7 +42,7 @@
 </head>
 
 <body class="vertical-layout vertical-menu 1-column menu-expanded blank-page blank-page" data-open="click"
-    data-menu="vertical-menu" data-col="1-column" style="background-color:#705e008c;">
+    data-menu="vertical-menu" data-col="1-column" style="background-color:#feefe2;">
 
     <div class="app-content content">
         <div class="content-wrapper">
@@ -57,15 +57,15 @@
                                         alt="<?php echo PROJECT_NAME; ?>" width="180" class="img-responsive pb-2">
 
                                     <?php
-									if (!empty($ac_data['ac_title'])) {
-									?>
+                                    if (!empty($ac_data['ac_title'])) {
+                                    ?>
                                     <div class="alert alert-<?php echo $ac_data['ac_class'] ?> fade show" role="alert">
                                         <h4><?php echo $ac_data['ac_title'] ?></h4>
                                         <p><?php echo $ac_data['ac_msg'] ?></p>
                                     </div>
                                     <?php
-									}
-									?>
+                                    }
+                                    ?>
                                     <?php echo form_open('login/validateLogin', array('id' => 'submitForm', 'class' => 'form-horizontal', 'novalidate' => 'novalidate')); ?>
 
                                     <fieldset class="form-group position-relative has-icon-left">
@@ -84,7 +84,7 @@
                                         <div class="help-block font-small-3 text-left"></div>
                                     </fieldset>
 
-                                    <button type="submit" id="submit-btn" class="btn btn-dark btn-md btn-block"><i
+                                    <button type="submit" id="submit-btn" class="btn btn-primary btn-md btn-block"><i
                                             class="ft-unlock"></i>
                                         LOGIN</button>
 

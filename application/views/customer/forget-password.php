@@ -26,7 +26,7 @@
                         <div class="center">
                             <h3>Forget Password</h3>
                             <?php echo form_open('customer/login/sendForgetmessage', array('id' => 'submitForm1', 'class' => '', 'novalidate' => 'novalidate')); ?>
-                            <div class="form-group">
+                            <div class="form-group ">
                                 <label class="">Please enter your Mobile number you have created at registration</label>
                                 <input type="text" name="mobile" class="form-control" placeholder="Mobile no"
                                     aria-required="true" required minlength="10" maxlength="10" inputmode="numeric"
@@ -34,7 +34,8 @@
                                 <div class="help-block font-small-3"></div>
                             </div>
                             <div class="text-left form-group">
-                                <button type="submit" id="form-submit1" class="btn btn-block btn-primary">SEND</button>
+                                <button type="submit" id="form-submit1"
+                                    class="btn btn-block btn-lg btn-primary">SEND</button>
                             </div>
                             <?php echo form_close(); ?>
 
@@ -68,57 +69,57 @@
         type="text/javascript"></script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#submitForm1').on('submit', function(e) {
-            e.preventDefault();
+        $(function() {
+            $('#submitForm1').on('submit', function(e) {
+                e.preventDefault();
 
-            $.ajax({
-                url: $(this).attr('action') || window.location.pathname,
-                type: "POST",
-                data: $(this).serialize(),
-                dataType: "JSON",
-                cache: false,
-                processData: false,
-                beforeSend: function() {
-                    $('#form-submit1').html(
-                        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> SENDING...'
+                $.ajax({
+                    url: $(this).attr('action') || window.location.pathname,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    dataType: "JSON",
+                    cache: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('#form-submit1').html(
+                            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> SENDING...'
                         );
-                    $('#form-submit1').attr('disabled', true);
-                },
-                success: function(response) {
-                    if (response['success'] == true) {
-                        document.getElementById("submitForm1").reset();
+                        $('#form-submit1').attr('disabled', true);
+                    },
+                    success: function(response) {
+                        if (response['success'] == true) {
+                            document.getElementById("submitForm1").reset();
+                            $.notify({
+                                message: response['message']
+                            }, {
+                                type: 'success'
+                            });
+                            setTimeout(function() {
+                                window.location.href =
+                                    '<?php echo base_url("customer/login"); ?>';
+                            }, 2000);
+                        } else {
+                            $.notify({
+                                message: response['message']
+                            }, {
+                                type: 'danger'
+                            });
+                        }
+                        $('#form-submit1').html('SEND');
+                        $('#form-submit1').attr('disabled', false);
+                    },
+                    error: function(jXHR, textStatus, errorThrown) {
+                        $('#form-submit1').html('SEND');
+                        $('#form-submit1').attr('disabled', false);
                         $.notify({
-                            message: response['message']
-                        }, {
-                            type: 'success'
-                        });
-                        setTimeout(function() {
-                            window.location.href =
-                                '<?php echo base_url("customer/login"); ?>';
-                        }, 2000);
-                    } else {
-                        $.notify({
-                            message: response['message']
+                            message: errorThrown
                         }, {
                             type: 'danger'
                         });
                     }
-                    $('#form-submit1').html('SEND');
-                    $('#form-submit1').attr('disabled', false);
-                },
-                error: function(jXHR, textStatus, errorThrown) {
-                    $('#form-submit1').html('SEND');
-                    $('#form-submit1').attr('disabled', false);
-                    $.notify({
-                        message: errorThrown
-                    }, {
-                        type: 'danger'
-                    });
-                }
+                });
             });
         });
-    });
     </script>
 
 </body>

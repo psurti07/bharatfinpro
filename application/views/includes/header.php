@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title>
         <?php if (isset($meta->title)) {
-			echo $meta->title;
-		} else {
-			echo "Bharatfinpro – Personal Loan and Business Loan";
-		} ?>
+            echo $meta->title;
+        } else {
+            echo "Bharatfinpro – Personal Loan and Business Loan";
+        } ?>
     </title>
     <meta name="description" content="<?php if (isset($meta->descriptions)) {
-											echo $meta->descriptions;
-										} ?>" />
+                                            echo $meta->descriptions;
+                                        } ?>" />
     <meta name="keywords" content="<?php if (isset($meta->keywords)) {
-										echo $meta->keywords;
-									} ?>" />
+                                        echo $meta->keywords;
+                                    } ?>" />
     <meta name="author" content="vw-team">
     <link rel="canonical" href="<?php echo base_url(uri_string()); ?>" />
     <meta name="robots" content="index, follow" />
@@ -41,16 +41,16 @@
     <meta name="twitter:image" content="https://bharatfinpro.com/assets/images/logo-light-2x.png">
 
     <script type="text/javascript">
-    (function(c, l, a, r, i, t, y) {
-        c[a] = c[a] || function() {
-            (c[a].q = c[a].q || []).push(arguments)
-        };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "rfpn3lx866");
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "rfpn3lx866");
     </script>
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('assets/images/apple-icon-180x180.png'); ?>">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url('assets/images/favicon-16x16.png'); ?>">
@@ -68,14 +68,14 @@
 
     <!-- Facebook Domain + Pixel Code -->
     <!-- <?php
-	// $fbdomain = getFacebookDomain();
-	// if ($fbdomain != Null) {
-	// 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-	// }
+            // $fbdomain = getFacebookDomain();
+            // if ($fbdomain != Null) {
+            // 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+            // }
 
-	// $fbpixel = getFacebookPixel('facebookpixel');
-	// if ($fbpixel != Null) {
-	?>
+            // $fbpixel = getFacebookPixel('facebookpixel');
+            // if ($fbpixel != Null) {
+            ?>
     <script>
     ! function(f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -95,12 +95,15 @@
         s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '<?php //echo $fbpixel; ?>');
+    fbq('init', '<?php //echo $fbpixel; 
+                    ?>');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-    <?php //} ?> -->
+            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; 
+                                                ?>&ev=PageView&noscript=1" /></noscript>
+    <?php //} 
+    ?> -->
     <!-- End Facebook Domain + Pixel Code -->
 
     <!-- Taboola Pixel Code -->

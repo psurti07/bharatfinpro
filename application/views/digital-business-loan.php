@@ -13,11 +13,11 @@ $this->load->view('includes/header-apply.php');
             </div>
 
             <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center sm-p-0">
-                <div class="card border-2 border-secondary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="card-header background-honeydew" style="border-radius: 8px 8px 0 0;">
                         <div class="card-title">
                             <h6 class="font-italic">Need quick cash?</h6>
-                            <h4 class="font-weight-bold">Avail up to <span class="text-secondary">₹10,00,000</span>
+                            <h4 class="font-weight-bold">Avail up to <span class="text-orange">₹10,00,000</span>
                                 business loan instantly!</h4>
                         </div>
                     </div>
@@ -201,7 +201,7 @@ $this->load->view('includes/header-apply.php');
 <?php if ($processstep == 'step1') { ?>
 <section class="box-fancy section-fullwidth p-0">
     <div class="row text-white">
-        <div class="col-lg-4 col-md-4" style="background-color: #144835;">
+        <div class="col-lg-4 col-md-4" style="background-color: #012960;">
             <h1 class="text-lg text-uppercase">01.</h1>
             <h3>Business Loan Criteria</h3>
             <p class="text-white"><strong>NBFC Business Loan Criteria for Small Business:</strong><br />
@@ -217,7 +217,7 @@ $this->load->view('includes/header-apply.php');
             </p>
         </div>
 
-        <div class="col-lg-4 col-md-4" style="background-color: #247658;">
+        <div class="col-lg-4 col-md-4" style="background-color: #012960e8;">
             <h1 class="text-lg text-uppercase">02.</h1>
             <h3>How It Works?</h3>
             <ul class="list-icon list-icon-check m-b-0 text-white">
@@ -230,7 +230,7 @@ $this->load->view('includes/header-apply.php');
             </ul>
         </div>
 
-        <div class="col-lg-4 col-md-4" style="background-color: #289b70;">
+        <div class="col-lg-4 col-md-4" style="background-color: #012960e3;">
             <h1 class="text-lg text-uppercase">03.</h1>
             <h3>Trusted by millions</h3>
             <h4><i class="fa fa-chart-bar"></i> 10 millions+ <span class="small">Happy Users</span></h4>
@@ -349,5 +349,152 @@ $this->load->view('includes/header-apply.php');
 <?php
 $this->load->view('includes/footer-apply.php');
 ?>
+<script type="text/javascript">
+function resendotp() {
+    loanamount = document.getElementById('loanamount').value;
+    mobile = document.getElementById('otpmobile').value;
 
-<script src="<?= base_url('assets/js/processSteps.js') ?>" type="text/javascript"></script>
+    $.ajax({
+        url: '<?php echo base_url("onlineprocess/resendotpCode"); ?>',
+        type: "POST",
+        data: 'mobile=' + mobile + '&loanamount=' + loanamount,
+        dataType: "JSON",
+        cache: false,
+        processData: false,
+        success: function(response) {
+            if (response['success'] == true) {
+                $('#resend-message2').html(response['message']);
+                toastr.success(response['message']);
+            } else {
+                toastr.error(response['message']);
+            }
+        },
+        error: function(jXHR, textStatus, errorThrown) {
+            toastr.error(errorThrown, 'ERROR');
+        }
+    });
+}
+</script>
+
+<script type="text/javascript">
+$(function() {
+    $('#submitForm1').on('submit', function(e) {
+
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action') || window.location.pathname,
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: "JSON",
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                $('#form-submit1').html(
+                    'Applying... <span class="spinner-border spinner-border-sm ms-1" role="status" aria-hidden="true"></span>'
+                );
+                $('#form-submit1').attr('disabled', true);
+            },
+            success: function(response) {
+                console.log(response);
+                if (response['success'] == true) {
+                    if (response['redirect_url'] != "") {
+                        window.location.href = response['redirect_url'];
+                    } else {
+                        window.location = "./businessLoan/s2/" + response['mobile'];
+                    }
+                } else {
+                    $('#mobilenoError1').html(response['message']);
+                    toastr.error(response['message']);
+                }
+
+                $('#form-submit1').html('Apply Now');
+                $('#form-submit1').attr('disabled', false);
+            },
+            error: function(jXHR, textStatus, errorThrown) {
+                toastr.error(errorThrown, 'ERROR');
+                $('#form-submit1').html('Apply Now');
+                $('#form-submit1').attr('disabled', false);
+            }
+        });
+    });
+
+    $('#submitForm2').on('submit', function(e) {
+        e.preventDefault();
+        $('#resend-message2').html('');
+        $('#otpcodeError').html('');
+
+        $.ajax({
+            url: $(this).attr('action') || window.location.pathname,
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: "JSON",
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                $('#form-submit2').html(
+                    'Verifying... <span class="spinner-border spinner-border-sm ms-1" role="status" aria-hidden="true"></span>'
+                );
+                $('#form-submit2').attr('disabled', true);
+            },
+            success: function(response) {
+                if (response['success'] == true) {
+                    window.location = "../../businessLoan/s3/" + response['mobile'];
+                } else {
+                    $('#otpcodeError').html(response['message']);
+                    toastr.error(response['message']);
+                }
+
+                $('#form-submit2').html('Verify OTP');
+                $('#form-submit2').attr('disabled', false);
+            },
+            error: function(jXHR, textStatus, errorThrown) {
+                toastr.error(errorThrown, 'ERROR');
+                $('#form-submit2').html('Verify OTP');
+                $('#form-submit2').attr('disabled', false);
+            }
+        });
+    });
+
+
+    $('#submitForm3').on('submit', function(e) {
+        e.preventDefault();
+        $('#resend-message2').html('');
+        $('#otpcodeError').html('');
+
+        $.ajax({
+            url: $(this).attr('action') || window.location.pathname,
+            type: "POST",
+            data: $(this).serialize(),
+            dataType: "JSON",
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                $('#form-submit3').html(
+                    'Processing... <span class="spinner-border spinner-border-sm ms-1" role="status" aria-hidden="true"></span>'
+                );
+                $('#form-submit3').attr('disabled', true);
+            },
+            success: function(response) {
+                if (response['success'] == true) {
+                    window.location.href = response['redirect_url'];
+                } else {
+                    $('#otpcodeError').html(response['message']);
+                    toastr.error(response['message']);
+                }
+
+                $('#form-submit3').html('Process');
+                $('#form-submit3').attr('disabled', false);
+            },
+            error: function(jXHR, textStatus, errorThrown) {
+                toastr.error(errorThrown, 'ERROR');
+                $('#form-submit3').html('Process');
+                $('#form-submit3').attr('disabled', false);
+            }
+        });
+    });
+
+
+});
+</script>
+<!-- <script src="<?= base_url('assets/js/processSteps.js') ?>" type="text/javascript"></script> -->

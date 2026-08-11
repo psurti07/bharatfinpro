@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title><?php if (isset($meta->title)) {
-            echo $meta->title;
-          } else {
-            echo "Personal Loan and Business Loan | Lending Finance";
-          } ?></title>
+                echo $meta->title;
+            } else {
+                echo "Personal Loan and Business Loan | Lending Finance";
+            } ?></title>
     <meta name="description" content="<?php if (isset($meta->descriptions)) {
-                                      echo $meta->descriptions;
-                                    } ?>" />
+                                            echo $meta->descriptions;
+                                        } ?>" />
     <meta name="keywords" content="<?php if (isset($meta->keywords)) {
-                                    echo $meta->keywords;
-                                  } ?>" />
+                                        echo $meta->keywords;
+                                    } ?>" />
     <meta name="author" content="vw-team">
     <link rel="canonical" href="<?php echo base_url(uri_string()); ?>" />
     <meta name="robots" content="index, follow" />
@@ -38,14 +38,14 @@
 
     <!-- Facebook Domain + Pixel Code -->
     <!-- <?php
-//   $fbdomain = getFacebookDomain();
-//   if ($fbdomain != Null) {
-//     echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-//   }
+            //   $fbdomain = getFacebookDomain();
+            //   if ($fbdomain != Null) {
+            //     echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+            //   }
 
-//   $fbpixel = getFacebookPixel('facebookpixelplan');
-//   if ($fbpixel != Null) {
-  ?>
+            //   $fbpixel = getFacebookPixel('facebookpixelplan');
+            //   if ($fbpixel != Null) {
+            ?>
     <script>
     ! function(f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -65,12 +65,15 @@
         s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '<?php //echo $fbpixel; ?>');
+    fbq('init', '<?php //echo $fbpixel; 
+                    ?>');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-    <?php //} ?> -->
+            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; 
+                                                ?>&ev=PageView&noscript=1" /></noscript>
+    <?php //} 
+    ?> -->
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Google tag (gtag.js) -->
     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16689511349"></script>

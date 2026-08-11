@@ -19,7 +19,7 @@
 
 <body>
 
-    <section class="fullscreen background-webcolor">
+    <section class="fullscreen background-light-green">
         <div class="d-flex justify-content-center col-md-12">
             <div class="card border-2 center shadow-none">
                 <div class="card-body m-20 sm-m-0">
@@ -87,54 +87,54 @@
         type="text/javascript"></script>
 
     <script type="text/javascript">
-    $(function() {
-        $('#submitForm1').on('submit', function(e) {
-            e.preventDefault();
+        $(function() {
+            $('#submitForm1').on('submit', function(e) {
+                e.preventDefault();
 
-            $.ajax({
-                url: $(this).attr('action') || window.location.pathname,
-                type: "POST",
-                data: $(this).serialize(),
-                dataType: "JSON",
-                cache: false,
-                processData: false,
-                beforeSend: function() {
-                    $('#form-submit1').html(
-                        '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> VERIFYING...'
+                $.ajax({
+                    url: $(this).attr('action') || window.location.pathname,
+                    type: "POST",
+                    data: $(this).serialize(),
+                    dataType: "JSON",
+                    cache: false,
+                    processData: false,
+                    beforeSend: function() {
+                        $('#form-submit1').html(
+                            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> VERIFYING...'
                         );
-                    $('#form-submit1').attr('disabled', true);
-                },
-                success: function(response) {
-                    if (response['success'] == true) {
+                        $('#form-submit1').attr('disabled', true);
+                    },
+                    success: function(response) {
+                        if (response['success'] == true) {
+                            $.notify({
+                                message: response['message']
+                            }, {
+                                type: 'success'
+                            });
+                            window.location.href =
+                                '<?php echo base_url("customer/dashboard"); ?>';
+                        } else {
+                            $.notify({
+                                message: response['message']
+                            }, {
+                                type: 'danger'
+                            });
+                        }
+                        $('#form-submit1').html('LOGIN');
+                        $('#form-submit1').attr('disabled', false);
+                    },
+                    error: function(jXHR, textStatus, errorThrown) {
+                        $('#form-submit1').html('LOGIN');
+                        $('#form-submit1').attr('disabled', false);
                         $.notify({
-                            message: response['message']
-                        }, {
-                            type: 'success'
-                        });
-                        window.location.href =
-                            '<?php echo base_url("customer/dashboard"); ?>';
-                    } else {
-                        $.notify({
-                            message: response['message']
+                            message: errorThrown
                         }, {
                             type: 'danger'
                         });
                     }
-                    $('#form-submit1').html('LOGIN');
-                    $('#form-submit1').attr('disabled', false);
-                },
-                error: function(jXHR, textStatus, errorThrown) {
-                    $('#form-submit1').html('LOGIN');
-                    $('#form-submit1').attr('disabled', false);
-                    $.notify({
-                        message: errorThrown
-                    }, {
-                        type: 'danger'
-                    });
-                }
+                });
             });
         });
-    });
     </script>
 
 </body>
