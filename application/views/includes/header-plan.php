@@ -37,14 +37,14 @@
     <?php echo link_tag('assets/css/toastr.min.css'); ?>
 
     <!-- Facebook Domain + Pixel Code -->
-    <?php
-  $fbdomain = getFacebookDomain();
-  if ($fbdomain != Null) {
-    echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-  }
+    <!-- <?php
+//   $fbdomain = getFacebookDomain();
+//   if ($fbdomain != Null) {
+//     echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+//   }
 
-  $fbpixel = getFacebookPixel('facebookpixelplan');
-  if ($fbpixel != Null) {
+//   $fbpixel = getFacebookPixel('facebookpixelplan');
+//   if ($fbpixel != Null) {
   ?>
     <script>
     ! function(f, b, e, v, n, t, s) {
@@ -65,15 +65,15 @@
         s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '<?php echo $fbpixel; ?>');
+    fbq('init', '<?php //echo $fbpixel; ?>');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-    <?php } ?>
+            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
+    <?php //} ?> -->
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16689511349"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16689511349"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -83,9 +83,9 @@
     gtag('js', new Date());
 
     gtag('config', 'AW-16689511349');
-    </script>
+    </script> -->
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TX89VY56WG"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TX89VY56WG"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -95,9 +95,9 @@
     gtag('js', new Date());
 
     gtag('config', 'G-TX89VY56WG');
-    </script>
+    </script> -->
     <!-- Google Tag Manager -->
-    <script>
+    <!-- <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -112,7 +112,7 @@
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-MNC23NZ4');
-    </script>
+    </script> -->
     <!-- End Google Tag Manager -->
 
 </head>
@@ -120,8 +120,8 @@
 <body class="breakpoint-xl b--desktop">
 
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNC23NZ4" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNC23NZ4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
         <header id="header" data-transparent="true" data-fullwidth="true" class="submenu-light header-disable-fixed">

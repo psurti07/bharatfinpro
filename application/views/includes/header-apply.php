@@ -52,14 +52,14 @@
         rel="stylesheet" type="text/css" />
 
     <!-- Facebook Domain + Pixel Code -->
-    <?php
-	$fbdomain = getFacebookDomain();
-	if ($fbdomain != Null) {
-		echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-	}
+    <!-- <?php
+	// $fbdomain = getFacebookDomain();
+	// if ($fbdomain != Null) {
+	// 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+	// }
 
-	$fbpixel = getFacebookPixel();
-	if ($fbpixel != Null) {
+	// $fbpixel = getFacebookPixel();
+	// if ($fbpixel != Null) {
 	?>
     <script>
     ! function(f, b, e, v, n, t, s) {
@@ -85,10 +85,10 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-    <?php } ?>
+    <?php //} ?> -->
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Taboola Pixel Code -->
-    <script type='text/javascript'>
+    <!-- <script type='text/javascript'>
     window._tfa = window._tfa || [];
     window._tfa.push({
         notify: 'event',
@@ -106,9 +106,9 @@
         document.getElementsByTagName('script')[0],
         '//cdn.taboola.com/libtrc/unip/1779022/tfa.js',
         'tb_tfa_script');
-    </script>
+    </script> -->
     <!-- End of Taboola Pixel Code -->
-    <script>
+    <!-- <script>
     (function(w, d, t, r, u) {
         var f, n, i;
         w[u] = w[u] || [], f = function() {
@@ -122,10 +122,10 @@
             s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
         }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
     })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
-    </script>
+    </script> -->
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16615998313">
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16615998313">
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17124324095"></script>
     <script>
@@ -138,10 +138,10 @@
 
     gtag('config', 'AW-16615998313');
     gtag('config', 'AW-17124324095');
-    </script>
+    </script> -->
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4Q3SBZL0L"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4Q3SBZL0L"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -151,10 +151,10 @@
     gtag('js', new Date());
 
     gtag('config', 'G-G4Q3SBZL0L');
-    </script>
+    </script> -->
 
     <!-- Google Tag Manager -->
-    <script>
+    <!-- <script>
     (function(w, d, s, l, i) {
         w[l] = w[l] || [];
         w[l].push({
@@ -169,9 +169,9 @@
             'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-T5VWDPBN');
-    </script>
+    </script> -->
     <!-- End Google Tag Manager -->
-    <script type="application/ld+json">
+    <!-- <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@graph": [{
@@ -253,8 +253,8 @@
             }
         ]
     }
-    </script>
-    <script type="text/javascript">
+    </script> -->
+    <!-- <script type="text/javascript">
     adroll_adv_id = "RVZSLAS4TVAHZIF62WPM7M";
     adroll_pix_id = "EGO7CSPQRVGMDOYOOESEJN";
     adroll_version = "2.0";
@@ -277,12 +277,12 @@
         o.parentNode.insertBefore(e, o);
     })(window, document);
     adroll.track("pageView");
-    </script>
+    </script> -->
 </head>
 
 <body class="breakpoint-xl b--desktop">
     <!-- Mgid Sensor -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     (function() {
         var d = document,
             w = window;
@@ -300,11 +300,11 @@
         s.src = "https://" + l + "/mgsensor.js?d=" + dt;
         n.parentNode.insertBefore(s, n);
     })();
-    </script>
+    </script> -->
     <!-- /Mgid Sensor -->
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VWDPBN" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VWDPBN" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
         <header id="header" data-transparent="true" data-fullwidth="true" class="submenu-light header-disable-fixed">
