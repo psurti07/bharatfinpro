@@ -9,11 +9,11 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
         <div class="row">
             <!-- START : PRE APPROVAL -->
             <div class="col-lg-8 col-md-8 col-12 sm-p-0">
-                <div class="card border-2 border-primary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="card-body">
                         <h3>Digital <?php echo $userdetails['loanname']; ?> Application Process</h3>
 
-                        <p>Congratulation! Your <strong class="text-secondary h4">Rs.
+                        <p>Congratulation! Your <strong class="text-secondary h4 text-orange">Rs.
                                 <?php echo formatePriceIndia($eligibilityamt); ?>/-</strong>
                             Pre-Approved<?php echo $userdetails['loanname']; ?> Offer Processing Confirmed.</p>
 
@@ -156,9 +156,9 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                     <div class="card-body background-pattern-1 rounded-lg">
                         <h3 class="m-b-20 text-medium">Personal Loan</h3>
                         <p class="m-b-0 text-muted">Get up to</p>
-                        <h4><span style="border-bottom: 4px solid #37c893">₹10 Lac in 30 mins</span></h4>
+                        <h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
                     </div>
-                    <div class="card-footer p-20 background-grey">
+                    <div class="card-footer p-20 background-alice-blue">
                         <ul class="list-icon list-icon-colored m-b-0">
                             <li><i class="fa fa-arrow-right"></i> Simple Online Process</li>
                             <li><i class="fa fa-arrow-right"></i> ⁠Lowest Interest Rate</li>
@@ -174,60 +174,60 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 </section>
 
 <?php if (count($roipackages)) { ?>
-<section class="background-grey">
-    <div class="container">
-        <div class="text-center p-b-20">
-            <h3>You’re Eligible For Pre-Approved Loan Offers From Partnered NBFCs</h3>
-            <p>View the specifics of your pre-approved offers</p>
-        </div>
-
-        <div class="row d-flex align-items-center justify-content-center">
-            <?php
-				foreach ($roipackages as $row) {
-				?>
-            <div class="col-md-3 col-12">
-                <div class="card">
-                    <div class="card-header p-20">
-                        <div class="row">
-                            <div class="col-md-12 col-8 text-center">
-                                <img src="<?php echo base_url('assets/images/bank/' . $row->bank_image); ?>" alt=""
-                                    class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body p-20 p-b-5">
-                        <div class="row">
-                            <div class="col-md-12 col-12">
-                                <p><strong>Loan Amt.:</strong> Rs.
-                                    <?php echo formatePriceIndia($eligibilityamt); ?>
-                                </p>
-                                <p><strong>EMI:</strong> Rs.
-                                    <?php echo formatePriceIndia(calPMT($row->roi, $row->termsyears, $eligibilityamt)); ?>
-                                </p>
-                                <p><strong>ROI:</strong>
-                                    <?php echo $row->roi . "%"; ?>
-                                </p>
-                                <p><strong>Tenure:</strong>
-                                    <?php echo $row->termsmonths . " Months"; ?>
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+    <section class="background-honeydew">
+        <div class="container">
+            <div class="text-center p-b-20">
+                <h3>You’re Eligible For Pre-Approved Loan Offers From Partnered NBFCs</h3>
+                <p>View the specifics of your pre-approved offers</p>
             </div>
-            <?php
-				} ?>
-        </div>
-        <div class="text-left">
-            <p class=""><small>Disclaimer - The above data is tentative and purely on the information provided
-                    by
-                    you. Final EMI, loan sanction, loan approval, and loan amount depend on customer profile and
-                    NBFCs
-                    criteria and rules & regulations.</small></p>
-        </div>
-</section>
+
+            <div class="row d-flex align-items-center justify-content-center">
+                <?php
+                foreach ($roipackages as $row) {
+                ?>
+                    <div class="col-md-3 col-12">
+                        <div class="card">
+                            <div class="card-header p-20">
+                                <div class="row">
+                                    <div class="col-md-12 col-8 text-center">
+                                        <img src="<?php echo base_url('assets/images/bank/' . $row->bank_image); ?>" alt=""
+                                            class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body p-20 p-b-5">
+                                <div class="row">
+                                    <div class="col-md-12 col-12">
+                                        <p><strong>Loan Amt.:</strong> Rs.
+                                            <?php echo formatePriceIndia($eligibilityamt); ?>
+                                        </p>
+                                        <p><strong>EMI:</strong> Rs.
+                                            <?php echo formatePriceIndia(calPMT($row->roi, $row->termsyears, $eligibilityamt)); ?>
+                                        </p>
+                                        <p><strong>ROI:</strong>
+                                            <?php echo $row->roi . "%"; ?>
+                                        </p>
+                                        <p><strong>Tenure:</strong>
+                                            <?php echo $row->termsmonths . " Months"; ?>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                } ?>
+            </div>
+            <div class="text-left">
+                <p class=""><small>Disclaimer - The above data is tentative and purely on the information provided
+                        by
+                        you. Final EMI, loan sanction, loan approval, and loan amount depend on customer profile and
+                        NBFCs
+                        criteria and rules & regulations.</small></p>
+            </div>
+    </section>
 <?php } ?>
 
 <div class="modal fade" id="modal" role="modal" aria-labelledby="modal-label" aria-hidden="true" style="display: none;">
@@ -284,12 +284,12 @@ $this->load->view('includes/footer-apply.php');
 ?>
 
 <script type="text/javascript">
-$(function() {
-    $('#submitForm2').on('submit', function(e) {
-        $('#form-submit2').attr('disabled', true);
-        $('#form-submit2').html(
-            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
+    $(function() {
+        $('#submitForm2').on('submit', function(e) {
+            $('#form-submit2').attr('disabled', true);
+            $('#form-submit2').html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
             );
+        });
     });
-});
 </script>

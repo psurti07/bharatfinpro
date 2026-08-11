@@ -10,14 +10,14 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
         <div class="row">
             <!-- START : MEMBERSHIP CARD -->
             <div class="col-lg-8 col-md-8 col-12 sm-p-0">
-                <div class="card border-2 border-primary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="box">
                         <span class="wdp-ribbon wdp-ribbon-two">Offer Valid till 12am</span>
                     </div>
                     <div class="card-body">
                         <h3>Digital <?php echo $userdetails['loanname']; ?> Application Process</h3>
 
-                        <p>Congrats! Buy Membership Now To Unlock Your <strong class="text-secondary h4">Rs.
+                        <p>Congrats! Buy Membership Now To Unlock Your <strong class="text-secondary h4 text-orange">Rs.
                                 <?php echo formatePriceIndia($eligibilityamt); ?></strong> Pre-Approved Loan Offer
                             Instantly!</p>
 
@@ -70,23 +70,23 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                     <tr>
                                         <td class="text-center" colspan="2">
                                             <?php
-											if ($productdata['offeramount'] != 0) {
-												echo '<h4 class="m-b-0">';
+                                            if ($productdata['offeramount'] != 0) {
+                                                echo '<h4 class="m-b-0">';
 
-												echo 'Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> ';
+                                                echo 'Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> ';
 
-												echo '<span class="text-success text-xs">' . formatePrice($productdata['offeramount']) . '</span> only';
+                                                echo '<span class="text-success text-xs">' . formatePrice($productdata['offeramount']) . '</span> only';
 
-												echo '<span class="text-danger font-weight-700"> (' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off)</span>';
+                                                echo '<span class="text-danger font-weight-700"> (' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off)</span>';
 
-												echo '</h4>';
+                                                echo '</h4>';
 
-												$subtotal = $productdata['offeramount'];
-											} else {
-												echo '<h4>Rs. ' . formatePrice($productdata['amount']) . '</h4>';
-												$subtotal = $productdata['amount'];
-											}
-											?>
+                                                $subtotal = $productdata['offeramount'];
+                                            } else {
+                                                echo '<h4>Rs. ' . formatePrice($productdata['amount']) . '</h4>';
+                                                $subtotal = $productdata['amount'];
+                                            }
+                                            ?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -106,7 +106,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                         <td class="cart-product-name text-right">
                                             <span class="amount">
                                                 <?php $gst = $subtotal * 0.18;
-												echo formatePriceIndia($gst); ?>
+                                                echo formatePriceIndia($gst); ?>
                                             </span>
                                         </td>
                                     </tr>
@@ -117,7 +117,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                         <td class="cart-product-name text-right">
                                             <span class="amount color lead"><strong>
                                                     <?php $grandtotal = $subtotal + $gst;
-													echo formatePriceIndia($grandtotal); ?>
+                                                    echo formatePriceIndia($grandtotal); ?>
                                                 </strong></span>
                                         </td>
                                     </tr>
@@ -174,7 +174,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                     <!--<div class="card-body background-pattern-1 rounded-lg">
 						<h3 class="m-b-20 text-medium">Personal Loan</h3>
 						<p class="m-b-0 text-muted">Get up to</p>
-						<h4><span style="border-bottom: 4px solid #37c893">₹10 Lac in 30 mins</span></h4>
+						<h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
 					</div>
 					<div class="card-footer p-20 background-alice-blue">
 						<ul class="list-icon list-icon-colored m-b-0">
@@ -189,10 +189,10 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                         data-margin="0" data-items="1" data-items-md="1" data-items-sm="1" data-items-xs="1"
                         data-arrows="false" data-dots="false">
                         <?php foreach ($offer as $row) { ?>
-                        <div>
-                            <a href="#"><img alt="<?php echo $row; ?>"
-                                    src="<?php echo base_url('assets/images/' . $row); ?>"></a>
-                        </div>
+                            <div>
+                                <a href="#"><img alt="<?php echo $row; ?>"
+                                        src="<?php echo base_url('assets/images/' . $row); ?>"></a>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -207,12 +207,12 @@ $this->load->view('includes/footer-apply.php');
 ?>
 
 <script type="text/javascript">
-$(function() {
-    $('#submitForm3').on('submit', function(e) {
-        $('#form-submit3').attr('disabled', true);
-        $('#form-submit3').html(
-            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
+    $(function() {
+        $('#submitForm3').on('submit', function(e) {
+            $('#form-submit3').attr('disabled', true);
+            $('#form-submit3').html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
             );
+        });
     });
-});
 </script>

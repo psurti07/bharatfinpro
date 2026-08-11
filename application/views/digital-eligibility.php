@@ -7,7 +7,7 @@ $this->load->view('includes/header-apply.php');
         <div class="row">
             <!-- START : CHECK ELIGIBLITY -->
             <div class="col-lg-8 col-md-8 col-12 sm-p-0">
-                <div class="card border-2 border-primary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="card-body">
                         <h3>Digital <?php echo $userdetails['loanname']; ?> Application Process</h3>
                         <p>Your Instant Pre-Approved Loan Offer is Few Steps Away!</p>
@@ -59,22 +59,22 @@ $this->load->view('includes/header-apply.php');
                             <label class="text-dark" for="loanpurpose">Loan Purpose</label>
                             <select name="loanpurpose" aria-required="true" id="loanpurpose" class="form-control"
                                 required>
-                                <?php  if ($userdetails['loantype'] == 12) { ?>
-                                <option value="">Select Loan Purpose</option>
-                                <option value="Business Expansion">Business Expansion</option>
-                                <option value="Maintain Cash Flow">Maintain Cash Flow</option>
-                                <option value="Supplier Payments">Supplier Payments</option>
-                                <option value="Setup Manufacturing Unit">Setup Manufacturing Unit</option>
-                                <option value="Hiring Budget">Hiring Budget</option>
-                                <option value="Other">Other</option>
+                                <?php if ($userdetails['loantype'] == 12) { ?>
+                                    <option value="">Select Loan Purpose</option>
+                                    <option value="Business Expansion">Business Expansion</option>
+                                    <option value="Maintain Cash Flow">Maintain Cash Flow</option>
+                                    <option value="Supplier Payments">Supplier Payments</option>
+                                    <option value="Setup Manufacturing Unit">Setup Manufacturing Unit</option>
+                                    <option value="Hiring Budget">Hiring Budget</option>
+                                    <option value="Other">Other</option>
                                 <?php } else { ?>
-                                <option value="">Select Loan Purpose</option>
-                                <option value="Personal Use">Personal Use</option>
-                                <option value="Property Renovation">Property Renovation</option>
-                                <option value="Marriage Purpose">Marriage Purpose</option>
-                                <option value="Education Purpose">Education Purpose</option>
-                                <option value="Medical Emergency">Medical Emergency</option>
-                                <option value="Other">Other</option>
+                                    <option value="">Select Loan Purpose</option>
+                                    <option value="Personal Use">Personal Use</option>
+                                    <option value="Property Renovation">Property Renovation</option>
+                                    <option value="Marriage Purpose">Marriage Purpose</option>
+                                    <option value="Education Purpose">Education Purpose</option>
+                                    <option value="Medical Emergency">Medical Emergency</option>
+                                    <option value="Other">Other</option>
                                 <?php } ?>
                             </select>
                             <div class="help-block font-small-3"></div>
@@ -149,7 +149,7 @@ $this->load->view('includes/header-apply.php');
                     <div class="card-body background-pattern-1 rounded-lg">
                         <h3 class="m-b-20 text-medium">Personal Loan</h3>
                         <p class="m-b-0 text-muted">Get up to</p>
-                        <h4><span style="border-bottom: 4px solid #37c893">₹10 Lac in 30 mins</span></h4>
+                        <h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
                     </div>
                     <div class="card-footer p-20 background-alice-blue">
                         <ul class="list-icon list-icon-colored m-b-0">
@@ -171,52 +171,52 @@ $this->load->view('includes/footer-apply.php');
 ?>
 
 <script type="text/javascript">
-$(function() {
-    $('#submitForm1').on('submit', function(e) {
-        $('#form-submit1').attr('disabled', true);
-        $('#form-submit1').html(
-            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
-        );
+    $(function() {
+        $('#submitForm1').on('submit', function(e) {
+            $('#form-submit1').attr('disabled', true);
+            $('#form-submit1').html(
+                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
+            );
+        });
     });
-});
 </script>
 
 <script>
-$('#pincode').on('input', function() {
+    $('#pincode').on('input', function() {
 
-    var pincode = $(this).val();
+        var pincode = $(this).val();
 
-    if (pincode.length === 6) {
+        if (pincode.length === 6) {
 
-        $.ajax({
-            url: "<?= base_url('digital/geoLocation') ?>",
-            type: "POST",
-            data: {
-                pincode: pincode
-            },
-            dataType: "json",
+            $.ajax({
+                url: "<?= base_url('digital/geoLocation') ?>",
+                type: "POST",
+                data: {
+                    pincode: pincode
+                },
+                dataType: "json",
 
-            success: function(response) {
+                success: function(response) {
 
-                if (response.status === 'success') {
-                    $('#city').val(response.city);
-                    $('#state').val(response.state);
-                    $('.pincode').text('');
-                } else {
-                    $('#city').val('');
-                    $('#state').val('');
+                    if (response.status === 'success') {
+                        $('#city').val(response.city);
+                        $('#state').val(response.state);
+                        $('.pincode').text('');
+                    } else {
+                        $('#city').val('');
+                        $('#state').val('');
+                        $('.pincode').text('Enter valid pincode.');
+                    }
+                },
+
+                error: function() {
                     $('.pincode').text('Enter valid pincode.');
                 }
-            },
+            });
 
-            error: function() {
-                $('.pincode').text('Enter valid pincode.');
-            }
-        });
-
-    } else {
-        $('#city').val('');
-        $('#state').val('');
-    }
-});
+        } else {
+            $('#city').val('');
+            $('#state').val('');
+        }
+    });
 </script>

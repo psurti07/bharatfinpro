@@ -8,11 +8,11 @@ $amtpay = $productdata['payamount'];
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center sm-p-0">
-                <div class="card border-2 border-secondary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="card-header background-honeydew" style="border-radius: 8px 8px 0 0;">
                         <div class="card-title">
                             <h4 class="font-weight-bold font-italic">Your Personal Loan up to <span
-                                    class="text-secondary">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h4>
+                                    class="text-orange">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h4>
                         </div>
                     </div>
                     <div class="card-body sm-m-0">
@@ -34,7 +34,7 @@ $amtpay = $productdata['payamount'];
             </div>
 
             <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center sm-p-0">
-                <div class="card border-2 border-secondary shadow-none">
+                <div class="card border-2 shadow-none">
                     <div class="card-header background-honeydew" style="border-radius: 8px 8px 0 0;">
                         <?php
 						if ($this->session->flashdata('danger')): ?>
@@ -108,7 +108,7 @@ $amtpay = $productdata['payamount'];
                         </div>
 
                         <div class="form-group text-left">
-                            <button type="submit" id="form-submit1" class="btn btn-block btn-lg new-btn-color">PROCEED
+                            <button type="submit" id="form-submit1" class="btn btn-block btn-lg btn btn-primary">PROCEED
                                 TO PAY</button>
                         </div>
 
@@ -162,7 +162,7 @@ $(function() {
         $('#form-submit1').attr('disabled', true);
         $('#form-submit1').html(
             '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
-            );
+        );
     });
 });
 setTimeout(function() {

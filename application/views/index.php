@@ -2,16 +2,16 @@
 $this->load->view('includes/header.php');
 ?>
 
-<section class="background-image p-t-10 p-b-0"
-    style="background-image:url(<?php echo base_url('assets/images/slider/slider-home-14.jpg'); ?>);">
+<section class="background-image p-t-10 p-b-0" style="background-color: #ffeee3 !important;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-7 col-12">
-                <div class="text-light">
-                    <h1 class="font-weight-800 m-b-20">Personal Loan Ka<br /><span class="text-success"
-                            style="color:#b9fa8b !important">Easy Solution!</span></h1>
-                    <p class="lead">Start Your Personal Loan Journey Instantly</p>
-                    <a class="btn btn-light" href="<?php echo site_url('digital/personalLoan'); ?>">Apply Now</a>
+                <div>
+                    <h1 class="text-blue font-weight-800 m-b-20">Personal Loan Ka<br /><span class="text-orange">Easy
+                            Solution!</span></h1>
+                    <p class="text-blue lead">Start Your Personal Loan Journey Instantly</p>
+                    <a class="btn btn-rounded btn-primary" href="<?php echo site_url('digital/personalLoan'); ?>">Apply
+                        Now</a>
                 </div>
             </div>
 
@@ -34,9 +34,9 @@ $this->load->view('includes/header.php');
             <div class="col-lg-6">
                 <div class="card shadow-none border-2">
                     <div class="card-body background-pattern-1 rounded">
-                        <h3 class="m-b-20 text-medium">Personal Loan</h3>
+                        <h3 class="m-b-20 text-medium text-blue">Personal Loan</h3>
                         <p class="m-b-0 text-muted">Get up to</p>
-                        <h4><span style="border-bottom: 4px solid #37c893">₹10 Lac in 30 mins</span></h4>
+                        <h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
                         <p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/personalLoan'); ?>"
                                 class="btn btn-rounded btn-primary">Apply Now</a></p>
                     </div>
@@ -62,9 +62,9 @@ $this->load->view('includes/header.php');
             <div class="col-lg-6">
                 <div class="card shadow-none border-2">
                     <div class="card-body background-pattern-2 rounded">
-                        <h3 class="m-b-20 text-medium">Business Loan</h3>
+                        <h3 class="m-b-20 text-medium text-orange">Business Loan</h3>
                         <p class="m-b-0 text-muted">Get up to</p>
-                        <h4><span style="border-bottom: 4px solid #37c893">₹1 Cr. in 40 Hours</span></h4>
+                        <h4><span style="border-bottom: 4px solid #fb710f">₹1 Cr. in 40 Hours</span></h4>
                         <p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/businessLoan'); ?>"
                                 class="btn btn-rounded btn-primary">Apply Now</a></p>
                     </div>
@@ -179,12 +179,12 @@ $this->load->view('includes/header.php');
 
                 <ul class="grid grid-6-columns">
                     <?php
-					foreach ($banklist as $row) {
-						echo '<li>';
-						echo '<a href="#"><img src="' . base_url('assets/images/bank/') . $row->bank_image . '" alt="' . $row->bank_name . '"></a>';
-						echo '</li>';
-					}
-					?>
+                    foreach ($banklist as $row) {
+                        echo '<li>';
+                        echo '<a href="#"><img src="' . base_url('assets/images/bank/') . $row->bank_image . '" alt="' . $row->bank_name . '"></a>';
+                        echo '</li>';
+                    }
+                    ?>
                 </ul>
             </div>
         </div>
@@ -270,7 +270,7 @@ $this->load->view('includes/header.php');
         <div class="carousel equalize testimonial testimonial-box" data-margin="20" data-arrows="true" data-dots="false"
             data-items="3" data-items-sm="2" data-items-xxs="1" data-equalize-item=".testimonial-item">
             <?php foreach ($testimoniallist_a as $row) { ?>
-            <img src="<?php echo base_url('assets/images/' . $row); ?>" alt="customer img">
+                <img src="<?php echo base_url('assets/images/' . $row); ?>" alt="customer img">
             <?php } ?>
         </div>
     </div>
@@ -309,38 +309,38 @@ $this->load->view('includes/header.php');
                     <h6>Stay Connected:</h6>
                     <ul>
                         <?php if (SM_GOOGLE != "#") { ?>
-                        <li class="social-google"><a href="<?php echo SM_GOOGLE; ?>" target="_blank" rel="nofollow"><i
-                                    class="fab fa-google-plus-g"></i></a></li>
+                            <li class="social-google"><a href="<?php echo SM_GOOGLE; ?>" target="_blank" rel="nofollow"><i
+                                        class="fab fa-google-plus-g"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_FACEBOOK != "#") { ?>
-                        <li class="social-facebook"><a href="<?php echo SM_FACEBOOK; ?>" target="_blank"
-                                rel="nofollow"><i class="fab fa-facebook-f"></i></a></li>
+                            <li class="social-facebook"><a href="<?php echo SM_FACEBOOK; ?>" target="_blank"
+                                    rel="nofollow"><i class="fab fa-facebook-f"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_INSTAGRAM != "#") { ?>
-                        <li class="social-instagram"><a href="<?php echo SM_INSTAGRAM; ?>" target="_blank"
-                                rel="nofollow"><i class="fab fa-instagram"></i></a></li>
+                            <li class="social-instagram"><a href="<?php echo SM_INSTAGRAM; ?>" target="_blank"
+                                    rel="nofollow"><i class="fab fa-instagram"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_TWITTER != "#") { ?>
-                        <li class="social-twitter"><a href="<?php echo SM_TWITTER; ?>" target="_blank" rel="nofollow"><i
-                                    class="fab fa-twitter"></i></a></li>
+                            <li class="social-twitter"><a href="<?php echo SM_TWITTER; ?>" target="_blank" rel="nofollow"><i
+                                        class="fab fa-twitter"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_LINKEDIN != "#") { ?>
-                        <li class="social-linkedin"><a href="<?php echo SM_LINKEDIN; ?>" target="_blank"
-                                rel="nofollow"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="social-linkedin"><a href="<?php echo SM_LINKEDIN; ?>" target="_blank"
+                                    rel="nofollow"><i class="fab fa-linkedin"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_PINTEREST != "#") { ?>
-                        <li class="social-pinterest"><a href="<?php echo SM_PINTEREST; ?>" target="_blank"
-                                rel="nofollow"><i class="fab fa-pinterest"></i></a></li>
+                            <li class="social-pinterest"><a href="<?php echo SM_PINTEREST; ?>" target="_blank"
+                                    rel="nofollow"><i class="fab fa-pinterest"></i></a></li>
                         <?php } ?>
 
                         <?php if (SM_YOUTUBE != "#") { ?>
-                        <li class="social-youtube"><a href="<?php echo SM_YOUTUBE; ?>" target="_blank" rel="nofollow"><i
-                                    class="fab fa-youtube"></i></a></li>
+                            <li class="social-youtube"><a href="<?php echo SM_YOUTUBE; ?>" target="_blank" rel="nofollow"><i
+                                        class="fab fa-youtube"></i></a></li>
                         <?php } ?>
                     </ul>
                 </div>
@@ -426,11 +426,11 @@ $this->load->view('includes/header.php');
 </div>
 
 <?php if ($msg[0]->option_value == 1 && $msg[1]->option_value != '') { ?>
-<div id="modal-auto-open" class="modal modal-auto-open cookie-notify" data-delay="1500" data-cookie-enabled="false"
-    data-cookie-name="cookieName2020">
-    <?php echo $msg[1]->option_value; ?>
-    <div class="text-center"><a class="btn btn-primary modal-close" href="#">Dismiss</a></div>
-</div>
+    <div id="modal-auto-open" class="modal modal-auto-open cookie-notify" data-delay="1500" data-cookie-enabled="false"
+        data-cookie-name="cookieName2020">
+        <?php echo $msg[1]->option_value; ?>
+        <div class="text-center"><a class="btn btn-primary modal-close" href="#">Dismiss</a></div>
+    </div>
 <?php } ?>
 
 <?php
