@@ -54,10 +54,10 @@
                     <div class="widget">
                         <h4>Useful Links</h4>
                         <ul class="list p-0">
-                            <li><a href="<?php echo site_url('plan/privylege_finance'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i> Privylege Small Finance</a></li>
-                            <li><a href="https://fitzify.com/"><i class="fas fa-external-link-alt m-r-5"></i>
-                                    Fitzify</a></li>
+                            <!-- <li><a href="<?php echo site_url('plan/privylege_finance'); ?>"><i
+                                        class="fas fa-external-link-alt m-r-5"></i> Privylege Small Finance</a></li> -->
+                            <!-- <li><a href="https://fitzify.com/"><i class="fas fa-external-link-alt m-r-5"></i>
+                                    Fitzify</a></li> -->
                             <li><a href="javascript:;" onclick="goToMenu('company')"><i
                                         class="fas fa-external-link-alt m-r-5"></i> Company</a></li>
                             <li><a href="javascript:;" onclick="goToMenu('contacts')"><i
@@ -71,8 +71,8 @@
                             <li><a href="<?php echo site_url('raise-request'); ?>"><i
                                         class="fas fa-external-link-alt m-r-5"></i>
                                     Raise a Request</a></li>
-                            <li><i class="fas fa-external-link-alt m-r-5"></i><a
-                                    href="<?php echo site_url('webinar'); ?>">Webinar</a></li>
+                            <!-- <li><i class="fas fa-external-link-alt m-r-5"></i><a
+                                    href="<?php echo site_url('webinar'); ?>">Webinar</a></li> -->
 
                         </ul>
                     </div>
