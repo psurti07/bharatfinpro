@@ -173,4 +173,15 @@ class Infopage extends CI_Controller
 		$restrack_intdata = webinar_interakt_payment_success_fail($intdata1);
 		echo $restrack_intdata;
 	}
+
+	public function test()
+	{
+		$subject = "Welcome to Bharatfinpro";
+		$mobile = 9408881214;
+		$password = 123;
+		$this->load->model('Site_General_Model');
+		$content = $this->Site_General_Model->customer_webinar_welcomeemailtemplate($mobile, $password);
+		echo $content;
+		die;
+	}
 }
