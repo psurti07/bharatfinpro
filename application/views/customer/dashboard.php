@@ -2,9 +2,9 @@
 $this->load->view('customer/includes/header.php');
 
 if ($profiledata->cardtype == 12) {
-	$loantype = "bl";
+    $loantype = "bl";
 } else {
-	$loantype = "pl";
+    $loantype = "pl";
 }
 ?>
 
@@ -20,17 +20,17 @@ if ($profiledata->cardtype == 12) {
     <div class="container">
 
         <?php
-		if ($accountmsg->option_value != "" && strlen($accountmsg->option_value) > 0) {  ?>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="alert alert-light alert-dismissible fade show text-dark" role="alert">
-                    <span class="badge badge-warning m-r-10">Important Update</span>
-                    <?php echo $accountmsg->option_value; ?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+        if ($accountmsg->option_value != "" && strlen($accountmsg->option_value) > 0) {  ?>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-light alert-dismissible fade show text-dark" role="alert">
+                        <span class="badge badge-warning m-r-10">Important Update</span>
+                        <?php echo $accountmsg->option_value; ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php } ?>
 
         <div class="row">
@@ -55,47 +55,47 @@ if ($profiledata->cardtype == 12) {
                 </div>
             </div>
             <?php
-			$hidedata = 0; // 0 = show, 1 = Hide
-			if ($hidedata == 0) {
-			?>
-            <div class="col-lg-4 col-md-4 text-center">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="counter"> <span data-speed="500" data-refresh-interval="2"
-                                data-to="<?php echo $statestics['referalusers']; ?>" data-from="0"
-                                data-seperator="true"></span> </div>
-                        <h6>Total Referral Customers</h6>
+            $hidedata = 0; // 0 = show, 1 = Hide
+            if ($hidedata == 0) {
+            ?>
+                <div class="col-lg-4 col-md-4 text-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="counter"> <span data-speed="500" data-refresh-interval="2"
+                                    data-to="<?php echo $statestics['referalusers']; ?>" data-from="0"
+                                    data-seperator="true"></span> </div>
+                            <h6>Total Referral Customers</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
         <?php
-		$hidedata = 0; // 0 = show, 1 = Hide
-		if ($hidedata == 0) {
-		?>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-12">
-                <form class="p-cb process border-top-dark text-dark">
-                    <h4>Refer and Earn up to Rs 1 Lac per month</h4>
-                    <hr />
+        $hidedata = 0; // 0 = show, 1 = Hide
+        if ($hidedata == 0) {
+        ?>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <form class="p-cb process border-top-dark text-dark">
+                        <h4>Refer and Earn up to Rs 1 Lac per month</h4>
+                        <hr />
 
-                    <div class="form-group">
-                        <label class="form-control-label">Reference Link</label>
-                        <div class="input-group">
-                            <input id="target1" type="text" class="form-control"
-                                value="<?php echo base_url('digital/' . $loantype . '/' . $profiledata->refcode); ?>">
-                            <div class="input-group-append">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-light" data-clipboard="true"
-                                        data-clipboard-target="#target1">COPY</button>
-                                </span>
+                        <div class="form-group">
+                            <label class="form-control-label">Reference Link</label>
+                            <div class="input-group">
+                                <input id="target1" type="text" class="form-control"
+                                    value="<?php echo base_url('digital/' . $loantype . '/' . $profiledata->refcode); ?>">
+                                <div class="input-group-append">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-light" data-clipboard="true"
+                                            data-clipboard-target="#target1">COPY</button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
         <?php } ?>
         <div class="row m-t-30">
             <div class="col-md-12">

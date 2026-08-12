@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <title><?php if (isset($meta->title)) {
-            echo $meta->title;
-          } else {
-            echo "Bharatfinpro – Personal Loan and Business Loan";
-          } ?></title>
+                echo $meta->title;
+            } else {
+                echo "Bharatfinpro – Personal Loan and Business Loan";
+            } ?></title>
     <meta name="description" content="<?php if (isset($meta->descriptions)) {
-                                      echo $meta->descriptions;
-                                    } ?>" />
+                                            echo $meta->descriptions;
+                                        } ?>" />
     <meta name="keywords" content="<?php if (isset($meta->keywords)) {
-                                    echo $meta->keywords;
-                                  } ?>" />
+                                        echo $meta->keywords;
+                                    } ?>" />
     <meta name="author" content="vw-team">
     <link rel="canonical" href="<?php echo base_url(uri_string()); ?>" />
 
@@ -45,7 +45,7 @@
         <div class="side-panel-wrap">
             <div class="logo">
                 <a href="<?php echo site_url(); ?>"><img src="<?php echo base_url('assets/images/logo-large.png'); ?>"
-                        width="140" alt="<?php echo PROJECT_NAME; ?>"></a>
+                        width="100" alt="<?php echo PROJECT_NAME; ?>"></a>
             </div>
 
             <div id="mainMenu" class="menu-onclick menu-vertical">
@@ -75,13 +75,13 @@
                             <li><a href="<?php echo site_url('customer/loan/history'); ?>"><i
                                         class="fa fa-rupee-sign"></i> My Loan History</a></li>
                             <?php
-              $hidedata = 0; // 0 = show, 1 = Hide
-              if ($hidedata == 0) {
-              ?>
-                            <li><a href="<?php echo site_url('customer/referral'); ?>"><i class="fa fa-users"></i> My
-                                    Customers</a></li>
-                            <li><a href="<?php echo site_url('customer/referral/history'); ?>"><i
-                                        class="fa fa-list"></i> My Customers Loans</a></li>
+                            $hidedata = 0; // 0 = show, 1 = Hide
+                            if ($hidedata == 0) {
+                            ?>
+                                <li><a href="<?php echo site_url('customer/referral'); ?>"><i class="fa fa-users"></i> My
+                                        Customers</a></li>
+                                <li><a href="<?php echo site_url('customer/referral/history'); ?>"><i
+                                            class="fa fa-list"></i> My Customers Loans</a></li>
                             <?php } ?>
                             <li><a href="<?php echo site_url('customer/support'); ?>"><i class="fa fa-shield-alt"></i>
                                     Support</a></li>

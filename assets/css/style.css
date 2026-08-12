@@ -10965,7 +10965,7 @@ button.btn.btn-block, .btn:not(.close):not(.mfp-close).btn-block, a.btn:not([hre
 
 button.btn.btn-light, .btn:not(.close):not(.mfp-close).btn-light, a.btn:not([href]):not([tabindex]).btn-light {
     background-color: #ffffff;
-    border-color: #ffffff;
+    border-color: #ced4da;
     color: #4c5667
 }
 
@@ -11026,13 +11026,13 @@ button.btn.btn-primary:hover, button.btn.btn-primary:focus, button.btn.btn-prima
 }
 
 button.btn.btn-secondary, .btn:not(.close):not(.mfp-close).btn-secondary, a.btn:not([href]):not([tabindex]).btn-secondary {
-    background-color: #004936;
-    border-color: #004936
+    background-color: #012960;
+    border-color: #012960
 }
 
 button.btn.btn-secondary:hover, button.btn.btn-secondary:focus, button.btn.btn-secondary:not(:disabled):not(.disabled):active, button.btn.btn-secondary:not(:disabled):not(.disabled).active, .btn:not(.close):not(.mfp-close).btn-secondary:hover, .btn:not(.close):not(.mfp-close).btn-secondary:focus, .btn:not(.close):not(.mfp-close).btn-secondary:not(:disabled):not(.disabled):active, .btn:not(.close):not(.mfp-close).btn-secondary:not(:disabled):not(.disabled).active, a.btn:not([href]):not([tabindex]).btn-secondary:hover, a.btn:not([href]):not([tabindex]).btn-secondary:focus, a.btn:not([href]):not([tabindex]).btn-secondary:not(:disabled):not(.disabled):active, a.btn:not([href]):not([tabindex]).btn-secondary:not(:disabled):not(.disabled).active {
-    background-color: #e36d05;
-    border-color: #e36d05;
+    background-color: #fb710f;
+    border-color: #fb710f;
     color: #fff
 }
 
@@ -15224,7 +15224,7 @@ body.breakpoint-xs hr.space-xxlg, body.breakpoint-sm hr.space-xxlg {
 }
 
 .blockquote {
-    border-left: 3px solid #11b981;
+    border-left: 3px solid #fb710f;
     font-size: 20px;
     padding: 10px 20px;
     margin: 0 0 20px
