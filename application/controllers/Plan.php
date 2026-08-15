@@ -569,27 +569,27 @@ class Plan extends CI_Controller
 
 		$offerresponse = $this->Site_Plan_Model->sendOfferMessage($userdata->loantype, $eligibilityamt, $userdata->mobile, $userdata->email);
 
-		$this->load->helper('interakt');
-		$data2 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'traits' => array(
-				'name' => $userdata->fullname
-			),
-			'tags' => array('Get Offer')
-		);
+		// $this->load->helper('interakt');
+		// $data2 = array(
+		// 	'phoneNumber' => $userdata->mobile,
+		// 	'countryCode' => '+91',
+		// 	'traits' => array(
+		// 		'name' => $userdata->fullname
+		// 	),
+		// 	'tags' => array('Get Offer')
+		// );
 
-		$restrack2 = plan_user_track_ue($data2);
+		// $restrack2 = plan_user_track_ue($data2);
 
-		$data3 = array(
-			'phoneNumber' => $userdata->mobile,
-			'countryCode' => '+91',
-			'event' => 'Get Offer',
-			'traits' => array(
-				'EligibleAmount' => $eligibilityamt
-			)
-		);
-		$restrack3 = plan_event_track_ue($data3);
+		// $data3 = array(
+		// 	'phoneNumber' => $userdata->mobile,
+		// 	'countryCode' => '+91',
+		// 	'event' => 'Get Offer',
+		// 	'traits' => array(
+		// 		'EligibleAmount' => $eligibilityamt
+		// 	)
+		// );
+		// $restrack3 = plan_event_track_ue($data3);
 
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("plan/membershiporder/" . $key);
@@ -878,28 +878,28 @@ class Plan extends CI_Controller
 
 				$this->load->model('Site_Info_Model');
 
-				$this->load->helper('interakt');
-				$data2 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'traits' => array(
-						'name' => $userdata->fullname
-					),
-					'tags' => array('Payment Successful')
-				);
+				// $this->load->helper('interakt');
+				// $data2 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'traits' => array(
+				// 		'name' => $userdata->fullname
+				// 	),
+				// 	'tags' => array('Payment Successful')
+				// );
 
-				$restrack2 = plan_user_track_ue($data2);
+				// $restrack2 = plan_user_track_ue($data2);
 
-				$data3 = array(
-					'phoneNumber' => $userdata->mobile,
-					'countryCode' => '+91',
-					'event' => 'Payment Successful',
-					'traits' => array(
-						'userid' => $userdata->mobile,
-						'userpass' => $this->session->tempdata('userpass')
-					),
-				);
-				$restrack3 = plan_event_track_ue($data3);
+				// $data3 = array(
+				// 	'phoneNumber' => $userdata->mobile,
+				// 	'countryCode' => '+91',
+				// 	'event' => 'Payment Successful',
+				// 	'traits' => array(
+				// 		'userid' => $userdata->mobile,
+				// 		'userpass' => $this->session->tempdata('userpass')
+				// 	),
+				// );
+				// $restrack3 = plan_event_track_ue($data3);
 
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
@@ -908,17 +908,17 @@ class Plan extends CI_Controller
 				$this->load->model('Site_Plan_Model');
 				$userdata = $this->Site_Plan_Model->checkuserdata($applyid);
 
-				$intdata1 = array(
-					"fullPhoneNumber" => '+91' . $userdata->mobile,
-					"callbackData" => "some text here",
-					"type" => "Template",
-					"template" => array(
-						"name" => "payment_failed_26june",
-						"languageCode" => "en",
-					)
+				// $intdata1 = array(
+				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
+				// 	"callbackData" => "some text here",
+				// 	"type" => "Template",
+				// 	"template" => array(
+				// 		"name" => "payment_failed_26june",
+				// 		"languageCode" => "en",
+				// 	)
 
-				);
-				$restrack_intdata = plan_interakt_track_rm($intdata1);
+				// );
+				// $restrack_intdata = plan_interakt_track_rm($intdata1);
 
 
 				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
