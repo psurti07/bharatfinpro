@@ -227,7 +227,7 @@ vwIDAQAB
         $refId = rand(1000, 9999);
         $request_p = array(
             "parameter" => array(
-                'receiver_vpa' => "cpy.prayoshafincard@fin",
+                'receiver_vpa' => "#",
                 'amount' => "299", // amount
                 'remarks' => "Dynamic QR", // remarks
                 'refid' => $refId, //refrence id

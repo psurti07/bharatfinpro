@@ -174,7 +174,7 @@ window.onload = function() {
             </div>
         </div>
     </div>
-
+<!--
     <div class="row">
         <div class="col-12">
             <h2 class="text-bold-600 text-center">Plan Today's Statistics - <?php echo date('d M, Y'); ?></h2>
@@ -182,7 +182,7 @@ window.onload = function() {
         </div>
     </div>
     <div class="row">
-        <!-- Plan Loan -->
+        <!-- Plan Loan
         <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up border-primary">
                 <div class="card-content">
@@ -245,8 +245,8 @@ window.onload = function() {
                 </div>
             </div>
         </div>
-        <!-- Plan Loan -->
-        <!-- Digital Loan -->
+        <!-- Plan Loan 
+        <!-- Digital Loan 
         <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up border-primary">
                 <div class="card-content">
@@ -310,7 +310,7 @@ window.onload = function() {
             </div>
         </div>
     </div>
-
+-->
     <div class="row">
         <div class="col-12">
             <h2 class="text-bold-600 text-center">Payment & Offers Statistics
@@ -364,7 +364,7 @@ window.onload = function() {
             </div>
         </div>
 
-
+<!--
         <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up border-primary">
                 <div class="card-content">
@@ -407,7 +407,7 @@ window.onload = function() {
                 </div>
             </div>
         </div>
-
+-->
         <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up border-primary">
                 <div class="card-content">
@@ -451,6 +451,7 @@ window.onload = function() {
             </div>
         </div>
 
+        <!--
         <div class="col-xl-4 col-lg-4 col-12">
             <div class="card pull-up border-primary">
                 <div class="card-content">
@@ -571,6 +572,7 @@ window.onload = function() {
                 </div>
             </div>
         </div>
+-->
     </div>
 
 </div>

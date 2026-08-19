@@ -41,7 +41,7 @@ $this->load->view('includes/header.php');
             </div>
 
             <div class="col-lg-5 col-md-5 col-12">
-                <img src="<?php echo base_url('assets/images/slider/membership-card-diamond.png'); ?>"
+                <img src="<?php echo base_url('assets/images/slider/#'); ?>"
                     alt="Diamond membership card" class="img-fluid rounded">
             </div>
         </div>

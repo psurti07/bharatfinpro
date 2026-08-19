@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `adsdata` (
   `isVerified` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `airpay_entry` (
   `transactionid` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -216,7 +216,7 @@ CREATE TABLE IF NOT EXISTS `allremarks` (
   `notetext` varchar(256) NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `allremarks`
@@ -241,7 +241,7 @@ CREATE TABLE IF NOT EXISTS `bankapplylink` (
   `applyurl` varchar(256) NOT NULL,
   `isDelete` tinyint NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `bulksms` (
   `mobileno` varchar(80) NOT NULL,
   `emailid` varchar(80) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -349,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `cardoffer_order` (
   `isActive` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No. 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -391,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `career_opening` (
   `isActive` int NOT NULL DEFAULT '1' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -412,7 +412,7 @@ CREATE TABLE IF NOT EXISTS `cashfree_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -486,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `customer_log` (
   `logout_at` datetime DEFAULT NULL,
   `server_ip` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -523,7 +523,7 @@ CREATE TABLE IF NOT EXISTS `important_update` (
   `isActive` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `important_update`
@@ -556,7 +556,7 @@ CREATE TABLE IF NOT EXISTS `invoice` (
   `remarks` varchar(256) DEFAULT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -605,7 +605,7 @@ CREATE TABLE IF NOT EXISTS `loanstatus` (
   `colorclass` varchar(50) NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `loanstatus`
@@ -634,7 +634,7 @@ CREATE TABLE IF NOT EXISTS `loanstatus_remarks` (
   `statusid` int NOT NULL DEFAULT '0',
   `isDelete` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `loanstatus_remarks`
@@ -677,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `lyra_entry` (
   `statuscode` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -698,7 +698,7 @@ CREATE TABLE IF NOT EXISTS `membership_order` (
   `isActive` int NOT NULL DEFAULT '1',
   `isDelete` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -715,7 +715,7 @@ CREATE TABLE IF NOT EXISTS `meta_keywords` (
   `descriptions` mediumtext NOT NULL,
   `keywords` mediumtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `meta_keywords`
@@ -752,7 +752,7 @@ CREATE TABLE IF NOT EXISTS `newsletter_subscribe` (
   `isActive` int NOT NULL DEFAULT '1' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -789,7 +789,7 @@ CREATE TABLE IF NOT EXISTS `otpverification` (
   `email` varchar(100) DEFAULT NULL,
   `otpcode` varchar(10) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `otpverification`
@@ -840,7 +840,7 @@ CREATE TABLE IF NOT EXISTS `paygic_entry` (
   `statuscode` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -861,7 +861,7 @@ CREATE TABLE IF NOT EXISTS `paytm_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -882,7 +882,7 @@ CREATE TABLE IF NOT EXISTS `payu_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -903,7 +903,7 @@ CREATE TABLE IF NOT EXISTS `phonepe_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -924,7 +924,7 @@ CREATE TABLE IF NOT EXISTS `plan_order` (
   `isActive` int NOT NULL DEFAULT '1',
   `isDelete` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -949,7 +949,7 @@ CREATE TABLE IF NOT EXISTS `plan_user_application` (
   `status` int NOT NULL DEFAULT '1' COMMENT '1=New, 2=Approve, 3=Reject',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `plan_user_application`
@@ -992,7 +992,7 @@ CREATE TABLE IF NOT EXISTS `plan_user_application_status` (
   `staffid` int NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1020,7 +1020,7 @@ CREATE TABLE IF NOT EXISTS `plan_user_documents` (
   `remarks` varchar(256) NOT NULL,
   `isVerified` tinyint NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1052,7 +1052,7 @@ CREATE TABLE IF NOT EXISTS `plan_user_registration` (
   `isActive` int NOT NULL DEFAULT '1' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `plan_user_registration`
@@ -1086,7 +1086,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `offeramount` float(11,2) NOT NULL,
   `inOffer` tinyint NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
@@ -1124,7 +1124,7 @@ CREATE TABLE IF NOT EXISTS `razorpay_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1143,7 +1143,7 @@ CREATE TABLE IF NOT EXISTS `roipackages` (
   `termsmonths` int NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `roipackages`
@@ -1209,7 +1209,7 @@ CREATE TABLE IF NOT EXISTS `site_options` (
   `option_key` varchar(255) NOT NULL,
   `option_value` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `site_options`
@@ -1321,7 +1321,7 @@ CREATE TABLE IF NOT EXISTS `steptopay_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1342,7 +1342,7 @@ CREATE TABLE IF NOT EXISTS `subpaisa_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1365,7 +1365,7 @@ CREATE TABLE IF NOT EXISTS `support_query` (
   `status` tinyint NOT NULL DEFAULT '1',
   `isDelete` tinyint NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1382,7 +1382,7 @@ CREATE TABLE IF NOT EXISTS `support_query_chat` (
   `staffid` int NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1401,7 +1401,7 @@ CREATE TABLE IF NOT EXISTS `testimonials` (
   `reviews` longtext NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `testimonials`
@@ -1433,7 +1433,7 @@ CREATE TABLE IF NOT EXISTS `upipayment_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1458,7 +1458,7 @@ CREATE TABLE IF NOT EXISTS `user_application` (
   `status` int NOT NULL DEFAULT '1' COMMENT '1=New, 2=Approve, 3=Reject',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_application`
@@ -1493,7 +1493,7 @@ CREATE TABLE IF NOT EXISTS `user_application_status` (
   `staffid` int NOT NULL,
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1521,7 +1521,7 @@ CREATE TABLE IF NOT EXISTS `user_documents` (
   `remarks` varchar(256) NOT NULL,
   `isVerified` tinyint NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1553,7 +1553,7 @@ CREATE TABLE IF NOT EXISTS `user_registration` (
   `isActive` int NOT NULL DEFAULT '1' COMMENT '0=No, 1=Yes',
   `isDelete` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user_registration`
@@ -1579,7 +1579,7 @@ CREATE TABLE IF NOT EXISTS `user_tree` (
   `payout` int NOT NULL DEFAULT '0' COMMENT '0=No, 1=Yes',
   `payout_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1721,7 +1721,7 @@ CREATE TABLE IF NOT EXISTS `worldline_entry` (
   `txstatus` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -1742,7 +1742,7 @@ CREATE TABLE IF NOT EXISTS `zaakpay_entry` (
   `transactionid` varchar(256) DEFAULT NULL,
   `paymentmode` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

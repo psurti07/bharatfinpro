@@ -230,8 +230,8 @@ class Site_Cronjob_Model extends CI_Model
 						'campaignName' => 'auto_21july',
 						'destination' => '+91' . $row->mobile,
 						'media' => array(
-							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6a5efed93988467d6c4f2861/4639932_pray.jpeg',
-							'filename' => 'pray.jpeg'
+							'url' => '#',
+							'filename' => '#'
 						),
 						'userName' => $row->fullname,
 						'templateParams' => array('$Name', '$EligibleAmount'),
@@ -262,8 +262,8 @@ class Site_Cronjob_Model extends CI_Model
 					'campaignName' => 'auto_21july',
 					'destination' => '+91' . $row2,
 					'media' => array(
-						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6a5efed93988467d6c4f2861/4639932_pray.jpeg',
-						'filename' => 'pray.jpeg'
+						'url' => '#',
+						'filename' => '#'
 					),
 					'userName' => '$Name',
 					'templateParams' => array('$Name', '$EligibleAmount'),
@@ -341,7 +341,7 @@ class Site_Cronjob_Model extends CI_Model
 						"name" => $intekt_rm_offer_name,
 						"languageCode" => "en",
 						"headerValues" => array(
-							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/0d8674c1-ad51-43b0-8388-fc6122bf1bb8/message_template_media/5Bn10IEJ07Vr/prayosha_rm.jpg?se=2031-02-19T05%3A07%3A33Z&sp=rt&sv=2019-12-12&sr=b&sig=Zq5kLLstW3yt%2Bt7KWKcmFNYQuazrXf5gcvbuxvCexPI%3D"
+							"#"
 						),
 						"bodyValues" => array(
 							'$name',
@@ -385,7 +385,7 @@ class Site_Cronjob_Model extends CI_Model
 							"name" => $intekt_rm_offer_name, //7sep_auto
 							"languageCode" => "en",
 							"headerValues" => array(
-								"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/0d8674c1-ad51-43b0-8388-fc6122bf1bb8/message_template_media/5Bn10IEJ07Vr/prayosha_rm.jpg?se=2031-02-19T05%3A07%3A33Z&sp=rt&sv=2019-12-12&sr=b&sig=Zq5kLLstW3yt%2Bt7KWKcmFNYQuazrXf5gcvbuxvCexPI%3D"
+								"#"
 							),
 							"bodyValues" => array(
 								$fullname,

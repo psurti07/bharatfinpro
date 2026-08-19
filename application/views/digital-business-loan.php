@@ -240,7 +240,7 @@ $this->load->view('includes/header-apply.php');
         </div>
     </div>
 </section>
-
+<!--
 <section class="background-white p-b-40">
     <div class="container">
         <div class="heading-text heading-line text-center">
@@ -260,7 +260,7 @@ $this->load->view('includes/header-apply.php');
         </div>
     </div>
 </section>
-
+-->
 <section class="background-white p-b-40">
     <div class="container">
         <div class="heading-text heading-line text-center">

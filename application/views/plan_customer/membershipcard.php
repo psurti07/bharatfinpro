@@ -85,7 +85,7 @@ $(document).ready(function() {
         // Now browser starts downloading it instead of just showing it
         var imgageData = getCanvas.toDataURL("image/png");
         var newData = imgageData.replace("image/png", "image/octet-stream");
-        $("#btn-download-image").attr("download", "prayoshafincart-card.png").attr("href", newData);
+        $("#btn-download-image").attr("download", "#").attr("href", newData);
     });
 
 });

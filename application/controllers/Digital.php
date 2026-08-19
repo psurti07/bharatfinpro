@@ -571,88 +571,6 @@ class Digital extends CI_Controller
 
 		$this->load->model('Site_Info_Model');
 
-		// $this->load->helper('interakt');
-		//  $data2 = array(
-		//  	'phoneNumber' => $userdata->mobile,
-		//  	'countryCode' => '+91',
-		//  	'traits' => array(
-		//  		'name' => $userdata->fullname
-		//  	),
-		//  	'tags' => array('Get Offer')
-		//  );
-
-		//  $restrack2 = user_track($data2);
-
-		//  $data3 = array(
-		//  	'phoneNumber' => $userdata->mobile,
-		//  	'countryCode' => '+91',
-		//  	'event' => 'Get Offer',
-		//  	'traits' => array(
-		//  		'EligibleAmount' => $eligibilityamt
-		//  	)
-		//  );
-		//  $restrack3 = event_track($data3);
-
-		//   $data4 = array(
-		//  	'phoneNumber' => $userdata->mobile,
-		//  	'countryCode' => '+91',
-		//  	'traits' => array(
-		//  		'name' => $userdata->fullname
-		//  	),
-		//  	'tags' => array('Get Offer')
-		//  );
-
-		//  $restrack4 = user_track_new_ue($data4);
-
-		//  $data5 = array(
-		//  	'phoneNumber' => $userdata->mobile,
-		//  	'countryCode' => '+91',
-		//  	'event' => 'Get Offer',
-		//  	'traits' => array(
-		//  		'EligibleAmount' => $eligibilityamt
-		//  	)
-		//  );
-		//  $restrack5 = event_track_new_ue($data5);
-
-		//  $data3 = array(
-		// 		'apiKey' => AISENSY_KEY,
-		// 		'campaignName' => 'get_22july',
-		// 		'destination' => '+91' . $userdata->mobile,
-		// 		'media' => array(
-		// 			'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6a5efed93988467d6c4f2861/3842232_getoffr.jpeg',
-		// 			'filename' => 'getoffr.jpeg'
-		// 		),
-		// 		'userName' => $userdata->fullname,
-		// 		'templateParams' => array('$Name', '$EligibleAmount'),
-		// 		'tags' => array('Get Offer'),
-		// 		'attributes' => array(
-		// 			'EligibleAmount' => strval($eligibilityamt)
-		// 		)
-		// 	);
-		// 	$restrack3 = aisensy_track($data3);
-
-		// $intekt_get_offer_name = $this->Site_Info_Model->getsmsmessage('intekt_get_offer_name');
-
-		// Whatsapp INTERAKT Code
-		//  $data4 = array(
-		// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
-		// 	"callbackData" => "some text here",
-		// 	"type" => "Template",
-		// 	"template" => array(
-		// 		"name" => $intekt_get_offer_name,//28aug_get
-		// 		"languageCode" => "en",
-		// 		"headerValues" => array(
-		// 			"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/90a30b78-f3eb-4f1d-bef4-99e7bb5d20bc/message_template_media/3rdy031l6iAm/prayosha_rm_9may.jpg?se=2030-05-03T12%3A01%3A49Z&sp=rt&sv=2019-12-12&sr=b&sig=uXRcOSQ2%2Bk8u%2BfHc/94NXWR/OXQ3RXomUd2I5gGpO5k%3D"
-		// 		),
-		// 		"bodyValues" => array(
-		// 			$userdata->fullname,
-		// 			$eligibilityamt
-		// 		),
-		// 	)
-
-		// );
-		// $restrack4 = interakt_track($data4);
-
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("digital/membershiporder/" . $key);
 	}
@@ -896,22 +814,6 @@ class Digital extends CI_Controller
 
 				$this->load->model('Site_Info_Model');
 
-				// $data_usr_pass = array(
-				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
-				// 	"callbackData" => "some text here",
-				// 	"type" => "Template",
-				// 	"template" => array(
-				// 		"name" => 'success_13july_1',
-				// 		"languageCode" => "en",
-				// 		"bodyValues" => array(
-				// 			$userdata->mobile,
-				// 			$password
-				// 		),
-				// 	)
-				// );
-				// log_message('error', 'userpass' . json_encode($data_usr_pass));
-				// $restrack4 = interakt_track($data_usr_pass);
-
 				$sent = $this->Site_Digital_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 
 				return redirect("digital/paymentResponse/" . $paymentdata->entryfor . "/" . $response2);
@@ -979,50 +881,6 @@ class Digital extends CI_Controller
 				$fbresponse = fbconversioncurl($fbdata);
 
 				$this->load->model('Site_Info_Model');
-
-				// $this->load->helper('interakt');
-				// $data4 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'traits' => array(
-				// 		'name' => $userdata->fullname
-				// 	),
-				// 	'tags' => array('Payment Successful')
-				// );
-
-				// $restrack4 = user_track($data4);
-
-				// $data5 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'event' => 'Payment Successful'
-				// );
-				// $restrack5 = event_track($data5);
-
-
-				// $data6 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'traits' => array(
-				// 		'name' => $userdata->fullname
-				// 	),
-				// 	'tags' => array('Payment Successful')
-				// );
-
-				// $restrack6 = user_track_new_ue($data6);
-				// log_message('error', 'applyid restrack6 main -- ' . json_encode($restrack6));
-
-				// $data7 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'event' => 'Payment Successful',
-				// 	'traits' => array(
-				// 		'userid' => $userdata->mobile,
-				// 		'userpass' => $this->session->tempdata('userpass')
-				// 	),
-				// );
-				// $restrack7 = event_track_new_ue($data7);
-				// log_message('error', 'applyid restrack7 main -- ' . json_encode($restrack7));
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
