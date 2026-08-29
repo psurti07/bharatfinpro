@@ -7,7 +7,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 <!-- Header -->
 <div class="header">
     <h3 class="text-light">Get Loan Offers Tailored To Your Needs</h3>
-    <p class="text-success fs-5" style="font-weight:800">From Trusted Partner NBFCs</p>
+    <p class="text-light fs-5" style="font-weight:600">From Trusted Partner NBFCs</p>
 </div>
 
 <!-- Main Card -->
