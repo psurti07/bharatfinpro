@@ -14,7 +14,7 @@ class Digital extends CI_Controller
 
 
 
-		if (! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('bpf-customerid')) {
 
 			return redirect('plan_customer/login');
 		}
@@ -37,7 +37,7 @@ class Digital extends CI_Controller
 
 		$flag = 0;
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 
@@ -137,7 +137,7 @@ class Digital extends CI_Controller
 
 			'flag' => 1,
 
-			'userid' => $this->session->userdata('pri-customerid'),
+			'userid' => $this->session->userdata('bpf-customerid'),
 
 			'applyid' => $response,
 
@@ -191,7 +191,7 @@ class Digital extends CI_Controller
 
 		$flag = 0;
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$profiledata = $this->Plan_Customer_Profile_Model->getprofile($customerid);
 
@@ -285,7 +285,7 @@ class Digital extends CI_Controller
 
 			'flag' => 1,
 
-			'userid' => $this->session->userdata('pri-customerid'),
+			'userid' => $this->session->userdata('bpf-customerid'),
 
 			'applyid' => $response,
 

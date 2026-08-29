@@ -10,7 +10,7 @@ class Loan extends CI_Controller
 	public function index()
 	{
 
-		if ($this->session->userdata('pri-customerid')) {
+		if ($this->session->userdata('bpf-customerid')) {
 
 			return redirect()->to('plan_customer/dashboard');
 		}
@@ -31,7 +31,7 @@ class Loan extends CI_Controller
 	public function history()
 	{
 
-		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 

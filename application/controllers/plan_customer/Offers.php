@@ -14,7 +14,7 @@ class Offers extends CI_Controller
 
 
 
-		if (! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('bpf-customerid')) {
 
 			return redirect()->to('plan_customer/login');
 		}
@@ -25,7 +25,7 @@ class Offers extends CI_Controller
 	public function index()
 	{
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 
@@ -60,7 +60,7 @@ class Offers extends CI_Controller
 	public function preapproved()
 	{
 
-		if ($this->session->userdata('pri-customerid') == FALSE) {
+		if ($this->session->userdata('bpf-customerid') == FALSE) {
 
 			return redirect('plan_customer/login');
 
@@ -69,7 +69,7 @@ class Offers extends CI_Controller
 
 
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 

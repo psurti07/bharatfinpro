@@ -133,7 +133,7 @@ class Manage_Plan_Loan_Enquiry_Model extends CI_Model
 	public function sendStatusMessage($remarks = '', $mobile = '', $emailid = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://bharatfinpro.com/customer Privylege";
+			$smsmessage = "Dear Customer, the latest update of your loan file is displayed on your customer portal & sent to your email id. Check here https://bharatfinpro.com/customer Bharatprofinance";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
 

@@ -14,7 +14,7 @@ class Support extends CI_Controller
 
 
 
-		if (! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('bpf-customerid')) {
 
 			return redirect()->to('plan_customer/login');
 		}
@@ -27,7 +27,7 @@ class Support extends CI_Controller
 
 
 
-		$userid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$userid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Site_Info_Model');
 
@@ -41,14 +41,14 @@ class Support extends CI_Controller
 	public function submitrequest()
 	{
 
-		if ($this->session->userdata('pri-customerid') == FALSE) {
+		if ($this->session->userdata('bpf-customerid') == FALSE) {
 
 			echo json_encode(array("success" => false, "message" => "Ops. Something goes wrong."));
 
 			die;
 		} else {
 
-			$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+			$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 

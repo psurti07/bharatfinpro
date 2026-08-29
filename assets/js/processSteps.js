@@ -51,7 +51,7 @@ $(function () {
             window.location.href = response["redirect_url"];
             $("#form-submit1").html("APPLY NOW");
           } else {
-            window.location = `./privylege_finance/s2/` + response["mobile"];
+            window.location = `./bharatpro_finance/s2/` + response["mobile"];
             onclick = "goNext()";
           }
         } else {
@@ -91,7 +91,7 @@ $(function () {
       },
       success: function (response) {
         if (response["success"] == true) {
-          window.location = `../../privylege_finance/s3/` + response["mobile"];
+          window.location = `../../bharatpro_finance/s3/` + response["mobile"];
         } else {
           $("#otpcodeError").html(response["message"]);
           $.notify({ message: response["message"] }, { type: "danger" });

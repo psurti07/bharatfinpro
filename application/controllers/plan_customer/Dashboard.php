@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller
 
 
 
-		if (! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('bpf')) {
 
 			return redirect('plan_customer/login');
 		}
@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 
-		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 
@@ -71,7 +71,7 @@ class Dashboard extends CI_Controller
 
 
 
-		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 
@@ -87,7 +87,7 @@ class Dashboard extends CI_Controller
 	public function acceptlicence()
 	{
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 

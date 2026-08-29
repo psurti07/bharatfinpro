@@ -955,7 +955,7 @@ INSERT INTO `products` (`id`, `rec_date`, `productname`, `productslug`, `amount`
 (6, '2024-12-04 18:09:38', 'Star Offer', 'star-offer', 1499.00, 499.00, 1),
 (7, '2024-12-04 18:09:38', 'Prime Offer', 'prime-offer', 1499.00, 499.00, 1),
 (8, '2025-04-02 15:38:00', 'Mega Offer', 'mega-offer', 1499.00, 499.00, 1),
-(9, '2026-04-20 10:19:31', 'Privylege Small Finance', 'privylege-small-finance', 1999.00, 499.00, 1),
+(9, '2026-04-20 10:19:31', 'Bharat Pro Finance', 'bharat-pro-finance', 1999.00, 499.00, 1),
 (10, '2026-04-29 12:49:38', 'Super Offer', 'super-offer', 1999.00, 499.00, 1),
 (11, '2026-04-30 14:27:29', 'Quick Offer', 'quick-offer', 1999.00, 499.00, 1);
 

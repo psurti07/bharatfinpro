@@ -359,8 +359,8 @@
 
                                     <li><a href="javascript:;" onclick="goToMenu('products')">Products</a></li>
                                     <li><a href="javascript:;" onclick="goToMenu('contacts')">Contact Us</a></li>
-                                    <!-- <li><a href="<?php echo site_url('plan/privylege_finance'); ?>">Privylege Small
-                                            Finance</a></li> -->
+                                    <li><a href="<?php echo site_url('plan/bharatpro_finance'); ?>">Bharat Pro
+                                            Finance</a></li>
 
                                     <!-- <li><a href="https://fitzify.com/">Fitzify</a></li> -->
 
@@ -370,8 +370,8 @@
                                                         class="fa fa-home"></i>Personal Loan</a></li>
                                             <li class=""><a href="<?php echo site_url('digital/businessLoan'); ?>"><i
                                                         class="fa fa-building"></i>Business Loan</a></li>
-                                            <!-- <li class=""><a href="<?php echo site_url('plan/privylege_finance'); ?>"><i
-                                                        class="fa fa-building"></i>Privylege Small Finance</a></li> -->
+                                            <li class=""><a href="<?php echo site_url('plan/bharatpro_finance'); ?>"><i
+                                                        class="fa fa-building"></i>Bharat Pro Finance</a></li>
                                         </ul>
                                     </li>
 
@@ -380,8 +380,8 @@
                                         <ul class="dropdown-menu">
                                             <li class=""><a href="<?php echo site_url('customer'); ?>"><i
                                                         class="fa fa-user-alt"></i> Customer Login</a></li>
-                                            <!-- <li class=""><a href="<?php echo site_url('plan_customer'); ?>"><i
-                                                        class="fa fa-user-alt"></i> Privylage Login</a></li> -->
+                                            <li class=""><a href="<?php echo site_url('plan_customer'); ?>"><i
+                                                        class="fa fa-user-alt"></i> Bharat Pro Finance Login</a></li>
                                         </ul>
                                     </li>
                                 </ul>

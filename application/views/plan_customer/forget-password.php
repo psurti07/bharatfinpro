@@ -21,7 +21,7 @@
                     <div class="col-lg-5">
                         <div class="text-center p-b-30">
                             <a href="#" class="logo"> <img
-                                    src="<?php echo base_url('assets/images/privylege_finance/logo-2x.png'); ?>"
+                                    src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="250"> </a>
                         </div>
                         <div class="center">

@@ -10,7 +10,7 @@ class Login extends CI_Controller
 	public function index()
 	{
 
-		if ($this->session->userdata('pri-customerid')) {
+		if ($this->session->userdata('bpf-customerid')) {
 
 			return redirect('plan_customer/dashboard');
 		}
@@ -52,11 +52,11 @@ class Login extends CI_Controller
 
 			$enc_id = stringCrypt($validate->id, 'encrypt');
 
-			$this->session->set_userdata('pri-customerid', $enc_id);
+			$this->session->set_userdata('bpf-customerid', $enc_id);
 
-			$this->session->set_userdata('pri-customername', $validate->fullname);
+			$this->session->set_userdata('bpf-customername', $validate->fullname);
 
-			$this->session->set_userdata('pri-customermobile', $validate->mobile);
+			$this->session->set_userdata('bpf-customermobile', $validate->mobile);
 
 
 

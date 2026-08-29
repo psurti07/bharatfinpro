@@ -23,7 +23,7 @@ class Plan_Customer_Login_Model extends CI_Model
 			'server_ip' => getUserIpAddr()
 		);
 		$this->db->insert('customer_log', $data);
-		$this->session->set_userdata('pri-customerlogid', $this->db->insert_id());
+		$this->session->set_userdata('bpf-customerlogid', $this->db->insert_id());
 		return true;
 	}
 
@@ -62,7 +62,7 @@ class Plan_Customer_Login_Model extends CI_Model
 				->update('plan_user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . " Your Privylege account's new password is " . $password . ". Do not share it with anyone. Thanks, Privylege";
+			$message = "Hello " . $account->fullname . " Your Bharatprofinance account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatprofinance";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 			return true;
 		} else {

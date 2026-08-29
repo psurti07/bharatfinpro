@@ -25,7 +25,7 @@
                 <div class="card-body m-20 sm-m-0">
                     <div class="text-center p-b-30">
                         <a href="#" class="logo"> <img
-                                src="<?php echo base_url('assets/images/privylege_finance/logo-2x.png'); ?>"
+                                src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>"
                                 alt="<?php echo PROJECT_NAME; ?>" width="250"> </a>
                     </div>
                     <div class="row">
@@ -60,7 +60,7 @@
                             <hr />
                             <strong>
                                 <p class="text-center m-b-0">Don't have an account yet? <a
-                                        href="<?php echo site_url('plan/privylege_finance'); ?>">Apply Now</a> </p>
+                                        href="<?php echo site_url('plan/bharatpro_finance'); ?>">Apply Now</a> </p>
                             </strong>
                         </div>
                     </div>

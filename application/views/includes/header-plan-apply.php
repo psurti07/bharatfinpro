@@ -27,9 +27,9 @@
     <meta name="baseUrl" content="<?= base_url() ?>">
 
     <link rel="apple-touch-icon" sizes="180x180"
-        href="<?php echo base_url('assets/images/privylege_finance/apple-icon-180x180.png'); ?>">
+        href="<?php echo base_url('assets/images/bharatpro_finance/apple-icon-180x180.png'); ?>">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="<?php echo base_url('assets/images/privylege_finance/favicon-16x16.png'); ?>">
+        href="<?php echo base_url('assets/images/bharatpro_finance/favicon-16x16.png'); ?>">
     <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/images/favicon.ico'); ?>">
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
@@ -323,7 +323,7 @@
                     <div id="logo">
                         <a href="#">
                             <span class="logo-default"><img
-                                    src="<?php echo base_url('assets/images/privylege_finance/logo-2x.png'); ?>"
+                                    src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="160"></span>
                         </a>
                     </div>

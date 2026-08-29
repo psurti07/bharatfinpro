@@ -9,7 +9,7 @@ $this->load->view('includes/header-plan-apply.php');
 
     <div class="col-12">
         <img class="d-sm-block d-md-none img-fluid" alt=""
-            src="<?php echo base_url('assets/images/privylege_finance/lending-page-image2.png'); ?>">
+            src="<?php echo base_url('assets/images/bharatpro_finance/lending-page-image2.png'); ?>">
         <div class="carousel d-sm-block d-md-none" data-margin="20" data-arrows="false" data-dots="false" data-items="6"
             data-items-lg="6" data-items-md="4" data-items-sm="4" data-items-xs="4">
             <?php foreach ($banklist as $row) { ?>
@@ -273,7 +273,7 @@ $this->load->view('includes/header-plan-apply.php');
         </div>
     </div>
     <div class="container my-4">
-        <h3 class="text-dark text-center mb-5">Why Privylege Finance?</h3>
+        <h3 class="text-dark text-center mb-5">Why Bharat Pro Finance?</h3>
         <div class="row g-3 text-center">
 
             <div class="col-md-3 mt-2">
@@ -326,7 +326,7 @@ $this->load->view('includes/header-plan-apply.php');
                 <?php foreach ($offer as $row) { ?>
 
                     <a href="#"><img class="img-fluid" alt="<?php echo $row; ?>"
-                            src="<?php echo base_url('assets/images/privylege_finance/' . $row); ?>"></a>
+                            src="<?php echo base_url('assets/images/bharatpro_finance/' . $row); ?>"></a>
 
                 <?php } ?>
             </div>

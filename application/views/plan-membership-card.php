@@ -132,7 +132,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 <?php foreach ($offer as $row) { ?>
                                 <div>
                                     <a href="#"><img alt="<?php echo $row; ?>"
-                                            src="<?php echo base_url('assets/images/privylege_finance/' . $row); ?>"></a>
+                                            src="<?php echo base_url('assets/images/bharatpro_finance/' . $row); ?>"></a>
                                 </div>
                                 <?php } ?>
                             </div>

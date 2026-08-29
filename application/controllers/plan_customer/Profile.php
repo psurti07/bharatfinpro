@@ -7,14 +7,14 @@ class Profile extends CI_Controller
 	{
 		parent::__construct();
 
-		if (!$this->session->userdata('pri-customerid')) {
+		if (!$this->session->userdata('bpf-customerid')) {
 			return redirect()->to('plan_customer/login');
 		}
 	}
 
 	public function index()
 	{
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 		$isagree = $this->Plan_Customer_Profile_Model->getlicensestatus($customerid);
@@ -34,7 +34,7 @@ class Profile extends CI_Controller
 
 	public function mcard()
 	{
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 		$isagree = $this->Plan_Customer_Profile_Model->getlicensestatus($customerid);
@@ -54,12 +54,12 @@ class Profile extends CI_Controller
 
 	public function documents()
 	{
-		if ($this->session->userdata('pri-customerid') == FALSE) {
+		if ($this->session->userdata('bpf-customerid') == FALSE) {
 			return redirect('plan_customer/login');
 			die;
 		}
 
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$this->load->model('Plan_Customer_Profile_Model');
 		$isagree = $this->Plan_Customer_Profile_Model->getlicensestatus($customerid);
@@ -165,7 +165,7 @@ class Profile extends CI_Controller
 
 	public function changeprofile()
 	{
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 		$data = array(
 			'fullname' => $_REQUEST['fullname'],
@@ -187,7 +187,7 @@ class Profile extends CI_Controller
 
 	public function changepassword()
 	{
-		$customerid = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$customerid = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 		$password = $_REQUEST['password'];
 		$retypepassword = $_REQUEST['retypepassword'];
 

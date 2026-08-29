@@ -54,8 +54,8 @@
                     <div class="widget">
                         <h4>Useful Links</h4>
                         <ul class="list p-0">
-                            <!-- <li><a href="<?php echo site_url('plan/privylege_finance'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i> Privylege Small Finance</a></li> -->
+                            <li><a href="<?php echo site_url('plan/bharatpro_finance'); ?>"><i
+                                        class="fas fa-external-link-alt m-r-5"></i> Bharat Pro Finance</a></li>
                             <!-- <li><a href="https://fitzify.com/"><i class="fas fa-external-link-alt m-r-5"></i>
                                     Fitzify</a></li> -->
                             <li><a href="javascript:;" onclick="goToMenu('company')"><i

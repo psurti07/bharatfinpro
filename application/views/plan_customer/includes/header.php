@@ -45,7 +45,7 @@
         <div class="side-panel-wrap">
             <div class="logo mb-0">
                 <a href="<?php echo site_url(); ?>"><img
-                        src="<?php echo base_url('assets/images/privylege_finance/logo-2x.png'); ?>" width="140"
+                        src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>" width="140"
                         alt="<?php echo PROJECT_NAME; ?>"></a>
             </div>
 

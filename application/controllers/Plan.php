@@ -138,12 +138,12 @@ class Plan extends CI_Controller
 
 
 	// START : PERSONAL LOAN FUNCTIONS
-	public function privylege_finance($step = 's1', $mobile = '')
+	public function bharatpro_finance($step = 's1', $mobile = '')
 	{
 		$data = array();
 
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 		$banklist = $this->Site_Info_Model->getbanklist(12);
 
 		if ($this->session->tempdata('loanamount') == TRUE) {
@@ -162,7 +162,7 @@ class Plan extends CI_Controller
 				'loanamount' => $loanamount,
 				'mobile' => $mobile
 			);
-			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist' => $banklist]);
+			$this->load->view('bharatpro-finance', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		}
 		if ($step == "s3" && $mobile != '') {
@@ -177,10 +177,10 @@ class Plan extends CI_Controller
 				'mobile' => $mobile,
 				'referralcode' => $referralcode
 			);
-			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist' => $banklist]);
+			$this->load->view('bharatpro-finance', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
 		} else {
-			$this->load->view('privylege-finance', ['meta' => $meta, 'processstep' => 'step1', 'banklist' => $banklist]);
+			$this->load->view('bharatpro-finance', ['meta' => $meta, 'processstep' => 'step1', 'banklist' => $banklist]);
 		}
 	}
 	// END : PERSONAL LOAN FUNCTIONS
@@ -192,7 +192,7 @@ class Plan extends CI_Controller
 		$data = array();
 
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 		$banklist = $this->Site_Info_Model->getbanklist(12);
 
 		if ($this->session->tempdata('loanamount') == TRUE) {
@@ -316,7 +316,7 @@ class Plan extends CI_Controller
 	public function checkeligibility($key = '')
 	{
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 
 		$applyid = stringCrypt($key, 'decrypt');
 		$this->session->set_tempdata('applyid', $applyid, 3600);
@@ -326,7 +326,7 @@ class Plan extends CI_Controller
 		$userdate = $this->Site_Plan_Model->checkuserdata($applyid);
 
 		if ($userdate == NULL) {
-			redirect('plan/privylege_finance');
+			redirect('plan/bharatpro_finance');
 			die;
 		} else if ($userdate->isUser == 2) {
 			redirect('plan/personalLoan');
@@ -354,7 +354,7 @@ class Plan extends CI_Controller
 	{
 
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 		$banklist = $this->Site_Info_Model->getbanklist();
 
 		$applyid = stringCrypt($key, 'decrypt');
@@ -410,7 +410,7 @@ class Plan extends CI_Controller
 	public function membershiporder($key = '')
 	{
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 		$testimoniallist = $this->Site_Info_Model->gettestimoniallist(2);
 		$banklist = $this->Site_Info_Model->getbanklist(12);
 
@@ -430,8 +430,8 @@ class Plan extends CI_Controller
 		} else {
 			$this->session->set_tempdata('applyid', $applyid, 3600);
 			$loanname = ($userdate->loantype == 22) ? "Plan Business Loan" : "Plan Personal Loan";
-			$productslug = "privylege-small-finance";
-			$cardname = "Privylege Finance";
+			$productslug = "bharat-pro-finance";
+			$cardname = "Bharatpro Finance";
 
 			$apr = ($userdate->loantype == 22) ? 10 : 10.5;
 			$stramt = ($userdate->loantype == 22) ? 1600 : 1853;
@@ -610,7 +610,7 @@ class Plan extends CI_Controller
 		);
 		$response3 = $this->Site_Plan_Model->updateapplication($_REQUEST['applyid'], $data3);
 
-		$productslug = "privylege-small-finance";
+		$productslug = "bharat-pro-finance";
 
 		$this->load->model('Site_Info_Model');
 		$productdata = $this->Site_Info_Model->getproductdetails($productslug);
@@ -748,11 +748,11 @@ class Plan extends CI_Controller
 					$invoiceno = $this->Site_Info_Model->getinvoiceno();
 
 					if ($userdata->cardtype == 22) {
-						$productslug = "privylege-small-finance";
+						$productslug = "bharat-pro-finance";
 						$invfor = 5;
 						$invprefix = "PFBL_";
 					} else {
-						$productslug = "privylege-small-finance";
+						$productslug = "bharat-pro-finance";
 						$invfor = 4;
 						$invprefix = "PFPL_";
 					}
@@ -830,7 +830,7 @@ class Plan extends CI_Controller
 	{
 
 		$this->load->model('Site_Info_Model');
-		$meta = $this->Site_Info_Model->getmetakeywords('privylege-small-finance');
+		$meta = $this->Site_Info_Model->getmetakeywords('bharat-pro-finance');
 
 		$fbclidpl = "";
 

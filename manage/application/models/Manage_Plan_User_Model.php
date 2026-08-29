@@ -256,7 +256,7 @@ class Manage_Plan_User_Model extends CI_Model
 
 		if ($statusid == 1) {
 			$res = $this->getreferraldetails($id);
-			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Privylege";
+			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Bharatprofinance";
 			$smsresponse = sendtextSMSobb($res['refferaldetails']->mobile, $message, 'plan');
 		}
 
@@ -459,7 +459,7 @@ class Manage_Plan_User_Model extends CI_Model
 				->update('plan_user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . " Your Privylege account's new password is " . $password . ". Do not share it with anyone. Thanks, Privylege";
+			$message = "Hello " . $account->fullname . " Your Bharatprofinance account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatprofinance";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 
 			return true;
@@ -482,7 +482,7 @@ class Manage_Plan_User_Model extends CI_Model
 				->update('plan_user_registration', $data);
 
 			if ($status == 0) {
-				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Privylege";
+				$message = "Dear User, Your account has been suspended due to some reason. For any query, kindly contact the company. Thanks & Regards, Bharatprofinance";
 				$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 			}
 			$this->db->close();
@@ -527,7 +527,7 @@ class Manage_Plan_User_Model extends CI_Model
 	public function sendSuccessGreetings($mobile = '', $emailid = '', $password = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Privylege";
+			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Bharatprofinance";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
@@ -594,7 +594,7 @@ class Manage_Plan_User_Model extends CI_Model
 
 		if ($mobile != '') {
 			// no templ;ate
-			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Privylege";
+			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Bharatprofinance";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
 

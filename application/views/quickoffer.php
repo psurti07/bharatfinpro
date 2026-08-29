@@ -26,7 +26,7 @@ $amtpay = $productdata['payamount'];
                             data-dots="false" data-items="2" data-items-sm="2" data-items-xxs="1"
                             data-equalize-item=".testimonial-item">
                             <?php foreach ($loanoffers as $row) { ?>
-                            <img src="<?php echo base_url('assets/images/privylege_finance/' . $row); ?>"
+                            <img src="<?php echo base_url('assets/images/bharatpro_finance/' . $row); ?>"
                                 alt="offer img">
                             <?php } ?>
                         </div>

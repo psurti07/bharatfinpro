@@ -14,7 +14,7 @@ class Referral extends CI_Controller
 
 
 
-		if (! $this->session->userdata('pri-customerid')) {
+		if (! $this->session->userdata('bpf-customerid')) {
 
 			return redirect()->to('plan_customer/login');
 		}
@@ -25,7 +25,7 @@ class Referral extends CI_Controller
 	public function index()
 	{
 
-		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 
@@ -64,7 +64,7 @@ class Referral extends CI_Controller
 	public function history()
 	{
 
-		$id = stringCrypt($this->session->userdata('pri-customerid'), 'decrypt');
+		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
 

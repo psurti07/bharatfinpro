@@ -134,10 +134,10 @@
                     <div id="logo">
                         <a href="#">
                             <span class="logo-default"><img
-                                    src="<?php echo base_url('assets/images/lending-finance.png'); ?>"
+                                    src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="180"></span>
                             <span class="logo-dark"><img
-                                    src="<?php echo base_url('assets/images/lending-finance.png'); ?>"
+                                    src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="180"></span>
                         </a>
                     </div>

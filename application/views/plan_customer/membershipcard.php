@@ -2,9 +2,9 @@
 $this->load->view('plan_customer/includes/header.php');
 
 if ($carddata->cardtype == 22) {
-	$cardname = 'Privylege Small Finance';
+	$cardname = 'Bharat Pro Finance';
 } else {
-	$cardname = 'Privylege Small Finance';
+	$cardname = 'Bharat Pro Finance';
 }
 
 ?>
