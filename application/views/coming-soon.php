@@ -2,7 +2,7 @@
 $this->load->view('includes/header.php');
 ?>
 
-<section class="fullscreen" data-bg-image="<?php echo base_url('assets/images/pages/bw-business-bg.jpg'); ?>">
+<section class="fullscreen" data-bg-image="<?php echo base_url('assets/images/slider/bw-business-bg.jpg'); ?>">
     <div class="container-fluid">
         <div class="container-fullscreen">
             <div class="text-middle text-center text-light m-t-80">

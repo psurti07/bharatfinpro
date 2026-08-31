@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-lg-7">
-                        <img src="<?php echo base_url('assets/images/pattern/login.webp'); ?>"
+                        <img src="<?php echo base_url('assets/images/slider/login.webp'); ?>"
                             class="img-fluid rounded">
                     </div>
                 </div>

@@ -337,13 +337,13 @@
                     <div class="box-agent">
                         <ul class="agent-img-list">
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url() ?>assets/images/coach-dp-1.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/schedule_slots/coach-dp-1.png" alt="">
                             </li>
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url() ?>assets/images/coach-dp-2.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/schedule_slots/coach-dp-2.png" alt="">
                             </li>
                             <li class="agent-img-item">
-                                <img src="<?php echo base_url() ?>assets/images/coach-dp-3.png" alt="">
+                                <img src="<?php echo base_url() ?>assets/images/schedule_slots/coach-dp-3.png" alt="">
                             </li>
 
                         </ul>

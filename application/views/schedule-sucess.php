@@ -185,17 +185,17 @@
             <!-- Slider Section -->
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
-                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/slider-img.png" alt="">
+                    <div class="swiper-slide"><img src="<?php echo base_url() ?>assets/images/schedule_slots/slider-img.png" alt="">
                     </div>
                 </div>
                 <div class="slider__controls">

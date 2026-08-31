@@ -67,7 +67,7 @@ html body.boxed-layout {
 }
 
 html body.bg-full-screen-image {
-  background: url(../images/backgrounds/bw-business-bg.jpg) no-repeat center center fixed;
+  background: url(../images/slider/bw-business-bg.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 

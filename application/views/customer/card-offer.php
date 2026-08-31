@@ -22,7 +22,7 @@ $this->load->view('customer/includes/header.php');
                     <div class="card-title py-2 ml-3 mb-0">
                         <h5><i class="fa fa-credit-credit"></i> Credit Card Offers</h5>
                     </div>
-                    <img class="img-fluid pl-3 pr-3" src="<?php echo base_url('assets/images/cardoffer-1.png'); ?>">
+                    <img class="img-fluid pl-3 pr-3" src="<?php echo base_url('assets/images/slider/cardoffer-1.png'); ?>">
                     <h5 class="m-b-0 pl-3 pr-3 pt-2">Apply for the best card offers available for you.</h5>
                     <div class="card-body pl-3 pr-3 pt-3">
                         <ul class="list-icon list-icon-check list-icon-colored">
@@ -54,7 +54,7 @@ $this->load->view('customer/includes/header.php');
                     <div class="card-title py-2 ml-3 mb-0">
                         <h5><i class="fa fa-credit-credit"></i> Credit Card Offers</h5>
                     </div>
-                    <img class="img-fluid pl-3 pr-3" src="<?php echo base_url('assets/images/cardoffer-2.png'); ?>">
+                    <img class="img-fluid pl-3 pr-3" src="<?php echo base_url('assets/images/slider/cardoffer-2.png'); ?>">
                     <h5 class="m-b-0 pl-3 pr-3 pt-2">Apply for the best card offers available for you.</h5>
                     <div class="card-body pl-3 pr-3 pt-3">
                         <ul class="list-icon list-icon-check list-icon-colored">

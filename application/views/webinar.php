@@ -89,7 +89,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="icons-box bg-white h-100">
                                 <div class="image mb-4">
-                                    <img src="<?php echo base_url() ?>assets/webinar/icons/content-strategy.svg"
+                                    <img src="<?php echo base_url() ?>assets/images/webinarpage/content-strategy.svg"
                                         alt="content-strategy" width="50">
                                 </div>
                                 <div class="content">
@@ -101,7 +101,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="icons-box bg-white h-100">
                                 <div class="image mb-4">
-                                    <img src="<?php echo base_url() ?>assets/webinar/icons/technical-support.svg"
+                                    <img src="<?php echo base_url() ?>assets/images/webinarpage/technical-support.svg"
                                         alt="technical-support" width="50">
                                 </div>
                                 <div class="content">
@@ -113,7 +113,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="icons-box bg-white h-100">
                                 <div class="image mb-4">
-                                    <img src="<?php echo base_url() ?>assets/webinar/icons/implementation.svg"
+                                    <img src="<?php echo base_url() ?>assets/images/webinarpage/implementation.svg"
                                         alt="implementation" width="50">
                                 </div>
                                 <div class="content">
@@ -125,7 +125,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="icons-box bg-white h-100">
                                 <div class="image mb-4">
-                                    <img src="<?php echo base_url() ?>assets/webinar/icons/goal.svg" alt="goal"
+                                    <img src="<?php echo base_url() ?>assets/images/webinarpage/goal.svg" alt="goal"
                                         width="50">
                                 </div>
                                 <div class="content">
@@ -383,7 +383,7 @@
                         </div>
                         <div class="col-lg-5 col-md-5 col-12 text-center">
                             <div class="img d-inline-block">
-                                <img src="<?php echo base_url() ?>assets/images/model-16.webp" alt="fintech sector"
+                                <img src="<?php echo base_url() ?>assets/images/webinarpage/model-16.webp" alt="fintech sector"
                                     class="img-fluid">
                             </div>
                         </div>
