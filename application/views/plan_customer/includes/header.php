@@ -45,7 +45,7 @@
         <div class="side-panel-wrap">
             <div class="logo mb-0">
                 <a href="<?php echo site_url(); ?>"><img
-                        src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>" width="140"
+                        src="<?php echo base_url('assets/images/bharatpro_finance/logo-2x.png'); ?>" width="160"
                         alt="<?php echo PROJECT_NAME; ?>"></a>
             </div>
 
@@ -59,34 +59,34 @@
                         <hr />
 
                         <ul>
-                            <li><a href="<?php echo site_url('plan_customer/dashboard'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/dashboard'); ?>"><i
                                         class="fa fa-desktop"></i> Dashboard</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/profile'); ?>"><i class="fa fa-user"></i> My
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/profile'); ?>"><i class="fa fa-user"></i> My
                                     Profile</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/profile/documents'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/profile/documents'); ?>"><i
                                         class="fa fa-file"></i> KYC Documents</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/profile/mcard'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/profile/mcard'); ?>"><i
                                         class="fa fa-credit-credit"></i> Membership Card</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/offers'); ?>"><i class="fa fa-cube"></i>
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers'); ?>"><i class="fa fa-cube"></i>
                                     Apply Now</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/offers/preapproved'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers/preapproved'); ?>"><i
                                         class="fa fa-link"></i> Pre-Approved Loan</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/offers/cardoffers'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers/cardoffers'); ?>"><i
                                         class="fa fa-credit-credit"></i> Card Offers</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/loan/history'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/loan/history'); ?>"><i
                                         class="fa fa-rupee-sign"></i> My Loan History</a></li>
                             <?php
                             $hidedata = 0; // 0 = show, 1 = Hide
                             if ($hidedata == 0) {
                             ?>
-                                <li><a href="<?php echo site_url('plan_customer/referral'); ?>"><i class="fa fa-users"></i>
+                                <li><a class="cust-color" href="<?php echo site_url('plan_customer/referral'); ?>"><i class="fa fa-users"></i>
                                         My Customers</a></li>
-                                <li><a href="<?php echo site_url('plan_customer/referral/history'); ?>"><i
+                                <li><a class="cust-color" href="<?php echo site_url('plan_customer/referral/history'); ?>"><i
                                             class="fa fa-list"></i> My Customers Loans</a></li>
                             <?php } ?>
-                            <li><a href="<?php echo site_url('plan_customer/support'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/support'); ?>"><i
                                         class="fa fa-shield-alt"></i> Support</a></li>
-                            <li><a href="<?php echo site_url('plan_customer/Login/logout'); ?>"><i
+                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/Login/logout'); ?>"><i
                                         class="fa fa-sign-out-alt"></i> Logout</a></li>
                         </ul>
 

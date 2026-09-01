@@ -7,9 +7,9 @@ $this->load->view('includes/header.php');
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-7 col-12">
                 <div>
-                    <h1 class="text-blue font-weight-800 m-b-20">Personal Loan Ka<br /><span class="text-orange">Easy
+                    <h1 class="text-navy font-weight-800 m-b-20">Personal Loan Ka<br /><span class="text-orange">Easy
                             Solution!</span></h1>
-                    <p class="text-blue lead">Start Your Personal Loan Journey Instantly</p>
+                    <p class="text-navy lead">Start Your Personal Loan Journey Instantly</p>
                     <a class="btn btn-rounded btn-primary" href="<?php echo site_url('digital/personalLoan'); ?>">Apply
                         Now</a>
                 </div>
@@ -34,7 +34,7 @@ $this->load->view('includes/header.php');
             <div class="col-lg-6">
                 <div class="card shadow-none border-2">
                     <div class="card-body background-pattern-1 rounded">
-                        <h3 class="m-b-20 text-medium text-blue">Personal Loan</h3>
+                        <h3 class="m-b-20 text-medium text-navy">Personal Loan</h3>
                         <p class="m-b-0 text-muted">Get up to</p>
                         <h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
                         <p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/personalLoan'); ?>"

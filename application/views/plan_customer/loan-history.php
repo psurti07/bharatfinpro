@@ -53,7 +53,7 @@ $this->load->view('plan_customer/includes/header.php');
 									echo "<td>" . htmlentities($row->loanpurpose) . "</td>";
 									echo "<td>" . htmlentities($row->loantenure) . "</td>";
 
-									echo "<td class='text-center' width='50'>" . anchor("plan_customer/loan/appdetails/{$enc_id}", '<i class="icon-arrow-right-circle"></i>', 'class="btn btn-icon btn-sm"') . "</td>";
+									echo "<td class='text-center' width='50'>" . anchor("plan_customer/loan/appdetails/{$enc_id}", '<i class="icon-arrow-right-circle"></i>', 'class="btn btn-icon btn-sm cust-btn-blue"') . "</td>";
 
 									echo "</tr>";
 									$cnt++;

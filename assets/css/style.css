@@ -6674,17 +6674,17 @@ a:not(.btn):not(.badge):not(.btn):not([href]):not([tabindex]) {
     color: #0095c8 !important
 }
 
-.text-orange {
+/* .text-orange {
     color: #f60 !important
-}
+} */
 
 .text-theme {
     color: #004936 !important
 }
 
-.text-blue {
+/* .text-blue {
     color: #09154d !important
-}
+} */
 
 .text-pink {
     color: #dd5a82 !important
@@ -15230,6 +15230,13 @@ body.breakpoint-xs hr.space-xxlg, body.breakpoint-sm hr.space-xxlg {
     margin: 0 0 20px
 }
 
+.blockquote1 {
+    border-left: 3px solid #50b347;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 0 20px
+}
+
 .blockquote-reverse {
     padding-right: 15px;
     padding-left: 0;
@@ -18893,10 +18900,90 @@ fieldset:disabled .btn.btn-circle {
     color: #ed940d;
 }
 
-.text-blue {
+.text-navy {
     color: #012960 !important;
 }
 
 .text-orange {
     color: #fb710f !important;
+}
+
+.text-blue {
+    color: #0165f1 !important;
+}
+
+.text-green {
+    color: #50b347 !important;
+}
+
+.bg-navy {
+    background-color: #012960 !important;
+}
+
+.bg-orange {
+    background-color: #fb710f !important;
+}
+
+.bg-blue {
+    background-color: #0165f1 !important;
+}
+
+.bg-green {
+    background-color: #50b347 !important;
+}
+
+.bdr-navy {
+    border-color: #012960 !important;
+}
+
+.bdr-orange {
+    border-color: #fb710f !important;
+}
+
+.bdr-blue {
+    border-color: #0165f1 !important;
+}
+
+.bdr-green {
+    border-color: #50b347 !important;
+}
+
+.cust-btn-blue {
+    background-color: #ffffff !important;
+    color: #4c5667 !important;
+    border-color: #ced4da !important;
+}
+
+.cust-btn-blue:hover {
+    background-color: #50b347 !important;
+    color: #fff !important;
+    border-color: #50b347 !important;
+}
+
+.cust-color {
+    color: #0165f1 !important;
+}
+
+.cust-color:hover {
+    color: #50b347 !important;
+}
+
+.heading-text.heading-lines h1:before, .heading-text.heading-lines h2:before, .heading-text.heading-lines h3:before, .heading-text.heading-lines h4:before, .heading-text.heading-lines h5:before, .heading-text.heading-lines h6:before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    left: 0;
+    bottom: -20px;
+    right: 0;
+    background-color: #50b347;
+}
+
+.heading-text.heading-lines.text-center h1:before, .heading-text.heading-lines.text-center h2:before, .heading-text.heading-lines.text-center h3:before, .heading-text.heading-lines.text-center h4:before, .heading-text.heading-lines.text-center h5:before, .heading-text.heading-lines.text-center h6:before {
+    margin: 0 auto
+}
+
+.heading-text.heading-lines.text-right h1:before, .heading-text.heading-lines.text-right h2:before, .heading-text.heading-lines.text-right h3:before, .heading-text.heading-lines.text-right h4:before, .heading-text.heading-lines.text-right h5:before, .heading-text.heading-lines.text-right h6:before {
+    right: 0;
+    left: auto
 }

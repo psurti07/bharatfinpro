@@ -19,7 +19,7 @@ window.onload = function() {
 
     <div class="row">
         <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up bg-blue bg-darken-4">
+            <div class="card pull-up bg-navy bg-darken-4">
                 <div class="card-content">
                     <div class="card-body">
                         <a href="<?php echo base_url() ?>webinar/webinarleads">
@@ -37,7 +37,7 @@ window.onload = function() {
         </div>
 
         <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up bg-blue bg-darken-4">
+            <div class="card pull-up bg-navy bg-darken-4">
                 <div class="card-content">
                     <div class="card-body">
                         <a href="<?php echo base_url() ?>webinar">
@@ -64,7 +64,7 @@ window.onload = function() {
 
     <div class="row">
         <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up bg-blue bg-darken-4">
+            <div class="card pull-up bg-navy bg-darken-4">
                 <div class="card-content">
                     <div class="card-body">
                         <a href="<?php echo base_url() ?>webinar/webinar_onboard_detail">
@@ -82,7 +82,7 @@ window.onload = function() {
         </div>
 
         <div class="col-xl-4 col-lg-4 col-12">
-            <div class="card pull-up bg-blue bg-darken-4">
+            <div class="card pull-up bg-navy bg-darken-4">
                 <div class="card-content">
                     <div class="card-body">
                         <a href="<?php echo base_url() ?>webinar/webinar_onboard_detail">

@@ -11,7 +11,7 @@ class Plan_Customer_Loan_Model extends CI_Model
 			->where('userid', $id)
 			->where('isDelete', 0)
 			->order_by('rec_date desc')
-			->get('plan_user_registration')
+			->get('plan_user_application')
 			->result();
 		return $query;
 	}
@@ -21,7 +21,7 @@ class Plan_Customer_Loan_Model extends CI_Model
 		$query = $this->db->where('id', $id)
 			->where('isDelete', 0)
 			->order_by('id asc')
-			->get('plan_user_registration')
+			->get('plan_user_application')
 			->row();
 		return $query;
 	}

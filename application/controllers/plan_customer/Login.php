@@ -38,8 +38,6 @@ class Login extends CI_Controller
 		//$password = stringCrypt($_REQUEST['password'], 'encrypt');
 		$password = md5($_REQUEST['password']);
 
-
-
 		$this->load->model('Plan_Customer_Login_Model');
 
 		$validate = $this->Plan_Customer_Login_Model->checklogin($mobile, $password);

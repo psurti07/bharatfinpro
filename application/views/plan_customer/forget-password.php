@@ -35,12 +35,12 @@
                                 <div class="help-block font-small-3"></div>
                             </div>
                             <div class="text-left form-group">
-                                <button type="submit" id="form-submit1" class="btn btn-block btn-primary">SEND</button>
+                                <button type="submit" id="form-submit1" class="btn btn-block btn-primary btn-lg bg-green bdr-green">SEND</button>
                             </div>
                             <?php echo form_close(); ?>
 
                             <p class="text-center">Already have an account? <a
-                                    href="<?php echo site_url('customer'); ?>">Log in Now</a> </p>
+                                    href="<?php echo site_url('plan_customer'); ?>">Log in Now</a> </p>
                         </div>
                     </div>
                     <div class="col-lg-7">

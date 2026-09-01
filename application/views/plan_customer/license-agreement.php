@@ -36,7 +36,7 @@ $this->load->view('plan_customer/includes/header.php');
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" id="submit-btn2" class="btn btn-secondary">I AGREE</button>
+                    <button type="submit" id="submit-btn2" class="btn btn-dark">I AGREE</button>
                 </div>
                 <?php echo form_close(); ?>
             </div>

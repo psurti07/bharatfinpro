@@ -24,11 +24,11 @@ if ($carddata->cardtype == 22) {
 
                 <div class="text-right">
                     <a href="#" id="btn-download-image"
-                        class="btn btn-light btn-reveal btn-reveal-left"><span>Membership Card</span><i
+                        class="btn btn-light cust-btn-blue btn-reveal btn-reveal-left"><span>Membership Card</span><i
                             class="fa fa-download"></i></a>
 
                     <a href="<?php echo site_url('plan_customer/profile/invoice/' . stringCrypt($carddata->id, 'encrypt')); ?>"
-                        target="_blank" class="btn btn-light btn-reveal btn-reveal-left"><span>Invoice</span><i
+                        target="_blank" class="btn btn-light cust-btn-blue btn-reveal btn-reveal-left"><span>Invoice</span><i
                             class="fa fa-download"></i></a>
                 </div>
 

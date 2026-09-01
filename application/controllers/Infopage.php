@@ -180,7 +180,7 @@ class Infopage extends CI_Controller
 		$mobile = 9408881214;
 		$password = 123;
 		$this->load->model('Site_General_Model');
-		$content = $this->Site_General_Model->customer_webinar_welcomeemailtemplate($mobile, $password);
+		$content = $this->Site_General_Model->simpleemailtemplate($mobile, $password);
 		echo $content;
 		die;
 	}

@@ -87,7 +87,7 @@ if ($profiledata->cardtype == 22) {
                                 value="<?php echo base_url('digital/' . $loantype . '/' . $profiledata->refcode); ?>">
                             <div class="input-group-append">
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-light" data-clipboard="true"
+                                    <button type="button" class="btn btn-light cust-btn-blue" data-clipboard="true"
                                         data-clipboard-target="#target1">COPY</button>
                                 </span>
                             </div>
@@ -99,11 +99,11 @@ if ($profiledata->cardtype == 22) {
         <?php } ?>
         <div class="row m-t-30">
             <div class="col-md-12">
-                <div class="blockquote">
+                <div class="blockquote1">
                     <h4>Submit Documents</h4>
                     <p>Dear Sir / Madam,<br />
                         Kindly submit a list of the following documents as per your profile. Send all documents by email
-                        to <a href="mailto:support@bharatfinpro.com"
+                        to <a class="cust-color" href="mailto:support@bharatfinpro.com"
                             target="_blank"><strong>support@bharatfinpro.com</strong></a></p>
                     <p><strong>If you are a salaried person</strong> - Aadhar Card, Pan Card, Bank Statement of 6
                         months, Photo, Cancelled Cheque, Salary Slip of 3 months, Form16 - 1 years / 2 years.</p>

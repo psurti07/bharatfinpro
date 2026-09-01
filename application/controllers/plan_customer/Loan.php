@@ -8,7 +8,7 @@ class Loan extends CI_Controller
 
 
 	public function index()
-	{
+	{ 
 
 		if ($this->session->userdata('bpf-customerid')) {
 
@@ -34,11 +34,9 @@ class Loan extends CI_Controller
 		$id = stringCrypt($this->session->userdata('bpf-customerid'), 'decrypt');
 
 
-
 		$this->load->model('Plan_Customer_Profile_Model');
 
 		$isagree = $this->Plan_Customer_Profile_Model->getlicensestatus($id);
-
 
 
 		if ($isagree == 0) {

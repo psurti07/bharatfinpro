@@ -22,7 +22,7 @@ if ($profiledata->cardtype == 21) {
 
 <section id="page-content" class="fullscreen">
     <div class="container">
-        <div class="heading-text heading-line text-center">
+        <div class="heading-text heading-lines text-center">
             <h4 class="text-medium font-weight-500">Most Selling Online Product We Offer</h4>
         </div>
 

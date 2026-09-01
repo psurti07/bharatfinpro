@@ -19,7 +19,7 @@
 
 <body>
 
-    <section class="fullscreen" style="background-color:#033767">
+    <section class="fullscreen" style="background-color:#e8f4ec">
         <div class="d-flex justify-content-center col-md-12">
             <div class="card border-2 center shadow-none">
                 <div class="card-body m-20 sm-m-0">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" id="form-submit1"
-                                    class="btn btn-block btn-primary btn-lg">LOGIN</button>
+                                    class="btn btn-block btn-primary btn-lg bg-green bdr-green">LOGIN</button>
                             </div>
                             <?php echo form_close(); ?>
 

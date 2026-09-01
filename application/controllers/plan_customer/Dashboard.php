@@ -14,7 +14,7 @@ class Dashboard extends CI_Controller
 
 
 
-		if (! $this->session->userdata('bpf')) {
+		if (! $this->session->userdata('bpf-customerid')) {
 
 			return redirect('plan_customer/login');
 		}
@@ -46,13 +46,13 @@ class Dashboard extends CI_Controller
 
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
 
-		//$this->load->model('Plan_Customer_Profile_Model');
+		$this->load->model('Plan_Customer_Profile_Model');
 
-		//$statestics = $this->Plan_Customer_Profile_Model->getallstatestics($id);
+		$statestics = $this->Plan_Customer_Profile_Model->getallstatestics($id);
 
-		//$profiledata = $this->Plan_Customer_Profile_Model->getprofile($id);
+		$profiledata = $this->Plan_Customer_Profile_Model->getprofile($id);
 
-		//$accountmsg = $this->Plan_Customer_Profile_Model->getaccountmsg();
+		$accountmsg = $this->Plan_Customer_Profile_Model->getaccountmsg();
 
 
 		$this->load->view('plan_customer/dashboard', ['meta' => $meta, 'statestics' => $statestics, 'profiledata' => $profiledata, 'accountmsg' => $accountmsg]);

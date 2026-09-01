@@ -8,15 +8,15 @@ class Plan_Customer_Profile_Model extends CI_Model
 		$statestics_res = [];
 
 		$query1 = $this->db->where('userid', $id)
-			->where('loantype', 11)
+			->where('loantype', 21)
 			->where('isDelete', 0)
-			->get('plan_user_registration');
+			->get('plan_user_application');
 		$statestics_res['personalloan'] = $query1->num_rows();
 
 		$query1 = $this->db->where('userid', $id)
-			->where('loantype', 12)
+			->where('loantype', 22)
 			->where('isDelete', 0)
-			->get('plan_user_registration');
+			->get('plan_user_application');
 		$statestics_res['businessloan'] = $query1->num_rows();
 
 		$query3 = $this->db->from('user_tree t')

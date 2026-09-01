@@ -103,7 +103,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_photo" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -130,7 +130,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_aadharcard" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -157,7 +157,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_pancard" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -179,7 +179,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_lightbill" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -201,7 +201,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_cheque" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -223,7 +223,7 @@ if ($profiledata->cardtype == 22) {
 									<input type="file" name="userfile" id="user_bankstatement" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 									<div class="input-group-append">
 										<span class="input-group-btn">
-											<button type="submit" class="btn btn-light">UPLOAD</button>
+											<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 										</span>
 									</div>
 								</div>
@@ -246,7 +246,7 @@ if ($profiledata->cardtype == 22) {
 										<input type="file" name="userfile" id="user_formsixteen" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 										<div class="input-group-append">
 											<span class="input-group-btn">
-												<button type="submit" class="btn btn-light">UPLOAD</button>
+												<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 											</span>
 										</div>
 									</div>
@@ -268,7 +268,7 @@ if ($profiledata->cardtype == 22) {
 										<input type="file" name="userfile" id="user_salaryslip" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 										<div class="input-group-append">
 											<span class="input-group-btn">
-												<button type="submit" class="btn btn-light">UPLOAD</button>
+												<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 											</span>
 										</div>
 									</div>
@@ -293,7 +293,7 @@ if ($profiledata->cardtype == 22) {
 										<input type="file" name="userfile" id="user_businessproof" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 										<div class="input-group-append">
 											<span class="input-group-btn">
-												<button type="submit" class="btn btn-light">UPLOAD</button>
+												<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 											</span>
 										</div>
 									</div>
@@ -315,7 +315,7 @@ if ($profiledata->cardtype == 22) {
 										<input type="file" name="userfile" id="user_itreturn" class="form-control" aria-required="true" required accept=".jpg,.jpeg,.png,.pdf,.doc,.docx,.pdf">
 										<div class="input-group-append">
 											<span class="input-group-btn">
-												<button type="submit" class="btn btn-light">UPLOAD</button>
+												<button type="submit" class="btn btn-light cust-btn-blue">UPLOAD</button>
 											</span>
 										</div>
 									</div>

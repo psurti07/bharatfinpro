@@ -12,7 +12,7 @@ $this->load->view('plan_customer/includes/header.php');
 
 <section id="page-content" class="fullscreen">
     <div class="container">
-        <div class="heading-text heading-line text-center">
+        <div class="heading-text heading-lines text-center">
             <h4 class="text-medium font-weight-500">Pre-Approved Loan Offers</h4>
         </div>
 

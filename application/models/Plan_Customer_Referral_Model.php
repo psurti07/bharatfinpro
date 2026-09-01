@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Customer_Referral_Model extends CI_Model
+class Plan_Customer_Referral_Model extends CI_Model
 {
 
 	public function getreferrallist($id)
