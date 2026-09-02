@@ -31,7 +31,7 @@ if ($profiledata->cardtype == 21) {
                 <div class="icon-box effect medium center process fullwidth">
                     <div class="icon"><a href="#"><i class="fa fa-desktop"></i></a></div>
                     <h3 class="p-b-20">Digital Perosnal Loan</h3>
-                    <a href="<?php echo $pllink; ?>" class="item-link text-theme">APPLY NOW <i
+                    <a href="<?php echo $pllink; ?>" class="item-link cust-color">APPLY NOW <i
                             class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -40,7 +40,7 @@ if ($profiledata->cardtype == 21) {
                 <div class="icon-box effect medium center process fullwidth">
                     <div class="icon"><a href="#"><i class="fa fa-coins"></i></a></div>
                     <h3 class="p-b-20">Digital Business Loan</h3>
-                    <a href="<?php echo $bllink; ?>" class="item-link text-theme">APPLY NOW <i
+                    <a href="<?php echo $bllink; ?>" class="item-link cust-color">APPLY NOW <i
                             class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
