@@ -1,0 +1,145 @@
+
+
+/* timeline */
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  background: #f0fff5;
+  width: 5px;
+  height: 95%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  float: right;
+  padding: 20px 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-content .date {
+  right: auto;
+  left: 0;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  left: -15px;
+  border-width: 10px 15px 10px 0;
+  border-color: transparent #144835 transparent transparent;
+}
+
+.timeline-item::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.timeline-content {
+    position: relative;
+    width: 45%;
+    padding: 20px 30px;
+    border-radius: 16px;
+    background: #f0fff5;
+    border: 1px solid #144835;
+}
+
+.timeline-content::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  width: 0;
+  height: 0;
+  top: 30px;
+  right: -15px;
+  border-width: 10px 0 10px 15px;
+  border-color: transparent transparent transparent #144835;
+}
+
+.timeline-img {
+  width: 20px;
+  height: 20px;
+  background: #144835;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-top: 31px;
+  margin-left: -10px;
+}
+
+.timeline-card {
+  padding: 0 !important;
+}
+
+.timeline-card p {
+  padding: 0 20px;
+}
+
+.timeline-card a {
+  margin-left: 20px;
+}
+.timeline-img {
+    width: 20px;
+    height: 20px;
+    background: #198754;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-top: 25px;
+    margin-left: -10px;
+}
+
+
+@media(max-width:1000px) {
+  .timeline {
+    width: 100%;
+  }
+}
+
+@media(max-width:767px) {
+  .timeline {
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .timeline:before {
+    left: 20px;
+    height: 100%;
+  }
+
+  .timeline ul li:nth-child(odd),
+  .timeline ul li:nth-child(even) {
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
+    padding-bottom: 50px;
+  }
+
+  .timeline ul li:nth-child(odd):before,
+  .timeline ul li:nth-child(even):before {
+    top: -18px;
+    left: 30px;
+  }
+
+  .timeline ul li:nth-child(odd) .time,
+  .timeline ul li:nth-child(even) .time {
+    top: -30px;
+    left: 50px;
+    right: inherit;
+  }
+}
+
