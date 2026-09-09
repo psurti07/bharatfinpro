@@ -124,7 +124,7 @@ $this->load->view('includes/header.php');
 </section>
 
 <!-- product section -->
-<section class="background-grey pt-0">
+<section class="background-grey pt-0" id="products">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
