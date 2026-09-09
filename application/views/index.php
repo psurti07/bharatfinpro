@@ -5,7 +5,7 @@ $this->load->view('includes/header.php');
 <section class="background-image hero-section">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-8 col-md-10 col-12 p-0">
+            <div class="col-lg-6 col-md-10 col-12 p-0">
                 <div>
                     <h1 class="text-navy font-weight-800 m-b-20">Empowering Your
                         Goals with Smart
