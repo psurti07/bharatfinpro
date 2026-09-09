@@ -59,6 +59,7 @@
     <?php echo link_tag('assets/plugins/bootstrap-switch/bootstrap-switch.css'); ?>
     <?php echo link_tag('assets/css/plugins.css'); ?>
     <?php echo link_tag('assets/css/style.css'); ?>
+       <?php echo link_tag('assets/css/custome.css'); ?>
     <?php echo link_tag('assets/css/validation/form-validation.css'); ?>
     <?php echo link_tag('assets/plugins/rateit/rateit.css'); ?>
 
@@ -331,7 +332,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
 
-        <header id="header" class="dark submenu-light">
+        <header id="header" class="dark submenu-light" style="    background-color: rgb(1 41 96);">
             <div class="header-inner">
                 <div class="container">
 
@@ -375,7 +376,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="dropdown"><a href="#" class="btn btn-rounded"><i
+                                    <li class="dropdown"><a href="#" class="btn btn-rounded px-3 btn-orange"><i
                                                 class="fa fa-user-alt"></i> Login<i class="fas fa-angle-down"></i></a>
                                         <ul class="dropdown-menu">
                                             <li class=""><a href="<?php echo site_url('customer'); ?>"><i

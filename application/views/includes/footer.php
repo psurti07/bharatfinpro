@@ -8,9 +8,7 @@
                                 src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
                                 alt="<?php echo PROJECT_NAME; ?>" class="img-fluid m-b-10" width="180"></a>
                     </p>
-                    <p>When it comes to aiding people with fast-paced and professional online loan services,
-                        Bharatfinpro is
-                        an ace! With a humongous customer base that is ever-growing.</p>
+                    <p>When it comes to finding peace with fast-paced and professional online loan services, Bharatfinpro is a place where a humongous customer base that is ever-growing.</p>
 
                     <P><strong>CIN NO.: </strong><?php echo COMPANY_CIN; ?></P>
 
@@ -52,24 +50,18 @@
                 <div class="col-6 col-md-3 col-xl-2">
 
                     <div class="widget">
-                        <h4>Useful Links</h4>
+                        <h4 class="text-navy">Useful Links</h4>
                         <ul class="list p-0">
-                            <li><a href="<?php echo site_url('plan/bharatpro_finance'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i> Bharat Pro Finance</a></li>
+                            <li><a href="<?php echo site_url('plan/bharatpro_finance'); ?>">  Bharat Pro Finance</a></li>
                             <!-- <li><a href="https://fitzify.com/"><i class="fas fa-external-link-alt m-r-5"></i>
                                     Fitzify</a></li> -->
-                            <li><a href="javascript:;" onclick="goToMenu('company')"><i
-                                        class="fas fa-external-link-alt m-r-5"></i> Company</a></li>
-                            <li><a href="javascript:;" onclick="goToMenu('contacts')"><i
-                                        class="fas fa-external-link-alt m-r-5"></i> Contact Us</a></li>
-                            <li><a href="<?php echo site_url('career'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="javascript:;" onclick="goToMenu('company')">  Company</a></li>
+                            <li><a href="javascript:;" onclick="goToMenu('contacts')">  Contact Us</a></li>
+                            <li><a href="<?php echo site_url('career'); ?>"> 
                                     Career</a>
-                            <li><a href="<?php echo site_url('important-update'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('important-update'); ?>"> 
                                     Important Update</a></li>
-                            <li><a href="<?php echo site_url('raise-request'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('raise-request'); ?>"> 
                                     Raise a Request</a></li>
                             <!-- <li><i class="fas fa-external-link-alt m-r-5"></i><a
                                     href="<?php echo site_url('webinar'); ?>">Webinar</a></li> -->
@@ -81,22 +73,18 @@
                 <div class="col-6 col-md-3 col-xl-3">
 
                     <div class="widget">
-                        <h4>Useful Links</h4>
+                        <h4 class="text-navy">Useful Links</h4>
                         <ul class="list p-0">
-                            <li><a href="<?php echo site_url('disclaimer'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('disclaimer'); ?>"> 
                                     Disclaimer</a></li>
-                            <li><a href="<?php echo site_url('faqs'); ?>"><i class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('faqs'); ?>"> 
                                     FAQs</a></li>
 
-                            <li><a href="<?php echo site_url('privacy-policy'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('privacy-policy'); ?>"> 
                                     Privacy Policy</a></li>
-                            <li><a href="<?php echo site_url('refund-policy'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('refund-policy'); ?>"> 
                                     Refund &amp; Return Policy</a></li>
-                            <li><a href="<?php echo site_url('terms-conditions'); ?>"><i
-                                        class="fas fa-external-link-alt m-r-5"></i>
+                            <li><a href="<?php echo site_url('terms-conditions'); ?>"> 
                                     Terms & Conditions</a></li>
 
 
@@ -107,7 +95,7 @@
 
                 <div class="col-6 col-md-6 col-xl-3">
                     <div class="widget">
-                        <h4>Get in touch with us</h4>
+                        <h4 class="text-navy">Get in touch with us</h4>
                         <div>
                             <span><a href="tel:<?php echo COMPANY_MOBILE; ?>"><i class="fas fa-mobile-alt m-r-5"></i>
                                     <?php echo COMPANY_MOBILE; ?>
