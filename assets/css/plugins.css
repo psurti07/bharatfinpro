@@ -3754,8 +3754,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 
 .custom-control-input:checked~.custom-control-label::before {
   color: #fff;
-  border-color: #262262;
-  background-color: #262262;
+  border-color: #fb710f;
+  background-color: #fb710f;
 }
 
 .custom-control-input:focus~.custom-control-label::before {
@@ -6899,6 +6899,8 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
 .rounded-0 {
   border-radius: 0!important;
 }
+
+
 
 .clearfix::after {
   display: block;
@@ -10215,7 +10217,7 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover {
 }
 
 .text-primary {
-  color: #262262!important;
+  color: #005EF8!important;
 }
 
 a.text-primary:focus,a.text-primary:hover {

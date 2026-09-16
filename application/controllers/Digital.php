@@ -237,7 +237,7 @@ class Digital extends CI_Controller
 
 	public function registeredUser()
 	{
-		$cardtype = $_REQUEST['loantype'];
+		//$cardtype = $_REQUEST['loantype'];
 		$mobile = $_REQUEST['usermobile'];
 		$email = $_REQUEST['useremail'];
 		$loanamount = $_REQUEST['loanamount'];
@@ -266,7 +266,7 @@ class Digital extends CI_Controller
 			'mobile' => $mobile,
 			'email' => $email,
 			'cardtype' => $cardtype,
-			'usertype' => $_REQUEST['usertype'],
+			//'usertype' => $_REQUEST['usertype'],
 			'process_step' => 1,
 			'isUser' => 1,
 			'isDelete' => 0
@@ -300,7 +300,7 @@ class Digital extends CI_Controller
 				$response = $this->Site_Digital_Model->referraluserentry($data2);
 			}
 
-			$offerresponse = $this->Site_Digital_Model->sendProcessMessage($cardtype, $mobile, $email);
+			//s$offerresponse = $this->Site_Digital_Model->sendProcessMessage($cardtype, $mobile, $email);
 
 			$key = stringCrypt($applyid, 'encrypt');
 			$redirect_url = site_url("digital/checkeligibility/" . $key);
@@ -839,18 +839,14 @@ class Digital extends CI_Controller
 
 		$applyid = $this->session->tempdata('applyid');
 		$this->load->model('Site_Digital_Model');
-		$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
-		log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
-		$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
-		$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
-
-		$data = array(
-			'loantype' => $loantype,
-			'username' => $userdata->fullname,
-			'preamount' => $eligibilityamt,
-			'status' => $status
-		);
-
+		
+$data = array(
+					'loantype' => '',
+					'username' => '',
+					'preamount' => '',
+					'status' => $status
+				);
+		
 		if ($status != '') {
 			if ($status == "true" && $this->session->tempdata('applyid') != "") {
 
@@ -858,6 +854,19 @@ class Digital extends CI_Controller
 				$city = strtolower(preg_replace("/[^a-zA-Z]+/", "", $userdata->city));
 				$state = strtolower(getStateAbbreviation($userdata->state));
 				$orderid = "MC" . date('md') . random_code(4);
+
+
+				$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
+		log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
+		$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
+		$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
+				$data = array(
+					'loantype' => $loantype,
+					'username' => $userdata->fullname,
+					'preamount' => $eligibilityamt,
+					'status' => $status
+				);
+
 
 				$fbdata = array(
 					'version' => 'v21.0',

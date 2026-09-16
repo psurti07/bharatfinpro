@@ -16,37 +16,58 @@ if ($responsedata['loantype'] == 11) {
 }
 </style>
 
-<section class="fullscreen">
+<section class="fullscreen background-grey">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="card border-2 border-primary">
+            <div class="col-lg-8 col-md-12 col-12 m-auto">
+                <div class="card">
                     <div class="card-body text-center">
                         <!-- START : SUCCESS -->
                         <?php if ($responsedata['status'] == "true") { ?>
                         <h1 class="icon pulse infinite text-success m-0" data-animate="pulse infinite"><i
                                 class="icon-check-circle "></i></h1>
-                        <h2 class="text-success">Congratulations!</h2>
-                        <p>Your <?php echo $loantype; ?> application has been successfully submmited. </p>
+                        <h2 class="text-success">Congratulations!<span class="text-blue">
+                                <?php echo $userdata->fullname; ?></span></h2>
+                        <p>Your <?php echo $loantype; ?> A dedicated loan expert will reach out to complete <br>
+                            documentation and bank verification. </p>
 
-                        <h3 class="text-info mb-3">Your Loan Details</h3>
-                        <div class="card background-gray text-center">
-                            <div class="card-body">
-                                <p class="card-text"><strong>Applicant Name:</strong>
-                                    <?php echo $responsedata['username'] ?></p>
-                                <p class="card-text"><strong>Pre-Approved Amount:</strong> Rs.
-                                    <?php echo formatePriceIndia($responsedata['preamount']) ?>/-
-                                </p>
+                        <div class="row mb-4">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div
+                                    class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
+
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Sanctioned</p>
+                                    <h4 class="mb-0 fs-18 text-blue font-weight-bold">₹1,95,000</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div
+                                    class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
+
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Tenure</p>
+                                    <h4 class="mb-0 fs-18 text-blue  font-weight-bold">Up to 60 mo</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-12">
+                                <div
+                                    class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
+
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Disbursal</p>
+                                    <h4 class="mb-0 fs-18 text-blue  font-weight-bold">Within 48 hrs</h4>
+                                </div>
                             </div>
                         </div>
 
-                        <p class="text-muted">Please check your email/WhatsApp/SMS to get Your Customer Portal Login
-                            Credentials</p>
-
                         <a href="<?php echo site_url('customer/login'); ?>"
-                            class="btn btn-info m-t-10 text-uppercase"><i class="fas fa-cloud-upload-alt"> </i>
-                            &nbsp;Upload Document</a>
+                            class="btn btn-orange m-t-10 text-uppercase"><i class="fas fa-cloud-upload-alt"> </i>
+                            &nbsp;Login Now</a>
 
+                        <a href="<?php echo site_url('customer'); ?>" class="btn btn-light m-t-10 text-uppercase"><i
+                                class="fas fa-home"> </i>
+                            &nbsp;Customer Login</a>
+                        <div class="mt-4">
+                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
+                        </div>
 
 
                         <?php } ?>
@@ -56,12 +77,17 @@ if ($responsedata['loantype'] == 11) {
                         <?php if ($responsedata['status'] == "false") { ?>
                         <h1 class="icon pulse infinite text-danger m-0" data-animate="pulse infinite"><i
                                 class="icon-x-circle "></i></h1>
-                        <h2 class="text-danger">Payment Unsuccessful</h2>
+                        <h2 class="text-danger">Payment Unsuccessful<span class="text-blue">
+                                <?php echo $userdata->fullname; ?></span></h2>
                         <p>Your loan application payment process has failed. Please try again. <br /> If you have any
                             questions you can contact on our customer care number.</p>
 
                         <a href="<?php echo site_url('cardoffer'); ?>"
-                            class="btn btn-primary btn-sm m-t-10 text-uppercase">Go to Homepage</a>
+                            class="btn btn-orange btn-sm m-t-10 text-uppercase">Go to Homepage</a>
+                        <div class="mt-4">
+                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
+                        </div>
+
                         <?php } ?>
                         <!-- END : FAIL -->
                     </div>

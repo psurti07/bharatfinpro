@@ -44,6 +44,7 @@
     <?php echo link_tag('assets/plugins/bootstrap-switch/bootstrap-switch.css'); ?>
     <?php echo link_tag('assets/css/plugins.css'); ?>
     <?php echo link_tag('assets/css/style.css'); ?>
+    <?php echo link_tag('assets/css/custome.css'); ?>
     <?php echo link_tag('assets/css/validation/form-validation.css'); ?>
     <?php echo link_tag('assets/plugins/jquery-steps/jquery.steps.css'); ?>
     <?php echo link_tag('assets/css/toastr.min.css'); ?>
@@ -52,7 +53,7 @@
         rel="stylesheet" type="text/css" />
 
     <!-- Facebook Domain + Pixel Code -->
-    <!-- <?php
+     <?php
             // $fbdomain = getFacebookDomain();
             // if ($fbdomain != Null) {
             // 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
@@ -86,7 +87,7 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
     <?php //} 
-    ?> -->
+    ?> 
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Taboola Pixel Code -->
     <!-- <script type='text/javascript'>
@@ -308,7 +309,7 @@
             style="display:none;visibility:hidden"></iframe></noscript> -->
     <!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
-        <header id="header" data-transparent="true" data-fullwidth="true" class="submenu-light header-disable-fixed">
+        <header id="header" data-transparent="true" class="submenu-light header-disable-fixed bg-white border-bottom">
             <div class="header-inner">
                 <div class="container">
 

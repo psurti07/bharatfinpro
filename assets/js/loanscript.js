@@ -72,3 +72,4 @@ if (rangeElement) {
   let slider = new Slider(rangeElement, valueElement, emiElement, options);
   slider.init();
 }
+

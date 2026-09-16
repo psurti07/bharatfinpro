@@ -19,9 +19,9 @@
 
 <body>
 
-    <section class="fullscreen background-light-green">
+    <section class="fullscreen background-grey">
         <div class="d-flex justify-content-center col-md-12">
-            <div class="card border-2 center shadow-none">
+            <div class="card border center shadow">
                 <div class="card-body m-20 sm-m-0">
                     <div class="text-center p-b-30">
                         <a href="#" class="logo"> <img src="<?php echo base_url('assets/images/logo-2x.png'); ?>"

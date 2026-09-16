@@ -1,224 +1,730 @@
  .header {
-            background: #0165f1;
-            color: #fff;
-            padding: 30px 0 100px;
-            text-align: center;
-        }
+     background: #0165f1;
+     color: #fff;
+     padding: 30px 0 100px;
+     text-align: center;
+ }
 
-        .card-main {
-            margin-top: -70px;
-            border-radius: 15px;
-            padding: 30px;
-        }
+ .card-main {
+     margin-top: -70px;
+     border-radius: 15px;
+     padding: 30px;
+ }
 
-        .option-box {
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 12px;
-            text-align: center;
-            transition: 0.3s;
-            cursor: pointer;
-        }
+ .option-box {
+     border: 1px solid #e0e0e0;
+     border-radius: 12px;
+     padding: 12px;
+     text-align: center;
+     transition: 0.3s;
+     cursor: pointer;
+ }
 
-        .option-box:hover {
-            border-color: #0d6efd;
-            transform: translateY(-5px);
-			background: rgb(247, 251, 255);
-        }
+ .option-box:hover {
+     border-color: #0d6efd;
+     transform: translateY(-5px);
+     background: rgb(247, 251, 255);
+ }
 
-        .option-box img {
-            width: 60px;
-            margin-bottom: 10px;
-        }
+ .option-box img {
+     width: 60px;
+     margin-bottom: 10px;
+ }
 
-        .stats-box {
-            background: #fff;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #eaeaea;
-        }
+ .stats-box {
+     background: #fff;
+     border-radius: 10px;
+     padding: 15px;
+     text-align: center;
+     border: 1px solid #eaeaea;
+ }
 
-        .continue-btn {
-            background: #28a745;
-            color: #fff;
-            padding: 10px 30px;
-            border-radius: 6px;
-            border: none;
-        }
+ .continue-btn {
+     background: #28a745;
+     color: #fff;
+     padding: 10px 30px;
+     border-radius: 6px;
+     border: none;
+ }
 
-        .continue-btn:hover {
-            background: #218838;
-        }
-		.card .card-header{
-		    padding: 1.8rem 2rem;
-		}
+ .continue-btn:hover {
+     background: #218838;
+ }
 
-/* Options */
-.loan-option {
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 12px 20px;
+ .card .card-header {
+     padding: 1.8rem 2rem;
+ }
+
+ /* Options */
+ .loan-option {
+     border: 1px solid #dcdcdc;
+     border-radius: 10px;
+     padding: 12px 20px;
+     cursor: pointer;
+     transition: 0.3s;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .loan-option input {
+     width: 18px;
+     height: 18px;
+ }
+
+ /* Active */
+ .loan-option.active {
+     background: #0165f1;
+     color: #fff;
+     border-color: #0165f1;
+ }
+
+ .mobile-container {
+     width: 75%;
+ }
+
+ .btn-process {
+     padding: 0 10px !important;
+     width: 32% !important;
+     background-color: #50b347 !important;
+     border-color: #50b347 !important;
+ }
+
+ .btn-process-offer {
+     padding: 0 10px !important;
+     width: 100% !important;
+     background-color: #50b347 !important;
+     border-color: #50b347 !important;
+ }
+
+ @media(max-width:768px) {
+     .mobile-container {
+         width: 100%;
+     }
+
+     .card-main {
+         padding: 10px;
+     }
+
+     .card .card-body {
+         padding: 1.8rem 2rem;
+     }
+
+     .btn-process {
+         width: 80% !important;
+         background-color: #50b347 !important;
+         border-color: #50b347 !important;
+     }
+ }
+
+ .step {
+     position: relative;
+     width: 100%;
+     top: 0;
+     left: 100%;
+     opacity: 0;
+     transition: all 0.5s ease;
+ }
+
+ /* Active step */
+ .step.active {
+     left: 0;
+     opacity: 1;
+ }
+
+ /* Next animation */
+ .step.exit-left {
+     left: -100%;
+     opacity: 0;
+ }
+
+ .card-box {
+     background: #fff;
+     border-radius: 15px;
+     padding: 30px;
+     margin-top: -50px;
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+ }
+
+ .radio-card {
+     border: 2px solid #e0e6ed;
+     border-radius: 12px;
+     padding: 20px;
+     text-align: center;
+     cursor: pointer;
+     transition: 0.3s;
+     height: 100%;
+ }
+
+ .radio-card:hover {
+     border-color: #0165f1;
+ }
+
+ input[type="radio"] {
+     display: none;
+ }
+
+ input[type="radio"]:checked+.radio-card {
+     border-color: #0165f1;
+     background: #eef5ff;
+ }
+
+ .radio-card img {
+     width: 60px;
+     margin-bottom: 10px;
+ }
+
+ .stats-box {
+     background: #fff;
+     padding: 15px;
+     border-radius: 12px;
+     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+     text-align: center;
+ }
+
+ .stat-card {
+     background: linear-gradient(135deg, #ffffff 50%, #eef3f7 50%);
+     border-radius: 12px;
+     padding: 18px 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+     border: 1px solid #e5eaf0;
+     transition: 0.3s;
+ }
+
+ .stat-card:hover {
+     transform: translateY(-3px);
+ }
+
+ .stat-card h6 {
+     font-weight: 600;
+     margin: 0;
+ }
+
+ .stat-card p {
+     margin: 0;
+     color: #6c757d;
+     font-size: 14px;
+ }
+
+ .stat-card .icon {
+     font-size: 22px;
+     color: #22c55e;
+ }
+
+ .background-webcolor {
+     background-color: #012960 !important;
+ }
+
+ .background-offer {
+     background-color: #0165f1 !important;
+ }
+
+ input[type="radio"]:checked+.usertype {
+     border-color: #0d6efd;
+     background: #eef5ff;
+ }
+
+ .bank-offer {
+     background-color: #fff;
+     padding: 5px;
+     border-radius: 5px;
+ }
+
+ .client-logos .polo-carousel-item {
+
+     padding: 0px 0px 0px 10px !important;
+ }
+
+
+ /* 08/09/2026 */
+
+ .hero-section {
+     background-image: url(../images/slider/hero-1.png);
+     background-position: top right;
+     background-size: contain;
+ }
+
+ .card-main {
+     border-radius: 15px;
+ }
+
+ .contact-details-icon {
+     border-radius: 10px;
+     width: 32px;
+     height: 32px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .contact-details-left {
+     border-radius: 15px;
+ }
+
+ .card-left-main {
+     position: relative;
+     background-color: #002160;
+ }
+
+ .card-left-main::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     right: 100%;
+     width: 100vw;
+     height: 100%;
+     background: #002160;
+ }
+
+ .card-main-right {
+     position: relative;
+     background-color: #fb710f;
+     height: 100%;
+     display: flex;
+     align-items: center;
+ }
+
+ .card-main-right::before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 100%;
+     width: 100vw;
+     height: 100%;
+     background-color: #fb710f;
+ }
+
+ .card-form-right .input-group {
+     border-radius: 12px;
+     overflow: hidden;
+ }
+
+ .picker1 {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .picker1 label {
+     position: relative;
+     inline-size: 100%;
+     block-size: 100%;
+     cursor: pointer;
+ }
+
+ .picker1 label>span {
+     inset: 0;
+     block-size: 100%;
+     inline-size: 100%;
+ }
+
+ .picker1 label[for*=plan]>span {
+     display: grid;
+     padding: 2rem 1.5rem 1.5rem 1.5rem;
+     background: #F8FAFC;
+     border: 1px solid #E2E8F0;
+     border-radius: 15px;
+     box-shadow: 0 0 0 0.05rem rgba(8, 60, 130, 0.06), 0rem 0rem 1.25rem rgba(30, 34, 40, 0.04);
+ }
+
+ .picker1 label[for*=plan]>input:checked~span {
+     background-color: #FFF4EF;
+     border: 1px solid #FF5722;
+     color: #000;
+ }
+
+ /* .picker1 label[for*=plan]>input:checked~span:before {
+  content: "\2714";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: rgba(69,196,160, 1);
+  font-size: 2rem;
+  line-height: 1;
+  z-index: 1;
+}*/
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .picker1 label[for*=usertype]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .loan-form-right .range__slider [type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4EC350;
+    border: #4EC350 3px solid;
     cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    -webkit-transition: background .15s ease-in-out;
+    transition: background .15s ease-in-out;
 }
 
-.loan-option input {
-    width: 18px;
-    height: 18px;
+.loan-form-right  .custom-control-input:checked~.custom-control-label::before{
+        background-color: #005DF8;
+    border-color: #005DF8;
 }
 
-/* Active */
-.loan-option.active {
-    background: #0165f1;
-    color: #fff;
-    border-color: #0165f1;
-}
-.mobile-container{
-		width: 75%;
-	}
-    .btn-process{
-        padding: 0 10px !important;
-            width:32% !important;
-            background-color: #50b347 !important;
-             border-color:#50b347 !important;
-        }
-        .btn-process-offer{
-        padding: 0 10px !important;
-            width:100% !important;
-            background-color: #50b347 !important;
-             border-color:#50b347 !important;
-        }
-@media(max-width:768px){
-    .mobile-container{
-		width: 100%;
-	}
-    .card-main {
-            padding: 10px;
-        }
-        .card .card-body{
-		    padding: 1.8rem 2rem;
-		}
-        .btn-process{
-            width:80% !important;
-             background-color: #50b347 !important;
-             border-color:#50b347 !important;
-        }
-}
-.step {
-   position: relative;
-    width: 100%;
-    top: 0;
-	left: 100%;
-    opacity: 0;
-    transition: all 0.5s ease;
-}
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox:before {
+     content: "";
+     display: block;
+     border-width: 0 2px 2px 0;
+     height: 8px;
+     width: 6px;
+     border-color: #fff;
+     border-style: solid;
+     transform: rotate(45deg);
+     position: absolute;
+     left: 5px;
+     top: 3px;
+ }
 
-/* Active step */
-.step.active {
-    left: 0;
-    opacity: 1;
-}
-/* Next animation */
-.step.exit-left {
-    left: -100%;
-    opacity: 0;
-}
+ .round-radiobox {
+     background: #fff;
+     height: 17px;
+     width: 17px;
+     border-radius: 50%;
+     border: solid 1px #6c798f;
+     position: absolute;
+     top: 0.5rem;
+     right: 0.5rem;
+ }
 
-.card-box {
-    background: #fff;
-    border-radius: 15px;
-    padding: 30px;
-    margin-top: -50px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
+ .staticts-card-btn {
+     width: 35px !important;
+     height: 35px !important;
+     padding: 0 !important;
+     display: flex !important;
+     align-items: center !important;
+ }
 
-.radio-card {
-    border: 2px solid #e0e6ed;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s;
-    height: 100%;
-}
+ .subscription-price p.card-content {
+     font-size: 9px !important;
+ }
 
-.radio-card:hover {
-    border-color: #0165f1;
-}
+ .staticts-card {
+     width: 64px;
+     height: 64px;
+     border-radius: 18px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
 
-input[type="radio"] {
-    display: none;
-}
+ .staticts-card i,
+ .staticts-card-wrapper i {
+     font-size: 25px;
+ }
 
-input[type="radio"]:checked+.radio-card {
-    border-color: #0165f1;
-    background: #eef5ff;
-}
+ .staticts-card-wrapper {
+     background: #FFE7D7;
+     width: 46px;
+     height: 46px;
+     border-radius: 14px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
 
-.radio-card img {
-    width: 60px;
-    margin-bottom: 10px;
-}
+ .subscription-price .right-icon .fa {
+     background: #00BC7B26;
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
 
-.stats-box {
-    background: #fff;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
+ .loan-eligibility-section {
+     background-color: #E2E8F0;
+ }
 
-.stat-card {
-    background: linear-gradient(135deg, #ffffff 50%, #eef3f7 50%);
-    border-radius: 12px;
-    padding: 18px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    border: 1px solid #e5eaf0;
-    transition: 0.3s;
-}
+ .otp-input {
+     height: 64px;
+     width: 56px;
+     text-align: center;
+     font-size: 20px !important;
+     margin: 0 5px;
+     border: 1px solid #E2E8F0;
+     border-radius: 16px;
+     outline: none;
+     transition: border-color 0.3s;
 
-.stat-card:hover {
-    transform: translateY(-3px);
-}
+ }
 
-.stat-card h6 {
-    font-weight: 600;
-    margin: 0;
-}
 
-.stat-card p {
-    margin: 0;
-    color: #6c757d;
-    font-size: 14px;
-}
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     appearance: none;
+     margin: 0;
+ }
 
-.stat-card .icon {
-    font-size: 22px;
-    color: #22c55e;
-}
-.background-webcolor {
-    background-color: #0165f1 !important;
-}
-.background-offer {
-    background-color: #0165f1 !important;
-}
-input[type="radio"]:checked+.usertype {
-    border-color: #0d6efd;
-    background: #eef5ff;
-}
-.bank-offer{
-    background-color: #fff;
-    padding: 5px;
-    border-radius: 5px;
-}
-.client-logos .polo-carousel-item {
+ .otp-velidation-text {
+     border-radius: 12px;
+ }
 
-    padding: 0px 0px 0px 10px !important;
-}
+ .form-control:focus,
+ .form-group.validate input:focus,
+ .form-group.validate select:focus,
+ .form-group.validate textarea:focus {
+     box-shadow: none !important;
+ }
+
+ .loan-application-section .counter-wrapper .counter-wrap:before {
+     content: '';
+     position: absolute;
+     width: 1px;
+     height: 45.97px;
+     background: #E6E9EF;
+     right: -15px;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+ }
+
+ .loan-application-section .counter-wrapper>div:last-child .counter-wrap::before {
+     display: none;
+ }
+
+
+
+ .table-block .icon-col-image {
+     height: 32px;
+     width: 32px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 4px;
+ }
+
+
+ .subscription-section .landing-form-right .calender-image i {
+     font-size: 33px;
+     color: #dadfe6 !important;
+     position: absolute;
+     right: 15px;
+     bottom: 15px;
+ }
+
+ .subscription-section .picker1 label input:checked~span .calender-image i {
+     color: #FFDDD3 !important;
+ }
+
+ .text-main-top {
+
+     letter-spacing: .12em;
+     padding: 6px 14px;
+     background: rgba(255, 255, 255, .15);
+     margin-bottom: 14px;
+ }
+
+ .subscription-section .text-main-top-wrap {
+     color: #FFCFB8;
+     background: rgba(255, 87, 34, 0.15);
+     border: 1px solid rgba(255, 87, 34, 0.30);
+     border-radius: 12px;
+ }
+
+ .subscription-card-offer,
+ .loan-offer-card,
+ .step-details {
+     border-radius: 12px;
+     overflow: hidden;
+ }
+
+ .loan-profile-section.loan-form-right .picker1 label[for*=plan]>input:checked~span {
+     border: 1px solid #005EF8;
+     color: #000;
+ }
+
+ .loan-profile-section .profile-details .picker1 label input:checked+span .staticts-card-btn i {
+     color: #fff !important;
+ }
+
+ .loan-offer-card {
+     position: relative;
+     background: url(../images/Overlay-Blur.png) no-repeat top right;
+ }
+
+
+ .loan-profile-section .profile-details .picker1 label input:checked+span .staticts-card-btn {
+     background: #005EF8 !important;
+     border-color: #005EF8 !important;
+
+ }
+
+
+
+ .staticts-card-wrap,
+ .counter-wrapper-main {
+     border-radius: 17px !important;
+ }
+
+
+ .input-group {
+     border-radius: 12px;
+     overflow: hidden;
+ }
+
+ .otp-details-wrap .icon-image-wraper {
+     width: 50px;
+     height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 12px;
+ }
+
+ .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+     height: 56px;
+     width: 88px;
+     border-radius: 18px;
+     font-size: 1.125rem;
+     text-align: center;
+     border: 1px solid #dee2e6;
+
+ }
+
+ .emi-option input[type="radio"] {
+
+     position: absolute;
+     right: 32px;
+     top: 31px;
+     display: block;
+ }
+
+ .emi-option input[type="radio"]:checked+.radio-card .staticts-card-btn {
+     background: #005EF8 !important;
+     border-color: #005EF8 !important;
+ }
+
+ .emi-option input[type="radio"]:checked+.radio-card .staticts-card-btn i {
+     color: #fff !important;
+ }
+
+ .loan-approved-box .loan-approve-text {
+     background-color: #0868ed;
+     border-radius: 0 0 55px 55px;
+ }
+
+ .membership-offer {
+     width: 90%;
+     margin: auto;
+     margin-top: -50px;
+ }
+
+ .loan-approved-box {
+     border-radius: 24px;
+     overflow: hidden;
+ }
+
+ .benefit-card {
+     border-radius: 16px;
+     padding: 22px;
+     border-top: 0.8px solid #0868ed;
+
+     box-shadow: inset 0 4px 0 #0868ed !important;
+ }
+
+ .user-details-card {
+     border-radius: 16px;
+     padding: 22px;
+     border-bottom: 0.8px solid #0868ed;
+     box-shadow: inset 0 -4px 0 #0868ed !important;
+
+ }
+
+ @media (max-width: 991px) {
+
+     .trust-section .container,
+     section.p-0 .container {
+         width: 100% !important;
+         max-width: 100% !important;
+         margin: 0 !important;
+         padding-left: 0 !important;
+         padding-right: 0 !important;
+     }
+
+ }
+
+ @media screen and (max-width:1200px) and (min-width:992px) {
+
+     .dark #mainMenu nav>ul>li>a,
+     #mainMenu.dark nav>ul>li>a,
+     #mainMenu nav>ul>li>a {
+         padding: 10px 3px;
+     }
+ }
+
+ @media screen and (max-width:1199px) and (min-width:768px) {
+     .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+         height: 35px;
+         width: 41px;
+         border-radius: 12px;
+     }
+
+ }
+
+ @media (max-width: 675px) {
+     .hero-section {
+         min-height: 100%;
+         padding-bottom: 30px;
+         background-size: cover;
+     }
+ }
+
+ @media (max-width: 575px) {
+     .hero-section {
+         background-position: center bottom;
+         background-size: 100% auto;
+         min-height: 610px;
+         padding-top: 40px;
+         padding-bottom: 0;
+     }
+
+     .hero-section .container {
+         width: 100%;
+     }
+
+     .hero-section .row {
+         display: flex;
+         flex-direction: column;
+     }
+
+ }
+
+ @media screen and (max-width:475px) {
+     .otp-input {
+         height: 42px;
+         width: 42px;
+         border-radius: 14px;
+         padding: 10px 8px !important;
+     }
+
+     .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+         width: 42px !important;
+         height: 35px !important;
+         border-radius: 12px !important;
+
+     }
+
+     .loan-application-section .counter-wrapper .counter-wrap:before {
+         display: none;
+     }
+ }
+
+ @media screen and (max-width:375px) {
+     .subscription-section .landing-form-right .calender-image i {
+         font-size: 20px;
+     }
+ }
