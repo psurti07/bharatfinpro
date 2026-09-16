@@ -29,8 +29,7 @@
                             <br>
                             <div>
                                 <span style="white-
-                      : pre-wrap;" id="tmp_org_address">3rd Floor, Plot 28, Sy. No. 123/1,<br /> Parvati Nagar Co-op.
-                                    Housing Society 2,<br /> Katargam, Surat,
+                      : pre-wrap;" id="tmp_org_address">Shop No- 228, Unique Square,<br /> Causeway Dabholi Link Road,<br /> Singanpor, Surat,
                                     Gujarat, India, 395004<br /><?php echo COMPANY_MOBILE; ?><br />(E)
                                     <?php echo COMPANY_EMAIL; ?><br />CIN No.: <?php echo COMPANY_CIN; ?><br />GST No.:
                                     <?php echo COMPANY_GST; ?></span>

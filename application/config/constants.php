@@ -91,25 +91,25 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 // Project details
 define('PROJECT_NAME', 'Bharatfinpro');
-define('COMPANY_NAME', '#');
-define('COMPANY_EMAIL', '#');
-define('COMPANY_MOBILE', '#');
-define('COMPANY_CIN', '#');
+define('COMPANY_NAME', 'Bharatfinpro');
+define('COMPANY_EMAIL', 'info@bharatfinpro.com');
+define('COMPANY_MOBILE', '+91-79909-14132');
+define('COMPANY_CIN', 'SRTS39343D');
 define('COMPANY_GST', '#');
-define('COMPANY_SITE', '#');
-define('COMPANY_ADDRESS', '#');
+define('COMPANY_SITE', 'bharatfinpro.com');
+define('COMPANY_ADDRESS', 'Shop No- 228, Unique Square, Causeway Dabholi Link Road, Singanpor, Surat, Gujarat, 395004');
 define('COMPANY_TIMING', '#');
 
 define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', '#');
-define('SM_INSTAGRAM', '#');
-define('SM_TWITTER', '#');
+define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61592006906030');
+define('SM_INSTAGRAM', 'https://www.instagram.com/bharatfinpro.in/');
+define('SM_TWITTER', 'https://x.com/bharatfinpro');
 define('SM_LINKEDIN', '#');
-define('SM_PINTEREST', '#');
-define('SM_YOUTUBE', '#');
+define('SM_PINTEREST', 'https://in.pinterest.com/bharatfinpro2026/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@bharatfinproofficial');
 
 // Email SMTP details
 define('SMTP_HOST', '#');
