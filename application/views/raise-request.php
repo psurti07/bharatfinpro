@@ -90,7 +90,7 @@ $this->load->view('includes/header.php');
                     </div>
 
                     <div class="form-group col-md-12">
-                        <button class="btn btn-primary" name="submit-btn" id="submit-btn">Submit Request</button>
+                        <button class="btn btn-orange" name="submit-btn" id="submit-btn">Submit Request</button>
                     </div>
 
                     <div class="form-group col-md-12" id="submitedmessage"></div>

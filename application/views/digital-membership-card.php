@@ -5,200 +5,310 @@ $amtpay = $productdata['payamount'];
 $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi'], $userdetails['apr'], $userdetails['loanamount']);
 ?>
 
-<section>
+<section class="background-grey subscription-section">
     <div class="container">
-        <div class="row">
-            <!-- START : MEMBERSHIP CARD -->
-            <div class="col-lg-8 col-md-8 col-12 sm-p-0">
-                <div class="card border-2 shadow-none">
-                    <div class="box">
-                        <span class="wdp-ribbon wdp-ribbon-two">Offer Valid till 12am</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Digital <?php echo $userdetails['loanname']; ?> Application Process</h3>
+        <div class="loan-offer-card how-we-help-block bg-navy mb-4">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-8 col-lg-8">
+                    <div class="card shadow-none mb-4 bg-transparent border-0">
 
-                        <p>Congrats! Buy Membership Now To Unlock Your <strong class="text-secondary h4 text-orange">Rs.
-                                <?php echo formatePriceIndia($eligibilityamt); ?></strong> Pre-Approved Loan Offer
-                            Instantly!</p>
 
-                        <div class="seperator"></div>
+                        <div class="card-body">
+                            <span
+                                class="badge badge-blue rounded-pill text-white text-uppercase text-main-top text-wrap text-start">
+                                <i class="icon-briefcase text-white mr-2"></i> <?php echo $userdetails['loanname']; ?>
+                            </span>
+                            <h2 class="text-white font-weight-bolder">Great news,
+                                <?php echo $userdetails['fullname']; ?>!
+                                🎉</h2>
 
-                        <?php echo form_open('digital/checkoutDigital', array('id' => 'submitForm3', 'class' => 'row', 'novalidate' => 'novalidate')); ?>
-                        <input type="hidden" name="loantype" id="loantype"
-                            value="<?php echo $userdetails['loantype']; ?>" class="form-control" required>
+                            <p class="text-white">Your <strong class="text-orange">Rs.
+                                    <?php echo formatePriceIndia($eligibilityamt); ?></strong> pre-approved loan is
+                                waiting.
+                                Purchase a subscription to proceed.</p>
 
-                        <input type="hidden" name="applyid" id="applyid" value="<?php echo $userdetails['applyid']; ?>"
-                            class="form-control" required>
 
-                        <input type="hidden" name="fullname" id="fullname"
-                            value="<?php echo $userdetails['fullname']; ?>" class="form-control" required>
-
-                        <input type="hidden" name="mobile" id="mobile" value="<?php echo $userdetails['mobile']; ?>"
-                            class="form-control" required>
-
-                        <input type="hidden" name="email" id="email" value="<?php echo $userdetails['email']; ?>"
-                            class="form-control" required>
-
-                        <input type="hidden" name="orderAmount" id="orderAmount" value="<?php echo $amtpay; ?>"
-                            class="form-control" required>
-
-                        <div class="form-group col-md-12 text-center">
-                            <div class="credit">
-                                <div
-                                    class="credit__front credit__part <?php echo strtolower($userdetails['cardname']) . '-card'; ?>">
-                                    <div class="credit__head"></div>
-                                    <p class="credit_numer text-left">**** **** ****
-                                        <?php echo random_code(4); ?>
-                                    </p>
-                                    <div class="credit__space-full text-left">
-                                        <span class="credit__label">VALID FROM
-                                            <?php echo date('d/m/Y'); ?> VALID TO
-                                            <?php echo date('d/m/Y', strtotime('+6 months')); ?>
-                                        </span>
-                                        <p class="credit__info">
-                                            <?php echo $userdetails['fullname']; ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            <span class="badge bg-pale-primary rounded-pill text-main-top-wrap py-2">
+                                <i class="fa fa-clock mr-2"></i>Valid till 12 AM tonight
+                            </span>
                         </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4">
+                    <img class="img-fluid r-12" src="<?php echo base_url() ?>assets/images/subscriber.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- START : MEMBERSHIP CARD -->
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-12 mb-lg-0 mb-4">
+                <div class="subscription-card-offer bg-white border shadow">
+                    <div class="row align-items-start">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12 border-right">
+                            <div class="bg-white p-4">
+                                <div class="card-body">
 
-                        <div class="form-group col-lg-12 col-md-12 col-sm-12 m-b-0">
-                            <h4 class="text-center">Membership Card</h4>
-                            <table class="table m-b-0 membership-table">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center" colspan="2">
+                                    <?php echo form_open('digital/checkoutDigital', array('id' => 'submitForm3', 'class' => '', 'novalidate' => 'novalidate')); ?>
+                                    <input type="hidden" name="loantype" id="loantype"
+                                        value="<?php echo $userdetails['loantype']; ?>" class="form-control" required>
+
+                                    <input type="hidden" name="applyid" id="applyid"
+                                        value="<?php echo $userdetails['applyid']; ?>" class="form-control" required>
+
+                                    <input type="hidden" name="fullname" id="fullname"
+                                        value="<?php echo $userdetails['fullname']; ?>" class="form-control" required>
+
+                                    <input type="hidden" name="mobile" id="mobile"
+                                        value="<?php echo $userdetails['mobile']; ?>" class="form-control" required>
+
+                                    <input type="hidden" name="email" id="email"
+                                        value="<?php echo $userdetails['email']; ?>" class="form-control" required>
+
+                                    <input type="hidden" name="orderAmount" id="orderAmount"
+                                        value="<?php echo $amtpay; ?>" class="form-control" required>
+
+                                    <div class="d-flex align-items-start justify-content-between w-100">
+                                        <div class="ms-0 mb-3">
+                                            <h5 class="fs-11 mb-1 text-orange text-uppercase">Premium Subscription
+                                            </h5>
+                                            <h4 class="text-start text-blue font-weight-bold">Limited-time offer</h4>
+                                        </div>
+                                        <div class="ml-2">
                                             <?php
+                                       
+                                          echo '<span class="text-white bg-success fa-sm px-3 py-2 rounded-pill font-weight-700 badge d-inline-block"> ' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off</span>';
+                                        ?>
+                                        </div>
+                                    </div>
+                                    <table class="table m-b-0 membership-table">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-start border-top-0 " colspan="2">
+                                                    <?php
                                             if ($productdata['offeramount'] != 0) {
-                                                echo '<h4 class="m-b-0">';
+                                                // echo '<h3 class="m-b-0">';
 
-                                                echo 'Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> ';
+                                                echo '<div class="d-flex align-items-bottom mb-3">Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> 
 
-                                                echo '<span class="text-success text-xs">' . formatePrice($productdata['offeramount']) . '</span> only';
+                                                <h1 class="text-orange">' . formatePrice($productdata['offeramount']) . '</h1> </div>';
 
-                                                echo '<span class="text-danger font-weight-700"> (' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off)</span>';
-
-                                                echo '</h4>';
+                                                // echo '<span class="text-danger font-weight-700"> (' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off)</span>';
+                                                echo ' <p>One-time fee, GST extra </p>';    
+                                                // echo '</h3>';
+                                                
 
                                                 $subtotal = $productdata['offeramount'];
                                             } else {
                                                 echo '<h4>Rs. ' . formatePrice($productdata['amount']) . '</h4>';
                                                 $subtotal = $productdata['amount'];
+                                                
                                             }
+          
                                             ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-name d-text-left">
-                                            <strong>Subtotal</strong>
-                                        </td>
-                                        <td class="cart-product-name text-right">
-                                            <span class="amount">
-                                                <?php echo formatePriceIndia($subtotal); ?>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-name d-text-left">
-                                            <strong>GST (18%)</strong>
-                                        </td>
-                                        <td class="cart-product-name text-right">
-                                            <span class="amount">
-                                                <?php $gst = $subtotal * 0.18;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart-product-name d-text-left border-top-0 pb-0">
+                                                    Amount
+                                                </td>
+                                                <td class="cart-product-name text-right border-top-0 pb-0">
+                                                    <span class="amount">
+                                                        <?php echo formatePriceIndia($subtotal); ?>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart-product-name d-text-left border-top-0">
+                                                    GST (18%)
+                                                </td>
+                                                <td class="cart-product-name text-right border-top-0">
+                                                    <span class="amount">
+                                                        <?php $gst = $subtotal * 0.18;
                                                 echo formatePriceIndia($gst); ?>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-name d-text-left">
-                                            <strong>Grand Total</strong>
-                                        </td>
-                                        <td class="cart-product-name text-right">
-                                            <span class="amount color lead"><strong>
-                                                    <?php $grandtotal = $subtotal + $gst;
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart-product-name d-text-left">
+                                                    <strong>Grand Total</strong>
+                                                </td>
+                                                <td class="cart-product-name text-right">
+                                                    <span class="amount color lead"><strong>
+                                                            <?php $grandtotal = $subtotal + $gst;
                                                     echo formatePriceIndia($grandtotal); ?>
-                                                </strong></span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-product-name text-center" colspan="2">
-                                            <button type="submit" id="form-submit3" class="btn btn-lg btn-primary">BUY
-                                                NOW</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div id="resmessage"></div>
+                                                        </strong></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="cart-product-name text-center border-top-0" colspan="2">
+                                                    <button type="submit" id="form-submit3"
+                                                        class="btn btn-lg btn-orange w-100">BUY
+                                                        NOW <i class="icon-arrow-right"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p class="text-center mt-2 mb-0 text-subtitle m-auto">
+                                        <small>Secured by 256-bit SSL · UPI / Cards / Net Banking</small>
+                                    </p>
+                                    <div id="resmessage"></div>
+                                </div>
+                                <?php echo form_close(); ?>
+                            </div>
+
                         </div>
-                        <?php echo form_close(); ?>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="bg-white p-4">
+                                <div class="card-body p-0">
+
+                                    <h4 class="text-left text-blue font-weight-bold">Subscription Benefits</h4>
+                                    <ul class="mt-4 mb-4 p-0">
+                                        <li class="mb-3 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div><span class="ml-2 text-left"> Loan Process in Multiple NBFCs
+                                            </span>
+                                        </li>
+                                        <li class="mb-3 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div> <span class="ml-2 text-left"> 100% Online Financial Consultation
+                                            </span>
+                                        </li>
+                                        <li class="mb-3 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div> <span class="ml-2 text-left"> Access Personalized Tracking Portal
+                                            </span>
+                                        </li>
+                                        <li class="mb-3 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div> <span class="ml-2 text-left"> Dedicated Loan Expert
+                                                Assigned</span>
+                                        </li>
+                                        <li class="mb-3 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div> <span class="ml-2 text-left">Subscription Validity: 9
+                                                Months</span>
+                                        </li>
+                                        <li class="mb-4 d-flex">
+                                            <div>
+                                                <i class="icon-check-circle text-success"></i>
+                                            </div><span class="ml-2 text-left">Loan Processing Time: 48 Hours</span>
+                                        </li>
+                                    </ul>
+                                    <div class="row counter-wrapper">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0 mt-0">
+                                            <div class="card-blog text-center">
+                                                <div
+                                                    class="icon staticts-card-btn btn btn-block pe-none background-light-green m-auto border-0">
+                                                    <i class="fa fa-user text-orange"></i>
+                                                </div>
+                                                <h3 class="counter text-blue mt-1 mb-1 font-weight-bold">2.25L+</h3>
+                                                <p class="mb-0 text-uppercase fa-sm ">Satisfied Customers</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-6 p-0 mt-0">
+                                            <div class="card-blog text-center">
+                                                <div
+                                                    class="icon staticts-card-btn btn btn-block pe-none background-titan-white  m-auto border-0">
+                                                    <i class="fa fa-wallet text-success"></i>
+                                                </div>
+                                                <h3 class="counter text-blue mt-1 mb-1 font-weight-bold">₹100M+</h3>
+                                                <p class="mb-0 text-uppercase fa-sm">Loan Disbursed</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- END : MEMBERSHIP CARD -->
-
-            <div class="col-lg-4 col-md-4 col-sm-12 sm-p-0">
-                <div class="card shadow-none">
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <div class="card shadow border">
                     <div class="card-body">
-                        <div class="wizard clearfix" data-style="1">
-                            <p class="small m-b-0">Process Steps: </p>
-                            <div class="steps clearfix m-0">
-                                <ul role="tablist">
-                                    <li role="tab" class="current"><a href="#"><span class="number">1</span><span
-                                                class="title">Quick Registration</span></a></li>
 
-                                    <li role="tab" class="current"><a href="#"><span class="number">2</span><span
-                                                class="title">Check Eligibility</span></a></li>
+                        <span class="text-uppercase sub-title mb-1 d-block fa-sm">Desired Loan Amount</span>
 
-                                    <li role="tab" class="current"><a href="#"><span class="number">3</span><span
-                                                class="title">Get Pre-Approval Offer</span></a></li>
+                        <h2 class=" mb-0 font-weight-bold text-blue">₹
+                            <?php echo formatePriceIndia($userdetails['loanamount']); ?> </h2>
 
-                                    <li role="tab" class="current"><a href="#"><span class="number">4</span><span
-                                                class="title">Buy Membership Card</span></a></li>
-                                </ul>
+                        <p class="fs-12 lh-normal mb-3">Tenure: up to 60 months · ROI from 11%*</p>
+
+
+                        <h5 class="text-uppercase text-blue border-top pt-3">Customer details</h5>
+                        <div class="table-block mb-3">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-col">
+                                        <div class="text-center icon-col-image background-grey">
+                                            <i class="icon-user"></i>
+                                        </div>
+                                    </div>
+                                    <div class="pt-0 pb-1 pl-0 ml-3">
+                                        <small class="text-uppercase d-block">Name</small>
+                                        <strong><?php echo $userdetails['fullname']; ?></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-col">
+                                        <div class="text-center icon-col-image background-grey">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    <div class="pt-0 pb-1 pl-0 ml-3">
+                                        <small class="text-uppercase d-block">Mobile</small>
+                                        <strong><?php echo $userdetails['mobile']; ?></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-col">
+                                        <div class="text-center icon-col-image background-grey">
+                                            <i class="far fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                    <div class="pt-0 pb-1 pl-0 ml-3">
+                                        <small class="text-uppercase d-block">Email</small>
+                                        <strong><?php echo $userdetails['email']; ?></strong>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="icon-col">
+                                        <div class="text-center icon-col-image background-grey">
+                                            <i class="far fa-file"></i>
+                                        </div>
+                                    </div>
+                                    <div class="pt-0 pb-1 pl-0 ml-3">
+                                        <small class="text-uppercase d-block">Loan Type</small>
+                                        <strong><?php echo $userdetails['loanname']; ?></strong>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>User Details : </strong></li>
-                            <li class="list-group-item">Loan : <?php echo $userdetails['loanname']; ?></li>
-                            <li class="list-group-item">Loan Amount :
-                                <?php echo formatePriceIndia($userdetails['loanamount']); ?></li>
-                            <li class="list-group-item">Name : <?php echo $userdetails['fullname']; ?></li>
-                            <li class="list-group-item">Mobile no. : <?php echo $userdetails['mobile']; ?></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card shadow-none">
-                    <!--<div class="card-body background-pattern-1 rounded-lg">
-						<h3 class="m-b-20 text-medium">Personal Loan</h3>
-						<p class="m-b-0 text-muted">Get up to</p>
-						<h4><span style="border-bottom: 4px solid #012960">₹10 Lac in 30 mins</span></h4>
-					</div>
-					<div class="card-footer p-20 background-alice-blue">
-						<ul class="list-icon list-icon-colored m-b-0">
-							<li><i class="fa fa-arrow-right"></i> Simple Online Process</li>
-							<li><i class="fa fa-arrow-right"></i> ⁠Lowest Interest Rate</li>
-							<li><i class="fa fa-arrow-right"></i> ⁠Flexible EMI Options</li>
-							<li><i class="fa fa-arrow-right"></i> ⁠Minimal Documentation</li>
-						</ul>
-					</div>-->
-                    <?php $offer = array('10.png', '11.png', '12.png', '13.png', '14.png', '15.png', '16.png'); ?>
-                    <div class="carousel client-logos" style="border:1px solid;border-radius:10px;padding:5px"
-                        data-margin="0" data-items="1" data-items-md="1" data-items-sm="1" data-items-xs="1"
-                        data-arrows="false" data-dots="false">
-                        <?php foreach ($offer as $row) { ?>
-                            <div>
-                                <a href="#"><img alt="<?php echo $row; ?>"
-                                        src="<?php echo base_url('assets/images/' . $row); ?>"></a>
+                        <div class="card otp-velidation-text background-titan-white border mb-0">
+                            <div class="card-body py-2 px-3 ">
+                                <div class="d-flex align-items-start">
+                                    <i class="icon-shield text-success mt-1"></i>
+                                    <div class="ml-2">
+                                        <p class="mb-0 fa-sm ms-2 text-success">Your data is 256-bit encrypted and never
+                                            shared
+                                            without your consent.</p>
+                                    </div>
+                                </div>
                             </div>
-                        <?php } ?>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+
+            </div>
         </div>
+
+        <!-- END : MEMBERSHIP CARD -->
     </div>
 </section>
 
@@ -207,12 +317,12 @@ $this->load->view('includes/footer-apply.php');
 ?>
 
 <script type="text/javascript">
-    $(function() {
-        $('#submitForm3').on('submit', function(e) {
-            $('#form-submit3').attr('disabled', true);
-            $('#form-submit3').html(
-                '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
-            );
-        });
+$(function() {
+    $('#submitForm3').on('submit', function(e) {
+        $('#form-submit3').attr('disabled', true);
+        $('#form-submit3').html(
+            '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> PROCESS...'
+        );
     });
+});
 </script>

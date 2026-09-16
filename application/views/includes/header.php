@@ -365,7 +365,7 @@
 
                                     <!-- <li><a href="https://fitzify.com/">Fitzify</a></li> -->
 
-                                    <li class="dropdown"><a href="#">Apply Now <i class="fas fa-angle-down"></i></a>
+                                    <li class="dropdown"><a href="#">Apply Now </a>
                                         <ul class="dropdown-menu">
                                             <li class=""><a href="<?php echo site_url('digital/personalLoan'); ?>"><i
                                                         class="fa fa-home"></i>Personal Loan</a></li>

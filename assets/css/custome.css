@@ -264,33 +264,6 @@
      border-radius: 15px;
  }
 
- @media (max-width: 675px) {
-     .hero-section {
-         min-height: 100%;
-         padding-bottom: 0;
-     }
- }
-
- @media (max-width: 575px) {
-     .hero-section {
-         background-position: center bottom;
-         background-size: 100% auto;
-         min-height: 610px;
-         padding-top: 40px;
-         padding-bottom: 0;
-     }
-
-     .hero-section .container {
-         width: 100%;
-     }
-
-     .hero-section .row {
-         display: flex;
-         flex-direction: column;
-     }
-
- }
-
  .card-left-main {
      position: relative;
      background-color: #002160;
@@ -324,7 +297,352 @@
      background-color: #fb710f;
  }
 
+ .card-form-right .input-group {
+     border-radius: 12px;
+     overflow: hidden;
+ }
 
+ .picker1 {
+     display: flex;
+     flex-wrap: wrap;
+ }
+
+ .picker1 label {
+     position: relative;
+     inline-size: 100%;
+     block-size: 100%;
+     cursor: pointer;
+ }
+
+ .picker1 label>span {
+     inset: 0;
+     block-size: 100%;
+     inline-size: 100%;
+ }
+
+ .picker1 label[for*=plan]>span {
+     display: grid;
+     padding: 2rem 1.5rem 1.5rem 1.5rem;
+     background: #F8FAFC;
+     border: 1px solid #E2E8F0;
+     border-radius: 15px;
+     box-shadow: 0 0 0 0.05rem rgba(8, 60, 130, 0.06), 0rem 0rem 1.25rem rgba(30, 34, 40, 0.04);
+ }
+
+ .picker1 label[for*=plan]>input:checked~span {
+     background-color: #FFF4EF;
+     border: 1px solid #FF5722;
+     color: #000;
+ }
+
+ /* .picker1 label[for*=plan]>input:checked~span:before {
+  content: "\2714";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: rgba(69,196,160, 1);
+  font-size: 2rem;
+  line-height: 1;
+  z-index: 1;
+}*/
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .picker1 label[for*=usertype]>input:checked~span .round-radiobox {
+     background: #ef6c00;
+     border-color: #ef6c00;
+ }
+
+ .loan-form-right .range__slider [type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4EC350;
+    border: #4EC350 3px solid;
+    cursor: pointer;
+    -webkit-transition: background .15s ease-in-out;
+    transition: background .15s ease-in-out;
+}
+
+.loan-form-right  .custom-control-input:checked~.custom-control-label::before{
+        background-color: #005DF8;
+    border-color: #005DF8;
+}
+
+ .picker1 label[for*=plan]>input:checked~span .round-radiobox:before {
+     content: "";
+     display: block;
+     border-width: 0 2px 2px 0;
+     height: 8px;
+     width: 6px;
+     border-color: #fff;
+     border-style: solid;
+     transform: rotate(45deg);
+     position: absolute;
+     left: 5px;
+     top: 3px;
+ }
+
+ .round-radiobox {
+     background: #fff;
+     height: 17px;
+     width: 17px;
+     border-radius: 50%;
+     border: solid 1px #6c798f;
+     position: absolute;
+     top: 0.5rem;
+     right: 0.5rem;
+ }
+
+ .staticts-card-btn {
+     width: 35px !important;
+     height: 35px !important;
+     padding: 0 !important;
+     display: flex !important;
+     align-items: center !important;
+ }
+
+ .subscription-price p.card-content {
+     font-size: 9px !important;
+ }
+
+ .staticts-card {
+     width: 64px;
+     height: 64px;
+     border-radius: 18px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .staticts-card i,
+ .staticts-card-wrapper i {
+     font-size: 25px;
+ }
+
+ .staticts-card-wrapper {
+     background: #FFE7D7;
+     width: 46px;
+     height: 46px;
+     border-radius: 14px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .subscription-price .right-icon .fa {
+     background: #00BC7B26;
+     width: 24px;
+     height: 24px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .loan-eligibility-section {
+     background-color: #E2E8F0;
+ }
+
+ .otp-input {
+     height: 64px;
+     width: 56px;
+     text-align: center;
+     font-size: 20px !important;
+     margin: 0 5px;
+     border: 1px solid #E2E8F0;
+     border-radius: 16px;
+     outline: none;
+     transition: border-color 0.3s;
+
+ }
+
+
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     appearance: none;
+     margin: 0;
+ }
+
+ .otp-velidation-text {
+     border-radius: 12px;
+ }
+
+ .form-control:focus,
+ .form-group.validate input:focus,
+ .form-group.validate select:focus,
+ .form-group.validate textarea:focus {
+     box-shadow: none !important;
+ }
+
+ .loan-application-section .counter-wrapper .counter-wrap:before {
+     content: '';
+     position: absolute;
+     width: 1px;
+     height: 45.97px;
+     background: #E6E9EF;
+     right: -15px;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+ }
+
+ .loan-application-section .counter-wrapper>div:last-child .counter-wrap::before {
+     display: none;
+ }
+
+
+
+ .table-block .icon-col-image {
+     height: 32px;
+     width: 32px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 4px;
+ }
+
+
+ .subscription-section .landing-form-right .calender-image i {
+     font-size: 33px;
+     color: #dadfe6 !important;
+     position: absolute;
+     right: 15px;
+     bottom: 15px;
+ }
+
+ .subscription-section .picker1 label input:checked~span .calender-image i {
+     color: #FFDDD3 !important;
+ }
+
+ .text-main-top {
+
+     letter-spacing: .12em;
+     padding: 6px 14px;
+     background: rgba(255, 255, 255, .15);
+     margin-bottom: 14px;
+ }
+
+ .subscription-section .text-main-top-wrap {
+     color: #FFCFB8;
+     background: rgba(255, 87, 34, 0.15);
+     border: 1px solid rgba(255, 87, 34, 0.30);
+     border-radius: 12px;
+ }
+
+ .subscription-card-offer,
+ .loan-offer-card,
+ .step-details {
+     border-radius: 12px;
+     overflow: hidden;
+ }
+
+ .loan-profile-section.loan-form-right .picker1 label[for*=plan]>input:checked~span {
+     border: 1px solid #005EF8;
+     color: #000;
+ }
+
+ .loan-profile-section .profile-details .picker1 label input:checked+span .staticts-card-btn i {
+     color: #fff !important;
+ }
+
+ .loan-offer-card {
+     position: relative;
+     background: url(../images/Overlay-Blur.png) no-repeat top right;
+ }
+
+
+ .loan-profile-section .profile-details .picker1 label input:checked+span .staticts-card-btn {
+     background: #005EF8 !important;
+     border-color: #005EF8 !important;
+
+ }
+
+
+
+ .staticts-card-wrap,
+ .counter-wrapper-main {
+     border-radius: 17px !important;
+ }
+
+
+ .input-group {
+     border-radius: 12px;
+     overflow: hidden;
+ }
+
+ .otp-details-wrap .icon-image-wraper {
+     width: 50px;
+     height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 12px;
+ }
+
+ .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+     height: 56px;
+     width: 88px;
+     border-radius: 18px;
+     font-size: 1.125rem;
+     text-align: center;
+     border: 1px solid #dee2e6;
+
+ }
+
+ .emi-option input[type="radio"] {
+
+     position: absolute;
+     right: 32px;
+     top: 31px;
+     display: block;
+ }
+
+ .emi-option input[type="radio"]:checked+.radio-card .staticts-card-btn {
+     background: #005EF8 !important;
+     border-color: #005EF8 !important;
+ }
+
+ .emi-option input[type="radio"]:checked+.radio-card .staticts-card-btn i {
+     color: #fff !important;
+ }
+
+ .loan-approved-box .loan-approve-text {
+     background-color: #0868ed;
+     border-radius: 0 0 55px 55px;
+ }
+
+ .membership-offer {
+     width: 90%;
+     margin: auto;
+     margin-top: -50px;
+ }
+
+ .loan-approved-box {
+     border-radius: 24px;
+     overflow: hidden;
+ }
+
+ .benefit-card {
+     border-radius: 16px;
+     padding: 22px;
+     border-top: 0.8px solid #0868ed;
+
+     box-shadow: inset 0 4px 0 #0868ed !important;
+ }
+
+ .user-details-card {
+     border-radius: 16px;
+     padding: 22px;
+     border-bottom: 0.8px solid #0868ed;
+     box-shadow: inset 0 -4px 0 #0868ed !important;
+
+ }
 
  @media (max-width: 991px) {
 
@@ -337,12 +655,76 @@
          padding-right: 0 !important;
      }
 
-     
  }
 
  @media screen and (max-width:1200px) and (min-width:992px) {
- .dark #mainMenu nav>ul>li>a, #mainMenu.dark nav>ul>li>a,
- #mainMenu nav>ul>li>a{
-    padding: 10px 3px;
+
+     .dark #mainMenu nav>ul>li>a,
+     #mainMenu.dark nav>ul>li>a,
+     #mainMenu nav>ul>li>a {
+         padding: 10px 3px;
+     }
  }
+
+ @media screen and (max-width:1199px) and (min-width:768px) {
+     .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+         height: 35px;
+         width: 41px;
+         border-radius: 12px;
+     }
+
+ }
+
+ @media (max-width: 675px) {
+     .hero-section {
+         min-height: 100%;
+         padding-bottom: 30px;
+         background-size: cover;
+     }
+ }
+
+ @media (max-width: 575px) {
+     .hero-section {
+         background-position: center bottom;
+         background-size: 100% auto;
+         min-height: 610px;
+         padding-top: 40px;
+         padding-bottom: 0;
+     }
+
+     .hero-section .container {
+         width: 100%;
+     }
+
+     .hero-section .row {
+         display: flex;
+         flex-direction: column;
+     }
+
+ }
+
+ @media screen and (max-width:475px) {
+     .otp-input {
+         height: 42px;
+         width: 42px;
+         border-radius: 14px;
+         padding: 10px 8px !important;
+     }
+
+     .loan-application-section .otp-verification .otp-details-wrap .input-field input {
+         width: 42px !important;
+         height: 35px !important;
+         border-radius: 12px !important;
+
+     }
+
+     .loan-application-section .counter-wrapper .counter-wrap:before {
+         display: none;
+     }
+ }
+
+ @media screen and (max-width:375px) {
+     .subscription-section .landing-form-right .calender-image i {
+         font-size: 20px;
+     }
  }

@@ -137,7 +137,7 @@ $this->load->view('includes/header.php');
                         <h4 class="text-navy"><span style="border-bottom: 4px solid #012960"><span
                                     class="text-orange">₹10 Lac</span> in 30 mins</span></h4>
                         <p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/personalLoan'); ?>"
-                                class="btn btn-rounded btn-orange">Apply Now</a></p>
+                                class="btn btn-orange">Apply Now</a></p>
                     </div>
                     <div class="card-footer p-20 background-alice-blue border">
                         <div class="row">
@@ -171,7 +171,7 @@ $this->load->view('includes/header.php');
                         <h4 class="text-navy"><span style="border-bottom: 4px solid #fb710f"><span
                                     class="text-orange">₹1 Cr.</span> in 40 Hours</span></h4>
                         <p class="p-t-10 m-b-0"><a href="<?php echo site_url('digital/businessLoan'); ?>"
-                                class="btn btn-rounded btn-orange">Apply Now</a></p>
+                                class="btn btn-orange">Apply Now</a></p>
                     </div>
                     <div class="card-footer p-20 background-light-green border">
                         <div class="row">
@@ -294,7 +294,7 @@ $this->load->view('includes/header.php');
                             </div>
                             <div class="mx-3">
 
-                                <p class="m-b-0"> Registered Office: <br />
+                                <p class="m-b-0 text-dark"> Registered Office: <br />
                                     <?php echo COMPANY_ADDRESS; ?>
 
                                 </p>
@@ -305,7 +305,7 @@ $this->load->view('includes/header.php');
                                 <i class="fa fa-envelope text-navy"></i>
                             </div>
                             <div class="mx-3">
-                                <p class="m-b-0"> CIN No.: <br />
+                                <p class="m-b-0 text-dark"> CIN No.: <br />
                                     <?php echo COMPANY_CIN; ?>
                                 </p>
                             </div>
@@ -315,7 +315,7 @@ $this->load->view('includes/header.php');
                                 <i class="fa fa-phone text-navy"></i>
                             </div>
                             <div class="mx-3">
-                                <p class="m-b-0"><a href="tel:<?php echo COMPANY_MOBILE; ?>"> Call
+                                <p class="m-b-0 text-dark"><a href="tel:<?php echo COMPANY_MOBILE; ?>"> Call
                                         Support: <br />
                                         <?php echo COMPANY_MOBILE; ?>
                                     </a></p>
@@ -327,7 +327,7 @@ $this->load->view('includes/header.php');
 
                             </div>
                             <div class="mx-3">
-                                <p class="m-b-0"><a href="mailto:<?php echo COMPANY_EMAIL; ?>"> Mail
+                                <p class="m-b-0 text-dark"><a href="mailto:<?php echo COMPANY_EMAIL; ?>"> Mail
                                         Support: <br />
                                         <?php echo COMPANY_EMAIL; ?>
                                     </a></p>
@@ -338,7 +338,7 @@ $this->load->view('includes/header.php');
                                 <i class="fa fa-envelope text-navy"></i>
                             </div>
                             <div class="mx-3">
-                                <p class="m-b-0"> Timing : <br />
+                                <p class="m-b-0 text-dark"> Timing : <br />
                                     <?php echo COMPANY_TIMING; ?>
                                 </p>
                             </div>
@@ -357,62 +357,74 @@ $this->load->view('includes/header.php');
                             <h4 class="m-b-5 text-navy">Send a message</h4>
                             <p>Fill the form below and our team will reach out within 1-2 business days.</p>
                             <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label class="text-dark" for="fullname">Full Name *</label>
-                                    <input type="text" aria-required="true" name="fullname" class="form-control"
-                                        required>
-                                    <div class="help-block font-small-3"></div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="fullname">Full Name *</label>
+                                        <input type="text" aria-required="true" name="fullname" class="form-control"
+                                            required>
+                                        <div class="help-block font-small-3"></div>
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="text-dark" for="email">Mobile no *</label>
-                                    <input type="text" aria-required="true" name="mobile" class="form-control" required>
-                                    <div class="help-block font-small-3"></div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="email">Mobile no *</label>
+                                        <input type="text" aria-required="true" name="mobile" class="form-control"
+                                            required>
+                                        <div class="help-block font-small-3"></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label class="text-dark" for="subject">Subject</label>
-                                    <input type="text" name="subject" class="form-control">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="subject">Subject</label>
+                                        <input type="text" name="subject" class="form-control">
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label class="text-dark" for="email">Email id *</label>
-                                    <input type="email" aria-required="true" name="email" class="form-control" required>
-                                    <div class="help-block font-small-3"></div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="email">Email id *</label>
+                                        <input type="email" aria-required="true" name="email" class="form-control"
+                                            required>
+                                        <div class="help-block font-small-3"></div>
+                                    </div>
                                 </div>
+                                <div class="col-md-12 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark" for="message">Message *</label>
+                                        <textarea name="message" rows="5" aria-required="true" class="form-control"
+                                            required></textarea>
+                                        <div class="help-block font-small-3"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <div class="form-group">
+                                        <label class="text-dark mb-0">
+                                            <small>By submitting the form &amp; proceeding, you agree to the
+                                                <a href="<?php echo site_url('terms-conditions'); ?>"
+                                                    target="_blank">Terms
+                                                    of
+                                                    Use</a>
+                                                and
+                                                <a href="<?php echo site_url('privacy-policy'); ?>"
+                                                    target="_blank">Privacy
+                                                    Policy</a>
+                                                of
+                                                Bharatfinpro.com
+                                            </small>
+                                        </label>
+                                        <div class="help-block font-small-3"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <button type="submit" id="submit-btn" class="btn btn-orange w-100 mb-0">Send
+                                        Message</button>
+                                </div>
+                                <div id="response"></div>
+                                <?php echo form_close(); ?>
                             </div>
-                            <div class="form-group">
-                                <label class="text-dark" for="message">Message *</label>
-                                <textarea name="message" rows="5" aria-required="true" class="form-control"
-                                    required></textarea>
-                                <div class="help-block font-small-3"></div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="text-dark">
-                                    <small>By submitting the form &amp; proceeding, you agree to the
-                                        <a href="<?php echo site_url('terms-conditions'); ?>" target="_blank">Terms of
-                                            Use</a>
-                                        and
-                                        <a href="<?php echo site_url('privacy-policy'); ?>" target="_blank">Privacy
-                                            Policy</a>
-                                        of
-                                        Bharatfinpro.com
-                                    </small>
-                                </label>
-                                <div class="help-block font-small-3"></div>
-                            </div>
-
-                            <button type="submit" id="submit-btn" class="btn btn-orange">Send Message</button>
-
-                            <div id="response"></div>
-                            <?php echo form_close(); ?>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-        </div>
 </section>
 
 <div class="call-to-action call-to-action-colored m-b-0">

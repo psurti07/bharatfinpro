@@ -116,14 +116,14 @@ section {
 
 @media(max-width:992px) {
     .container {
-        padding: 0 30px
+        padding: 0 20px
     }
 }
 
 #page-title {
     clear: both;
     padding: 30px 0;
-    background-color: #f8f8f8;
+       background-color: #f7f9fb;
     position: relative
 }
 
@@ -7817,7 +7817,7 @@ h6.font-parisienne {
 }
 
 .background-info {
-    background-color: #53b0f8 !important
+    background-color: #005EF8 !important
 }
 
 .background-warning {
@@ -7885,11 +7885,11 @@ h6.font-parisienne {
 }
 
 .background-alice-blue {
-    background-color: #f1f5fb !important
+    background-color: #F6F9FE !important
 }
 
 .background-honeydew {
-    background-color: #feefe2 !important
+    background-color: #e7efff !important;
 }
 
 .background-gradient-1 {
@@ -12524,7 +12524,7 @@ button.btn,
 .btn:not(.close):not(.mfp-close),
 a.btn:not([href]):not([tabindex]) {
     font-family: poppins, sans-serif;
-    border-radius: 0.5em;
+    border-radius: 10px;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: .5px;
@@ -12582,11 +12582,12 @@ a.btn:not([href]):not([tabindex]).btn-sm {
 button.btn.btn-lg,
 .btn:not(.close):not(.mfp-close).btn-lg,
 a.btn:not([href]):not([tabindex]).btn-lg {
-    font-size: 15px;
-    height: 58px;
-    letter-spacing: 2px;
-    line-height: 56px;
-    padding: 0 40px
+    font-size: 13px;
+    /* height: 58px; */
+        letter-spacing: 2px;
+    line-height: normal;
+    padding: 10px 12px;
+
 }
 
 button.btn:hover,
@@ -12742,8 +12743,8 @@ a.btn:not([href]):not([tabindex]).btn-transparent.btn-inverted {
 button.btn.btn-primary,
 .btn:not(.close):not(.mfp-close).btn-primary,
 a.btn:not([href]):not([tabindex]).btn-primary {
-    background-color: #012960;
-    border-color: #012960;
+    background-color: #005DF8;
+    border-color: #005DF8;
     /* color:rgb(20, 72, 53) !important; */
 }
 
@@ -12776,8 +12777,8 @@ a.btn:not([href]):not([tabindex]).btn-primary:hover,
 a.btn:not([href]):not([tabindex]).btn-primary:focus,
 a.btn:not([href]):not([tabindex]).btn-primary:not(:disabled):not(.disabled):active,
 a.btn:not([href]):not([tabindex]).btn-primary:not(:disabled):not(.disabled).active {
-    background-color: #012960;
-    border-color: #012960;
+      background-color: #50B347;
+    border-color: #50B347;
     color: #fff
 }
 
@@ -13532,8 +13533,8 @@ a.btn:not([href]):not([tabindex]).disabled {
 }
 
 .card {
-    /*border:1px solid #ececec;*/
-    border-radius: 8px;
+    border:1px solid #ececec;
+    border-radius: 24px;
     background-color: #fff;
     margin-bottom: 20px;
     -webkit-box-shadow: 0 0 35px 0 rgba(154, 161, 171, .15);
@@ -16449,8 +16450,8 @@ div.icon-box:before {
 }
 
 .counter span {
-    font-size: 50px;
-    line-height: 40px
+    font-size: 25px;
+    line-height: 30px
 }
 
 .counter.small>span {
@@ -17190,7 +17191,7 @@ body.breakpoint-sm hr.space-xxlg {
 .separator {
     color: #ccc;
     width: 100%;
-    margin: 20px auto;
+    margin: 12px auto;
     overflow: hidden;
     text-align: center;
     line-height: 1.2em
@@ -17663,11 +17664,11 @@ select {
 }
 
 .form-group label:not(.error) {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: .04em;
     font-weight: 500;
     margin-bottom: 4px;
-    color: #111
+       color: #3a3a3a;
 }
 
 .form-inline button {
@@ -19387,7 +19388,7 @@ body.breakpoint-xs .grid li {
 }
 
 .client-logos .polo-carousel-item {
-    padding: 20px 20px
+    padding:0
 }
 
 .pricing-table {
@@ -21211,8 +21212,8 @@ fieldset:disabled .btn.btn-circle {
 }
 
 .range__slider .rangs {
-    padding: 6px 0px !important;
-    min-height: 10px !important;
+    padding: 4px 0px !important;
+    min-height: 8px !important;
 }
 
 .range__value {
@@ -21221,9 +21222,14 @@ fieldset:disabled .btn.btn-circle {
 }
 
 .range__value span {
-    font-size: 31px;
+    font-size: 16   px;
     font-weight: 700;
-    color: #012960;
+ 
+background: #00B9FF26;
+      border-radius: 12px;
+    padding: 14px 20px;
+    display: inline-block;
+    margin-bottom: 10px;
 }
 
 .range__emi {
@@ -21240,7 +21246,7 @@ fieldset:disabled .btn.btn-circle {
 .range__slider [type="range"] {
     width: 100%;
     -webkit-appearance: none;
-    height: 11px;
+    height: 8px;
     border-radius: 6px;
     background: linear-gradient(to right, rgb(16, 235, 157), rgb(11, 133, 134) 49.4949%, rgb(211, 237, 255) 49.4949%, rgb(211, 237, 255) 100%);
     outline: none;
@@ -21255,8 +21261,8 @@ fieldset:disabled .btn.btn-circle {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #feefe2;
-    border: #fb710f 3px solid;
+    background: #4EC350;
+    border: #4EC350 3px solid;
     cursor: pointer;
     -webkit-transition: background .15s ease-in-out;
     transition: background .15s ease-in-out;
@@ -21358,13 +21364,16 @@ fieldset:disabled .btn.btn-circle {
 .text-navy {
     color: #012960 !important;
 }
+ .text-dark-navy {
+    color: #111C2E !important;
+}
 
 .text-orange {
     color: #fb710f !important;
 }
 
 .text-blue {
-    color: #0165f1 !important;
+    color: #0A1A3A !important;
 }
 
 .text-green {

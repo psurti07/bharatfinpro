@@ -551,7 +551,7 @@ class Plan extends CI_Controller
 	{
 		$this->load->model('Site_Plan_Model');
 		$userdata = $this->Site_Plan_Model->checkuserdata($_REQUEST['applyid']);
-
+			
 		$data = array(
 			'rec_date' => date('Y-m-d H:i:s'),
 			'loantenure' => $_REQUEST['tenure']
@@ -566,7 +566,7 @@ class Plan extends CI_Controller
 
 		$apr = ($userdata->loantype == 22) ? 11.5 : 12.5;
 		$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
-
+	
 		$offerresponse = $this->Site_Plan_Model->sendOfferMessage($userdata->loantype, $eligibilityamt, $userdata->mobile, $userdata->email);
 
 		// $this->load->helper('interakt');
