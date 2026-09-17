@@ -15,7 +15,7 @@ $this->load->view('includes/header.php');
                         support at every step.</p>
                     <a class="btn btn-orange" href="<?php echo site_url('digital/personalLoan'); ?>">Apply for Personal
                         Loan</a>
-                    <a class="btn btn-light" href="<?php echo site_url('digital/personalLoan'); ?>">Apply for Business
+                    <a class="btn btn-light" href="<?php echo site_url('digital/businessLoan'); ?>">Apply for Business
                         Loan</a>
                 </div>
             </div>

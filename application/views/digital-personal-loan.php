@@ -62,7 +62,7 @@ $this->load->view('includes/header-apply.php');
                         <?php echo form_open('digital/sendotpCode', array('id' => 'submitForm1', 'class' => '', 'novalidate' => 'novalidate')); ?>
                         <div class="card-title text-center">
                             <p class="text-uppercase text-orange font-weight-bold mb-0">Start Your Loan</p>
-                            <h3 class="font-weight-bold text-blue mb-3">Get Instant Credit up to   <span
+                            <h3 class="font-weight-bold text-blue mb-3">Get Instant Credit up to  <span
                                     class="text-orange">₹10
                                     Lakhs</span>
                                 in minutes</h3>
@@ -228,6 +228,8 @@ $this->load->view('includes/header-apply.php');
                             </p>
                             <input type="hidden" name="loanamount" id="loanamount"
                                 value="<?php echo $userdetails['loanamount']; ?>" />
+                            <input type="hidden" name="usertype" id="usertype"
+                                value="<?php echo $userdetails['usertype']; ?>" />
                             <input type="hidden" name="otpmobile" id="otpmobile"
                                 value="<?php echo $userdetails['mobile']; ?>" />
                         </div>
@@ -302,7 +304,9 @@ $this->load->view('includes/header-apply.php');
                             value="<?php echo $userdetails['loanamount']; ?>">
                         <input type="hidden" name="referralcode" id="referralcode"
                             value="<?php echo $userdetails['referralcode']; ?>">
-                        <input type="hidden" name="loantype" id="loantype" value="11">
+                        <input type="hidden" name="usertype" id="usertype"
+                                value="<?php echo $userdetails['usertype']; ?>" />
+                        
                         <p class="text-uppercase text-orange font-weight-bold mb-0">Tell us about you</p>
                         <h3 class="mb-0 text-start text-blue font-weight-bolder">Select your profile & enter details
                         </h3>

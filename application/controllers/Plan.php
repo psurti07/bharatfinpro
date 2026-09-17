@@ -430,7 +430,7 @@ class Plan extends CI_Controller
 		} else {
 			$this->session->set_tempdata('applyid', $applyid, 3600);
 			$loanname = ($userdate->loantype == 22) ? "Plan Business Loan" : "Plan Personal Loan";
-			$productslug = "bharat-pro-finance";
+			$productslug = "bharatpro-finance";
 			$cardname = "Bharatpro Finance";
 
 			$apr = ($userdate->loantype == 22) ? 10 : 10.5;
@@ -610,7 +610,7 @@ class Plan extends CI_Controller
 		);
 		$response3 = $this->Site_Plan_Model->updateapplication($_REQUEST['applyid'], $data3);
 
-		$productslug = "bharat-pro-finance";
+		$productslug = "bharatpro-finance";
 
 		$this->load->model('Site_Info_Model');
 		$productdata = $this->Site_Info_Model->getproductdetails($productslug);

@@ -21,7 +21,7 @@ $this->load->view('includes/header-plan-apply.php');
                         <span class="text-uppercase sub-title mb-2 d-block text-gray">Desired loan
                             amount</span>
                         <div class="text-start">
-                            <h3 class="ps-0 price-text font-weight-600 text-primary">₹2,50,000.00</h3>
+                            <h3 class="ps-0 price-text font-weight-600 text-primary">₹<?php echo formatePriceIndia($userdetails['loanamount']); ?></h3>
                         </div>
                         <hr />
                         <h5 class="text-dark-navy mb-3"><i class="icon-user mr-2"></i>Customer details

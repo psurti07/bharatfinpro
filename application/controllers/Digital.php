@@ -31,8 +31,9 @@ class Digital extends CI_Controller
 	public function sendotpCode()
 	{
 		if ($_REQUEST['loanamount'] != "" && $_REQUEST['mobile'] != "") {
-			$fullname = $_REQUEST['loanamount'];
+			$loanamount = $_REQUEST['loanamount'];
 			$mobile = $_REQUEST['mobile'];
+			$usertype = $_REQUEST['usertype'];
 
 			$this->load->model('Site_Digital_Model');
 			$data = $this->Site_Digital_Model->checkuser($mobile);
@@ -70,8 +71,9 @@ class Digital extends CI_Controller
 					die;
 				}
 			} else {
-				$this->session->set_tempdata('loanamount', $fullname);
+				$this->session->set_tempdata('loanamount', $loanamount);
 				$this->session->set_tempdata('usermobile', $mobile);
+				$this->session->set_tempdata('usertype', $usertype);
 
 				$this->load->model('Site_General_Model');
 				$countsms = $this->Site_General_Model->countotpentry($mobile);
@@ -123,6 +125,7 @@ class Digital extends CI_Controller
 		$otpcode = $_REQUEST['otpcode'];
 		$this->session->set_tempdata('loanamount', $_REQUEST['loanamount']);
 		$this->session->set_tempdata('usermobile', $mobile);
+		$this->session->set_tempdata('usertype', $usertype);
 
 		$this->load->model('Site_General_Model');
 		$response = $this->Site_General_Model->checkOTP($mobile, $otpcode);
@@ -160,7 +163,8 @@ class Digital extends CI_Controller
 		if ($step == "s2" && $mobile != '') {
 			$data = array(
 				'loanamount' => $loanamount,
-				'mobile' => $mobile
+				'mobile' => $mobile,
+				'usertype' => $this->session->tempdata('usertype')
 			);
 			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step2', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
@@ -175,7 +179,8 @@ class Digital extends CI_Controller
 			$data = array(
 				'loanamount' => $loanamount,
 				'mobile' => $mobile,
-				'referralcode' => $referralcode
+				'referralcode' => $referralcode,
+				'usertype' => $this->session->tempdata('usertype')
 			);
 			$this->load->view('digital-personal-loan', ['meta' => $meta, 'processstep' => 'step3', 'userdetails' => $data, 'banklist' => $banklist]);
 			return false;
@@ -237,11 +242,19 @@ class Digital extends CI_Controller
 
 	public function registeredUser()
 	{
-		//$cardtype = $_REQUEST['loantype'];
+		
 		$mobile = $_REQUEST['usermobile'];
 		$email = $_REQUEST['useremail'];
 		$loanamount = $_REQUEST['loanamount'];
 		$referralcode = $_REQUEST['referralcode'];
+
+		if ($_REQUEST['usertype'] == 2) {
+			$usertype = 2;
+			$cardtype = 12;
+		} else {
+			$usertype = 1;
+			$cardtype = 11;
+		}
 
 		$this->load->model('Site_Digital_Model');
 		$usr_res = $this->Site_Digital_Model->checkuser($_REQUEST['usermobile']);
@@ -266,7 +279,7 @@ class Digital extends CI_Controller
 			'mobile' => $mobile,
 			'email' => $email,
 			'cardtype' => $cardtype,
-			//'usertype' => $_REQUEST['usertype'],
+			'usertype' => $usertype,
 			'process_step' => 1,
 			'isUser' => 1,
 			'isDelete' => 0
@@ -280,7 +293,7 @@ class Digital extends CI_Controller
 				'rec_date' => date('Y-m-d H:i:s'),
 				'userid' => $userid,
 				'loanamount' => $_REQUEST['loanamount'],
-				'loantype' => $_REQUEST['loantype'],
+				'loantype' => $cardtype,
 				'isDelete' => 0
 			);
 

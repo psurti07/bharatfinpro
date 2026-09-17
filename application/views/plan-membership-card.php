@@ -1,8 +1,8 @@
 <?php
 $this->load->view('includes/header-plan-apply.php');
 
-//$amtpay = $productdata['payamount'];
-//$eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi'], $userdetails['apr'], $userdetails['loanamount']);
+$amtpay = $productdata['payamount'];
+$eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi'], $userdetails['apr'], $userdetails['loanamount']);
 ?>
 
 <section class="background-alice-blue loan-application-section">
@@ -22,7 +22,7 @@ $this->load->view('includes/header-plan-apply.php');
                         <span class="text-uppercase sub-title mb-2 d-block text-gray">Desired loan
                             amount</span>
                         <div class="text-start">
-                            <h3 class="ps-0 price-text font-weight-600 text-primary">₹2,50,000.00</h3>
+                            <h3 class="ps-0 price-text font-weight-600 text-primary">₹<?php echo formatePriceIndia($userdetails['loanamount']); ?></h3>
                         </div>
                         <hr />
                         <h5 class="text-dark-navy mb-3"><i class="icon-user mr-2"></i>Customer details
@@ -75,9 +75,9 @@ $this->load->view('includes/header-plan-apply.php');
                         class="form-control" required>
                     <div class="loan-approved-box">
                         <div class="text-center w-100 mb-3  loan-approve-text pt-4 pb-5">
-                            <p class="text-white mb-1">Great news, Kirtan!</p>
+                            <p class="text-white mb-1">Great news, <?php echo $userdetails['fullname']; ?>!</p>
                             <h4 class="text-white">Your Loan is Pre-Approved Amount Of <h4 class="text-warning">₹
-                                    <?php //echo formatePriceIndia($eligibilityamt); ?>/-</h4>
+                                    <?php echo formatePriceIndia($eligibilityamt); ?>/-</h4>
                             </h4>
                         </div>
                         <div class="background-alice-blue border counter-wrapper-main membership-offer mb-0">
@@ -122,12 +122,12 @@ $this->load->view('includes/header-plan-apply.php');
                                     <td class="text-center border-top-0 pt-0" colspan="2">
                                         <?php
                                                if ($productdata['offeramount'] != 0) {
-                                                // echo '<h3 class="m-b-0">';
+                                                 echo '<h4 class="m-b-0">';
                                                 echo '<div class="d-flex align-items-center justify-content-center mb-0 flex-md-nowrap flex-wrap">₹ <del class="text-gray">' . formatePrice($productdata['amount']) . '</del> 
-                                                <h2 class="text-dark-navy display-3 font-weight-bold mb-0">' . formatePrice($productdata['offeramount']) . '</h2>
+                                                <h3 class="text-dark-navy display-3 font-weight-bold mb-0">' . formatePrice($productdata['offeramount']) . '</h3>
                                                 <span class="text-white bg-success fa-sm px-3 py-2 rounded-pill font-weight-700 badge d-inline-block"> ' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off</span> </div>';
                                                 echo ' ';    
-                                                // echo '</h3>';
+                                                 echo '</h4>';
                                                 $subtotal = $productdata['offeramount'];
                                                } else {
                                                 echo '<h4>Rs. ' . formatePrice($productdata['amount']) . '</h4>';
@@ -189,7 +189,7 @@ $this->load->view('includes/header-plan-apply.php');
             </div>
             <div class="col-lg-3 col-md-12 col-12 mb-lg-0 mb-0">
                 <div class="card shadow mb-0 benefit-card">
-                    <div class="card-body">
+                    <div class="card-body p-0">
                         <h5 class="card-title text-dark-navy font-weight-bold">Plan Benefits:</h5>
 
                         <ul class="icon-list-wrap bullet-bg bullet-soft-orange mb-0 p-0">

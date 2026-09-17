@@ -381,7 +381,7 @@ $this->load->view('includes/header-plan-apply.php');
                                                 <p class="step-label text-gray text-uppercase mb-0 mt-0 fa-xs">
                                                     Loan
                                                     amount</p>
-                                                <p class="text-dark-navy mb-0 step-price font-weight-bold">₹2,50,000</p>
+                                                <p class="text-dark-navy mb-0 step-price font-weight-bold">₹<?php echo $userdetails['loanamount']; ?></p>
                                             </div>
 
                                             <div class="col-lg-6 col-6">

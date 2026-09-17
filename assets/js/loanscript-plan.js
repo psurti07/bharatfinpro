@@ -53,7 +53,7 @@ let emiElement = document.querySelector('.range .range__emi span')
 
 let options = {
   min: 10000,
-  max: 1500000,
+  max: 1000000,
   cur: 100000
 }
 
