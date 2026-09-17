@@ -120,7 +120,7 @@ class Plan extends CI_Controller
 	public function checkotpCode()
 	{
 		$mobile = $_REQUEST['otpmobile'];
-		$otpcode = $_REQUEST['otpcode'];
+		$otpcode = implode('',$_REQUEST['otpcode']);
 		$this->session->set_tempdata('loanamount', $_REQUEST['loanamount']);
 		$this->session->set_tempdata('usermobile', $mobile);
 
