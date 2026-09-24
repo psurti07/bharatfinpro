@@ -89,7 +89,7 @@ $this->load->view('includes/header-plan-apply.php');
                         <div class="col-md-4 col-4 mt-0 p-0">
                             <div class="counter-wrap text-left position-relative">
                                 <h3 class="counter counter-lg text-dark-navy font-weight-600 mb-0">
-                                    2M+</h3>
+                                    50k+</h3>
                                 <div class="text-start position-relative">
                                     <p class="text-gray fa-xs">Happy borrowers</p>
                                 </div>
@@ -99,7 +99,7 @@ $this->load->view('includes/header-plan-apply.php');
                         <div class="col-md-4 col-4 mt-0 p-0">
                             <div class="counter-wrap text-left position-relative">
                                 <h3 class="counter counter-lg text-dark-navy font-weight-600 mb-0">
-                                    ₹500Cr+</h3>
+                                    ₹2.5Cr+</h3>
                                 <div class="text-start position-relative">
                                     <p class="text-gray fa-xs">Disbursed</p>
                                 </div>
@@ -229,7 +229,7 @@ $this->load->view('includes/header-plan-apply.php');
                                                 class="custom-control-input mb-0" value="1"
                                                 style="width:auto;height:auto" checked required>
                                             <label class="custom-control-label" for="promotion">I agree to receive
-                                                promotional & informational communications from IndiaPro Finance
+                                                promotional & informational communications from BharatPro Finance
                                                 via Email, SMS and RCS.</label>
                                         </div>
                                         <div class="help-block ms-0 ps-0 mb-2"></div>
@@ -269,13 +269,13 @@ $this->load->view('includes/header-plan-apply.php');
                                             <br>
                                             application secure.
                                         </p>
-                                        <div class="step-details mb-0 background-alice-blue border p-3">
+                                       <!-- <div class="step-details mb-0 background-alice-blue border p-3">
                                             <p class="step-label text-gray mb-1 mt-0">Mobile</p>
                                             <p class="text-dark-navy font-weight-bold step-number mb-1">
                                                 <?php echo $userdetails['mobile']; ?>
                                             </p>
-                                            <p class="text-primary number-change mb-0">Change Number</p>
-                                        </div>
+                                            
+                                        </div>-->
 
                                     </div>
                                     <div class="otp-details-wrap p-4 border-top">
@@ -288,7 +288,7 @@ $this->load->view('includes/header-plan-apply.php');
                                             <div class="col-lg-10 ml-lg-4 ml-0">
                                                 <h4 class="text-dark-navy font-weight-bold mb-0">Please enter the OTP
                                                 </h4>
-                                                <h5 class="text-gray">Mobile no.: +91 9809809870
+                                                <h5 class="text-gray">Mobile no.: <?php echo $userdetails['mobile'];?>
                                                 </h5>
                                             </div>
                                         </div>
@@ -381,7 +381,7 @@ $this->load->view('includes/header-plan-apply.php');
                                                 <p class="step-label text-gray text-uppercase mb-0 mt-0 fa-xs">
                                                     Loan
                                                     amount</p>
-                                                <p class="text-dark-navy mb-0 step-price font-weight-bold">₹<?php echo $userdetails['loanamount']; ?></p>
+                                                <p class="text-dark-navy mb-0 step-price font-weight-bold">₹<?php echo formatePriceIndia($userdetails['loanamount']); ?></p>
                                             </div>
 
                                             <div class="col-lg-6 col-6">
@@ -389,7 +389,7 @@ $this->load->view('includes/header-plan-apply.php');
                                                     Mobile
                                                 </p>
                                                 <p class="text-dark-navy mb-0 step-price font-weight-bold">+91
-                                                    7048313607</p>
+                                                    <?php echo $userdetails['mobile'];?></p>
                                             </div>
                                         </div>
                                     </div>

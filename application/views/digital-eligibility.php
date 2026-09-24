@@ -263,7 +263,6 @@ $('#pincode').on('input', function() {
                 pincode: pincode
             },
             dataType: "json",
-
             success: function(response) {
 
                 if (response.status === 'success') {

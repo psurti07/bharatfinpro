@@ -114,7 +114,7 @@ class Digital extends CI_Controller
 				die;
 			}
 		} else {
-			echo json_encode(array("success" => false, "message" => "Customer loan amount and mobile number is mendatory.", "mobile" => "", "redirect_url" => ""));
+			echo json_encode(array("success" => false, "message" => ".New OTP sent to mobile.", "mobile" => "", "redirect_url" => ""));
 			die;
 		}
 	}
@@ -506,7 +506,7 @@ class Digital extends CI_Controller
 	{
 		$this->load->helper('geoloc');
 		$pincode = $_REQUEST['pincode'];
-
+		
 		if (strlen($pincode) != 6) {
 			echo json_encode([
 				'status' => 'error',
@@ -516,7 +516,7 @@ class Digital extends CI_Controller
 		}
 
 		$data = getGeolocation($pincode);
-
+		
 		if (isset($data['error'])) {
 			echo json_encode([
 				'status' => 'error',

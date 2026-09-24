@@ -44,7 +44,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                         </p>
                         <p class="mb-5 d-flex justify-content-between"><span class="text-gray"> <i
                                     class="fa fa-file mr-2"></i>Loan</span><span
-                                class="text-dark-navy font-weight-500"><?php echo $userdetails['loanamount']; ?></span>
+                                class="text-dark-navy font-weight-500"><?php echo $userdetails['loanname']; ?></span>
                         </p>
                     </div>
 
@@ -228,12 +228,12 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 
                         <div class="row text-center customers-satisfied-section">
                             <div class="col-6 p-0">
-                                <h4 class="mb-1 text-primary">225k</h4>
+                                <h4 class="mb-1 text-primary">50k</h4>
                                 <p class="mb-0 text-gray fa-xs">Satisfied Customers</p>
                             </div>
 
                             <div class="col-6 p-0">
-                                <h4 class="mb-1 text-primary">₹100M</h4>
+                                <h4 class="mb-1 text-primary">₹2.5M</h4>
                                 <p class="mb-0 text-gray fa-xs">Loan Disbursed</p>
                             </div>
                         </div>

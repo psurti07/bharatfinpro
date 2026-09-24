@@ -184,7 +184,7 @@ $this->load->view('includes/header-apply.php');
                                     value="1" style="width:auto;height:auto" checked required>
                                 <p class="custom-control-label fa-xs" for="promotion">I agree to receive promotional &
                                     informational communications from
-                                    IndiaFinPro through Emails, calls or SMS/RCS Services.</p>
+                                    Bharatfinpro through Emails, calls or SMS/RCS Services.</p>
                             </div>
                             <div class="help-block ms-0 ps-0 mb-2"></div>
                         </div>
@@ -221,7 +221,7 @@ $this->load->view('includes/header-apply.php');
                         <div class="form-group">
 
                             <p class="text-dark" for="mobileno">
-                                We've sent a 6-digit OTP to
+                                We've sent a 4-digit OTP to
                                 <strong>
                                     <?php echo $userdetails['mobile']; ?>
                                 </strong>
@@ -287,7 +287,7 @@ $this->load->view('includes/header-apply.php');
                                 <div class="d-flex align-items-start">
 
                                     <i class="icon-shield mr-2 text-success mt-2"></i>
-                                    <p class="mb-0 fw-light fa-xs ms-2">IndiaFinPro will never call you for
+                                    <p class="mb-0 fw-light fa-xs ms-2">Bharatfinpro will never call you for
                                         your OTP. Treat
                                         your OTP like
                                         a password — do not share it with anyone. </p>
