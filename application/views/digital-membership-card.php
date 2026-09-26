@@ -9,7 +9,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
     <div class="container">
         <div class="loan-offer-card how-we-help-block bg-navy mb-4">
             <div class="row align-items-end">
-                <div class="col-12 col-md-8 col-lg-8">
+                <div class="col-12 col-md-12 col-lg-12">
                     <div class="card shadow-none mb-4 bg-transparent border-0">
 
 
@@ -22,10 +22,10 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 <?php echo $userdetails['fullname']; ?>!
                                 🎉</h2>
 
-                            <p class="text-white">Your <strong class="text-orange">Rs.
+                            <h5 class="text-white">Your <strong class="text-orange" style="font-size:22px">Rs.
                                     <?php echo formatePriceIndia($eligibilityamt); ?></strong> pre-approved loan is
                                 waiting.
-                                Purchase a subscription to proceed.</p>
+                                Purchase a subscription to proceed.</h5>
 
 
                             <span class="badge bg-pale-primary rounded-pill text-main-top-wrap py-2">
@@ -34,9 +34,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-4">
-                    <img class="img-fluid r-12" src="<?php echo base_url() ?>assets/images/subscriber.png" alt="">
-                </div>
+                
             </div>
         </div>
         <!-- START : MEMBERSHIP CARD -->
@@ -161,7 +159,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             <div class="bg-white p-4">
                                 <div class="card-body p-0">
 
-                                    <h4 class="text-left text-blue font-weight-bold">Subscription Benefits</h4>
+                                    <h4 class="text-left text-blue font-weight-bold">Membership Benefits</h4>
                                     <ul class="mt-4 mb-4 p-0">
                                         <li class="mb-3 d-flex">
                                             <div>

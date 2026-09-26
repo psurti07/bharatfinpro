@@ -75,7 +75,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                         class="form-control" required>
                     <div class="loan-approved-box">
                         <div class="text-center w-100 mb-3  loan-approve-text pt-4 pb-5">
-                            <p class="text-white mb-1">Great news, <?php echo $userdetails['fullname']; ?>!</p>
+                            <p class="text-white mb-1" style="font-weight: 800;font-size:18px">Great news, <?php echo $userdetails['fullname']; ?>!</p>
                             <h4 class="text-white">Your Loan is Pre-Approved Amount Of <h4 class="text-warning">₹
                                     <?php echo formatePriceIndia($eligibilityamt); ?>/-</h4>
                             </h4>
@@ -85,31 +85,25 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 <div class="col-sm-4 col-4">
                                     <div class="counter-wrap text-center position-relative">
                                         <div class=" text-start position-relative">
-                                        <p class="text-gray fa-sm mb-0 text-uppercase">Loan</p>
+                                        <h5 class="text-gray mb-0 text-uppercase">Fast Process</h5>
                                       
                                     </div>
-                                              <h5 class="counter counter-lg text-dark-navy font-weight-600 mb-0">
-                                            ₹2,40,000</h5>
+                                             
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-4">
                                     <div class="counter-wrap text-center position-relative">
                                         <div class=" text-start position-relative">
-                                        <p class="text-gray fa-sm mb-0 text-uppercase">Monthly EMI</p>
-                                    </div>
-                                 
-                                                   <h5 class="counter counter-lg text-primary font-weight-600 mb-0">
-                                            ₹11,242</h5>
+                                            <h5 class="text-gray mb-0 text-uppercase">Secure Checkout</h5>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4 col-4">
                                     <div class="counter-wrap text-center position-relative">
                                         <div class=" text-start position-relative">
-                                        <p class="text-gray fa-sm mb-0 text-uppercase">Tenure</p>
+                                        <h5 class="text-gray mb-0 text-uppercase">Minimal Paperwork</h5>
                                         
                                     </div>
-                                            <h5 class="counter counter-lg text-dark-navy font-weight-600 mb-0">
-                                            24 Mo</h5>
                                     </div>
                                 </div>
                             </div>

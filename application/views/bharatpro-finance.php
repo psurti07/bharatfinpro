@@ -408,9 +408,9 @@ $this->load->view('includes/header-plan-apply.php');
                                                                     <i class="icon-briefcase text-primary fa-lg"></i>
                                                                 </div>
                                                                 <div class="ml-lg-3 ml-2">
-                                                                    <h5 class="mb-0 text-dark-navy">
+                                                                    <h4 class="mb-0 text-dark-navy">
                                                                         Salaried
-                                                                    </h5>
+                                                                    </h4>
 
                                                                 </div>
                                                             </div>
@@ -433,9 +433,9 @@ $this->load->view('includes/header-plan-apply.php');
                                                                     <i class="icon-flag text-primary fa-lg"></i>
                                                                 </div>
                                                                 <div class="ml-lg-3 ml-2">
-                                                                    <h5 class="mb-0 text-dark-navy">
-                                                                        Self-Emp.
-                                                                    </h5>
+                                                                    <h4 class="mb-0 text-dark-navy">
+                                                                        Self-Employee
+                                                                    </h4>
 
                                                                 </div>
                                                             </div>
@@ -489,26 +489,16 @@ $this->load->view('includes/header-plan-apply.php');
     <div class="container">
         <div class="row">
             <div class="col-12 text-dark-navy">
-                <p class="mb-1"><small><strong>Disclosure:</strong>Loan tenure ranges from minimum 6 months to maximum
-                        60
-                        months, with annual interest rates starting at 11% and going up to 34%. A processing fee up to
-                        2%
-                        may be applicable. Representative example
-                        loan of ₹1,00,000 at 12.5% p.a. for 12 months with a 2% processing fee — interest payable ≈
-                        ₹6,720,
-                        processing fee ₹2,000, total cost ≈ ₹1,08,720, APR ≈ 14.27%. *T&C apply. All numbers are
-                        indicative;
-                        final loan
-                        specifics may vary by customer profile and NBFC criteria. We are not lenders and do not
-                        guarantee
-                        approval.</small></p>
+               <p class="mb-2"><strong>Disclaimer: </strong><small><?php echo COMPANY_NAME;?> is not a lender or financial institution. We do not provide loans or make credit decisions. All loan approvals, interest rates, fees, and disbursal are handled by third-party lenders/NBFCs. We do not guarantee loan approval, disbursal, or specific loan terms. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval. Loan approval, disbursement/sanction is entirely dependent on NBFC criteria.</small></p>
 
-                <p class="mb-0"><small><strong>Registered Office Address:</strong>
-                        <?php echo COMPANY_ADDRESS; ?></small></p>
+                <p class="mb-2"><strong>Important Note:</strong><small> We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a>  and NOT through any other source, directly or indirectly.</p>
+                <p class="mb-2"><strong>PRE-APPLICATION NOTE: </strong><small> Users are advised to read our terms and conditions and policies before proceeding/applying/registration.</p>
 
-                <p class="mb-0"><small><strong>Phone: </strong> <?php echo COMPANY_MOBILE; ?> </small></p>
+                <p class="mb-0"><strong>Company Registered Address:
+                    </strong><small><?php echo COMPANY_ADDRESS; ?></small></p>
 
-                <p class="mb-0"><small><strong>Email: </strong> <?php echo COMPANY_EMAIL; ?></small></p>
+                <p class="mb-0"><strong>Company Registered Address:
+                    </strong><small>Mobile : <?php echo COMPANY_MOBILE; ?></small> | <small>Email : <?php echo COMPANY_EMAIL; ?></small></p>
             </div>
         </div>
     </div>

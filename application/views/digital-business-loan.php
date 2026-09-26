@@ -622,27 +622,16 @@ $this->load->view('includes/header-apply.php');
     <div class="container">
         <div class="row">
             <div class="col-12 text-dark">
-                <p class="mb-2"><strong>Disclosure: </strong><small>Loan Tenure ranges from minimum 6 months to maximum
-                        of 60 months, with annual interest rates starting at 11% and going up to 34%. A processing fee
-                        up to 2% may be applicable.
-                        Representative Example: If a loan of ₹1,00,000 is availed at an interest rate of 12.5% per annum
-                        for a tenure of 12 months, and a processing fee of 2% is applied: Interest Payable: ₹6,720
-                        approx. Processing
-                        Fee: ₹2,000. Total Loan Cost (including interest + fee): ₹1,08,720. APR (Annual Percentage
-                        Rate): 14.27% approx. *T&C Apply. All these numbers are tentative/indicative, the final loan
-                        specifics may vary
-                        depending upon the customer profile and NBFCs' criteria, rules & regulations, and terms &
-                        conditions. The amount paid is only for the service charge. We are not lenders and do not
-                        guarantee any loan
-                        approval.</small></p>
+                <p class="mb-2"><strong>Disclaimer: </strong><small><?php echo COMPANY_NAME;?> is not a lender or financial institution. We do not provide loans or make credit decisions. All loan approvals, interest rates, fees, and disbursal are handled by third-party lenders/NBFCs. We do not guarantee loan approval, disbursal, or specific loan terms. The amount paid is only for the service charge. We are not lenders and do not guarantee any loan approval. Loan approval, disbursement/sanction is entirely dependent on NBFC criteria.</small></p>
 
-                <p class="mb-2"><strong>Important Note:</strong><small> BE AWARE! We ask our customers to make payments
-                        ONLY on our
-                        website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a> and NOT
-                        through any other source, directly or indirectly. Thanks!</small></p>
+                <p class="mb-2"><strong>Important Note:</strong><small> We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a>  and NOT through any other source, directly or indirectly.</p>
+                <p class="mb-2"><strong>PRE-APPLICATION NOTE: </strong><small> Users are advised to read our terms and conditions and policies before proceeding/applying/registration.</p>
 
                 <p class="mb-0"><strong>Company Registered Address:
                     </strong><small><?php echo COMPANY_ADDRESS; ?></small></p>
+
+                <p class="mb-0"><strong>Company Registered Address:
+                    </strong><small>Mobile : <?php echo COMPANY_MOBILE; ?></small> | <small>Email : <?php echo COMPANY_EMAIL; ?></small></p>
             </div>
         </div>
     </div>

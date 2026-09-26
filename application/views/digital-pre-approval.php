@@ -19,9 +19,9 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                     </div>
                                 </div>
                                 <div class="ml-3">
-                                    <h3 class="mb-0 font-weight-bold text-blue">EMI Options
+                                    <h3 class="mb-0 font-weight-bold text-blue">Congratulations <?php echo $userdetails['fullname']; ?> <span style="color:#fb710f;font-wight:700"> ₹ <?php echo formatePriceIndia($eligibilityamt); ?></span>
                                     </h3>
-                                    <p class="mb-0">Selecting the Right EMI Options for Your Financial Goals</p>
+                                    <p class="mb-0">Loan is pre-approved Choose your best EMI Options</p>
                                 </div>
                             </div>
                         </div>
