@@ -95,7 +95,7 @@ define('COMPANY_NAME', 'Bharatfinpro');
 define('COMPANY_EMAIL', 'info@bharatfinpro.com');
 define('COMPANY_MOBILE', '+91-79909-14132');
 define('COMPANY_CIN', 'SRTS39343D');
-define('COMPANY_GST', '#');
+define('COMPANY_GST', '24AGAFS4464J1ZT');
 define('COMPANY_SITE', 'bharatfinpro.com');
 define('COMPANY_ADDRESS', 'Shop No- 228, Unique Square, Causeway Dabholi Link Road, Singanpor, Surat, Gujarat, 395004');
 define('COMPANY_TIMING', '#');

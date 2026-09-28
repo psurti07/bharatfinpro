@@ -25,7 +25,7 @@
                 <tbody>
                     <tr>
                         <td style="vertical-align:bottom;word-wrap:break-word;float:left;width:50%;text-align:left;">
-                            <b>Bharatfinpro</b>
+                            <b><?php echo COMPANY_NAME; ?></b>
                             <br>
                             <div>
                                 <span style="white-
@@ -102,7 +102,7 @@
                                 <?php echo $invdetails['orderinfo']->card_number; ?></span>
                             <br>
                             <span style="color: #525252;white-space: pre-wrap;word-wrap: break-word;"
-                                id="tmp_item_description">Subscription Validity -
+                                id="tmp_item_description">Membership Validity -
                                 <?php echo displayDate($invdetails['orderinfo']->registration_date) . " to " . displayDate($invdetails['orderinfo']->expiry_date); ?></span>
                         </td>
                         <td style="font-size: 9pt;border-bottom: 1px solid #e3e3e3;background-color: #ffffff;color: #000000;padding: 10px 10px 5px 10px;text-align:right;word-wrap: break-word;"
@@ -217,7 +217,7 @@
                         <td style="vertical-align:bottom;word-wrap:break-word;float:right;width:50%;text-align:right;">
                             <p style="margin-top:7px;white-space: pre-wrap;word-wrap: break-word;font-size: 8pt;">
                                 <em>Authorized person</em><br /><span
-                                    style="margin-top:20px;margin-bottom:7px;"><strong>Bharatfinpro.</strong></span></p>
+                                    style="margin-top:20px;margin-bottom:7px;"><strong><?php echo COMPANY_NAME; ?>.</strong></span></p>
                         </td>
                     </tr>
                 </tbody>

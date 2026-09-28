@@ -69,13 +69,13 @@ $this->load->view('includes/header-apply.php');
                                 </div>
                                 <div class="d-flex justify-content-between required-amount">
                                     <h6 class="text-uppercase mb-0">enter required amount</h6>
-                                    <h6 class="text-uppercase mb-0">₹50K – ₹10L</h6>
+                                    <h6 class="text-uppercase mb-0">₹10K – ₹10L</h6>
                                 </div>
                                 <div class="range__slider">
                                     <input type="range" class="rangs" id="rangs" name="loanamount" step="10000">
                                 </div>
                                 <div class="d-flex justify-content-between required-price">
-                                    <h6 class="text-uppercase mb-0">₹50,000</h6>
+                                    <h6 class="text-uppercase mb-0">₹10,000</h6>
                                     <h6 class="text-uppercase mb-0">₹10,00,000</h6>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ $this->load->view('includes/header-apply.php');
                                                         </div>
                                                         <div class="ml-2">
                                                             <h5 class="mb-0 text-blue">
-                                                                Self-Emp.
+                                                                Self-Employee
                                                             </h5>
                                                             <p class="mb-0 card-content">Run your own business
                                                             </p>

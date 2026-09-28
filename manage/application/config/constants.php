@@ -95,7 +95,7 @@ define('COMPANY_NAME', '#');
 define('COMPANY_EMAIL', '#');
 define('COMPANY_MOBILE', '#');
 define('COMPANY_CIN', '#');
-define('COMPANY_GST', '#');
+define('COMPANY_GST', '24AGAFS4464J1ZT');
 define('COMPANY_SITE', '#');
 define('COMPANY_ADDRESS', '#');
 define('COMPANY_TIMING', '#');

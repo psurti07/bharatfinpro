@@ -19,7 +19,7 @@ $this->load->view('includes/header-plan-apply.php');
                                 built for India.</span>
                                 </h3>
                                 <p class="text-gray">Get pre-approved offers from our NBFC partners, ranging from
-                                    ₹50,000 to
+                                    ₹10,000 to
                                     ₹10,00,000, delivered in minutes.</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-4">
@@ -33,7 +33,7 @@ $this->load->view('includes/header-plan-apply.php');
                                 <div class="d-flex align-items-start justify-content-between">
                                     <div class="">
                                         <p class="stat-val mb-2 mt-1 text-uppercase text-gray">From</p>
-                                        <h3 class="mb-0 card-content font-weight-bold text-dark-navy">₹50,000
+                                        <h3 class="mb-0 card-content font-weight-bold text-dark-navy">₹10,000
                                         </h3>
                                     </div>
                                     <div class="ms-3">
@@ -168,7 +168,7 @@ $this->load->view('includes/header-plan-apply.php');
 
                                     <div class="range__value text-center mb-0">
                                         <span
-                                            class="text-uppercase mb-0 text-primary loan-price px-3 py-1">₹2,50,000</span>
+                                            class="text-uppercase mb-0 text-primary loan-price px-3 py-1" style="font-size: 23px;">₹2,50,000</span>
                                     </div>
                                 </div>
                                 <div class="range__slider">

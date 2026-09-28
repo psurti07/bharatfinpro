@@ -181,7 +181,7 @@ $this->load->view('includes/header-apply.php');
                                 <div class="d-flex align-items-center">
                                     <div class="icon-col">
                                         <div class="text-center icon-col-image background-grey">
-                                            <i class="fa fa-phone"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </div>
                                     </div>
                                     <div class="pt-0 pb-1 pl-0 ml-3">

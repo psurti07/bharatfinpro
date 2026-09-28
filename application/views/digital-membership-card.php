@@ -67,7 +67,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 
                                     <div class="d-flex align-items-start justify-content-between w-100">
                                         <div class="ms-0 mb-3">
-                                            <h5 class="fs-11 mb-1 text-orange text-uppercase">Premium Subscription
+                                            <h5 class="fs-11 mb-1 text-orange text-uppercase">Premium Membership
                                             </h5>
                                             <h4 class="text-start text-blue font-weight-bold">Limited-time offer</h4>
                                         </div>
@@ -188,7 +188,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                         <li class="mb-3 d-flex">
                                             <div>
                                                 <i class="icon-check-circle text-success"></i>
-                                            </div> <span class="ml-2 text-left">Subscription Validity: 9
+                                            </div> <span class="ml-2 text-left">Membership Validity: 6
                                                 Months</span>
                                         </li>
                                         <li class="mb-4 d-flex">
@@ -255,7 +255,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 <div class="d-flex align-items-center">
                                     <div class="icon-col">
                                         <div class="text-center icon-col-image background-grey">
-                                            <i class="fa fa-phone"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </div>
                                     </div>
                                     <div class="pt-0 pb-1 pl-0 ml-3">

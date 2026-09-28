@@ -140,7 +140,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                                     months</span>
                                             </div>
 
-                                            <h3 class="mb-2 text-blue">₹
+                                            <h3 class="mb-2 text-blue font-weight-bold">₹
                                                 <?php echo calPMT($userdetails['apr'], 2, $eligibilityamt); ?></h3>
                                             <p class="mb-0 fw-light"><small>per month</small></p>
                                             <div class="round-radiobox"></div>
@@ -161,7 +161,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                                     class="sub-offer-value text-orange text-uppercase fs-13 lh-normal">36
                                                     months</span>
                                             </div>
-                                            <h3 class="mb-2 text-blue">₹
+                                            <h3 class="mb-2 text-blue font-weight-bold">₹
                                                 <?php echo calPMT($userdetails['apr'], 3, $eligibilityamt); ?></h3>
                                             <p class="mb-0 fw-light"><small>per month</small><br />
                                             </p>
@@ -184,7 +184,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                                     class="sub-offer-value text-orange text-uppercase fs-13 lh-normal">48
                                                     months</span>
                                             </div>
-                                            <h3 class="mb-2 text-blue">₹
+                                            <h3 class="mb-2 text-blue font-weight-bold">₹
                                                 <?php echo calPMT($userdetails['apr'], 4, $eligibilityamt); ?></h3>
                                             <p class="mb-0 fw-light"><small>per month</small></p>
 
@@ -206,7 +206,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                                     class="sub-offer-value text-orange text-uppercase fs-13 lh-normal">60
                                                     months</span>
                                             </div>
-                                            <h3 class="mb-2 text-blue">₹
+                                            <h3 class="mb-2 text-blue font-weight-bold">₹
                                                 <?php echo calPMT($userdetails['apr'], 5, $eligibilityamt); ?></h3>
                                             <p class="mb-0 fw-light"><small>per month</small></p>
 
@@ -229,7 +229,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                                     months</span>
                                             </div>
 
-                                            <h3 class="mb-2 text-blue">₹
+                                            <h3 class="mb-2 text-blue font-weight-bold">₹
                                                 <?php echo calPMT($userdetails['apr'], 6, $eligibilityamt); ?></h3>
                                             <p class="mb-0 fw-light"><small>per month</small></p>
                                             <div class="round-radiobox"></div>
@@ -306,7 +306,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                                 <div class="d-flex align-items-center">
                                     <div class="icon-col">
                                         <div class="text-center icon-col-image background-grey">
-                                            <i class="fa fa-phone"></i>
+                                            <i class="fa fa-mobile"></i>
                                         </div>
                                     </div>
                                     <div class="pt-0 pb-1 pl-0 ml-3">
