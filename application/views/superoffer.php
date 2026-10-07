@@ -4,14 +4,14 @@ $this->load->view('includes/header-plan-apply.php');
 $amtpay = $productdata['payamount'];
 ?>
 
-<section class="background-white">
+<section class="background-grey">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center sm-p-0">
-                <div class="card border-2 border-secondary shadow-none">
-                    <div class="card-header background-offer" style="border-radius: 8px 8px 0 0;">
+            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center">
+                <div class="card border-2 shadow-lg overflow-hidden">
+                    <div class="card-header background-alice-blue">
                         <div class="card-title">
-                            <h4 class="font-weight-bold font-italic text-light">Your Personal Loan up to <span
+                            <h4 class="font-weight-bold font-italic">Your Personal Loan up to <span
                                     class="text-secondary">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h4>
                         </div>
                     </div>
@@ -34,9 +34,9 @@ $amtpay = $productdata['payamount'];
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center sm-p-0">
-                <div class="card border-2 border-secondary shadow-none">
-                    <div class="card-header background-offer" style="border-radius: 8px 8px 0 0;">
+            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center mb-0">
+                <div class="card border-2 shadow-lg overflow-hidden">
+                    <div class="card-header background-alice-blue">
                         <?php
 						if ($this->session->flashdata('danger')): ?>
                         <div id="flash-message" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -45,11 +45,11 @@ $amtpay = $productdata['payamount'];
                         </div>
                         <?php endif; ?>
                         <div class="card-title">
-                            <p><span class="font-weight-bold text-light">Membership Fees</span> <span
-                                    class="small font-italic text-light">18% GST additional.</span></p>
+                            <p><span class="font-weight-bold">Membership Fees</span> <span
+                                    class="small font-italic">18% GST additional.</span></p>
                             <?php
 							if ($productdata['offeramount'] != 0) {
-								echo '<h4 class="m-b-0 text-light">';
+								echo '<h4 class="m-b-0">';
 
 								echo 'Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> ';
 
@@ -110,7 +110,7 @@ $amtpay = $productdata['payamount'];
 
                         <div class="form-group text-left">
                             <button type="submit" id="form-submit1"
-                                class="btn btn-block btn-lg btn-process-offer">PROCEED TO PAY</button>
+                                class="btn btn-block btn-lg btn-primary">PROCEED TO PAY</button>
                         </div>
 
                         <div class="form-group text-dark mb-0">
@@ -135,7 +135,7 @@ $amtpay = $productdata['payamount'];
 </section>
 
 <!-- testimonial section -->
-<section class="background-white pt-1">
+<section class="background-grey pt-0">
     <div class="container">
         <div class="text-center m-b-50">
             <h2 class="text-dark">Our Customers Testimonials</h2>

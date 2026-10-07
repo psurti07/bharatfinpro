@@ -128,7 +128,7 @@ $this->load->view('includes/header.php');
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <div class="card shadow-none p-2 border-0">
+                <div class="card shadow-none p-2 border-0 card-left">
                     <div class="card-body background-pattern-1 rounded border">
                         <span class="logo-default mb-3"><img src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
                                 alt="<?php echo PROJECT_NAME; ?>" width="200"></span>
@@ -162,7 +162,7 @@ $this->load->view('includes/header.php');
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="card shadow-none p-2 border-0">
+                <div class="card shadow-none p-2 border-0 card-left">
                     <div class="card-body background-pattern-1 rounded border">
                         <span class="logo-default mb-3"><img src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
                                 alt="<?php echo PROJECT_NAME; ?>" width="200"></span>

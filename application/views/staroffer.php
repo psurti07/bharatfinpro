@@ -4,12 +4,12 @@ $this->load->view('includes/header-apply.php');
 $amtpay = $productdata['payamount'];
 ?>
 
-<section class="background-white">
+<section class="background-grey">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center sm-p-0">
-                <div class="card border-2 shadow-none">
-                    <div class="card-header background-honeydew" style="border-radius: 8px 8px 0 0;">
+            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center">
+                <div class="card border-2 shadow-lg overflow-hidden">
+                    <div class="card-header background-light-green">
                         <div class="card-title">
                             <h4 class="font-weight-bold font-italic">Your Personal Loan up to <span
                                     class="text-orange">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h4>
@@ -33,9 +33,9 @@ $amtpay = $productdata['payamount'];
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center sm-p-0">
-                <div class="card border-2 shadow-none">
-                    <div class="card-header background-honeydew" style="border-radius: 8px 8px 0 0;">
+            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center mb-0">
+                <div class="card border-2 shadow-lg overflow-hidden">
+                    <div class="card-header background-light-green">
                         <?php
 						if ($this->session->flashdata('danger')): ?>
                         <div id="flash-message" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -108,7 +108,7 @@ $amtpay = $productdata['payamount'];
                         </div>
 
                         <div class="form-group text-left">
-                            <button type="submit" id="form-submit1" class="btn btn-block btn-lg btn btn-primary">PROCEED
+                            <button type="submit" id="form-submit1" class="btn btn-block btn-lg btn-orange">PROCEED
                                 TO PAY</button>
                         </div>
 
@@ -134,7 +134,7 @@ $amtpay = $productdata['payamount'];
 </section>
 
 <!-- testimonial section -->
-<section class="background-white pt-1">
+<section class="background-grey pt-0">
     <div class="container">
         <div class="text-center m-b-50">
             <h2 class="text-dark">Our Customers Testimonials</h2>

@@ -571,10 +571,10 @@
  }
 
 
- .input-group {
+ /* .input-group {
      border-radius: 12px;
      overflow: hidden;
- }
+ } */
 
  .otp-details-wrap .icon-image-wraper {
      width: 50px;
@@ -727,4 +727,7 @@
      .subscription-section .landing-form-right .calender-image i {
          font-size: 20px;
      }
+ }
+ .card-left{
+        border-radius: 0px !important;
  }
