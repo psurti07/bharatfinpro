@@ -88,7 +88,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
 
                                                 echo '<div class="d-flex align-items-bottom mb-3">Rs. <del class="text-danger">' . formatePrice($productdata['amount']) . '</del> 
 
-                                                <h1 class="text-orange">' . formatePrice($productdata['offeramount']) . '</h1> </div>';
+                                                <h1 class="text-orange font-weight-800">' . formatePrice($productdata['offeramount']) . '</h1> </div>';
 
                                                 // echo '<span class="text-danger font-weight-700"> (' . calPercentage($productdata['amount'], $productdata['offeramount']) . ' off)</span>';
                                                 echo ' <p>One-time fee, GST extra </p>';    

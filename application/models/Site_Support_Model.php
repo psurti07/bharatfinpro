@@ -13,7 +13,7 @@ class Site_Support_Model extends CI_Model
 	public function sendmessage($ticketNum = '', $mobile = '', $email = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: " . $ticketNum . " We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
+			$smsmessage = "Your request ticket has been raised in our system with the Ticket Id: " . $ticketNum . ". We will contact you within 24-48 hours for a follow-up. Bharatfinpro";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}

@@ -966,7 +966,7 @@ class Site_Plan_Model extends CI_Model
 
 		if ($mobile != '') {
 
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Bharatprofinance";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatprofinance";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
@@ -1027,7 +1027,7 @@ class Site_Plan_Model extends CI_Model
 
 		if ($mobile != '') {
 
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Bharatprofinance";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatfinpro";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}

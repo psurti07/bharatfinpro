@@ -30,7 +30,7 @@
         href="<?php echo base_url('assets/images/bharatpro_finance/apple-icon-180x180.png'); ?>">
     <link rel="icon" type="image/png" sizes="16x16"
         href="<?php echo base_url('assets/images/bharatpro_finance/favicon-16x16.png'); ?>">
-    <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/images/favicon.ico'); ?>">
+    <link rel="icon" type="image/x-icon" href="<?php echo base_url('assets/images/bharatpro_finance/favicon.ico'); ?>">
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
             c[a] = c[a] || function() {

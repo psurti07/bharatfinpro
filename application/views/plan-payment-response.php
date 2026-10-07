@@ -54,14 +54,7 @@ if ($responsedata['loantype'] == 21) {
                         <a href="<?php echo site_url('plan_customer/login'); ?>"
                             class="btn btn-primary m-t-10 text-uppercase"><i class="fas fa-cloud-upload-alt"> </i>
                             &nbsp;Login Now</a>
-                        <a href="<?php echo site_url('customer'); ?>" class="btn btn-light m-t-10 text-uppercase"><i
-                                class="fas fa-home"> </i>
-                            &nbsp;Customer Login</a>
-                        <div class="mt-4">
-                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
-                        </div>
-
-
+                        
 
                         <?php } ?>
                         <!-- END : SUCCESS -->
@@ -76,10 +69,8 @@ if ($responsedata['loantype'] == 21) {
                             questions you can contact on our customer care number.</p>
 
                         <a href="<?php echo site_url('superoffer'); ?>"
-                            class="btn btn-primary btn-sm m-t-10 text-uppercase">Go to Homepage</a>
-                        <div class="mt-4">
-                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
-                        </div>
+                            class="btn btn-primary btn-sm m-t-10 text-uppercase">Try to another method</a>
+                       
                         <?php } ?>
                         <!-- END : FAIL -->
                     </div>

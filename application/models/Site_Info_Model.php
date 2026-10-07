@@ -119,10 +119,10 @@ class Site_Info_Model extends CI_Model
 		$url = '';
 		if ($loan == 11) {
 			$url = site_url('digital/personalLoan');
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please check your registered email and submit the required documents. Our company executive call you back soon. Thanks & Regards, Bharatfinpro";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatfinpro";
 		} else if ($loan == 12) {
 			$url = site_url('digital/businessLoan');
-			$smsmessage = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Please login to our customer portal to submit the required documents so our company executive will call back in 24 to 48 hours! Thanks & Regards, Bharatfinpro";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatfinpro";
 		}
 
 		if ($mobile != '') {
@@ -158,7 +158,7 @@ class Site_Info_Model extends CI_Model
 		$careerid = $this->db->insert_id();
 
 		if ($data['mobile'] != '' && $careerid != '') {
-			$smsmessage = "We appreciate your interest in our company. Our HR team will call you shortly. Best Wishes, Bharatfinpro";
+			$smsmessage = "Thank You for showing interest in Bharatfinpro. Our HR team will call you back soon. Have a nice day. Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($data['mobile'], $smsmessage, 'main');
 		}
 

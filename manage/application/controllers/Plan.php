@@ -729,7 +729,7 @@ class Plan extends MY_Controller
 	{
 		$response = $this->Manage_Plan_User_Model->deletelead($id);
 
-		redirect('plan/digitalleads/pl');
+		redirect('plan/planleads/pl');
 	}
 
 	public function changepassword()

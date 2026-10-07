@@ -126,9 +126,9 @@ define('SMS_API_KEY', '#');
 define('SMS_SENDER_ID', '#'); 
 
 // SMS details
-define('SMS_OBB_USERNAME', '#');
-define('SMS_OBB_PASSWORD', '#');
-define('SMS_OBB_SENDER_ID', '#'); 
+define('SMS_OBB_USERNAME', 'bhfinpro');
+define('SMS_OBB_PASSWORD', 'c6fbca50a3XX');
+define('SMS_OBB_SENDER_ID', 'BFNPRO'); 
 
 // SMS details
 define('SMS_WEBINAR_OBB_USERNAME', '#');
@@ -136,9 +136,9 @@ define('SMS_WEBINAR_OBB_PASSWORD', '#');
 define('SMS_WEBINAR_OBB_SENDER_ID', '#'); 
 
 // SMS details
-define('PLAN_SMS_OBB_USERNAME', '#');
-define('PLAN_SMS_OBB_PASSWORD', '#');
-define('PLAN_SMS_OBB_SENDER_ID', '#');
+define('PLAN_SMS_OBB_USERNAME', 'bhprofin');
+define('PLAN_SMS_OBB_PASSWORD', '7b5e6d8486XX');
+define('PLAN_SMS_OBB_SENDER_ID', 'BHPROF');
 
 // SabPaisa details
 define('SABPAISA_MODE', '#');
@@ -180,9 +180,9 @@ define('CASHFREE_APP_ID', '#');
 define('CASHFREE_SECRET_KEY', '#');
 
 // Razorpay details
-define('RAZOR_KEY_ID_DEMO', '#');
-define('RAZOR_KEY_ID', '#');
-define('RAZOR_KEY_SECRET', '#');
+define('RAZOR_KEY_ID_DEMO', 'PROD');
+define('RAZOR_KEY_ID', 'rzp_live_TjLscHDzozL02z');
+define('RAZOR_KEY_SECRET', 'LkS1eaEx94VmqIOJkC9d7UzJ');
 
 // PayU details
 define('PAYU_MODE', '#');

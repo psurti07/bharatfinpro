@@ -7,9 +7,8 @@ $this->load->view('includes/header.php');
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-10 col-12 p-0">
                 <div>
-                    <h1 class="text-navy font-weight-800 m-b-20">Empowering Your
-                        Goals with Smart
-                        <br /><span class="text-orange">Financial Solutions</span>
+                    <h1 class="text-navy font-weight-800 m-b-20">Your Trusted Partner for
+                        <br /><span class="text-orange">Financial Consultation</span>
                     </h1>
                     <p class="text-navy lead">Whether it's a personal dream or business growth, we provide the right
                         support at every step.</p>
@@ -143,18 +142,14 @@ $this->load->view('includes/header.php');
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul class="list-icon list-icon-colored m-b-0">
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> Simple Online
-                                        Process</li>
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Lowest Interest
-                                        Rate</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> 100% Online Process</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> Expert Loan Guidance</li>
                                 </ul>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul class="list-icon list-icon-colored m-b-0">
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Flexible EMI
-                                        Options</li>
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Minimal
-                                        Documentation</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> On-Call Assistance</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> Partnered With Multiple NBFCs</li>
                                 </ul>
                             </div>
                         </div>
@@ -177,18 +172,14 @@ $this->load->view('includes/header.php');
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul class="list-icon list-icon-colored m-b-0 pr-0">
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> 100% Paperless
-                                        Process</li>
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Competitive
-                                        Interest Rate</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> 100% Online Process</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> Expert Loan Guidance</li>
                                 </ul>
                             </div>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul class="list-icon list-icon-colored m-b-0">
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Easy Repayment
-                                        Options</li>
-                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> ⁠Minimal
-                                        Documentation</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> On-Call Assistance</li>
+                                    <li class="text-navy"><i class="fa fa-arrow-right text-orange"></i> Partnered With Multiple NBFCs</li>
                                 </ul>
                             </div>
                         </div>
@@ -230,7 +221,7 @@ $this->load->view('includes/header.php');
             <div class="col-lg-6 col-md-12 col-12 mb-lg-0 mb-3">
                 <div class="heading-text">
                     <span class="text-orange text-uppercase m-b-10 d-block">ABOUT BHARATFINPRO</span>
-                    <h3 class="m-b-20 text-medium text-navy">Your Trusted Partner for Financial Solutions</h3>
+                    <h3 class="m-b-20 text-medium text-navy">The Right Financial Consultation Starts Here</h3>
                     <p>At Bharatfinpro, we simplify the process of exploring financial solutions. From personal loan
                         options to flexible financing assistance, our goal is to make your journey smoother, quicker,
                         and more convenient.</p>

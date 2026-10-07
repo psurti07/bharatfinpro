@@ -202,7 +202,7 @@ class Site extends MY_Controller
 	{
 		$data = array(
 			'rec_date' => date('Y-m-d H:i:s'),
-			'option_value' => $_REQUEST['senderid']
+			'option_value' => $_REQUEST['smssenderid']
 		);
 		$this->load->model('Manage_Site_Model');
 		$response = $this->Manage_Site_Model->updatefacebookdata($data, 'smssenderid');

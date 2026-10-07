@@ -74,8 +74,8 @@ $this->load->view('includes/header-plan-apply.php');
                             <div class="staticts-card-wrap border p-3 mt-0 bg-white">
                                 <div class="d-flex align-items-start justify-content-between">
                                     <div class="">
-                                        <p class="stat-val mb-2 mt-1 text-uppercase text-gray">Disbursal</p>
-                                        <h3 class="mb-0 card-content font-weight-bold text-dark-navy">Instant
+                                        <p class="stat-val mb-2 mt-1 text-uppercase text-gray">Process</p>
+                                        <h3 class="mb-0 card-content font-weight-bold text-dark-navy">100% Digital
                                         </h3>
                                     </div>
                                     <div class="ms-3">
@@ -175,7 +175,7 @@ $this->load->view('includes/header-plan-apply.php');
                                     <input type="range" class="rangs" id="rangs" name="loanamount" step="10000">
                                 </div>
                                 <div class="d-flex justify-content-between required-price mb-4">
-                                    <h6 class="text-uppercase text-gray mb-0">₹50,000</h6>
+                                    <h6 class="text-uppercase text-gray mb-0">₹10,000</h6>
                                     <h6 class="text-uppercase text-gray mb-0">₹10,00,000</h6>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@ $this->load->view('includes/header-plan-apply.php');
                         </div>
                         <?php echo form_close(); ?>
                         <?php } else if($processstep == 'step2') { ?>
-                        <?php echo form_open('plan/sendotpCode', array('id'=>'submitForm2', 'class'=>'text-start', 'novalidate'=>'novalidate')); ?>
+                        <?php echo form_open('plan/checkotpCode', array('id'=>'submitForm2', 'class'=>'text-start', 'novalidate'=>'novalidate')); ?>
                         <div class="otp-verification card">
                             <div class="form-step active" data-step="2">
                                 <div class="otp-details">
@@ -298,10 +298,6 @@ $this->load->view('includes/header-plan-apply.php');
                                                 value="<?php echo $userdetails['mobile']; ?>">
                                             <input type="hidden" name="loanamount" id="loanamount"
                                                 value="<?php echo $userdetails['loanamount']; ?>">
-                                            <input type="hidden" name="usertype" id="usertype"
-                                                value="<?php echo $userdetails['usertype']; ?>">
-                                            <input type="hidden" name="username" id="username"
-                                                value="<?php echo $userdetails['username']; ?>">
                                             <input type="hidden" name="referralcode" id="referralcode"
                                                 value="<?php echo $userdetails['referralcode']; ?>">
 
@@ -424,7 +420,7 @@ $this->load->view('includes/header-plan-apply.php');
                                             <fieldset class="picker1">
                                                 <label for="plan-2">
                                                     <input type="radio" name="loantype" id="plan-2" value="22"
-                                                        class="d-none" checked="" data-gtm-form-interact-field-id="2">
+                                                        class="d-none" data-gtm-form-interact-field-id="2">
                                                     <span class="p-3 background-alice-blue">
                                                         <div class="subscription-price pb-0 pt-0">
                                                             <div class="d-flex align-items-center">

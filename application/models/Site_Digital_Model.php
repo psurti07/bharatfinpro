@@ -552,7 +552,7 @@ class Site_Digital_Model extends CI_Model
 	public function sendOnlineGreetings($mobile = '', $emailid = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}
 

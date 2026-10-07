@@ -34,10 +34,10 @@ class Site_General_Model extends CI_Model
         $id = $this->db->insert('otpverification', $data);
 
 
-        if ($panel == 'plan') {
-            $message = "Hello, " . $otpcode . " is the Bharatprofinance OTP (One Time Password) to register your mobile number. (Do not share it with anyone). Bharatprofinance";
+        if ($panel == 'main') {
+            $message = "Hello, the Bharatfinpro OTP for your mobile number registration is " . $otpcode . ". Kindly do not share it with anyone. Thanks, Bharatfinpro";
         } else {
-            $message = "Hello, " . $otpcode . " is the Bharatfinpro OTP (One Time Password) to register your mobile number. (Do not share it with anyone). Bharatfinpro";
+            $message = "Hello, the Bharatprofinance OTP for your mobile number registration is " . $otpcode . ". Kindly do not share it with anyone. Thanks, Bharatprofinance";
         }
 
         $smsresponse = sendotpSMSobb($mobile, $message, $panel);

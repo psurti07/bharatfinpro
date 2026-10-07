@@ -38,7 +38,7 @@ class Plan_Customer_Digital_Model extends CI_Model
 	public function sendGreetings($mobile = '', $emailid = '', $loan)
 	{
 		if ($mobile != '') {
-			$message = "Dear Customer, Congratulations! Your loan application has been successfully submitted. Our Customer Executive will call you shortly. Thanks, Bharatprofinance";
+			$message = "Dear Customer, Congratulations! Your loan application is submitted. Check your email & login to Customer Portal to submit required documents. -Bharatprofinance";
 			$smsresponse = sendtextSMSobb($mobile, $message, 'plan');
 		}
 

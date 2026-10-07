@@ -62,7 +62,7 @@ class Plan_Customer_Login_Model extends CI_Model
 				->update('plan_user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . " Your Bharatprofinance account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatprofinance";
+			$message = "Hello " . $account->fullname . " Your Bharatfinpro account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 			return true;
 		} else {

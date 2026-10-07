@@ -332,7 +332,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
 
-        <header id="header" class="dark submenu-light" style="    background-color: rgb(1 41 96);">
+        <header id="header" class="dark submenu-light">
             <div class="header-inner">
                 <div class="container">
 
@@ -341,7 +341,7 @@
                             <span class="logo-default"><img src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="160"></span>
                             <span class="logo-dark"><img
-                                    src="<?php echo base_url('assets/images/logo-light-2x.png'); ?>"
+                                    src="<?php echo base_url('assets/images/logo-2x.png'); ?>"
                                     alt="<?php echo PROJECT_NAME; ?>" width="160"></span>
                         </a>
                     </div>
@@ -354,34 +354,34 @@
                         <div class="container">
                             <nav>
                                 <ul>
-                                    <li><a href="<?php echo site_url(); ?>">Home</a></li>
+                                    <li class="text-dark"><a href="<?php echo site_url(); ?>">Home</a></li>
 
-                                    <li><a href="javascript:;" onclick="goToMenu('company')">Company</a></li>
+                                    <li class="text-dark"><a href="javascript:;" onclick="goToMenu('company')">Company</a></li>
 
-                                    <li><a href="javascript:;" onclick="goToMenu('products')">Products</a></li>
-                                    <li><a href="javascript:;" onclick="goToMenu('contacts')">Contact Us</a></li>
-                                    <li><a href="<?php echo site_url('plan/bharatpro_finance'); ?>">Bharat Pro
+                                    <li class="text-dark"><a href="javascript:;" onclick="goToMenu('products')">Products</a></li>
+                                    <li class="text-dark"><a href="javascript:;" onclick="goToMenu('contacts')">Contact Us</a></li>
+                                    <li class="text-dark"><a href="<?php echo site_url('plan/bharatpro_finance'); ?>">Bharat Pro
                                             Finance</a></li>
 
                                     <!-- <li><a href="https://fitzify.com/">Fitzify</a></li> -->
 
-                                    <li class="dropdown"><a href="#">Apply Now </a>
+                                    <li class="dropdown"><a href="#" class="text-dark">Apply Now </a>
                                         <ul class="dropdown-menu">
-                                            <li class=""><a href="<?php echo site_url('digital/personalLoan'); ?>"><i
+                                            <li class="text-dark"><a href="<?php echo site_url('digital/personalLoan'); ?>"><i
                                                         class="fa fa-home"></i>Personal Loan</a></li>
-                                            <li class=""><a href="<?php echo site_url('digital/businessLoan'); ?>"><i
+                                            <li class="text-dark"><a href="<?php echo site_url('digital/businessLoan'); ?>"><i
                                                         class="fa fa-building"></i>Business Loan</a></li>
-                                            <li class=""><a href="<?php echo site_url('plan/bharatpro_finance'); ?>"><i
+                                            <li class="text-dark"><a href="<?php echo site_url('plan/bharatpro_finance'); ?>"><i
                                                         class="fa fa-building"></i>Bharat Pro Finance</a></li>
                                         </ul>
                                     </li>
 
-                                    <li class="dropdown"><a href="#" class="btn btn-rounded px-3 btn-orange"><i
+                                    <li class="dropdown text-dark"><a href="#" class="btn btn-rounded px-3 btn-orange"><i
                                                 class="fa fa-user-alt"></i> Login<i class="fas fa-angle-down"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li class=""><a href="<?php echo site_url('customer'); ?>"><i
+                                            <li class="text-dark"><a href="<?php echo site_url('customer'); ?>"><i
                                                         class="fa fa-user-alt"></i> Customer Login</a></li>
-                                            <li class=""><a href="<?php echo site_url('plan_customer'); ?>"><i
+                                            <li class="text-dark"><a href="<?php echo site_url('plan_customer'); ?>"><i
                                                         class="fa fa-user-alt"></i> Bharat Pro Finance Login</a></li>
                                         </ul>
                                     </li>

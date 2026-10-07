@@ -13,7 +13,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
         <div class="row">
             <div class="col-lg-12 text-start mb-4">
                 <h2 class="mb-0 display-6 text-dark-navy font-weight-bold"> <?php echo $userdetails['loanname']; ?> </h2>
-                <p class="mb-0" style="font-weight: 700;"> Great news, <span style="font-size: 18px;" class="font-weight-700"><?php echo $userdetails['fullname']; ?>!</span> <strong class="text-secondary h4"> Rs.
+                <p class="mb-0" style="font-weight: 700;"> Great news,  <span style="font-size: 18px;" class="font-weight-700"><?php echo $userdetails['fullname']; ?>!</span> <strong class="text-secondary h3 font-weight-800"> Rs.
                         <?php echo formatePriceIndia($eligibilityamt); ?>/-</strong>
                     <?php echo $userdetails['loanname']; ?> loan is pre-approved. Please proceed to complete the process
                 </p>

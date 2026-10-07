@@ -604,19 +604,18 @@ class Plan extends CI_Controller
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 
 		$data3 = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'status' => 1,
-			'isDelete' => 0
+		 'rec_date' => date('Y-m-d H:i:s'),
+		 'status' => 1,
+		 'isDelete' => 0
 		);
 		$response3 = $this->Site_Plan_Model->updateapplication($_REQUEST['applyid'], $data3);
 
-		$productslug = "bharatpro-finance";
-
 		$this->load->model('Site_Info_Model');
+		$productslug = "bharatpro-finance";
 		$productdata = $this->Site_Info_Model->getproductdetails($productslug);
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
-		$grandamount = $amount + ($amount * 0.18);
-
+		$actualamount = $amount + ($amount * 0.18);
+		$grandamount = floor($actualamount);
 		$uat_numbers = unserialize(UAT_MOBILE_NUMBERS);
 		foreach ($uat_numbers as $uat_num) {
 			if ($uat_num == $userdata->mobile) {
@@ -624,49 +623,47 @@ class Plan extends CI_Controller
 			}
 		}
 
-		$txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-		$udf1 = $udf2 = $udf3 = $udf4 = $udf5 = '';
-		$postData = array();
+		$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
 
-		$hashstring = PAYU_MERCHANT_KEY . '|' . $txnid . '|' . $grandamount . '|' . $productdata->productname . '|' . $userdata->fullname . '|' . $userdata->email . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . PAYU_SALT;
+		$orderdata = array(
+		 'amount' => $grandamount * 100,
+		 'currency' => 'INR',
+		 'receipt' => $receiptid,
+		 'notes' => array(
+		  'key1' => $userdata->fullname,
+		  'key2' => $userdata->mobile
+		 )
+		);
 
-		$hash = hash('sha512', $hashstring);
+		$this->load->helper('razorpay');
+		$orderres = generateorder($orderdata);
+		$successURL = base_url('plan/buycardDigital');
+		$failURL = base_url('plan/paymentResponse/21/false');
+		
+		$razorpaydata = array(
+		 'rec_date' => date('Y-m-d H:i:s'),
+		 'entryfor' => $userdata->cardtype,
+		 'userid' => $userdata->userid,
+		 'orderid' => $orderres->id,
+		 'orderamount' => $grandamount,
+		 'ordernote' => $productdata->productname
+		);
 
-		$returnUrl = base_url('plan/buycardDigital');
-
-		if (PAYU_MODE == "PROD") {
-			$url = 'https://secure.payu.in/_payment';
-		} else {
-			$url = 'https://test.payu.in/_payment';
-		}
+		$razorpayentry = $this->Site_Plan_Model->razorpayentry($razorpaydata);
 
 		$postData = array(
-			'mkey' => PAYU_MERCHANT_KEY,
-			'tid' => $txnid,
-			'hash' => $hash,
-			'amount' => $grandamount,
-			'name' => $userdata->fullname,
-			'productinfo' => $productdata->productname,
-			'mailid' => $userdata->email,
-			'phoneno' => $userdata->mobile,
-			'address' => '',
-			'action' => $url,
-			'returnUrl' => $returnUrl
+		 'applyid' => $_REQUEST['applyid'],
+		 'fullname' => $userdata->fullname,
+		 'mobile' => $userdata->mobile,
+		 'email' => $userdata->email,
+		 'orderamount' => $grandamount,
+		 'orderid' => $orderres->id,
+		 'description' => $productdata->productname,
+		 'successURL' => $successURL,
+		 'failURL' => $failURL
 		);
 
-		$payudata = array(
-			'rec_date' => date('Y-m-d H:i:s'),
-			'entryfor' => $userdata->cardtype,
-			'userid' => $userdata->userid,
-			'orderid' => $txnid,
-			'orderamount' => $grandamount,
-			'ordernote' => $productdata->productname
-		);
-
-		$this->load->model('Site_Plan_Model');
-		$payuentry = $this->Site_Plan_Model->payuentry($payudata);
-
-		$this->load->view('payu-checkout', ['postData' => $postData]);
+		$this->load->view('razorpay-checkout', ['postData' => $postData]);
 	}
 
 	public function buycardDigital()
@@ -674,80 +671,60 @@ class Plan extends CI_Controller
 
 		$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
 
-		if (isset($_POST["status"]) && $_POST["status"] != "") {
-			$status = $_POST["status"];
-			$firstname = $_POST["firstname"];
-			$amount = $_POST["amount"];
-			$txnid = $_POST["txnid"];
-			$posted_hash = $_POST["hash"];
-			$key = $_POST["key"];
-			$productinfo = $_POST["productinfo"];
-			$email = $_POST["email"];
-			$mihpayid = $_POST["mihpayid"];
-			$pgtype = $_POST["PG_TYPE"];
-			$salt = PAYU_SALT;
-
-			if ($_POST["additionalCharges"] != '') {
-				$retHashSeq = $_POST["additionalCharges"] . '|' . $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			} else {
-				$retHashSeq = $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			}
-
+		if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
 			$this->load->model('Site_Plan_Model');
-			$paymentdata = $this->Site_Plan_Model->getpayuentry($txnid);
+			$paymentdata = $this->Site_Plan_Model->getrazorpayentry($_POST["orderid"]);
 
-			$payudata = array(
-				'rec_date' => date('Y-m-d H:i:s'),
-				'referenceid' => $mihpayid,
-				'txstatus' => $status,
-				'paymentmode' => $pgtype
+			$razorpaydata = array(
+			 'rec_date' => date('Y-m-d H:i:s'),
+			 'referenceid' => $_REQUEST['paymentid'],
+			 'txstatus' => 'Success'
 			);
 
-			$response1 = $this->Site_Plan_Model->updatepayuentry($paymentdata->id, $payudata);
+			$response1 = $this->Site_Plan_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
+
 			$userdata = $this->Site_Plan_Model->checkuserregdata($paymentdata->userid);
+			$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
 
-			$this->session->set_tempdata('applyid', $userdata->id, 3600);
+			$cardno = random_code(16);
+			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
+			$paymentid = (isset($_REQUEST['paymentid'])) ? $_REQUEST['paymentid'] : '';
 
-			if ($status == 'success') {
-				$isentry = $this->Site_Plan_Model->checkmembershipentry($mihpayid);
+			$isentry = $this->Site_Plan_Model->checkmembershipentry($paymentid);
 
-				if ($isentry == 0) {
-					$cardno = random_code(16);
+			if ($isentry == 0) {
+				$data = array(
+				 'rec_date' => date('Y-m-d H:i:s'),
+				 'userid' => $userdata->userid,
+				 'registration_date' => date('Y-m-d'),
+				 'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+				 'card_number' => $cardno,
+				 'amount' => $amount,
+				 'paymentid' => $paymentid,
+				 'isActive' => 1,
+				 'isDelete' => 0
+				);
+				$memberid = $this->Site_Plan_Model->planorder($data);
 
-					$mbrdata = array(
-						'rec_date' => date('Y-m-d H:i:s'),
-						'userid' => $userdata->userid,
-						'registration_date' => date('Y-m-d'),
-						'expiry_date' => date('Y-m-d', strtotime('+3 months')),
-						'card_number' => $cardno,
-						'amount' => $amount,
-						'paymentid' => $mihpayid,
-						'isActive' => 1,
-						'isDelete' => 0
-					);
-					$memberid = $this->Site_Plan_Model->planorder($mbrdata);
+				$password = random_code(6);
+				$passwordkey = stringCrypt($password, 'encrypt');
+				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
+				$refcode .= substr($userdata->mobile, -4);
 
-					$password = random_code(6);
-					$passwordkey = stringCrypt($password, 'encrypt');
-					$new_passwordkey = md5($password);
-					$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
-					$refcode .= substr($userdata->mobile, -4);
+				$regdata = array(
+					'rec_date' => date('Y-m-d H:i:s'),
+					'update_date' => date('Y-m-d H:i:s'),
+					'password' => $passwordkey,
+					'refcode' => $refcode,
+					'process_step' => 4,
+					'isUser' => 2
+				);
+				$response2 = $this->Site_Plan_Model->updateregistration($userdata->userid, $regdata);
 
-					$data2 = array(
-						'rec_date' => date('Y-m-d H:i:s'),
-						'update_date' => date('Y-m-d H:i:s'),
-						'password' => $passwordkey,
-						'new_password' => $new_passwordkey,
-						'refcode' => $refcode,
-						'process_step' => 4,
-						'isUser' => 2
-					);
-					$response2 = $this->Site_Plan_Model->updateregistration($userdata->userid, $data2);
+				$this->load->model('Site_Info_Model');
+				$invoiceno = $this->Site_Info_Model->getinvoiceno();
 
-					$this->load->model('Site_Info_Model');
-					$invoiceno = $this->Site_Info_Model->getinvoiceno();
-
-					if ($userdata->cardtype == 22) {
+				if ($userdata->cardtype == 22) {
 						$productslug = "bharat-pro-finance";
 						$invfor = 5;
 						$invprefix = "PFBL_";
@@ -757,35 +734,43 @@ class Plan extends CI_Controller
 						$invprefix = "PFPL_";
 					}
 
-					$productdata = $this->Site_Info_Model->getproductdetails($productslug);
-					$netamount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 
-					if ($userdata->state == 'Gujarat') {
-						$cgstamount = $netamount * 0.09;
-						$sgstamount = $netamount * 0.09;
-					} else {
-						$igstamount = $netamount * 0.18;
-					}
+				$this->load->model('Site_Info_Model');
+				$productdata = $this->Site_Info_Model->getproductdetails($productslug);
+				$netamount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
 
-					$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+				if ($userdata->state == 'Gujarat') {
+					$cgstamount = $netamount * 0.09;
+					$sgstamount = $netamount * 0.09;
+				} else {
+					$igstamount = $netamount * 0.18;
+				}
 
-					$data3 = array(
-						'rec_date' => date('Y-m-d H:i:s'),
-						'userid' => $userdata->userid,
-						'cardid' => $memberid,
-						'inv_for' => $invfor,
-						'inv_prefix' => $invprefix,
-						'inv_number' => $invoiceno,
-						'inv_date' => date('Y-m-d'),
-						'inv_price' => $netamount,
-						'inv_cgst' => $cgstamount,
-						'inv_sgst' => $sgstamount,
-						'inv_igst' => $igstamount,
-						'inv_grandtotal' => $grandtotal,
-						'isDelete' => 0
-					);
+				$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
 
-					$responseinvoice = $this->Site_Plan_Model->generateinvoice($data3, $invoiceno);
+				$invdata3 = array(
+				 'rec_date' => date('Y-m-d H:i:s'),
+				 'userid' => $userdata->userid,
+				 'cardid' => $memberid,
+				 'inv_for' => $invfor,
+				 'inv_prefix' => $invprefix,
+				 'inv_number' => $invoiceno,
+				 'inv_date' => date('Y-m-d'),
+				 'inv_price' => $netamount,
+				 'inv_cgst' => $cgstamount,
+				 'inv_sgst' => $sgstamount,
+				 'inv_igst' => $igstamount,
+				 'inv_grandtotal' => $grandtotal,
+				 'isDelete' => 0
+				);
+
+				$exists_mobile = in_array($userdata->mobile, unserialize(UAT_MOBILE_NUMBERS), true);
+
+				if (!$exists_mobile) {
+					$responseinvoice = $this->Site_Plan_Model->generateinvoice($invdata3, $invoiceno);
+				}
+				
+				if (!$exists_mobile) {
 
 					$remote_data = array(
 						'company_code' => COMPANY_CODE,
@@ -809,20 +794,34 @@ class Plan extends CI_Controller
 					);
 
 					$api_response = send_order_data(json_encode($remote_data));
-
-
-					$sent = $this->Site_Plan_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
-
-
-					return redirect("plan/paymentResponse/" . $paymentdata->entryfor . "/" . $response2);
-				} else {
-					return redirect("plan/paymentResponse/21/false");
 				}
-			} else if ($status == 'failure') {
-				return redirect("plan/paymentResponse/21/false");
+
+				$wpusernamepassword = $this->Site_Info_Model->getsmsmessage('aisency_userwelcomename');
+	
+					$data3 = array(
+						'apiKey' => AISENSY_KEY,
+						'campaignName' => $wpusernamepassword,
+						'destination' => '+91' . $userdata->mobile,
+						'userName' => $userdata->fullname,
+						'tags' => array('Payment Successful'),
+						'attributes' => array(
+							"userid"=> $userdata->mobile,
+							"password"=> $password
+						),
+						'templateParams' => array('$userid', '$password'),
+					);
+					$restrack3 = aisensy_track($data3);
+
+				$sent = $this->Site_Plan_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
+
+				redirect("plan/paymentResponse/".$paymentdata->entryfor."/". $response2);
 			} else {
-				return redirect("plan/paymentResponse/21/false");
+				return redirect("plan/paymentResponse/".$paymentdata->entryfor."/true");
+				die;
 			}
+		} else {
+			$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
+			redirect("plan/membershiporder/" . $key);
 		}
 	}
 

@@ -594,7 +594,7 @@ class Manage_Plan_User_Model extends CI_Model
 
 		if ($mobile != '') {
 			// no templ;ate
-			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Bharatprofinance";
+			$smsmessage = "Dear Customer, your documents are successfully verified. Our Company Executive will contact you soon for your loan process. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'plan');
 		}
 

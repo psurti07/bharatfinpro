@@ -256,7 +256,7 @@ class Manage_User_Model extends CI_Model
 
 		if ($statusid == 1) {
 			$res = $this->getreferraldetails($id);
-			$message = "Dear Customer, Payout is successfully credited to your account. Please check your portal! Thanks & Regards, Bharatfinpro";
+			$message = "Hello, your payout is successfully credited to your account. Please check your login portal. Thanks & Regards, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($res['refferaldetails']->mobile, $message, 'main');
 		}
 
@@ -459,7 +459,7 @@ class Manage_User_Model extends CI_Model
 				->update('user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . ", Your account new password is " . $password . ". (Do not share it with anyone). Thanks & Regards, Bharatfinpro";
+			$message = "Hello " . $account->fullname . " Your Bharatfinpro account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatfinpro";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'main');
 
 			return true;
@@ -527,7 +527,7 @@ class Manage_User_Model extends CI_Model
 	public function sendSuccessGreetings($mobile = '', $emailid = '', $password = '')
 	{
 		if ($mobile != '') {
-			$smsmessage = "Dear Customer, Your loan application has been successfully submitted. Our company executive will contact you shortly! Thanks & Regards, Bharatfinpro";
+			$smsmessage = "Hello Customer, Congrats! Submission of your loan application is successful. Kindly login to our customer portal & complete document submission. Our Company Executive will call back within 24-48 hours. Thanks, Bharatfinpro";
 
 			$smsresponse = sendtextSMSobb($mobile, $smsmessage, 'main');
 		}

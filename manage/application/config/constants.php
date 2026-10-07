@@ -104,12 +104,12 @@ define('SECURE_SALT', 'verloopweb');
 
 //Social media
 define('SM_GOOGLE', '#');
-define('SM_FACEBOOK', '#');
-define('SM_INSTAGRAM', '#');
-define('SM_TWITTER', '#');
+define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61592006906030');
+define('SM_INSTAGRAM', 'https://www.instagram.com/bharatfinpro.in/');
+define('SM_TWITTER', 'https://x.com/bharatfinpro');
 define('SM_LINKEDIN', '#');
-define('SM_PINTEREST', '#');
-define('SM_YOUTUBE', '#');
+define('SM_PINTEREST', 'https://in.pinterest.com/bharatfinpro2026/');
+define('SM_YOUTUBE', 'https://www.youtube.com/@bharatfinproofficial');
 
 // Email SMTP details
 define('SMTP_HOST', '#');
@@ -126,9 +126,9 @@ define('SMS_API_KEY', '#');
 define('SMS_SENDER_ID', '#');
 
 // SMS details
-define('SMS_OBB_USERNAME', '#');
-define('SMS_OBB_PASSWORD', '#');
-define('SMS_OBB_SENDER_ID', '#');
+define('SMS_OBB_USERNAME', 'bhfinpro');
+define('SMS_OBB_PASSWORD', 'c6fbca50a3XX');
+define('SMS_OBB_SENDER_ID', 'BFNPRO'); 
 
 // SMS details
 define('PLAN_SMS_OBB_USERNAME', '#');
