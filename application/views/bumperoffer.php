@@ -7,35 +7,20 @@ $amtpay = $productdata['payamount'];
 <section class="background-grey">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center">
-                <div class="card border-2 shadow-lg overflow-hidden">
-                    <div class="card-header background-light-green">
-                        <div class="card-title">
-                            <h4 class="font-weight-bold font-italic">Your Personal Loan up to <span
-                                    class="text-orange">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h4>
-                        </div>
-                    </div>
-                    <div class="card-body sm-m-0">
-                        <!-- <h4 class="text-dark pb-3">Purchase Membership & Instantly Process Your Personal Loan!</h4> -->
-
-                        <p><strong>Unlock Best Loan Offers From Our Lending Partners</strong></p>
-
-                        <?php $loanoffers = array('loanoffer-1.jpg', 'loanoffer-2.jpg', 'loanoffer-3.jpg', 'loanoffer-4.jpg'); ?>
-
-                        <div class="carousel equalize testimonial testimonial-box" data-margin="10" data-arrows="false"
-                            data-dots="false" data-items="2" data-items-sm="2" data-items-xxs="1"
-                            data-equalize-item=".testimonial-item">
-                            <?php foreach ($loanoffers as $row) { ?>
-                            <img src="<?php echo base_url('assets/images/slider/' . $row); ?>" alt="offer img">
-                            <?php } ?>
-                        </div>
+            <div class="col-lg-12">
+                <div class="card-header m-b-50">
+                    <div class="card-title text-center">
+                        <h2 class="font-weight-bold font-italic mb-">Your Personal Loan up to <span
+                                class="text-orange">Rs.5 Lakhs</span> is Ready To Be Processed Ahead!</h2>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-12 order-md-1 order-2 center">
+                <div class="card border-2 shadow-lg overflow-hidden">
 
-            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center">
-                <div class="card border-2 shadow-lg overflow-hidden mb-0">
-                    <div class="card-header background-light-green">
+                    <div class="card-header">
                         <?php
 						if ($this->session->flashdata('danger')): ?>
                         <div id="flash-message" class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -64,8 +49,48 @@ $amtpay = $productdata['payamount'];
 								$subtotal = $productdata['amount'];
 							}
 							?>
+                            <ul class="list-unstyled mt-4 mb-0">
+                                <li>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Subtotal : <span>₹ 499.00</span></h6>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>GST (18%) : <span>₹ 89.82</span></h6>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Grand Total : <span>₹ 588.82</span></h6>
+                                </li>
+                                <li>
+                                    <h6><span class="fa fa-check pr-2 fa-sm"></span>Plan Validity : <span>6
+                                            months</span></h6>
+                                </li>
+                                <li>
+                                    <h6><span class="fa fa-check pr-2 fa-sm"></span>Loan Process Time : <span>72
+                                            Hours</span></h6>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                    <div class="card-body sm-m-0">
+                        <!-- <h4 class="text-dark pb-3">Purchase Membership & Instantly Process Your Personal Loan!</h4> -->
+
+                        <p><strong>Unlock Best Loan Offers From Our Lending Partners</strong></p>
+
+                        <?php $loanoffers = array('loanoffer-1.jpg', 'loanoffer-2.jpg', 'loanoffer-3.jpg', 'loanoffer-4.jpg'); ?>
+
+                        <div class="carousel equalize testimonial testimonial-box" data-margin="10" data-arrows="false"
+                            data-dots="false" data-items="2" data-items-sm="2" data-items-xxs="1"
+                            data-equalize-item=".testimonial-item">
+                            <?php foreach ($loanoffers as $row) { ?>
+                            <img src="<?php echo base_url('assets/images/slider/' . $row); ?>" alt="offer img">
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-12 order-md-2 order-1 center mb-lg-0 mb-3">
+                <div class="card border-2 shadow-lg overflow-hidden mb-0">
+
 
                     <div class="card-body sm-m-0">
                         <?php echo form_open('loan/getbumperoffer', array('id' => 'submitForm1', 'class' => 'form-transparent-grey', 'novalidate' => 'novalidate')); ?>
@@ -73,7 +98,7 @@ $amtpay = $productdata['payamount'];
                             class="form-control" required>
                         <input type="hidden" name="paymentid" id="paymentid" value="" class="form-control">
 
-                        <h5>Start Your Loan Process With Your Few Details:</h5>
+                        <h5 class="mb-3">Start Your Loan Process With Your Few Details:</h5>
 
                         <div class="form-group">
                             <div class="input-group">
@@ -134,7 +159,7 @@ $amtpay = $productdata['payamount'];
 </section>
 
 <!-- testimonial section -->
-<section class="background-grey pt-0">
+<section>
     <div class="container">
         <div class="text-center m-b-50">
             <h2 class="text-dark">Our Customers Testimonials</h2>
