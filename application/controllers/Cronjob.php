@@ -73,20 +73,83 @@ class Cronjob extends CI_Controller
 	/* Whatsapp marketing message */
 	public function whatsappremarketing()
 	{
-		die;
+		
 		$this->load->model('Site_Cronjob_Model');
 		//$schedule = 'z9999';
 		$schedule_arr = array();
 
 		$cronjobs = array();
 
-		$cronjobs['a1'] = '0 7 * * *';
+		$cronjobs['a1'] = '0 10 * * *';
+		$cronjobs['b1'] = '0 22 * * *';
+
+		$cronjobs['a2'] = '0 11 * * *';
+		$cronjobs['b2'] = '0 23 * * *';
+
+		$cronjobs['a3'] = '30 11 * * *';
+		$cronjobs['b3'] = '30 23 * * *';
+
+		$cronjobs['a5'] = '0 12 * * *';
+
+		$cronjobs['a7'] = '30 12 * * *';
+		$cronjobs['b7'] = '0 21 * * *';
+
+		$cronjobs['a10'] = '30 16 * * *';
+
+		$cronjobs['a15'] = '30 18 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
 			if (is_time_cron($time, $cron)) {
 				$schedule = substr($method, 1);
 				$response = $this->Site_Cronjob_Model->whatsapp_marketing_message($schedule);
+			}
+		}
+		die;
+	}
+
+	/* Whatsapp marketing message */
+	public function whatsappremarketing_2()
+	{
+		
+		$this->load->model('Site_Cronjob_Model');
+		//$schedule = 'z9999';
+		$schedule_arr = array();
+
+		$cronjobs = array();
+
+		$cronjobs['a1'] = '30 14 * * *';
+
+		$cronjobs['a2'] = '30 15 * * *';
+
+		$cronjobs['a3'] = '45 17 * * *';
+
+		$cronjobs['a4'] = '30 8 * * *';
+		$cronjobs['b4'] = '0 20 * * *';
+
+		$cronjobs['a6'] = '30 9 * * *';
+
+		$cronjobs['a8'] = '0 16 * * *';
+
+		$cronjobs['a9'] = '0 15 * * *';
+
+		$cronjobs['a11'] = '0 14 * * *';
+
+		$cronjobs['a15'] = '30 12 * * *';
+
+		$cronjobs['a20'] = '0 17 * * *';
+
+		$cronjobs['a22'] = '15 19 * * *';
+
+		$cronjobs['a25'] = '30 13 * * *';
+
+		$cronjobs['a30'] = '0 19 * * *';
+
+		foreach ($cronjobs as $method => $cron) {
+			$time = time();
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->whatsapp_marketing_message_2($schedule);
 			}
 		}
 		die;

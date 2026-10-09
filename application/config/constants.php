@@ -207,7 +207,7 @@ define('PAYGIC_MID', '#');
 define('PAYGIC_PASSWORD', '#');
 
 // Whatsapp API
-define('AISENSY_KEY', '#');
+define('AISENSY_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYmUyM2MyYzAwNGJmYzIwYjEyY2U3OCIsIm5hbWUiOiJNb25pa2EgR29oaWwiLCJhcHBOYW1lIjoiQWlTZW5zeSIsImNsaWVudElkIjoiNmFiZTIzYzJjMDA0YmZjMjBiMTJjZTUzIiwiYWN0aXZlUGxhbiI6IkJBU0lDX01PTlRITFkiLCJpYXQiOjE3OTE1MzkxMDJ9.upkqP9jhHlujSWS53yIJylpuhCxdKePxgfNe1rUu650');
 
 //UAT Mobile Mumbers list
 define('UAT_MOBILE_NUMBERS', serialize(array('')));

@@ -227,11 +227,11 @@ class Site_Cronjob_Model extends CI_Model
 
 					$data1 = array(
 						'apiKey' => AISENSY_KEY,
-						'campaignName' => 'auto_21july',
+						'campaignName' => 'cycle1_auto_9oct',
 						'destination' => '+91' . $row->mobile,
 						'media' => array(
-							'url' => '#',
-							'filename' => '#'
+							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/28871ee2-f80d-4f23-8725-6023ef0aa205_cycle1.jpeg',
+							'filename' => 'cycle1.jpeg'
 						),
 						'userName' => $row->fullname,
 						'templateParams' => array('$Name', '$EligibleAmount'),
@@ -253,17 +253,131 @@ class Site_Cronjob_Model extends CI_Model
 				}
 			}
 
-			$adminlist = ['7984310891', '7201825971', '9558125971', '9586935595', '7486030828', '7567032993'];
+			$adminlist = ['9586935595', '7567072993', '7984310891'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
 				$data2 = array(
 					'apiKey' => AISENSY_KEY,
-					'campaignName' => 'auto_21july',
+					'campaignName' => 'cycle1_auto_9oct',
 					'destination' => '+91' . $row2,
 					'media' => array(
-						'url' => '#',
-						'filename' => '#'
+						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/28871ee2-f80d-4f23-8725-6023ef0aa205_cycle1.jpeg',
+						'filename' => 'cycle1.jpeg'
+					),
+					'userName' => '$Name',
+					'templateParams' => array('$Name', '$EligibleAmount'),
+					'tags' => array('Get Offer'),
+					'attributes' => array(
+						'EligibleAmount' => strval($eligibilityamt)
+					)
+				);
+				$restrack2 = aisensy_track($data2);
+				$airesponse .= $row2 . "-" . $restrack2 . "|";
+				$data4 = array(
+					'msgcount' => $cnt,
+					'msgresponse' => $airesponse
+				);
+
+				$query = $this->db->where('id', $logid)
+					->update('sms_log', $data4);
+				$cnt++;
+			}
+		}
+
+		return true;
+	}
+	/* END : Whatsapp marketing message */
+
+	
+	/* START : Whatsapp marketing message */
+	public function whatsapp_marketing_message_2($schedule = 9999)
+	{
+		$airesponse = "";
+		$cnt = 1;
+
+		$this->load->model('Site_Info_Model');
+		$wpcampaignname = $this->Site_Info_Model->getsmsmessage('wpcampaignmain');
+
+		$wheredate = "CAST(r.rec_date as DATE) = DATE_ADD(CURDATE(),INTERVAL -" . $schedule . " DAY) ";
+
+		$userlist = $this->db->select('r.id, r.update_date, r.fullname, r.mobile, r.email, r.cardtype, a.income, a.currentemi, a.loanamount')
+			->from('user_registration r')
+			->join('user_application a', 'a.userid=r.id')
+			->where($wheredate)
+			->where('r.isUser', 1)
+			->where('r.isActive', 1)
+			->where('r.isDnd', 0)
+			->where('r.isDelete', 0)
+			->where('r.cardtype', 11)
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->group_by('r.mobile')
+			->order_by('r.id asc')
+			->get()
+			->result();
+
+		if (count($userlist) > 0) {
+			$data3 = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'crontype' => 'whatsapp digital 2 ',
+				'parentid' => 9,
+				'cronname' => 'whatsapp - ' . $schedule,
+				'msgcount' => $cnt,
+				'msgresponse' => $airesponse
+			);
+
+			$this->db->insert('sms_log', $data3);
+			$logid = $this->db->insert_id();
+
+			foreach ($userlist as $row) {
+				if ($row->mobile != '') {
+					$eligibilityamt = "5,00,000";
+
+					if ($row->loanamount != 0 && $row->income != 0) {
+						$eligibilityamtsimple = calEligiblity($row->income, $row->currentemi, 11, $row->loanamount);
+						$eligibilityamt = formatePriceIndia($eligibilityamtsimple, 0);
+					}
+
+					$data1 = array(
+						'apiKey' => AISENSY_KEY,
+						'campaignName' => 'cycle2_auto_9oct',
+						'destination' => '+91' . $row->mobile,
+						'media' => array(
+							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/5b48941e-73c1-4418-a7ca-363b09a88f2e_cycle2.jpeg',
+							'filename' => 'cycle2.jpeg'
+						),
+						'userName' => $row->fullname,
+						'templateParams' => array('$Name', '$EligibleAmount'),
+						'tags' => array('Get Offer'),
+						'attributes' => array(
+							'EligibleAmount' => strval($eligibilityamt)
+						)
+					);
+					$restrack1 = aisensy_track($data1);
+					$airesponse .= $row->mobile . "-" . $restrack1 . "|";
+					$data4 = array(
+						'msgcount' => $cnt,
+						'msgresponse' => $airesponse
+					);
+
+					$query = $this->db->where('id', $logid)
+						->update('sms_log', $data4);
+					$cnt++;
+				}
+			}
+
+			$adminlist = ['9586935595', '7567072993', '7984310891'];
+			$eligibilityamt = "5,00,000";
+
+			foreach ($adminlist as $row2) {
+				$data2 = array(
+					'apiKey' => AISENSY_KEY,
+					'campaignName' => 'cycle2_auto_9oct',
+					'destination' => '+91' . $row2,
+					'media' => array(
+						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/5b48941e-73c1-4418-a7ca-363b09a88f2e_cycle2.jpeg',
+						'filename' => 'cycle2.jpeg'
 					),
 					'userName' => '$Name',
 					'templateParams' => array('$Name', '$EligibleAmount'),
