@@ -352,11 +352,11 @@ function sendotpSMSobb($mobile, $message, $panel = 'main')
 		$obbsenderid = SMS_OBB_SENDER_ID;
 	}
 
-	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
+	$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
-	return $response; */
+	return $response; 
 
-	$xml_data = '<?xml version="1.0"?>
+	/*$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
     <user>' . $obbusername . '</user>
@@ -384,7 +384,7 @@ function sendotpSMSobb($mobile, $message, $panel = 'main')
 	}
 
 	curl_close($ch);
-	return $response;
+	return $response;*/
 }
 
 function sendtextSMSobb($mobile, $message, $panel = 'main')
@@ -401,11 +401,11 @@ function sendtextSMSobb($mobile, $message, $panel = 'main')
 		$obbsenderid = SMS_OBB_SENDER_ID;
 	}
 
-	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
+	 $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
-	return $response; */
+	return $response; 
 
-	$xml_data = '<?xml version="1.0"?>
+	/*$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
     <user>' . $obbusername . '</user>
@@ -434,7 +434,7 @@ function sendtextSMSobb($mobile, $message, $panel = 'main')
 
 	curl_close($ch);
 
-	return $response;
+	return $response;*/
 }
 
 function senddynamicSMSobb($mobile, $message, $panel = 'main')
@@ -455,11 +455,11 @@ function senddynamicSMSobb($mobile, $message, $panel = 'main')
 		$obbsenderid = getSMSsenderid('smssenderid');
 	}
 
-	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
+	 $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
 	$response = file_get_contents($api_url);
-	return $response; */
+	return $response; 
 
-	$xml_data = '<?xml version="1.0"?>
+	/*$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
     <user>' . $obbusername . '</user>
@@ -488,7 +488,7 @@ function senddynamicSMSobb($mobile, $message, $panel = 'main')
 
 	curl_close($ch);
 
-	return $response;
+	return $response;*/
 }
 
 function sendxmlSMSobb($dataset)

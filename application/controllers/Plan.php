@@ -708,6 +708,7 @@ class Plan extends CI_Controller
 
 				$password = random_code(6);
 				$passwordkey = stringCrypt($password, 'encrypt');
+				$new_passwordkey = md5($password);
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
 				$refcode .= substr($userdata->mobile, -4);
 
@@ -715,6 +716,7 @@ class Plan extends CI_Controller
 					'rec_date' => date('Y-m-d H:i:s'),
 					'update_date' => date('Y-m-d H:i:s'),
 					'password' => $passwordkey,
+					'new_password' => $new_passwordkey,
 					'refcode' => $refcode,
 					'process_step' => 4,
 					'isUser' => 2

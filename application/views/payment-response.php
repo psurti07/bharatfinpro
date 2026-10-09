@@ -36,7 +36,7 @@ if ($responsedata['loantype'] == 11) {
                                 <div
                                     class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
 
-                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Sanctioned</p>
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Pre-approved Amount</p>
                                     <h4 class="mb-0 fs-18 text-blue font-weight-bold">₹1,95,000</h4>
                                 </div>
                             </div>
@@ -52,23 +52,16 @@ if ($responsedata['loantype'] == 11) {
                                 <div
                                     class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
 
-                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Disbursal</p>
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Verification Call</p>
                                     <h4 class="mb-0 fs-18 text-blue  font-weight-bold">Within 48 hrs</h4>
                                 </div>
                             </div>
                         </div>
 
-                        <a href="<?php echo site_url('customer/login'); ?>"
-                            class="btn btn-orange m-t-10 text-uppercase"><i class="fas fa-cloud-upload-alt"> </i>
-                            &nbsp;Login Now</a>
-
                         <a href="<?php echo site_url('customer'); ?>" class="btn btn-light m-t-10 text-uppercase"><i
                                 class="fas fa-home"> </i>
                             &nbsp;Customer Login</a>
-                        <div class="mt-4">
-                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
-                        </div>
-
+                        
 
                         <?php } ?>
                         <!-- END : SUCCESS -->

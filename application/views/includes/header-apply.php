@@ -54,13 +54,13 @@
 
     <!-- Facebook Domain + Pixel Code -->
      <?php
-            // $fbdomain = getFacebookDomain();
-            // if ($fbdomain != Null) {
-            // 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-            // }
+             $fbdomain = getFacebookDomain();
+             if ($fbdomain != Null) {
+             	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+             }
 
-            // $fbpixel = getFacebookPixel();
-            // if ($fbpixel != Null) {
+             $fbpixel = getFacebookPixel('facebookpixel');
+             if ($fbpixel != Null) {
             ?>
     <script>
     ! function(f, b, e, v, n, t, s) {
@@ -86,7 +86,7 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=<?php echo $fbpixel; ?>&ev=PageView&noscript=1" /></noscript>
-    <?php //} 
+    <?php } 
     ?> 
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Taboola Pixel Code -->

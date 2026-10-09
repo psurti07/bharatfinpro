@@ -217,7 +217,7 @@ define('GEOLOC_API_KEY', '#');
 
 // Whatsapp API
 define('INTERAKT_KEY', '#');
-define('INTERAKT_KEY_NEW_UE', '#');
+define('INTERAKT_KEY_UE', 'NjBtVWdZb2pXcVVmM1RiZ2VOUVZ1Njd1aGFWdjJOcXRPbU9xZ0Vaa201WTo=');
 define('INTERAKT_KEY_NEW_RM', '#');
 
 define('PLAN_INTERAKT_KEY_NEW_UE', '#');

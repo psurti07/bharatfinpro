@@ -37,6 +37,7 @@ class Loan extends CI_Controller
 	{
 		$this->load->model('Site_Info_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('home');
+		$banklist = $this->Site_Info_Model->getbanklist(12);
 		$prores = $this->Site_Info_Model->getproductdetails('card-offer');
 
 		if ($prores->inOffer == 1) {
@@ -55,7 +56,7 @@ class Loan extends CI_Controller
 			);
 		}
 
-		$this->load->view('cardoffer', ['meta' => $meta, 'productdata' => $productdata]);
+		$this->load->view('cardoffer', ['meta' => $meta, 'banklist' => $banklist, 'productdata' => $productdata]);
 	}
 
 	public function getcardoffer()

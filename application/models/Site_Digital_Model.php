@@ -613,12 +613,12 @@ class Site_Digital_Model extends CI_Model
 			$content = $this->Site_General_Model->welcomeemailtemplate($mobile, $password);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content); */
-				$maildata = array(
+				 $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content);
+				/*$maildata = array(
 					'fullname' => $emailid,
 					'email' => $emailid
 				);
-				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
+				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);*/
 			}
 		}
 

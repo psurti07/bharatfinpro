@@ -55,14 +55,14 @@
         rel="stylesheet" type="text/css" />
 
     <!-- Facebook Domain + Pixel Code -->
-    <!-- <?php
-            // $fbdomain = getFacebookDomain();
-            // if ($fbdomain != Null) {
-            // 	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
-            // }
+ <?php
+             $fbdomain = getFacebookDomain();
+             if ($fbdomain != Null) {
+             	echo '<meta name="facebook-domain-verification" content="' . $fbdomain . '" />';
+             }
 
-            // $fbpixel = getFacebookPixel('plan_facebookpixel');
-            // if ($fbpixel != Null) {
+            $fbpixel = getFacebookPixel('plan_facebookpixel');
+             if ($fbpixel != Null) {
             ?>
     <script>
     ! function(f, b, e, v, n, t, s) {
@@ -83,15 +83,15 @@
         s.parentNode.insertBefore(t, s)
     }(window, document, 'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '<?php //echo $fbpixel; 
+    fbq('init', '<?php echo $fbpixel; 
                     ?>');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=<?php //echo $fbpixel; 
+            src="https://www.facebook.com/tr?id=<?php echo $fbpixel; 
                                                 ?>&ev=PageView&noscript=1" /></noscript>
-    <?php //} 
-    ?> -->
+    <?php } 
+    ?> 
     <!-- End Facebook Domain + Pixel Code -->
     <!-- Taboola Pixel Code -->
     <!-- <script type='text/javascript'>

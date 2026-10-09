@@ -584,6 +584,28 @@ class Digital extends CI_Controller
 
 		$this->load->model('Site_Info_Model');
 
+		$this->load->helper('interakt');
+		$data1 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('BFP Get Offer')
+		);
+		
+		$restrack1 = interakt_user_track($data1, INTERAKT_KEY_UE);
+		
+		$data2 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'BFP Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack2 = interakt_event_track($data2, INTERAKT_KEY_UE);
+
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("digital/membershiporder/" . $key);
 	}
@@ -701,6 +723,7 @@ class Digital extends CI_Controller
 
 				$password = random_code(6);
 				$passwordkey = stringCrypt($password, 'encrypt');
+				$new_passwordkey = md5($password);
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
 				$refcode .= substr($userdata->mobile, -4);
 
@@ -708,6 +731,7 @@ class Digital extends CI_Controller
 					'rec_date' => date('Y-m-d H:i:s'),
 					'update_date' => date('Y-m-d H:i:s'),
 					'password' => $passwordkey,
+					'new_password' => $new_passwordkey,
 					'refcode' => $refcode,
 					'process_step' => 4,
 					'isUser' => 2
@@ -790,23 +814,8 @@ class Digital extends CI_Controller
 					$api_response = send_order_data(json_encode($remote_data));
 				}
 
-				$wpusernamepassword = $this->Site_Info_Model->getsmsmessage('aisency_userwelcomename');
-	
-					$data3 = array(
-						'apiKey' => AISENSY_KEY,
-						'campaignName' => $wpusernamepassword,
-						'destination' => '+91' . $userdata->mobile,
-						'userName' => $userdata->fullname,
-						'tags' => array('Payment Successful'),
-						'attributes' => array(
-							"userid"=> $userdata->mobile,
-							"password"=> $password
-						),
-						'templateParams' => array('$userid', '$password'),
-					);
-					$restrack3 = aisensy_track($data3);
 
-				$sent = $this->Site_Plan_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
+				$sent = $this->Site_Digital_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 
 				redirect("digital/paymentResponse/".$paymentdata->entryfor."/". $response2);
 			} else {
@@ -846,9 +855,9 @@ $data = array(
 
 
 				$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
-		log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
-		$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
-		$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
+				log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
+				$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
+				$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
 				$data = array(
 					'loantype' => $loantype,
 					'username' => $userdata->fullname,
@@ -878,17 +887,48 @@ $data = array(
 
 				$fbresponse = fbconversioncurl($fbdata);
 
+				$this->load->helper('interakt');
+					
+					$data2 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('BFP Payment Successful')
+					);
+					$restrack2 = interakt_user_track($data2, INTERAKT_KEY_UE);
+
+					$data3 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BFP Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack3 = interakt_event_track($data3, INTERAKT_KEY_UE);
+
 				$this->load->model('Site_Info_Model');
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
 				$applyid = $this->session->tempdata('applyid');
 
-				//if ($applyid > 0) {
 				$this->load->model('Site_Digital_Model');
 				$userdata = $this->Site_Digital_Model->checkuserdata($applyid);
+				
+				
+				$this->load->helper('interakt');
+				$data5 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BFP Payment Fail',
+				);
+				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_UE);
+
 				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
-				//}
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
 			} else {
