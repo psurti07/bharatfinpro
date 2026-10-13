@@ -501,6 +501,17 @@ class Site_Digital_Model extends CI_Model
 			->update('cardoffer_order', $data);
 		return ($this->db->affected_rows() != 1) ? 'false' : 'true';
 	}
+	
+	public function checkcardofferentry($referenceId) {
+		
+		$query = $this->db->where('paymentid', $referenceId)
+		  ->where('isDelete', 0)
+		  ->get('cardoffer_order')
+		  ->num_rows();
+
+				
+		return $query;
+	}
 
 	public function generateinvoice($data, $invoiceno)
 	{

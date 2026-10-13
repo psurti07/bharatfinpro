@@ -77,10 +77,7 @@ if ($responsedata['loantype'] == 11) {
 
                         <a href="<?php echo site_url('cardoffer'); ?>"
                             class="btn btn-orange btn-sm m-t-10 text-uppercase">Go to Homepage</a>
-                        <div class="mt-4">
-                            <a href="#">Start a new application <i class="icon-arrow-right"></i></a>
-                        </div>
-
+                        
                         <?php } ?>
                         <!-- END : FAIL -->
                     </div>

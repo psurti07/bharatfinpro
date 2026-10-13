@@ -490,6 +490,8 @@ $this->load->view('includes/header-plan-apply.php');
                 <p class="mb-2"><strong>Important Note:</strong><small> We ask our customers to make payments ONLY on our website <a class="text-dark" href="<?php echo COMPANY_SITE; ?>">bharatfinpro.com</a>  and NOT through any other source, directly or indirectly.</p>
                 <p class="mb-2"><strong>PRE-APPLICATION NOTE: </strong><small> Users are advised to read our terms and conditions and policies before proceeding/applying/registration.</p>
 
+                <p class="mb-2"><strong>Disclosure:</strong><small>Loan tenure minimum 6 months & maximum 60 months; Maximum APR: 34% p.a.; processing fee: up to 2%. Representative example: ₹1,00,000 at 11.5% for 60 months with ₹2,000 processing fee — EMI ₹2,301, total interest ₹38,059, total repayment ₹1,38,059, indicative APR 14.41%.</small></p>
+
                 <p class="mb-0"><strong>Company Registered Address:
                     </strong><small><?php echo COMPANY_ADDRESS; ?></small></p>
 

@@ -66,7 +66,7 @@ class Loan extends CI_Controller
 		$productdata = $this->Site_Info_Model->getproductdetails('card-offer');
 
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
-		$grandamount = $amount + ($amount * 0.18);
+		$grandamount = floor($amount + ($amount * 0.18));
 
 		$fullname = $_REQUEST['fullname'];
 		$mobileno = $_REQUEST['mobileno'];
@@ -99,63 +99,53 @@ class Loan extends CI_Controller
 				'amount' => $grandamount,
 				'isCustomer' => 0,
 				'isActive' => 0,
-				'isDelete' => 0,
+				'isDelete' => 0
 			);
 
 			$this->load->model('Site_Digital_Model');
 			$userid = $this->Site_Digital_Model->cardofferorder($data);
 
-			$txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-			$udf1 = $udf2 = $udf3 = $udf4 = $udf5 = '';
-			$postData = array();
+			$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
 
-			$hashstring = PAYU_MERCHANT_KEY . '|' . $txnid . '|' . $grandamount . '|' . $productdata->productname . '|' . $fullname . '|' . $emailid . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . PAYU_SALT;
-
-			$hash = hash('sha512', $hashstring);
-
-			$returnUrl = base_url('loan/cardofferresponse');
-
-			if (PAYU_MODE == "PROD") {
-				$url = 'https://secure.payu.in/_payment';
-			} else {
-				$url = 'https://test.payu.in/_payment';
-			}
-
-			$postData = array(
-				'mkey' => PAYU_MERCHANT_KEY,
-				'tid' => $txnid,
-				'hash' => $hash,
-				'amount' => $grandamount,
-				'name' => $fullname,
-				'productinfo' => $productdata->productname,
-				'mailid' => $emailid,
-				'phoneno' => $mobileno,
-				'address' => '',
-				'action' => $url,
-				'returnUrl' => $returnUrl,
+			$orderdata = array(
+				'amount' => $grandamount * 100,
+				'currency' => 'INR',
+				'receipt' => $receiptid,
+				'notes' => array(
+					'key1' => $fullname,
+					'key2' => $mobileno
+				)
 			);
 
-			$payudata = array(
+			$this->load->helper('razorpay');
+			$orderres = generateorder($orderdata);
+			$successURL = base_url('loan/cardofferresponse');
+			$failURL = base_url('cardoffer');
+
+			$razorpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'entryfor' => 3,
 				'userid' => $userid,
-				'orderid' => $txnid,
+				'orderid' => $orderres->id,
 				'orderamount' => $grandamount,
-				'ordernote' => $productdata->productname,
+				'ordernote' => $productdata->productname
 			);
 
-			$this->load->model('Site_Digital_Model');
-			$payuentry = $this->Site_Digital_Model->payuentry($payudata);
+			$razorpayentry = $this->Site_Digital_Model->razorpayentry($razorpaydata);
 
-			$userdata = $this->Site_Digital_Model->checkuser($mobileno);
-			if ($userdata) {
-				$data1 = array(
-					'update_date' => date('Y-m-d H:i:s'),
-				);
-				$response1 = $this->Site_Digital_Model->updateregistration($userdata->userid, $data1);
-			}
+			$postData = array(
+				'applyid' => $userid,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'email' => $emailid,
+				'orderamount' => $grandamount,
+				'orderid' => $orderres->id,
+				'description' => $productdata->productname,
+				'successURL' => $successURL,
+				'failURL' => $failURL
+			);
 
-			$this->load->view('payu-checkout', ['postData' => $postData]);
+			$this->load->view('razorpay-checkout', ['postData' => $postData]);
 		}
 	}
 
@@ -163,50 +153,39 @@ class Loan extends CI_Controller
 	{
 
 		$this->load->model('Site_Info_Model');
+		$this->load->model('Site_Digital_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('home');
 
-		if (isset($_POST["status"]) && $_POST["status"] != "") {
-			$status = $_POST["status"];
-			$firstname = $_POST["firstname"];
-			$amount = $_POST["amount"];
-			$txnid = $_POST["txnid"];
-			$posted_hash = $_POST["hash"];
-			$key = $_POST["key"];
-			$productinfo = $_POST["productinfo"];
-			$email = $_POST["email"];
-			$mihpayid = $_POST["mihpayid"];
-			$pgtype = $_POST["PG_TYPE"];
-			$salt = PAYU_SALT;
-
-			if ($_POST["additionalCharges"] != '') {
-				$retHashSeq = $_POST["additionalCharges"] . '|' . $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			} else {
-				$retHashSeq = $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			}
-
+		if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
 			$this->load->model('Site_Digital_Model');
-			$paymentdata = $this->Site_Digital_Model->getpayuentry($txnid);
+			$paymentdata = $this->Site_Digital_Model->getrazorpayentry($_POST["orderid"]);
 
-			$payudata = array(
+			$razorpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
-				'referenceid' => $mihpayid,
-				'txstatus' => $status,
-				'paymentmode' => $pgtype,
+				'referenceid' => $_REQUEST['paymentid'],
+				'txstatus' => 'Success'
 			);
 
-			$response1 = $this->Site_Digital_Model->updatepayuentry($paymentdata->id, $payudata);
+			$response1 = $this->Site_Digital_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
+
 			$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
 
-			if ($status == 'success') {
+			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
+			$paymentid = (isset($_REQUEST['paymentid'])) ? $_REQUEST['paymentid'] : '';
+
+			$isentry = $this->Site_Digital_Model->checkcardofferentry($paymentid);
+
+			if ($isentry == 0) {
 				$cardno = random_code(16);
+
 				$data = array(
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
 					'expiry_date' => date('Y-m-d', strtotime('+3 months')),
 					'amount' => $amount,
-					'paymentid' => $mihpayid,
-					'isActive' => 1,
+					'paymentid' => $paymentid,
+					'isActive' => 1
 				);
 
 				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
@@ -214,12 +193,11 @@ class Loan extends CI_Controller
 				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
 
 				$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => $response]);
-			} else if ($status == 'failure') {
-				$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'false']);
 			} else {
-				$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'false']);
+				$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'true']);
 			}
-		} else {
+		}
+		else {
 			$this->load->view('cardoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}
@@ -1203,14 +1181,14 @@ class Loan extends CI_Controller
 		$productdata = $this->Site_Info_Model->getproductdetails('super-offer');
 
 		$amount = ($productdata->inOffer == 1) ? $productdata->offeramount : $productdata->amount;
-		$grandamount = $amount + ($amount * 0.18);
+		$grandamount = floor($amount + ($amount * 0.18));
 
 		$fullname = $_REQUEST['fullname'];
 		$mobileno = $_REQUEST['mobileno'];
 		$emailid = $_REQUEST['emailid'];
 
-		$this->load->model('Site_Digital_Model');
-		$existingUser = $this->Site_Digital_Model->checkexistinguser($mobileno);
+		$this->load->model('Site_Plan_Model');
+		$existingUser = $this->Site_Plan_Model->checkexistinguser($mobileno);
 
 		// Check if mobile number exists
 		if ($existingUser) {
@@ -1236,63 +1214,53 @@ class Loan extends CI_Controller
 				'amount' => $grandamount,
 				'isCustomer' => 0,
 				'isActive' => 0,
-				'isDelete' => 0,
+				'isDelete' => 0
 			);
 
-			$this->load->model('Site_Digital_Model');
-			$userid = $this->Site_Digital_Model->cardofferorder($data);
+			$this->load->model('Site_Plan_Model');
+			$userid = $this->Site_Plan_Model->cardofferorder($data);
 
-			$txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-			$udf1 = $udf2 = $udf3 = $udf4 = $udf5 = '';
-			$postData = array();
+			$receiptid = number_format(microtime(true) * 1000, 0, '.', '');
 
-			$hashstring = PAYU_MERCHANT_KEY . '|' . $txnid . '|' . $grandamount . '|' . $productdata->productname . '|' . $fullname . '|' . $emailid . '|' . $udf1 . '|' . $udf2 . '|' . $udf3 . '|' . $udf4 . '|' . $udf5 . '||||||' . PAYU_SALT;
-
-			$hash = hash('sha512', $hashstring);
-
-			$returnUrl = base_url('loan/superofferresponse');
-
-			if (PAYU_MODE == "PROD") {
-				$url = 'https://secure.payu.in/_payment';
-			} else {
-				$url = 'https://test.payu.in/_payment';
-			}
-
-			$postData = array(
-				'mkey' => PAYU_MERCHANT_KEY,
-				'tid' => $txnid,
-				'hash' => $hash,
-				'amount' => $grandamount,
-				'name' => $fullname,
-				'productinfo' => $productdata->productname,
-				'mailid' => $emailid,
-				'phoneno' => $mobileno,
-				'address' => '',
-				'action' => $url,
-				'returnUrl' => $returnUrl,
+			$orderdata = array(
+				'amount' => $grandamount * 100,
+				'currency' => 'INR',
+				'receipt' => $receiptid,
+				'notes' => array(
+					'key1' => $fullname,
+					'key2' => $mobileno
+				)
 			);
 
-			$payudata = array(
+			$this->load->helper('razorpay');
+			$orderres = generateorder($orderdata);
+			$successURL = base_url('loan/superofferresponse');
+			$failURL = base_url('superoffer');
+
+			$razorpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
 				'entryfor' => 9,
 				'userid' => $userid,
-				'orderid' => $txnid,
+				'orderid' => $orderres->id,
 				'orderamount' => $grandamount,
-				'ordernote' => $productdata->productname,
+				'ordernote' => $productdata->productname
 			);
 
-			$this->load->model('Site_Digital_Model');
-			$payuentry = $this->Site_Digital_Model->payuentry($payudata);
+			$razorpayentry = $this->Site_Plan_Model->razorpayentry($razorpaydata);
 
-			$userdata = $this->Site_Digital_Model->checkuser($mobileno);
-			if ($userdata) {
-				$data1 = array(
-					'update_date' => date('Y-m-d H:i:s'),
-				);
-				$response1 = $this->Site_Digital_Model->updateregistration($userdata->userid, $data1);
-			}
+			$postData = array(
+				'applyid' => $userid,
+				'fullname' => $fullname,
+				'mobile' => $mobileno,
+				'email' => $emailid,
+				'orderamount' => $grandamount,
+				'orderid' => $orderres->id,
+				'description' => $productdata->productname,
+				'successURL' => $successURL,
+				'failURL' => $failURL
+			);
 
-			$this->load->view('payu-checkout', ['postData' => $postData]);
+			$this->load->view('razorpay-checkout', ['postData' => $postData]);
 		}
 	}
 
@@ -1300,50 +1268,39 @@ class Loan extends CI_Controller
 	{
 
 		$this->load->model('Site_Info_Model');
+		$this->load->model('Site_Digital_Model');
 		$meta = $this->Site_Info_Model->getmetakeywords('home');
 
-		if (isset($_POST["status"]) && $_POST["status"] != "") {
-			$status = $_POST["status"];
-			$firstname = $_POST["firstname"];
-			$amount = $_POST["amount"];
-			$txnid = $_POST["txnid"];
-			$posted_hash = $_POST["hash"];
-			$key = $_POST["key"];
-			$productinfo = $_POST["productinfo"];
-			$email = $_POST["email"];
-			$mihpayid = $_POST["mihpayid"];
-			$pgtype = $_POST["PG_TYPE"];
-			$salt = PAYU_SALT;
-
-			if ($_POST["additionalCharges"] != '') {
-				$retHashSeq = $_POST["additionalCharges"] . '|' . $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			} else {
-				$retHashSeq = $salt . '|' . $status . '|||||||||||' . $email . '|' . $firstname . '|' . $productinfo . '|' . $amount . '|' . $txnid . '|' . $key;
-			}
-
+		if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
 			$this->load->model('Site_Digital_Model');
-			$paymentdata = $this->Site_Digital_Model->getpayuentry($txnid);
+			$paymentdata = $this->Site_Digital_Model->getrazorpayentry($_POST["orderid"]);
 
-			$payudata = array(
+			$razorpaydata = array(
 				'rec_date' => date('Y-m-d H:i:s'),
-				'referenceid' => $mihpayid,
-				'txstatus' => $status,
-				'paymentmode' => $pgtype,
+				'referenceid' => $_REQUEST['paymentid'],
+				'txstatus' => 'Success'
 			);
 
-			$response1 = $this->Site_Digital_Model->updatepayuentry($paymentdata->id, $payudata);
+			$response1 = $this->Site_Digital_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
+
 			$userdata = $this->Site_Digital_Model->checkcardofferdata($paymentdata->userid);
 
-			if ($status == 'success') {
+			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
+			$paymentid = (isset($_REQUEST['paymentid'])) ? $_REQUEST['paymentid'] : '';
+
+			$isentry = $this->Site_Digital_Model->checkcardofferentry($paymentid);
+
+			if ($isentry == 0) {
 				$cardno = random_code(16);
+
 				$data = array(
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
 					'expiry_date' => date('Y-m-d', strtotime('+3 months')),
 					'amount' => $amount,
-					'paymentid' => $mihpayid,
-					'isActive' => 1,
+					'paymentid' => $paymentid,
+					'isActive' => 1
 				);
 
 				$response = $this->Site_Digital_Model->updatecardofferorder($paymentdata->userid, $data);
@@ -1351,12 +1308,11 @@ class Loan extends CI_Controller
 				$sent = $this->Site_Digital_Model->sendPaymentGreetings($userdata->fullname, $userdata->mobile, $userdata->emailid);
 
 				$this->load->view('superoffer-response', ['meta' => $meta, 'status' => $response]);
-			} else if ($status == 'failure') {
-				$this->load->view('superoffer-response', ['meta' => $meta, 'status' => 'false']);
 			} else {
-				$this->load->view('superoffer-response', ['meta' => $meta, 'status' => 'false']);
+				$this->load->view('superoffer-response', ['meta' => $meta, 'status' => 'true']);
 			}
-		} else {
+		}
+		else {
 			$this->load->view('superoffer-response', ['meta' => $meta, 'status' => 'false']);
 		}
 	}

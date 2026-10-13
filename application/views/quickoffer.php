@@ -48,16 +48,17 @@ $amtpay = $productdata['payamount'];
 							?>
                               <ul class="list-unstyled mt-4 mb-0">
                                 <li>
-                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Subtotal : <span>₹ 499.00</span></h6>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Subtotal : <span>₹ <?php echo formatePriceIndia($subtotal); ?></span></h6>
                                 </li>
                                 <li>
-                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>GST (18%) : <span>₹ 89.82</span></h6>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>GST (18%) : <span>₹ <?php $gst = $subtotal * 0.18;
+																echo formatePriceIndia($gst); ?></span></h6>
                                 </li>
                                 <li>
-                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Grand Total : <span>₹ 588.82</span></h6>
+                                    <h6><i class="fa fa-check pr-2 fa-sm"></i>Grand Total : <span>₹ <?php echo formatePriceIndia($subtotal + $gst); ?></span></h6>
                                 </li>
                                 <li>
-                                    <h6><span class="fa fa-check pr-2 fa-sm"></span>Plan Validity : <span>6
+                                    <h6><span class="fa fa-check pr-2 fa-sm"></span>Plan Validity : <span>9
                                             months</span></h6>
                                 </li>
                                 <li>
@@ -68,20 +69,15 @@ $amtpay = $productdata['payamount'];
                         </div>
                     </div>
                     <div class="card-body sm-m-0">
-                        <!-- <h4 class="text-dark pb-3">Purchase Membership & Instantly Process Your Personal Loan!</h4> -->
+                        <h5 class="text-dark">Our Customers Testimonials</h5>
+                        <?php $testimoniallist = array('testimonial-1.jpeg', 'testimonial-2.jpeg', 'testimonial-3.jpeg', 'testimonial-4.jpeg', 'testimonial-5.jpeg', 'testimonial-6.jpeg', 'testimonial-7.jpeg', 'testimonial-8.jpeg'); ?>
 
-                        <p><strong>Unlock Best Loan Offers From Our Lending Partners</strong></p>
-
-                        <?php $loanoffers = array('1.png', '2.png', '3.png', '4.png', '5.png', '6.png'); ?>
-
-                        <div class="carousel equalize testimonial testimonial-box" data-margin="10" data-arrows="false"
-                            data-dots="false" data-items="2" data-items-sm="2" data-items-xxs="1"
-                            data-equalize-item=".testimonial-item">
-                            <?php foreach ($loanoffers as $row) { ?>
-                            <img src="<?php echo base_url('assets/images/bharatpro_finance/' . $row); ?>"
-                                alt="offer img">
-                            <?php } ?>
-                        </div>
+        <div class="carousel equalize testimonial testimonial-box" data-margin="20" data-arrows="true" data-dots="false"
+            data-items="2" data-items-sm="2" data-items-xxs="1" data-equalize-item=".testimonial-item">
+            <?php foreach ($testimoniallist as $row) { ?>
+            <img src="<?php echo base_url('assets/images/customers/' . $row); ?>" alt="customer img">
+            <?php } ?>
+        </div>
                     </div>
                 </div>
             </div>
@@ -156,24 +152,6 @@ $amtpay = $productdata['payamount'];
     </div>
 </section>
 
-<!-- testimonial section -->
-<section>
-    <div class="container">
-        <div class="text-center m-b-50">
-            <h2 class="text-dark">Our Customers Testimonials</h2>
-            <p class="text-dark">Such feedback inspires us to go a mile beyond, every time!</p>
-        </div>
-
-        <?php $testimoniallist = array('1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png'); ?>
-
-        <div class="carousel equalize testimonial testimonial-box" data-margin="20" data-arrows="true" data-dots="false"
-            data-items="2" data-items-sm="2" data-items-xxs="1" data-equalize-item=".testimonial-item">
-            <?php foreach ($testimoniallist as $row) { ?>
-            <img src="<?php echo base_url('assets/images/' . $row); ?>" alt="customer img">
-            <?php } ?>
-        </div>
-    </div>
-</section>
 
 <?php
 $this->load->view('includes/footer-plan-apply.php');

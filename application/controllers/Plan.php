@@ -569,27 +569,27 @@ class Plan extends CI_Controller
 	
 		$offerresponse = $this->Site_Plan_Model->sendOfferMessage($userdata->loantype, $eligibilityamt, $userdata->mobile, $userdata->email);
 
-		// $this->load->helper('interakt');
-		// $data2 = array(
-		// 	'phoneNumber' => $userdata->mobile,
-		// 	'countryCode' => '+91',
-		// 	'traits' => array(
-		// 		'name' => $userdata->fullname
-		// 	),
-		// 	'tags' => array('Get Offer')
-		// );
-
-		// $restrack2 = plan_user_track_ue($data2);
-
-		// $data3 = array(
-		// 	'phoneNumber' => $userdata->mobile,
-		// 	'countryCode' => '+91',
-		// 	'event' => 'Get Offer',
-		// 	'traits' => array(
-		// 		'EligibleAmount' => $eligibilityamt
-		// 	)
-		// );
-		// $restrack3 = plan_event_track_ue($data3);
+		$this->load->helper('interakt');
+		$data1 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('BPF Get Offer')
+		);
+		
+		$restrack1 = interakt_user_track($data1, INTERAKT_KEY_PLAN_UE);
+		
+		$data2 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'BPF Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack2 = interakt_event_track($data2, INTERAKT_KEY_PLAN_UE);
 
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("plan/membershiporder/" . $key);
@@ -684,7 +684,7 @@ class Plan extends CI_Controller
 			$response1 = $this->Site_Plan_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
 
 			$userdata = $this->Site_Plan_Model->checkuserregdata($paymentdata->userid);
-			$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
+			$this->session->set_tempdata('applyid', $userdata->id);
 
 			$cardno = random_code(16);
 			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
@@ -697,7 +697,7 @@ class Plan extends CI_Controller
 				 'rec_date' => date('Y-m-d H:i:s'),
 				 'userid' => $userdata->userid,
 				 'registration_date' => date('Y-m-d'),
-				 'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+				 'expiry_date' => date('Y-m-d', strtotime('+9 months')),
 				 'card_number' => $cardno,
 				 'amount' => $amount,
 				 'paymentid' => $paymentid,
@@ -707,6 +707,7 @@ class Plan extends CI_Controller
 				$memberid = $this->Site_Plan_Model->planorder($data);
 
 				$password = random_code(6);
+				$this->session->set_tempdata('userpass', $password);
 				$passwordkey = stringCrypt($password, 'encrypt');
 				$new_passwordkey = md5($password);
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
@@ -727,11 +728,11 @@ class Plan extends CI_Controller
 				$invoiceno = $this->Site_Info_Model->getinvoiceno();
 
 				if ($userdata->cardtype == 22) {
-						$productslug = "bharat-pro-finance";
+						$productslug = "bharatpro-finance";
 						$invfor = 5;
 						$invprefix = "PFBL_";
 					} else {
-						$productslug = "bharat-pro-finance";
+						$productslug = "bharatpro-finance";
 						$invfor = 4;
 						$invprefix = "PFPL_";
 					}
@@ -798,22 +799,6 @@ class Plan extends CI_Controller
 					$api_response = send_order_data(json_encode($remote_data));
 				}
 
-				$wpusernamepassword = $this->Site_Info_Model->getsmsmessage('aisency_userwelcomename');
-	
-					$data3 = array(
-						'apiKey' => AISENSY_KEY,
-						'campaignName' => $wpusernamepassword,
-						'destination' => '+91' . $userdata->mobile,
-						'userName' => $userdata->fullname,
-						'tags' => array('Payment Successful'),
-						'attributes' => array(
-							"userid"=> $userdata->mobile,
-							"password"=> $password
-						),
-						'templateParams' => array('$userid', '$password'),
-					);
-					$restrack3 = aisensy_track($data3);
-
 				$sent = $this->Site_Plan_Model->sendSuccessGreetings($userdata->mobile, $userdata->email, $password);
 
 				redirect("plan/paymentResponse/".$paymentdata->entryfor."/". $response2);
@@ -842,8 +827,6 @@ class Plan extends CI_Controller
 
 		$data = array(
 			'loantype' => $loantype,
-			//'username' => $userdata->fullname,
-			//'preamount' => $eligibilityamt,
 			'status' => $status
 		);
 		if ($status != '') {
@@ -879,54 +862,51 @@ class Plan extends CI_Controller
 
 				$this->load->model('Site_Info_Model');
 
-				// $this->load->helper('interakt');
-				// $data2 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'traits' => array(
-				// 		'name' => $userdata->fullname
-				// 	),
-				// 	'tags' => array('Payment Successful')
-				// );
+				$this->load->helper('interakt');
+					
+					$data2 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('BPF Payment Successful')
+					);
+					$restrack2 = interakt_user_track($data2, INTERAKT_KEY_PLAN_UE);
 
-				// $restrack2 = plan_user_track_ue($data2);
+					$data3 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BPF Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack3 = interakt_event_track($data3, INTERAKT_KEY_PLAN_UE);
 
-				// $data3 = array(
-				// 	'phoneNumber' => $userdata->mobile,
-				// 	'countryCode' => '+91',
-				// 	'event' => 'Payment Successful',
-				// 	'traits' => array(
-				// 		'userid' => $userdata->mobile,
-				// 		'userpass' => $this->session->tempdata('userpass')
-				// 	),
-				// );
-				// $restrack3 = plan_event_track_ue($data3);
 
-				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
+				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data, 'userdata' => $userdata]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
 				$applyid = $this->session->tempdata('applyid');
 
 				$this->load->model('Site_Plan_Model');
 				$userdata = $this->Site_Plan_Model->checkuserdata($applyid);
 
-				// $intdata1 = array(
-				// 	"fullPhoneNumber" => '+91' . $userdata->mobile,
-				// 	"callbackData" => "some text here",
-				// 	"type" => "Template",
-				// 	"template" => array(
-				// 		"name" => "payment_failed_26june",
-				// 		"languageCode" => "en",
-				// 	)
-
-				// );
-				// $restrack_intdata = plan_interakt_track_rm($intdata1);
+				$this->load->helper('interakt');
+				$data5 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BPF Payment Fail',
+				);
+				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE);
 
 
 				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 
-				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
+				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data, 'userdata' => $userdata]);
 			} else {
-				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data]);
+				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data, 'userdata' => $userdata]);
 			}
 		} else {
 			redirect('plan/personalLoan');

@@ -916,7 +916,16 @@ class Site_Plan_Model extends CI_Model
 		return $query;
 	}
 
+	public function checkcardofferentry($referenceId) {
+		
+		$query = $this->db->where('paymentid', $referenceId)
+		  ->where('isDelete', 0)
+		  ->get('cardoffer_order')
+		  ->num_rows();
 
+				
+		return $query;
+	}
 
 	public function updatecardofferorder($id, $data)
 

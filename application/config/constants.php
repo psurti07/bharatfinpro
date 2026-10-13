@@ -1,108 +1,205 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+
 /*
+
 |--------------------------------------------------------------------------
+
 | Display Debug backtrace
+
 |--------------------------------------------------------------------------
+
 |
+
 | If set to TRUE, a backtrace will be displayed along with php errors. If
+
 | error_reporting is disabled, the backtrace will not display, regardless
+
 | of this setting
+
 |
+
 */
+
 defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);
 
+
+
 /*
+
 |--------------------------------------------------------------------------
+
 | File and Directory Modes
+
 |--------------------------------------------------------------------------
+
 |
+
 | These prefs are used when checking and setting modes when working
+
 | with the file system.  The defaults are fine on servers with proper
+
 | security, but you may wish (or even need) to change the values in
+
 | certain environments (Apache running a separate process for each
+
 | user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
+
 | always be used to set the mode correctly.
+
 |
+
 */
+
 defined('FILE_READ_MODE')  OR define('FILE_READ_MODE', 0644);
+
 defined('FILE_WRITE_MODE') OR define('FILE_WRITE_MODE', 0666);
+
 defined('DIR_READ_MODE')   OR define('DIR_READ_MODE', 0755);
+
 defined('DIR_WRITE_MODE')  OR define('DIR_WRITE_MODE', 0755);
 
-/*
-|--------------------------------------------------------------------------
-| File Stream Modes
-|--------------------------------------------------------------------------
-|
-| These modes are used when working with fopen()/popen()
-|
-*/
-defined('FOPEN_READ')                           OR define('FOPEN_READ', 'rb');
-defined('FOPEN_READ_WRITE')                     OR define('FOPEN_READ_WRITE', 'r+b');
-defined('FOPEN_WRITE_CREATE_DESTRUCTIVE')       OR define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); // truncates existing file data, use with care
-defined('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE')  OR define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 'w+b'); // truncates existing file data, use with care
-defined('FOPEN_WRITE_CREATE')                   OR define('FOPEN_WRITE_CREATE', 'ab');
-defined('FOPEN_READ_WRITE_CREATE')              OR define('FOPEN_READ_WRITE_CREATE', 'a+b');
-defined('FOPEN_WRITE_CREATE_STRICT')            OR define('FOPEN_WRITE_CREATE_STRICT', 'xb');
-defined('FOPEN_READ_WRITE_CREATE_STRICT')       OR define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
+
 
 /*
+
 |--------------------------------------------------------------------------
-| Exit Status Codes
+
+| File Stream Modes
+
 |--------------------------------------------------------------------------
+
 |
-| Used to indicate the conditions under which the script is exit()ing.
-| While there is no universal standard for error codes, there are some
-| broad conventions.  Three such conventions are mentioned below, for
-| those who wish to make use of them.  The CodeIgniter defaults were
-| chosen for the least overlap with these conventions, while still
-| leaving room for others to be defined in future versions and user
-| applications.
+
+| These modes are used when working with fopen()/popen()
+
 |
-| The three main conventions used for determining exit status codes
-| are as follows:
-|
-|    Standard C/C++ Library (stdlibc):
-|       http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
-|       (This link also contains other GNU-specific conventions)
-|    BSD sysexits.h:
-|       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
-|    Bash scripting:
-|       http://tldp.org/LDP/abs/html/exitcodes.html
-|
+
 */
+
+defined('FOPEN_READ')                           OR define('FOPEN_READ', 'rb');
+
+defined('FOPEN_READ_WRITE')                     OR define('FOPEN_READ_WRITE', 'r+b');
+
+defined('FOPEN_WRITE_CREATE_DESTRUCTIVE')       OR define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); // truncates existing file data, use with care
+
+defined('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE')  OR define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE', 'w+b'); // truncates existing file data, use with care
+
+defined('FOPEN_WRITE_CREATE')                   OR define('FOPEN_WRITE_CREATE', 'ab');
+
+defined('FOPEN_READ_WRITE_CREATE')              OR define('FOPEN_READ_WRITE_CREATE', 'a+b');
+
+defined('FOPEN_WRITE_CREATE_STRICT')            OR define('FOPEN_WRITE_CREATE_STRICT', 'xb');
+
+defined('FOPEN_READ_WRITE_CREATE_STRICT')       OR define('FOPEN_READ_WRITE_CREATE_STRICT', 'x+b');
+
+
+
+/*
+
+|--------------------------------------------------------------------------
+
+| Exit Status Codes
+
+|--------------------------------------------------------------------------
+
+|
+
+| Used to indicate the conditions under which the script is exit()ing.
+
+| While there is no universal standard for error codes, there are some
+
+| broad conventions.  Three such conventions are mentioned below, for
+
+| those who wish to make use of them.  The CodeIgniter defaults were
+
+| chosen for the least overlap with these conventions, while still
+
+| leaving room for others to be defined in future versions and user
+
+| applications.
+
+|
+
+| The three main conventions used for determining exit status codes
+
+| are as follows:
+
+|
+
+|    Standard C/C++ Library (stdlibc):
+
+|       http://www.gnu.org/software/libc/manual/html_node/Exit-Status.html
+
+|       (This link also contains other GNU-specific conventions)
+
+|    BSD sysexits.h:
+
+|       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
+
+|    Bash scripting:
+
+|       http://tldp.org/LDP/abs/html/exitcodes.html
+
+|
+
+*/
+
 defined('EXIT_SUCCESS')        OR define('EXIT_SUCCESS', 0); // no errors
+
 defined('EXIT_ERROR')          OR define('EXIT_ERROR', 1); // generic error
+
 defined('EXIT_CONFIG')         OR define('EXIT_CONFIG', 3); // configuration error
+
 defined('EXIT_UNKNOWN_FILE')   OR define('EXIT_UNKNOWN_FILE', 4); // file not found
+
 defined('EXIT_UNKNOWN_CLASS')  OR define('EXIT_UNKNOWN_CLASS', 5); // unknown class
+
 defined('EXIT_UNKNOWN_METHOD') OR define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
+
 defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user input
+
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
+
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
+
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
+
+
+
 /**
+
  * Custom defines
+
  */
 
+
+
 // Project details
+
 define('PROJECT_NAME', 'Bharatfinpro');
-define('COMPANY_NAME', 'Bharatfinpro');
+define('COMPANY_NAME', 'Simcore Consultancy LLP');
 define('COMPANY_EMAIL', 'info@bharatfinpro.com');
 define('COMPANY_MOBILE', '+91-79909-14132');
 define('COMPANY_CIN', 'SRTS39343D');
 define('COMPANY_GST', '24AGAFS4464J1ZT');
 define('COMPANY_SITE', 'bharatfinpro.com');
 define('COMPANY_ADDRESS', 'Shop No- 228, Unique Square, Causeway Dabholi Link Road, Singanpor, Surat, Gujarat, 395004');
-define('COMPANY_TIMING', '#');
+define('COMPANY_TIMING', '10 AM to 5 PM (Monday to Saturday)');
+
+
 
 define('SECURE_SALT', 'verloopweb');
 
+
+
 //Social media
+
 define('SM_GOOGLE', '#');
 define('SM_FACEBOOK', 'https://www.facebook.com/profile.php?id=61592006906030');
 define('SM_INSTAGRAM', 'https://www.instagram.com/bharatfinpro.in/');
@@ -111,131 +208,255 @@ define('SM_LINKEDIN', '#');
 define('SM_PINTEREST', 'https://in.pinterest.com/bharatfinpro2026/');
 define('SM_YOUTUBE', 'https://www.youtube.com/@bharatfinproofficial');
 
+
+
 // Email SMTP details
-define('SMTP_HOST', '#');
-define('SMTP_USER', '#');
-define('SMTP_PASSWORD', '#');
+
+define('SMTP_HOST', 'mail.bharatfinpro.com');
+
+define('SMTP_USER', 'info@bharatfinpro.com');
+
+define('SMTP_PASSWORD', 'bharatfinpro@123');
+
+
 
 // SENDINBLUE details
+
 define('SIB_NAME', '#');
+
 define('SIB_EMAILID', '#');
+
 define('SIB_APIKEY', '#');
 
+
+
 // SMS details
+
 define('SMS_API_KEY', '#');
+
 define('SMS_SENDER_ID', '#'); 
+
+
+
+// SMS details
 
 // SMS details
 define('SMS_OBB_USERNAME', 'bhfinpro');
 define('SMS_OBB_PASSWORD', 'c6fbca50a3XX');
 define('SMS_OBB_SENDER_ID', 'BFNPRO'); 
 
+
+
 // SMS details
+
 define('SMS_WEBINAR_OBB_USERNAME', '#');
+
 define('SMS_WEBINAR_OBB_PASSWORD', '#');
+
 define('SMS_WEBINAR_OBB_SENDER_ID', '#'); 
+
+
+
+// SMS details
 
 // SMS details
 define('PLAN_SMS_OBB_USERNAME', 'bhprofin');
 define('PLAN_SMS_OBB_PASSWORD', '7b5e6d8486XX');
 define('PLAN_SMS_OBB_SENDER_ID', 'BHPROF');
 
+
+
 // SabPaisa details
+
 define('SABPAISA_MODE', '#');
+
 define('SABPAISA_CLIENT_CODE', '#');
+
 define('SABPAISA_USERNAME', '#');
+
 define('SABPAISA_PASSWORD', '#');
+
 define('SABPAISA_AUTH_KEY', '#');
+
 define('SABPAISA_AUTH_IV', '#');
 
+
+
 // UPI Gateway details
+
 define('UPIGATEWAY_MODE', '#');
+
 define('UPIGATEWAY_KEY','#');
 
+
+
 // Worldline details
+
 define('WORLDLINE_MODE', '#');
+
 define('WORLDLINE_MERCHANT_CODE', '#');
+
 define('WORLDLINE_SCHEME_CODE', '#');
+
 define('WORLDLINE_KEY_SALT', '#');
+
 define('WORLDLINE_KEY_IV', '#');
 
+
+
 // Step2pay details
+
 define('STEPPAY_MODE', '#');
+
 define('STEPPAY_EMAIL', '#');
+
 define('STEPPAY_PASSWORD', '#');
 
+
+
 // Phonepe details
+
 define('PHONEPE_MODE', '#');
+
 define('PHONEPE_MID', '#');
+
 define('PHONEPE_KEY', '#');
+
 define('PHONEPE_KEY_INDEX', '#');
 
+
+
 // Zaakpay details
+
 define('ZAAKPAY_MERCHANT_IDENTIFIER', '#');
+
 define('ZAAKPAY_SECRET_KEY', '#');
 
+
+
 // Cashfree details
+
 define('CASHFREE_MODE', '#');
+
 define('CASHFREE_APP_ID', '#');
+
 define('CASHFREE_SECRET_KEY', '#');
+
 
 // Razorpay details
 define('RAZOR_KEY_ID_DEMO', 'PROD');
 define('RAZOR_KEY_ID', 'rzp_live_TjLscHDzozL02z');
 define('RAZOR_KEY_SECRET', 'LkS1eaEx94VmqIOJkC9d7UzJ');
 
+
+
 // PayU details
+
 define('PAYU_MODE', '#');
+
 define('PAYU_MERCHANT_KEY', '#');
+
 define('PAYU_SALT', '#');
 
+
+
 // Lyra details
+
 define('LYRA_MODE', '#');
+
 define('LYRA_LCO_ID', '#');
+
 define('LYRA_SHOP_ID', '#');
+
 define('LYRA_MCC', '#');
+
 define('LYRA_SHOP_NAME', '#');
+
 define('LYRA_API_KEY', '#');
 
+
+
 // Airpay details
+
 define('AIRPAY_MERCHANT', '#');
+
 define('AIRPAY_USERNAME', '#');
+
 define('AIRPAY_KEY_PASSWORD', '#');
+
 define('AIRPAY_SECRET', '#');
 
+
+
 define('PAYGIC_MID', '#');
+
 define('PAYGIC_PASSWORD', '#');
 
+
+
 // Whatsapp API
+
 define('AISENSY_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYmUyM2MyYzAwNGJmYzIwYjEyY2U3OCIsIm5hbWUiOiJNb25pa2EgR29oaWwiLCJhcHBOYW1lIjoiQWlTZW5zeSIsImNsaWVudElkIjoiNmFiZTIzYzJjMDA0YmZjMjBiMTJjZTUzIiwiYWN0aXZlUGxhbiI6IkJBU0lDX01PTlRITFkiLCJpYXQiOjE3OTE1MzkxMDJ9.upkqP9jhHlujSWS53yIJylpuhCxdKePxgfNe1rUu650');
 
-//UAT Mobile Mumbers list
-define('UAT_MOBILE_NUMBERS', serialize(array('')));
 
-// Geoloc API Key
-define('GEOLOC_API_KEY', '#');
+
+//UAT Mobile Mumbers list
+
+define('UAT_MOBILE_NUMBERS', serialize(array('9586935595')));
+
 
 // Whatsapp API
+
 define('INTERAKT_KEY', '#');
+
 define('INTERAKT_KEY_UE', 'NjBtVWdZb2pXcVVmM1RiZ2VOUVZ1Njd1aGFWdjJOcXRPbU9xZ0Vaa201WTo=');
+
+define('INTERAKT_KEY_PLAN_UE','VElQQXJGQnlJc3FnREYtNFFFRzBYZVR3VFRBVjgxYWw2clNJTmcxa1NBdzo=');
+define('INTERAKT_KEY_PLAN_RM','VElQQXJGQnlJc3FnREYtNFFFRzBYZVR3VFRBVjgxYWw2clNJTmcxa1NBdzo=');
+
 define('INTERAKT_KEY_NEW_RM', '#');
 
+
+
 define('PLAN_INTERAKT_KEY_NEW_UE', '#');
+
 define('PLAN_INTERAKT_KEY_RM', '#');
 
+
+
 define('INTERAKT_KEY_WEBINAR_RM', '#');
+
 define('INTERAKT_KEY_WEBINAR_PS_PF', '#');
 
+
+
 // Facebook
+
 define('ACCESS_TOKEN', '#');
 
+
+
 // Remarketing Cycle Days Set
+
 define('LOCK_DAYS','');
+
   
+
 define('COMPANY_CODE', '#');
+
 define('LOCAL_IP', '190.92.174.183');
 
+
+
 define('RCS_TOKEN_USERNAME', '#');
+
 define('RCS_TOKEN_PASSWORD', '#');
 
+
+
 define('JWT_SECERET_PARTNER_TOKEN', '#'); //Q1AwMDQ3NTokMnkkMTIkMjNlVmlrVGlkYjBnSUdzY04ud1JmZVZiYWFYZnpqeVJJS1prOWprT0U5TThYNlFha1NZYU8=
+
+// Geoloc API Key
+
+define('GEOLOC_API_KEY', 'oTNqgrrmlPLXul0q85hhdI5Y55MkcBFTMpKGdnsZ');
+

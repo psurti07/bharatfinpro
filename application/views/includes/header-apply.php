@@ -89,225 +89,37 @@
     <?php } 
     ?> 
     <!-- End Facebook Domain + Pixel Code -->
-    <!-- Taboola Pixel Code -->
-    <!-- <script type='text/javascript'>
-    window._tfa = window._tfa || [];
-    window._tfa.push({
-        notify: 'event',
-        name: 'page_view',
-        id: 1779022
-    });
-    ! function(t, f, a, x) {
-        if (!document.getElementById(x)) {
-            t.async = 1;
-            t.src = a;
-            t.id = x;
-            f.parentNode.insertBefore(t, f);
-        }
-    }(document.createElement('script'),
-        document.getElementsByTagName('script')[0],
-        '//cdn.taboola.com/libtrc/unip/1779022/tfa.js',
-        'tb_tfa_script');
-    </script> -->
-    <!-- End of Taboola Pixel Code -->
-    <!-- <script>
-    (function(w, d, t, r, u) {
-        var f, n, i;
-        w[u] = w[u] || [], f = function() {
-            var o = {
-                ti: "97156583",
-                enableAutoSpaTracking: true
-            };
-            o.q = w[u], w[u] = new UET(o), w[u].push("pageLoad")
-        }, n = d.createElement(t), n.src = r, n.async = 1, n.onload = n.onreadystatechange = function() {
-            var s = this.readyState;
-            s && s !== "loaded" && s !== "complete" || (f(), n.onload = n.onreadystatechange = null)
-        }, i = d.getElementsByTagName(t)[0], i.parentNode.insertBefore(n, i)
-    })(window, document, "script", "//bat.bing.com/bat.js", "uetq");
-    </script> -->
-
-    <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16615998313">
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17124324095"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'AW-16615998313');
-    gtag('config', 'AW-17124324095');
-    </script> -->
-
-    <!-- Google tag (gtag.js) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-G4Q3SBZL0L"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'G-G4Q3SBZL0L');
-    </script> -->
-
-    <!-- Google Tag Manager -->
-    <!-- <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-T5VWDPBN');
-    </script> -->
-    <!-- End Google Tag Manager -->
-    <!-- <script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@graph": [{
-                "@type": "LocalBusiness",
-                "name": "Bharatfinpro",
-                "image": "https://bharatfinpro.com/assets/images/logo-light-2x.png",
-                "telephone": "+91-97241-57576",
-                "email": "support@bharatfinpro.com",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "2 Floor, Saymsundar Complex Swaminarayan Nagar soc,katargam, Surat, Gujarat, India - 395004",
-                    "addressLocality": "Surat",
-                    "addressRegion": "Gujarat",
-                    "postalCode": "395009",
-                    "addressCountry": "IN"
-                },
-                "url": "https://bharatfinpro.com/"
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [{
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://bharatfinpro.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Personal Loan",
-                        "item": "https://bharatfinpro.com/digital/personalLoan"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Business Loan",
-                        "item": "https://bharatfinpro.com/digital/businessLoan"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 4,
-                        "name": "FAQs",
-                        "item": "https://bharatfinpro.com/faqs"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 5,
-                        "name": "Raise a Request",
-                        "item": "https://bharatfinpro.com/raise-request"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 6,
-                        "name": "Customer Login",
-                        "item": "https://bharatfinpro.com/customer"
-                    }
-                ]
-            },
-            {
-                "@type": "Organization",
-                "name": "Bharatfinpro",
-                "url": "https://bharatfinpro.com/",
-                "logo": "https://bharatfinpro.com/assets/images/logo-light-2x.png",
-                "contactPoint": {
-                    "@type": "ContactPoint",
-                    "telephone": "+91-97241-57576",
-                    "contactType": "Customer Service",
-                    "areaServed": "IN",
-                    "availableLanguage": "en"
-                },
-                "sameAs": [
-                    "https://www.facebook.com/Bharatfinpro/",
-                    "https://www.instagram.com/bharatfinpro/",
-                    "https://x.com/bharatfinpro",
-                    "https://in.pinterest.com/bharatfinpro/",
-                    "https://www.linkedin.com/company/97877361/admin/dashboard/",
-                    "https://www.youtube.com/channel/UC-CyyqSgp6YWgalbPdiOhvQ"
-                ]
-            }
-        ]
-    }
-    </script> -->
-    <!-- <script type="text/javascript">
-    adroll_adv_id = "RVZSLAS4TVAHZIF62WPM7M";
-    adroll_pix_id = "EGO7CSPQRVGMDOYOOESEJN";
-    adroll_version = "2.0";
-    (function(w, d, e, o, a) {
-        w.__adroll_loaded = true;
-        w.adroll = w.adroll || [];
-        w.adroll.f = ['setProperties', 'identify', 'track', 'identify_email', 'get_cookie'];
-        var roundtripUrl = "https://s.adroll.com/j/" + adroll_adv_id + "/roundtrip.js";
-        for (a = 0; a < w.adroll.f.length; a++) {
-            w.adroll[w.adroll.f[a]] = w.adroll[w.adroll.f[a]] || (function(n) {
-                return function() {
-                    w.adroll.push([n, arguments])
-                }
-            })(w.adroll.f[a])
-        }
-        e = d.createElement('script');
-        o = d.getElementsByTagName('script')[0];
-        e.async = 1;
-        e.src = roundtripUrl;
-        o.parentNode.insertBefore(e, o);
-    })(window, document);
-    adroll.track("pageView");
-    </script> -->
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18510121487"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18510121487');
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NRDLG24W5G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NRDLG24W5G');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PB62HF7T');</script>
+<!-- End Google Tag Manager -->
+   
 </head>
 
 <body class="breakpoint-xl b--desktop">
-    <!-- Mgid Sensor -->
-    <!-- <script type="text/javascript">
-    (function() {
-        var d = document,
-            w = window;
-        w.MgSensorData = w.MgSensorData || [];
-        w.MgSensorData.push({
-            cid: 897945,
-            project: "a.mgid.com"
-        });
-        var l = "a.mgid.com";
-        var n = d.getElementsByTagName("script")[0];
-        var s = d.createElement("script");
-        s.type = "text/javascript";
-        s.async = true;
-        var dt = !Date.now ? new Date().valueOf() : Date.now();
-        s.src = "https://" + l + "/mgsensor.js?d=" + dt;
-        n.parentNode.insertBefore(s, n);
-    })();
-    </script> -->
-    <!-- /Mgid Sensor -->
     <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5VWDPBN" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript> -->
-    <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PB62HF7T"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <div class="body-inner">
         <header id="header" data-transparent="true" class="submenu-light header-disable-fixed bg-white border-bottom">
             <div class="header-inner">

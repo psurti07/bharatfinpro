@@ -689,10 +689,10 @@ class Site_Cronjob_Model extends CI_Model
 					"callbackData" => "some text here",
 					"type" => "Template",
 					"template" => array(
-						"name" => "10july_rm_1",
+						"name" => "10oct_rm_1",
 						"languageCode" => "en",
 						"headerValues" => array(
-							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/20567f7b-824d-4327-8773-da7f451d92ce/message_template_sample/kF1Bd6X7cOzz/privylege.jpeg?se=2031-07-04T06%3A13%3A21Z&sp=rt&sv=2019-12-12&sr=b&sig=GSNlqhVm2FGjx/bTSkcuZu2vgZ4Ep%2BC3EIuTBUqFZpY%3D"
+							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/g1W2q2jiSdaI/WhatsApp%20Image%202026-10-10%20at%202.20.30%20PM.jpeg?se=2031-10-04T09%3A28%3A06Z&sp=r&sv=2025-01-05&sr=b&sig=CcuFkOrwLNUF2w0ch3PwDV8yEtBEmqgjdoX4jhYNSYw%3D"
 						),
 						"bodyValues" => array(
 							'$name',
@@ -701,15 +701,15 @@ class Site_Cronjob_Model extends CI_Model
 					)
 
 				);
-				$restrack3 = plan_interakt_track_rm($data3);
+				$restrack3 = interakt_track_message($data3, INTERAKT_KEY_PLAN_RM);
 				$airesponse .= $row2 . "-" . $restrack3 . "|";
-				/* $data2 = array(
+				 $data2 = array(
 					'msgcount' => $cnt,
 					'msgresponse' => $airesponse
 				   );
 				   
 				   $query = $this->db->where('id', $logid)
-					   ->update('sms_log', $data2); */
+					   ->update('sms_log', $data2); 
 				$cnt++;
 			}
 
@@ -737,10 +737,10 @@ class Site_Cronjob_Model extends CI_Model
 							"callbackData" => "some text here",
 							"type" => "Template",
 							"template" => array(
-								"name" => "10july_rm_1",
+								"name" => "10oct_rm_1",
 								"languageCode" => "en",
 								"headerValues" => array(
-									"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/20567f7b-824d-4327-8773-da7f451d92ce/message_template_sample/kF1Bd6X7cOzz/privylege.jpeg?se=2031-07-04T06%3A13%3A21Z&sp=rt&sv=2019-12-12&sr=b&sig=GSNlqhVm2FGjx/bTSkcuZu2vgZ4Ep%2BC3EIuTBUqFZpY%3D"
+									"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/g1W2q2jiSdaI/WhatsApp%20Image%202026-10-10%20at%202.20.30%20PM.jpeg?se=2031-10-04T09%3A28%3A06Z&sp=r&sv=2025-01-05&sr=b&sig=CcuFkOrwLNUF2w0ch3PwDV8yEtBEmqgjdoX4jhYNSYw%3D"
 								),
 								"bodyValues" => array(
 									$fullname,
@@ -749,15 +749,15 @@ class Site_Cronjob_Model extends CI_Model
 							)
 
 						);
-						$restrack3 = plan_interakt_track_rm($data3);
+						$restrack3 = interakt_track_message($data3, INTERAKT_KEY_PLAN_RM);
 						$airesponse .= $row->mobile . "-" . $restrack3 . "|";
-						/* $data2 = array(
+						 $data2 = array(
 							'msgcount' => $cnt,
 							'msgresponse' => $airesponse
 					   	);
 					   
 					  	$query = $this->db->where('id', $logid)
-						   ->update('sms_log', $data2); */
+						   ->update('sms_log', $data2); 
 						$cnt++;
 					}
 				}

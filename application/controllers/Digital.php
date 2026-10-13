@@ -699,7 +699,7 @@ class Digital extends CI_Controller
 			$response1 = $this->Site_Digital_Model->updaterazorpayentry($paymentdata->id, $razorpaydata);
 
 			$userdata = $this->Site_Digital_Model->checkuserregdata($paymentdata->userid);
-			$this->session->set_tempdata('applyid', $_REQUEST['applyid']);
+			$this->session->set_tempdata('applyid', $userdata->id);
 
 			$cardno = random_code(16);
 			$amount = (isset($_REQUEST['orderamount'])) ? $_REQUEST['orderamount'] : 0;
@@ -722,6 +722,7 @@ class Digital extends CI_Controller
 				$memberid = $this->Site_Digital_Model->membershiporder($data);
 
 				$password = random_code(6);
+				$this->session->set_tempdata('userpass', $password);
 				$passwordkey = stringCrypt($password, 'encrypt');
 				$new_passwordkey = md5($password);
 				$refcode = strtolower(substr(str_replace(" ", "", $userdata->fullname), 0, 3));
@@ -847,15 +848,14 @@ $data = array(
 		
 		if ($status != '') {
 			if ($status == "true" && $this->session->tempdata('applyid') != "") {
-
+				
+				$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
+				log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
 				$firstname = strtok($userdata->fullname, " ");
 				$city = strtolower(preg_replace("/[^a-zA-Z]+/", "", $userdata->city));
 				$state = strtolower(getStateAbbreviation($userdata->state));
 				$orderid = "MC" . date('md') . random_code(4);
 
-
-				$userdata = $this->Site_Digital_Model->checkuserregdata($applyid);
-				log_message('error', 'applyid userdata main -- ' . json_encode($userdata));
 				$apr = ($userdata->loantype == 12) ? 11.5 : 12.5;
 				$eligibilityamt = calEligiblity($userdata->income, $userdata->currentemi, $apr, $userdata->loanamount);
 				$data = array(

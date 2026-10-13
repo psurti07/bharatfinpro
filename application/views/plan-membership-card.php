@@ -210,7 +210,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             </li>
                             <li class="ps-0 d-flex">
                                 <i class="icon-check-circle text-success mt-1"></i>
-                                <span class="text-gray ml-3"> Plan validity: 6 months</span>
+                                <span class="text-gray ml-3"> Plan validity: 9 months</span>
                             </li>
                             <li class="ps-0 d-flex">
                                 <i class="icon-check-circle text-success mt-1"></i>

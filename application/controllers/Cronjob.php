@@ -243,33 +243,32 @@ class Cronjob extends CI_Controller
 	/* Whatsapp Interakt marketing message */
 	public function plan_interakt_remarketing()
 	{
-		die;
+		
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
 
 		$cronjobs = array();
 
-		$cronjobs['a0'] = '30 8 * * *';
-		$cronjobs['b0'] = '30 21 * * *';
+		$cronjobs['a0'] = '15 9 * * *';
 
-		$cronjobs['a1'] = '30 9 * * *';
-		$cronjobs['b1'] = '30 20 * * *';
+		$cronjobs['a1'] = '15 10 * * *';
+		$cronjobs['b1'] = '15 22 * * *';
 
-		$cronjobs['a2'] = '30 10 * * *';
-		$cronjobs['b2'] = '30 19 * * *';
+		$cronjobs['a3'] = '15 11 * * *';
+		$cronjobs['b3'] = '15 17 * * *';
 
-		$cronjobs['a3'] = '30 11 * * *';
-		$cronjobs['b3'] = '30 18 * * *';
+		$cronjobs['a7'] = '15 12 * * *';
+		$cronjobs['b7'] = '45 20 * * *';
 
-		$cronjobs['a5'] = '30 12 * * *';
-		$cronjobs['b5'] = '30 17 * * *';
+		$cronjobs['a10'] = '45 14 * * *';
+		$cronjobs['b10'] = '15 23 * * *';
 
-		$cronjobs['a10'] = '30 13 * * *';
+		$cronjobs['a13'] = '15 18 * * *';
 
-		$cronjobs['a15'] = '30 15 * * *';
+		$cronjobs['a16'] = '30 16 * * *';
 
-		$cronjobs['a30'] = '0 23 * * *';
+		$cronjobs['a20'] = '15 19 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
