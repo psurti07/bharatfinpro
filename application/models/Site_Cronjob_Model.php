@@ -230,8 +230,8 @@ class Site_Cronjob_Model extends CI_Model
 						'campaignName' => 'cycle1_auto_9oct',
 						'destination' => '+91' . $row->mobile,
 						'media' => array(
-							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/28871ee2-f80d-4f23-8725-6023ef0aa205_cycle1.jpeg',
-							'filename' => 'cycle1.jpeg'
+							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/383dd0df-5e53-4bdb-8d55-45ead145703a_cycle1bfp.jpeg',
+							'filename' => 'cycle1_bfp.jpeg'
 						),
 						'userName' => $row->fullname,
 						'templateParams' => array('$Name', '$EligibleAmount'),
@@ -262,8 +262,8 @@ class Site_Cronjob_Model extends CI_Model
 					'campaignName' => 'cycle1_auto_9oct',
 					'destination' => '+91' . $row2,
 					'media' => array(
-						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/28871ee2-f80d-4f23-8725-6023ef0aa205_cycle1.jpeg',
-						'filename' => 'cycle1.jpeg'
+						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/383dd0df-5e53-4bdb-8d55-45ead145703a_cycle1bfp.jpeg',
+						'filename' => 'cycle1_bfp.jpeg'
 					),
 					'userName' => '$Name',
 					'templateParams' => array('$Name', '$EligibleAmount'),
