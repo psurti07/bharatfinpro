@@ -352,11 +352,11 @@ define('RAZOR_KEY_SECRET', 'LkS1eaEx94VmqIOJkC9d7UzJ');
 
 // PayU details
 
-define('PAYU_MODE', '#');
+define('PAYU_MODE', 'PROD');
 
-define('PAYU_MERCHANT_KEY', '#');
+define('PAYU_MERCHANT_KEY', 'LenaW9');
 
-define('PAYU_SALT', '#');
+define('PAYU_SALT', 'WOkadzte2Ukp99QkQ7qrq6dgf6BqGHyp');
 
 
 
@@ -442,8 +442,7 @@ define('LOCK_DAYS','');
 
   
 
-define('COMPANY_CODE', '#');
-
+define('COMPANY_CODE', 'BHARATPRO876');
 define('LOCAL_IP', '190.92.174.183');
 
 

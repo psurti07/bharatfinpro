@@ -55,9 +55,10 @@ class Manage_Sms_Model extends CI_Model
 		return $query;
 	}
 
-	public function getremarketinglog($dt_to, $dt_from)
+	public function getremarketinglog($dt_to, $dt_from, $parentid = 11)
 	{
 		$query = $this->db->select('id, rec_date, crontype, cronname, msgcount')
+			->where('parentid', $parentid)
 			->where('rec_date >=', $dt_to . ' 00:00:00')
 			->where('rec_date <=', $dt_from . ' 23:59:59')
 			->order_by('id asc')

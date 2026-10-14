@@ -166,8 +166,8 @@ define('PG_MEGA_OFFER', '#');
 define('PG_SUPER_OFFER', '#'); // product offer page
 define('PG_QUICK_OFFER', '#'); // product pffer page
 
-define('COMPANY_CODE', '#');
-define('LOCAL_IP', '#');
+define('COMPANY_CODE', 'BHARATPRO876');
+define('LOCAL_IP', '190.92.174.183');
 define('MASTER_API_KEY', '#');
 
 define('DATA_LOCK', 'YES'); // display datalock in remarketing page

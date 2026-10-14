@@ -26,26 +26,22 @@ window.onload = function() {
                             <div class="form-body">
                                 <div class="form-group">
                                     <h5>Search Data <span class="required">*</span></h5>
-                                    <div class="controls">
-                                        <fieldset class="radio">
 
-                                            <div class="form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input type="radio" value="customer" name="module" checked <?php
-                                                                                      echo set_value('customer', $module) == 'customer' ? "checked" : "";
-                                                                                      ?> /> Customer - Digital
-                                                </label>
-                                            </div>
-
-                                            <div class="form-check-inline">
-                                                <label class="form-check-label">
-                                                    <input type="radio" value="customerplan" name="module" <?php
-                                                                                  echo set_value('customerplan', $module) == 'customerplan' ? "checked" : "";
-                                                                                  ?> /> Customer - Plan
-                                                </label>
-                                            </div>
-                                        </fieldset>
-
+                                    <div class="form-group btn-group-toggle" data-toggle="buttons">
+                                        <div class="btn-group">
+                                            <label class="btn btn-outline-light active">
+                                                <input type="radio" name="module" value="customer"
+                                                    autocomplete="off"
+                                                    <?php echo set_value('customer', $module) == 'customer' ? "checked" : "";?>
+                                                    checked>Customer - Digital
+                                            </label>
+                                            <label class="btn btn-outline-light">
+                                                <input type="radio" name="module" value="customerplan"
+                                                    <?php echo ($module == "customerplan") ? "checked" : ""; ?>
+                                                    autocomplete="off">Customer - Plan
+                                            </label>
+                                           
+                                        </div>
                                         <div class="help-block font-small-3"></div>
                                     </div>
                                 </div>

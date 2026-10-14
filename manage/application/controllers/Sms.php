@@ -116,6 +116,7 @@ class Sms extends MY_Controller
 	{
 		$dt_to = date('Y-m-d', strtotime('-1 days'));
 		$dt_from = date('Y-m-d');
+		$parentid = 1;
 
 		if (isset($_REQUEST['dt_to'])) {
 			$dt_to = $_REQUEST['dt_to'];
@@ -125,10 +126,14 @@ class Sms extends MY_Controller
 			$dt_from = $_REQUEST['dt_from'];
 		}
 
-		$this->load->model('Manage_Sms_Model');
-		$loglist = $this->Manage_Sms_Model->getremarketinglog($dt_to, $dt_from);
+		if(isset($_REQUEST['parentid'])) {
+			$parentid = $_REQUEST['parentid'];	
+		}
 
-		$this->load->view('remarketing-log', ['loglist' => $loglist, 'dt_to' => $dt_to, 'dt_from' => $dt_from]);
+		$this->load->model('Manage_Sms_Model');
+		$loglist = $this->Manage_Sms_Model->getremarketinglog($dt_to, $dt_from, $parentid);
+
+		$this->load->view('remarketing-log', ['loglist' => $loglist, 'dt_to' => $dt_to, 'dt_from' => $dt_from, 'parentid' => $parentid]);
 	}
 
 	public function logdetails($id)

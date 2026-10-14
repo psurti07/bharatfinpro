@@ -275,11 +275,10 @@ function sendtextSMS($mobile, $message, $panel = 'main')
 		$obbsenderid = SMS_OBB_SENDER_ID;
 	}
 
-	/* $api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
-	log_message('error', 'api url -- ' . $api_url);
-	$response = file_get_contents($api_url); */
-
-	$xml_data = '<?xml version="1.0"?>
+	$api_url = "http://m.onlinebusinessbazaar.in/sendsms.jsp?user=" . $obbusername . "&password=" . $obbapikey . "&senderid=" . $obbsenderid . "&mobiles=" . $mobile . "&sms=" . $sms_text;
+	$response = file_get_contents($api_url);
+	return $response;
+	/*$xml_data = '<?xml version="1.0"?>
     <smslist>
     <sms>
     <user>' . $obbusername . '</user>
@@ -308,7 +307,7 @@ function sendtextSMS($mobile, $message, $panel = 'main')
 
 	curl_close($ch);
 
-	return $response;
+	return $response;*/
 }
 
 function sendxmlSMS($dataset)
