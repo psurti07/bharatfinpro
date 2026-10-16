@@ -9,7 +9,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-start mb-4">
-                <h2 class="mb-0 display-6 text-dark-navy font-weight-bold"> Personal Loan </h2>
+                <h2 class="mb-0 display-6 text-dark-navy font-weight-bold"> <?php echo $userdetails['loanname']; ?> </h2>
                 <p class="mb-0"> Kindly continue to finalize the process at your earliest convenience.
                 </p>
             </div>
@@ -210,7 +210,7 @@ $eligibilityamt = calEligiblity($userdetails['income'], $userdetails['currentemi
                             </li>
                             <li class="ps-0 d-flex">
                                 <i class="icon-check-circle text-success mt-1"></i>
-                                <span class="text-gray ml-3"> Plan validity: 9 months</span>
+                                <span class="text-gray ml-3"> Plan validity: 3 months</span>
                             </li>
                             <li class="ps-0 d-flex">
                                 <i class="icon-check-circle text-success mt-1"></i>

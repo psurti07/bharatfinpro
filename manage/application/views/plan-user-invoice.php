@@ -95,14 +95,14 @@
                     <tr>
                         <td style="font-size: 9pt;border-bottom: 1px solid #e3e3e3;background-color: #ffffff;color: #000000;padding: 10px 0px 10px 10px;"
                             valign="top">
-                            <span style="word-wrap: break-word;" id="tmp_item_name">Membership Card</span>
+                            <span style="word-wrap: break-word;" id="tmp_item_name">Plan Card</span>
                             <br>
                             <span style="color: #727272;font-size: 9pt;white-space: pre-wrap;word-wrap: break-word;"
                                 id="tmp_item_description">Card Number -
                                 <?php echo $invdetails['orderinfo']->card_number; ?></span>
                             <br>
                             <span style="color: #525252;white-space: pre-wrap;word-wrap: break-word;"
-                                id="tmp_item_description">Subscription Validity -
+                                id="tmp_item_description">Plan Validity -
                                 <?php echo displayDate($invdetails['orderinfo']->registration_date) . " to " . displayDate($invdetails['orderinfo']->expiry_date); ?></span>
                         </td>
                         <td style="font-size: 9pt;border-bottom: 1px solid #e3e3e3;background-color: #ffffff;color: #000000;padding: 10px 10px 5px 10px;text-align:right;word-wrap: break-word;"

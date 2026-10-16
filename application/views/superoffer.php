@@ -28,7 +28,7 @@ $amtpay = $productdata['payamount'];
                         </div>
                         <?php endif; ?>
                         <div class="card-title">
-                            <p><span class="font-weight-bold">Membership Fees</span> <span
+                            <p><span class="font-weight-bold">Plan Fees</span> <span
                                     class="small font-italic">18% GST additional.</span></p>
                             <?php
 							if ($productdata['offeramount'] != 0) {

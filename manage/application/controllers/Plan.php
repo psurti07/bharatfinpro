@@ -171,7 +171,7 @@ class Plan extends MY_Controller
 					'rec_date' => $regdatetime,
 					'userid' => $userid,
 					'registration_date' => $regdate,
-					'expiry_date' => date('Y-m-d', strtotime('+9 months', strtotime($regdate))),
+					'expiry_date' => date('Y-m-d', strtotime('+3 months', strtotime($regdate))),
 					'card_number' => $cardno,
 					'amount' => $grandtotal,
 					'paymentid' => $paymentid,

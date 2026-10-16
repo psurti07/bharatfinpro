@@ -9,7 +9,7 @@ $this->load->view('includes/header-plan-apply.php');
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-start mb-4">
-                <h2 class="mb-0 display-6 text-dark-navy font-weight-bold"> Personal Loan </h2>
+                <h2 class="mb-0 display-6 text-dark-navy font-weight-bold"> <?php echo $userdetails['loanname']; ?> </h2>
                 <p class="mb-0 text-gray">🔒 Your information is secure. Complete your profile to verify your
                     eligibility and receive personalized loan offers.</p>
             </div>
@@ -109,11 +109,10 @@ $this->load->view('includes/header-plan-apply.php');
                                     required>
                                     <?php if ($userdetails['loantype'] == 22) { ?>
                                     <option value="">Select Loan Purpose</option>
-                                    <option value="Business Expansion">Business Expansion</option>
-                                    <option value="Maintain Cash Flow">Maintain Cash Flow</option>
-                                    <option value="Supplier Payments">Supplier Payments</option>
-                                    <option value="Setup Manufacturing Unit">Setup Manufacturing Unit</option>
-                                    <option value="Hiring Budget">Hiring Budget</option>
+                                    <option value="Other Business Purposes">Other Business Purposes</option>
+                                    <option value="Marketing Expenses">Marketing Expenses</option>
+                                    <option value="Stock Inventory Purchase">Stock / Inventory Purchase</option>
+                                    <option value="Business Growth">Business Growth</option>
                                     <option value="Other">Other</option>
                                     <?php } else { ?>
                                     <option value="">Select Loan Purpose</option>

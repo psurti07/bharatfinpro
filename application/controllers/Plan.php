@@ -243,6 +243,12 @@ class Plan extends CI_Controller
 		$loanamount = $_REQUEST['loanamount'];
 		$referralcode = $_REQUEST['referralcode'];
 
+		if ($cardtype == 21) {
+			$usertype = 1;
+		} else {
+			$usertype = 0;
+		}
+
 		$this->load->model('Site_Plan_Model');
 		$usr_res = $this->Site_Plan_Model->checkuser($_REQUEST['usermobile']);
 
@@ -266,7 +272,7 @@ class Plan extends CI_Controller
 			'mobile' => $mobile,
 			'email' => $email,
 			'cardtype' => $cardtype,
-			'usertype' => $_REQUEST['usertype'],
+			'usertype' => $usertype,
 			'process_step' => 1,
 			'isUser' => 1,
 			'isDelete' => 0
@@ -697,7 +703,7 @@ class Plan extends CI_Controller
 				 'rec_date' => date('Y-m-d H:i:s'),
 				 'userid' => $userdata->userid,
 				 'registration_date' => date('Y-m-d'),
-				 'expiry_date' => date('Y-m-d', strtotime('+9 months')),
+				 'expiry_date' => date('Y-m-d', strtotime('+3 months')),
 				 'card_number' => $cardno,
 				 'amount' => $amount,
 				 'paymentid' => $paymentid,
