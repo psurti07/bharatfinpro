@@ -11,7 +11,7 @@ class Plan_Customer_Login_Model extends CI_Model
 			->where('isActive', 1)
 			->where('isDelete', 0)
 			->get('plan_user_registration')->row();
-
+		
 		return $account;
 	}
 
@@ -48,6 +48,7 @@ class Plan_Customer_Login_Model extends CI_Model
 
 		if ($account) {
 			$password = random_code(6);
+			log_message('error', 'new password :'. $password);
 			$encpassword = stringCrypt($password, 'encrypt');
 			$new_encpassword = md5($password);
 
@@ -57,12 +58,12 @@ class Plan_Customer_Login_Model extends CI_Model
 				'new_password' => $new_encpassword,
 
 			);
-
+			log_message('error', 'forgeet password :'. $new_encpassword);
 			$sql_query = $this->db->where('id', $account->id)
 				->update('plan_user_registration', $data);
 
 			// Send SMS
-			$message = "Hello " . $account->fullname . " Your Bharatfinpro account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatfinpro";
+			$message ="Hello " . $account->fullname . " Your Bharatprofinance account's new password is " . $password . ". Do not share it with anyone. Thanks, Bharatprofinance";
 			$smsresponse = sendtextSMSobb($account->mobile, $message, 'plan');
 			return true;
 		} else {
