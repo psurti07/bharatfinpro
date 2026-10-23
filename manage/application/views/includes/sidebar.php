@@ -10,6 +10,10 @@
 					<a href="<?php echo site_url('dashboard'); ?>"><i class="la la-dashboard"></i><span
 							class="menu-title">Dashboard</span></a>
 				</li>
+				<li id="102" class="nav-item">
+					<a href="<?php echo site_url('dashboard/loanstatistics'); ?>"><i class="la la-dashboard"></i><span
+							class="menu-title">Today Statistics</span></a>
+				</li>
 				
 				<li id="141" class="nav-item">
 					<a href="<?php echo site_url('dashboard/processstepdata'); ?>"><i class="la la-list-ol"></i><span
@@ -51,7 +55,7 @@
 								href="<?php echo site_url('users/premiumleads/bl'); ?>">Business Loan</a></li>
 					</ul>
 				</li>
-			<!--
+			
 				<li id="115" class=" nav-item"><a href="#"><i class="la la-server"></i><span class="menu-title">Plan
 							Leads</span></a>
 					<ul class="menu-content">
@@ -61,7 +65,7 @@
 								href="<?php echo site_url('plan/planleads/bl'); ?>">Business Loan</a></li>
 					</ul>
 				</li>
--->
+
 				<li class=" navigation-header"><span>ACCOUNTS</span></li>
 
 				<li id="107" class=" nav-item"><a href="#"><i class="la la-users"></i><span
@@ -72,7 +76,7 @@
 								Account</a></li>
 					</ul>
 				</li>
-<!--
+
 				<li id="111" class=" nav-item"><a href="#"><i class="la la-users"></i><span
 							class="menu-title">Plan Customers</span></a>
 					<ul class="menu-content">
@@ -81,7 +85,7 @@
 								Account</a></li>
 					</ul>
 				</li>
--->
+
 				<!-- ================== NEW WEBINAR HEADER ================== -->
 				 <!--
 				<li class=" navigation-header"><span>WEBINAR DETAIL</span></li>
@@ -153,7 +157,7 @@
 							
 						</ul>
 					</li>
-<!--
+
 					<li id="113" class=" nav-item"><a href="#"><i class="la la-list"></i><span class="menu-title">Plan Loan
 								Application</span></a>
 						<ul class="menu-content">
@@ -170,7 +174,7 @@
 							
 						</ul>
 					</li>
--->
+
 					<li class=" navigation-header"><span>ORDERS</span></li>
 
 					<li id="109" class=" nav-item"><a href="#"><i class="la la-credit-card"></i><span
@@ -182,14 +186,14 @@
 									href="<?php echo site_url('users/membershiplist/12'); ?>">Diamond Membership Card</a></li>
 						</ul>
 					</li>
-				<!--
+				
 					<li id="118" class=" nav-item"><a href="#"><i class="la la-credit-card"></i><span
 								class="menu-title">Plan Cards</span></a>
 						<ul class="menu-content">
 							<li id="11821"><a class="menu-item" href="<?php echo site_url('plan/planlist/21'); ?>">Plan Personal</a></li>
 							<li id="11822"><a class="menu-item" href="<?php echo site_url('plan/planlist/22'); ?>">Plan Business</a></li>
 						</ul>
-					</li>-->
+					</li>
 				<?php
 				}
 				if ($role == 0 || $role == 1 || $role == 2) {
@@ -220,7 +224,7 @@
 									href="<?php echo site_url('report/digitalleads/bl'); ?>">Business Loan</a></li>
 						</ul>
 					</li>
-<!--
+
 					<li id="126" class=" nav-item"><a href="#"><i class="la la-bar-chart"></i><span class="menu-title">Plan
 								Leads</span></a>
 						<ul class="menu-content">
@@ -232,17 +236,17 @@
 									href="<?php echo site_url('report/planleads/bl'); ?>">Business Loan</a></li>
 						</ul>
 					</li>
--->
+
 					<li id="122" class="nav-item">
 						<a href="<?php echo site_url('report/customers'); ?>"><i class="la la-bar-chart"></i><span
 								class="menu-title">Customers Reg.</span></a>
 					</li>
-					<!--
+					
 					<li id="127" class="nav-item">
 						<a href="<?php echo site_url('report/plan_customers'); ?>"><i class="la la-bar-chart"></i><span
 								class="menu-title">Plan Customers Reg.</span></a>
 					</li>
--->
+
 					<li id="136" class=" nav-item"><a href="#"><i class="la la-bar-chart"></i><span class="menu-title">App Status Reports</span></a>
 						<ul class="menu-content">
 							<li id="1361"><a class="menu-item"
@@ -365,13 +369,12 @@
 						<a href="<?php echo site_url('sms/dndlist'); ?>"><i class="la la-ban"></i><span class="menu-title">DND
 								List</span></a>
 					</li>
-					<!--
+					
 					<li id="149" class="nav-item">
 						<a href="<?php echo site_url('sms/plandndlist'); ?>"><i class="la la-ban"></i><span class="menu-title">Plan DND
 								List</span></a>
 					</li>
 
--->
 					<li class=" navigation-header"><span>DATA LIST</span></li>
 
 					<li id="102" class=" nav-item"><a href="#"><i class="la la-university"></i><span

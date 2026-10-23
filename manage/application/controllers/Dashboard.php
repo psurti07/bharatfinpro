@@ -16,7 +16,20 @@ class Dashboard extends MY_Controller
 	public function index()
 	{
 		$this->load->model('Manage_Site_Model');
-		$statestics = $this->Manage_Site_Model->gettodaystatestics();
+
+		$digitalcustlist = $this->Manage_Site_Model->getdashdigitalcustomerdata();
+		$digitalcustlist = array_reverse($digitalcustlist);
+
+		$digitalleadlist = $this->Manage_Site_Model->getdashdigitalleaddata();
+		$digitalleadlist = array_reverse($digitalleadlist);
+
+		$plancustlist = $this->Manage_Site_Model->getdashplancustomerdata();
+		$plancustlist = array_reverse($plancustlist);
+
+		$planleadlist = $this->Manage_Site_Model->getdashplanleaddata();
+		$planleadlist = array_reverse($planleadlist);
+
+
 		$dt_to = $dt_from = date('Y-m-d');
 		$ac_data = array();
 
@@ -40,8 +53,15 @@ class Dashboard extends MY_Controller
 			);
 		}
 
-		$this->load->view('dashboard', ['statestics' => $statestics, 'ac_data' => $ac_data, 'userrole' => $this->role]);
+		$this->load->view('dashboard', ['digitalcustlist' => $digitalcustlist, 'digitalleadlist' => $digitalleadlist, 'plancustlist' => $plancustlist, 'planleadlist' => $planleadlist,'ac_data' => $ac_data, 'userrole' => $this->role]);
 	}
+	public function loanstatistics()
+	{
+		$this->load->model('Manage_Site_Model');
+		$statestics = $this->Manage_Site_Model->gettodaystatestics();
+		$this->load->view('todaystatistics', ['statestics' => $statestics, 'userrole' => $this->role]);
+	}
+
 	public function processstatistics()
 	{
 		$this->load->view('statistics-processstep');

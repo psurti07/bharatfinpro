@@ -66,9 +66,9 @@ window.onload = function() {
                       echo "<td>" . htmlentities($row->fullname) . "</td>";
                       echo "<td>" . htmlentities($row->mobile) . "</td>";
                       echo "<td>";
-                      if ($row->cardtype == 11) {
+                      if ($row->cardtype == 21) {
                         echo "Personal Loan";
-                      } else if ($row->cardtype == 12) {
+                      } else if ($row->cardtype == 22) {
                         echo "Business Loan";
                       } else {
                         echo "-";

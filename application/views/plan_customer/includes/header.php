@@ -71,8 +71,6 @@
                                     Apply Now</a></li>
                             <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers/preapproved'); ?>"><i
                                         class="fa fa-link"></i> Pre-Approved Loan</a></li>
-                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers/cardoffers'); ?>"><i
-                                        class="fa fa-credit-credit"></i> Card Offers</a></li>
                             <li><a class="cust-color" href="<?php echo site_url('plan_customer/loan/history'); ?>"><i
                                         class="fa fa-rupee-sign"></i> My Loan History</a></li>
                             <?php

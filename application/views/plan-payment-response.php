@@ -29,7 +29,7 @@ if ($responsedata['loantype'] == 21) {
                                 <div
                                     class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
 
-                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Sanctioned</p>
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Pre-approved Amount</p>
                                     <h4 class="mb-0 fs-18 text-blue font-weight-bold">₹1,95,000</h4>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ if ($responsedata['loantype'] == 21) {
                                 <div
                                     class="card-blog-wrapper border py-3 mb-sm-0 mb-3 background-grey card shadow-none">
 
-                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Disbursal</p>
+                                    <p class="mt-0 mb-1 fs-11 text-uppercase fw-light">Verification Call</p>
                                     <h4 class="mb-0 fs-18 text-blue  font-weight-bold">Within 48 hrs</h4>
                                 </div>
                             </div>

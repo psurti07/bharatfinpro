@@ -597,6 +597,28 @@ class Plan extends CI_Controller
 		);
 		$restrack2 = interakt_event_track($data2, INTERAKT_KEY_PLAN_UE);
 
+		$data3 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('BHPF Get Offer')
+		);
+		
+		$restrack3 = interakt_user_track($data3, INTERAKT_KEY_PLAN_UE_1);
+		log_message('error', 'getoffer user -- '. json_encode($response3));	
+		$data2 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'BHPF Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack4 = interakt_event_track($data4, INTERAKT_KEY_PLAN_UE_1);
+		log_message('error', 'getoffer event -- '. json_encode($restrack4));
+
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("plan/membershiporder/" . $key);
 	}
@@ -891,6 +913,27 @@ class Plan extends CI_Controller
 					);
 					$restrack3 = interakt_event_track($data3, INTERAKT_KEY_PLAN_UE);
 
+					$data4 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('BHPF Payment Successful')
+					);
+					$restrack4 = interakt_user_track($data4, INTERAKT_KEY_PLAN_UE_1);
+
+					$data5 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BHPF Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE_1);
+					
 
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data, 'userdata' => $userdata]);
 			} else if ($status == "false" && $this->session->tempdata('applyid') != "") {
@@ -903,9 +946,9 @@ class Plan extends CI_Controller
 				$data5 = array(
 						'phoneNumber' => $userdata->mobile,
 						'countryCode' => '+91',
-						'event' => 'BPF Payment Fail',
+						'event' => 'BHPF Payment Fail',
 				);
-				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE);
+				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE_1);
 
 
 				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);

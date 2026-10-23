@@ -444,3 +444,55 @@ $this->load->view('includes/header.php');
 <?php
 $this->load->view('includes/footer.php');
 ?>
+
+<script type="text/javascript">
+$(function() {
+    $('#submitForm').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action') || window.location.pathname,
+            type: "POST",
+            data: new FormData(this),
+            dataType: "JSON",
+            contentType: false,
+            cache: false,
+            processData: false,
+            beforeSend: function() {
+                $('#submit-btn').html(
+                    '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...'
+                    );
+                $('#submit-btn').attr('disabled', true);
+            },
+            success: function(response) {
+                if (response['success'] == true) {
+                    $.notify({
+                        message: response['message']
+                    }, {
+                        type: 'success'
+                    });
+                } else {
+                    $.notify({
+                        message: response['message']
+                    }, {
+                        type: 'danger'
+                    });
+                }
+
+                $('#submitedmessage').html(response['message']);
+
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+            },
+            error: function(jXHR, textStatus, errorThrown) {
+                $.notify({
+                    message: errorThrown
+                }, {
+                    type: 'danger'
+                });
+            }
+        });
+    });
+});
+</script>

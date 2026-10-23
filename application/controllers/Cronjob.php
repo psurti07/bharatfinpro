@@ -280,6 +280,40 @@ class Cronjob extends CI_Controller
 		die;
 	}
 
+	/* Whatsapp Interakt marketing message */
+	public function plan_interakt_remarketing_2()
+	{
+		
+		$this->load->model('Site_Cronjob_Model');
+		$schedule = 'z9999';
+		$schedule_arr = array();
+
+		$cronjobs = array();
+
+		$cronjobs['a1'] = '0 15 * * *';
+		$cronjobs['b1'] = '30 22 * * *';
+
+		$cronjobs['a2'] = '0 11 * * *';
+
+		$cronjobs['a3'] = '0 12 * * *';
+		$cronjobs['b3'] = '0 21 * * *';
+
+		$cronjobs['a6'] = '0 13 * * *';
+
+		$cronjobs['a10'] = '0 18 * * *';
+
+		foreach ($cronjobs as $method => $cron) {
+			$time = time();
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->plan_whatsapp_intrekt_message_2($schedule);
+			}
+		}
+		die;
+	}
+
+	
+
 	/*public function whatsappremarketing() {
 		$this->load->model('Site_Cronjob_Model');
 		//$schedule = 'z9999';

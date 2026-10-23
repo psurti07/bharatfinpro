@@ -766,6 +766,127 @@ class Site_Cronjob_Model extends CI_Model
 		return true;
 	}
 
+	public function plan_whatsapp_intrekt_message_2($schedule)
+	{
+		$airesponse = "";
+		$cnt = 1;
+		$this->load->model('Site_Info_Model');
+
+		$wheredate = "CAST(r.rec_date as DATE) = DATE_ADD(CURDATE(),INTERVAL -" . $schedule . " DAY) ";
+
+		$userlist = $this->db->select('r.id, r.rec_date, r.update_date, r.fullname, r.mobile, r.email, r.cardtype, a.income, a.currentemi, a.loanamount')
+			->from('plan_user_registration r')
+			->join('plan_user_application a', 'a.userid=r.id')
+			->where($wheredate)
+			->where('r.isUser', 1)
+			->where('r.isActive', 1)
+			->where('r.isDnd', 0)
+			->where('r.isDelete', 0)
+			->where('r.cardtype', 21)
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->group_by('r.mobile')
+			->order_by('r.id asc')
+			->get()
+			->result();
+
+		if (count($userlist) > 0) {
+			$data1 = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'crontype' => 'plan whatsapp Intrekt 2',
+				'parentid' => 10,
+				'cronname' => 'plan whatsapp intrekt - ' . $schedule,
+				'msgcount' => count($userlist)
+			);
+			$this->db->insert('sms_log', $data1);
+			$logid = $this->db->insert_id();
+
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702'];
+			$eligibilityamt = "5,00,000";
+
+			foreach ($adminlist as $row2) {
+				$data3 = array(
+					"fullPhoneNumber" => '+91' . $row2,
+					"callbackData" => "some text here",
+					"type" => "Template",
+					"template" => array(
+						"name" => "21oct_rm_1",
+						"languageCode" => "en",
+						"headerValues" => array(
+							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/ac348837-0305-40eb-a0d4-35510384173a/message_template_sample/HygB1uZJVvK9/WhatsApp%20Image%202026-10-21%20at%202.59.33%20PM.jpeg?se=2031-10-15T10%3A08%3A24Z&sp=r&sv=2025-01-05&sr=b&sig=UdUekLFICOgbtn%2BWPxughANubqlp3p4LGEHHfM8fOJ4%3D"
+						),
+						"bodyValues" => array(
+							'$name',
+							$eligibilityamt
+						),
+					)
+
+				);
+				$restrack3 = interakt_track_message($data3, INTERAKT_KEY_PLAN_RM_1);
+				$airesponse .= $row2 . "-" . $restrack3 . "|";
+				 $data2 = array(
+					'msgcount' => $cnt,
+					'msgresponse' => $airesponse
+				   );
+				   
+				   $query = $this->db->where('id', $logid)
+					   ->update('sms_log', $data2); 
+				$cnt++;
+			}
+
+			$arrpart = array_chunk($userlist, 8000);
+			foreach ($arrpart as $res) {
+				$dataset = "";
+				$arrnumbers = 0;
+				foreach ($res as $row) {
+					if ($row->mobile != '') {
+						$eligibilityamt = "5,00,000";
+
+						$fullname = $row->fullname ?? 'User';
+						$income = $row->income ?? 0;
+						$currentemi = $row->currentemi ?? 0;
+						$loanamount = $row->loanamount ?? 0;
+
+						if ($loanamount > 0 && $income > 0) {
+							$eligibilityamtsimple = calEligiblity($income, $currentemi, 11, $loanamount);
+							$eligibilityamt = formatePriceIndia($eligibilityamtsimple, 0);
+						}
+
+						// Whatsapp INTERAKT Code
+						$data3 = array(
+							"fullPhoneNumber" => '+91' . $row->mobile,
+							"callbackData" => "some text here",
+							"type" => "Template",
+							"template" => array(
+								"name" => "21oct_rm_1",
+								"languageCode" => "en",
+								"headerValues" => array(
+									"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/ac348837-0305-40eb-a0d4-35510384173a/message_template_sample/HygB1uZJVvK9/WhatsApp%20Image%202026-10-21%20at%202.59.33%20PM.jpeg?se=2031-10-15T10%3A08%3A24Z&sp=r&sv=2025-01-05&sr=b&sig=UdUekLFICOgbtn%2BWPxughANubqlp3p4LGEHHfM8fOJ4%3D"
+								),
+								"bodyValues" => array(
+									$fullname,
+									$eligibilityamt
+								),
+							)
+
+						);
+						$restrack3 = interakt_track_message($data3, INTERAKT_KEY_PLAN_RM_1);
+						$airesponse .= $row->mobile . "-" . $restrack3 . "|";
+						 $data2 = array(
+							'msgcount' => $cnt,
+							'msgresponse' => $airesponse
+					   	);
+					   
+					  	$query = $this->db->where('id', $logid)
+						   ->update('sms_log', $data2); 
+						$cnt++;
+					}
+				}
+			}
+		}
+		return true;
+	}
+
 	public function RCS_marketing_message($schedule = 9999)
 	{
 		$airesponse = "";

@@ -3,6 +3,69 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Manage_Site_Model extends CI_Model
 {
 
+    public function getdashdigitalcustomerdata(){
+		$query = $this->db->select('year(update_date) as recyear,month(update_date) as recmonth, day(update_date) as recday, count(id) as totaluser')
+					->where('isUser',2)
+					->where('isDelete',0)
+					->group_by('year(rec_date)')
+					->group_by('month(rec_date)')
+					->group_by('day(rec_date)')
+					->order_by('year(rec_date) desc')
+					->order_by('month(rec_date) desc')
+					->order_by('day(rec_date) desc')
+					->limit(30)
+					->get('user_registration')
+					->result();
+		return $query;
+	}
+
+	public function getdashdigitalleaddata(){
+		$query = $this->db->select('year(update_date) as recyear,month(update_date) as recmonth, day(update_date) as recday, count(id) as totaluser')
+					->where('isUser !=',2)
+					->where('isDelete',0)
+					->group_by('year(update_date)')
+					->group_by('month(update_date)')
+					->group_by('day(update_date)')
+					->order_by('year(update_date) desc')
+					->order_by('month(update_date) desc')
+					->order_by('day(update_date) desc')
+					->limit(30)
+					->get('user_registration')
+					->result();
+		return $query;
+	}
+
+	public function getdashplancustomerdata(){
+		$query = $this->db->select('year(update_date) as recyear,month(update_date) as recmonth, day(update_date) as recday, count(id) as totaluser')
+					->where('isUser',2)
+					->where('isDelete',0)
+					->group_by('year(rec_date)')
+					->group_by('month(rec_date)')
+					->group_by('day(rec_date)')
+					->order_by('year(rec_date) desc')
+					->order_by('month(rec_date) desc')
+					->order_by('day(rec_date) desc')
+					->limit(30)
+					->get('plan_user_registration')
+					->result();
+		return $query;
+	}
+
+	public function getdashplanleaddata(){
+		$query = $this->db->select('year(update_date) as recyear,month(update_date) as recmonth, day(update_date) as recday, count(id) as totaluser')
+					->where('isUser !=',2)
+					->where('isDelete',0)
+					->group_by('year(update_date)')
+					->group_by('month(update_date)')
+					->group_by('day(update_date)')
+					->order_by('year(update_date) desc')
+					->order_by('month(update_date) desc')
+					->order_by('day(update_date) desc')
+					->limit(30)
+					->get('plan_user_registration')
+					->result();
+		return $query;
+	}
     public function gettodaystatestics()
     {
         $statestics_res = [];

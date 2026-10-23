@@ -759,6 +759,7 @@ $(function() {
 
 
 });
+/*
 $('.otp-input').on('input', function() {
     this.value = this.value.replace(/[^0-9]/g, '');
     if (this.value.length === 1) {
@@ -769,5 +770,84 @@ $('.otp-input').on('keydown', function(e) {
     if (e.key === "Backspace" && this.value === '') {
         $(this).prev('.otp-input').focus();
     }
+});
+*/
+
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const otpBoxes = document.querySelectorAll('.otp-input');
+
+    otpBoxes.forEach((box, index) => {
+
+        // Type one digit and move to the next box
+        box.addEventListener('input', function () {
+            const digits = this.value.replace(/\D/g, '');
+
+            if (digits.length > 1) {
+                fillOTP(digits);
+                return;
+            }
+
+            this.value = digits;
+
+            if (digits && index < otpBoxes.length - 1) {
+                otpBoxes[index + 1].focus();
+            }
+        });
+
+        // Paste the complete OTP into any box
+        box.addEventListener('paste', function (event) {
+            event.preventDefault();
+
+            const pastedText = (
+                event.clipboardData || window.clipboardData
+            ).getData('text');
+
+            fillOTP(pastedText.replace(/\D/g, ''));
+        });
+
+        // Move backward using Backspace
+        box.addEventListener('keydown', function (event) {
+            if (
+                event.key === 'Backspace' &&
+                !this.value &&
+                index > 0
+            ) {
+                otpBoxes[index - 1].focus();
+            }
+
+            if (event.key === 'ArrowLeft' && index > 0) {
+                otpBoxes[index - 1].focus();
+            }
+
+            if (
+                event.key === 'ArrowRight' &&
+                index < otpBoxes.length - 1
+            ) {
+                otpBoxes[index + 1].focus();
+            }
+        });
+    });
+
+    function fillOTP(value) {
+        const digits = value.slice(0, otpBoxes.length);
+
+        otpBoxes.forEach((box, index) => {
+            box.value = digits[index] || '';
+        });
+
+        const nextEmpty = Array.from(otpBoxes).find(box => !box.value);
+
+        if (nextEmpty) {
+            nextEmpty.focus();
+        } else {
+            otpBoxes[otpBoxes.length - 1].focus();
+        }
+    }
+
 });
 </script>

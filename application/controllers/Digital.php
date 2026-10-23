@@ -606,6 +606,27 @@ class Digital extends CI_Controller
 		);
 		$restrack2 = interakt_event_track($data2, INTERAKT_KEY_UE);
 
+		$data3 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('BH2 Get Offer')
+		);
+		
+		$restrack3 = interakt_user_track($data3, INTERAKT_KEY_UE_2);
+		
+		$data4 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'BH2 Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack4 = interakt_event_track($data4, INTERAKT_KEY_UE_2);
+
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("digital/membershiporder/" . $key);
 	}
@@ -712,7 +733,7 @@ class Digital extends CI_Controller
 				 'rec_date' => date('Y-m-d H:i:s'),
 				 'userid' => $userdata->userid,
 				 'registration_date' => date('Y-m-d'),
-				 'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+				 'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 				 'card_number' => $cardno,
 				 'amount' => $amount,
 				 'paymentid' => $paymentid,
@@ -910,6 +931,27 @@ $data = array(
 					);
 					$restrack3 = interakt_event_track($data3, INTERAKT_KEY_UE);
 
+					$data4 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('BH2 Payment Successful')
+					);
+					$restrack4 = interakt_user_track($data4, INTERAKT_KEY_UE_2);
+
+					$data5 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BH2 Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack5 = interakt_event_track($data5, INTERAKT_KEY_UE_2);
+
 				$this->load->model('Site_Info_Model');
 
 				$this->load->view('payment-response', ['meta' => $meta, 'responsedata' => $data]);
@@ -927,6 +969,13 @@ $data = array(
 						'event' => 'BFP Payment Fail',
 				);
 				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_UE);
+
+				$data6 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'BH2 Payment Fail',
+				);
+				$restrack6 = interakt_event_track($data6, INTERAKT_KEY_UE_2);
 
 				$sent = $this->Site_Digital_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 

@@ -202,7 +202,7 @@ class Loan extends CI_Controller
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
-					'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 					'amount' => $amount,
 					'paymentid' => $mihpayid,
 					'isActive' => 1,
@@ -288,7 +288,7 @@ class Loan extends CI_Controller
 				'emailid' => $emailid,
 				'amount' => $roundamount,
 				'registration_date' => date('Y-m-d'),
-				'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+				'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 				'isCustomer' => 0,
 				'isActive' => 0,
 				'isDelete' => 0
@@ -570,7 +570,7 @@ class Loan extends CI_Controller
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
-					'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 					'paymentid' => $response_data->data->UTR,
 					'isActive' => 1
 				);
@@ -779,7 +779,7 @@ class Loan extends CI_Controller
 					'rec_date' => date('Y-m-d H:i:s'),
 					'card_number' => $cardno,
 					'registration_date' => date('Y-m-d'),
-					'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+					'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 					'paymentid' => $sabpaisaTxnId,
 					'isActive' => 1
 				);
@@ -968,7 +968,7 @@ class Loan extends CI_Controller
 				'rec_date' => date('Y-m-d H:i:s'),
 				'card_number' => $cardno,
 				'registration_date' => date('Y-m-d'),
-				'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+				'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 				'amount' => $AMOUNT,
 				'paymentid' => $TRANSACTIONID,
 				'isActive' => 1
@@ -1145,7 +1145,7 @@ class Loan extends CI_Controller
 						'rec_date' => date('Y-m-d H:i:s'),
 						'card_number' => $cardno,
 						'registration_date' => date('Y-m-d'),
-						'expiry_date' => date('Y-m-d', strtotime('+3 months')),
+						'expiry_date' => date('Y-m-d', strtotime('+6 months')),
 						'amount' => $orderamount,
 						'paymentid' => $referenceid,
 						'isActive' => 1
