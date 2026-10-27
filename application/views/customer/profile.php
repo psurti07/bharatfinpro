@@ -21,6 +21,10 @@ if ($profiledata->cardtype == 12) {
 
         <div class="row">
             <div class="content col-md-7 text-dark">
+                  <a href="<?php echo site_url('customer/profile/invoice/' . stringCrypt($carddata->id, 'encrypt')); ?>"
+                        target="_blank" class="btn btn-light btn-reveal btn-reveal-left"><span>Download Invoice</span><i
+                            class="fa fa-download"></i></a>
+
                 <?php echo form_open('customer/profile/changeprofile', array('id' => 'submitForm1', 'class' => 'form-horizontal p-cb process border-top-dark', 'novalidate' => 'novalidate')); ?>
                 <h4>PROFILE DETAILS</h4>
                 <div class="form-group row">

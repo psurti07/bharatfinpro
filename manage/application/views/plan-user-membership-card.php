@@ -12,7 +12,7 @@ window.onload = function() {
 <div class="content-header row">
     <div class="content-header-left col-md-8 col-12 mb-1">
         <div class="badge badge-pill badge-light badge-square">Customer</div>
-        <h1 class="content-header-title text-uppercase">Membership Card Details</h1>
+        <h1 class="content-header-title text-uppercase">Plan Card Details</h1>
         <h1 class="text-primary text-uppercase"><?php echo $userdata['fullname'] . " - " . $userdata['mobile']; ?></h1>
     </div>
 
@@ -46,9 +46,9 @@ window.onload = function() {
                                 <dt class="col-md-8 text-capitalize">
                                     <?php
                   if ($userdata['cardtype'] == 21) {
-                    echo "Plan Personal";
+                    echo "Plan Person Card";
                   } else if ($userdata['cardtype'] == 22) {
-                    echo "Plan Business";
+                    echo "Plan Business Card";
                   } else {
                     echo "-";
                   }

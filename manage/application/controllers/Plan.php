@@ -751,7 +751,7 @@ class Plan extends MY_Controller
 	{
 		$response = $this->Manage_Plan_User_Model->manageaccountstatus($id, $status);
 
-		redirect('users/userdetails/' . $id);
+		redirect('plan/userdetails/' . $id);
 	}
 
 	public function accountdeletepermanently($id)

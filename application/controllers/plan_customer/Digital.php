@@ -47,7 +47,7 @@ class Digital extends CI_Controller
 
 
 
-		if ($profiledata->cardtype != 11) {
+		if ($profiledata->cardtype != 21) {
 
 			return redirect('plan_customer/offers');
 
@@ -59,8 +59,6 @@ class Digital extends CI_Controller
 		$this->load->model('Site_Info_Model');
 
 		$meta = $this->Site_Info_Model->getmetakeywords('portal-customer');
-
-
 
 		$this->load->model('Plan_Customer_Digital_Model');
 

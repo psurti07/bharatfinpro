@@ -158,32 +158,39 @@ class Cronjob extends CI_Controller
 	/* Whatsapp Interakt marketing message */
 	public function whatsappinteraktremarketing()
 	{
-		die;
+		
 		$this->load->model('Site_Cronjob_Model');
 		$schedule = 'z9999';
 		$schedule_arr = array();
 
 		$cronjobs = array();
-		$cronjobs['a0'] = '0 8 * * *';
-		$cronjobs['b0'] = '0 21 * * *';
 
-		$cronjobs['a1'] = '0 9 * * *';
-		$cronjobs['b1'] = '0 20 * * *';
+		$cronjobs['a1'] = '30 14 * * *';
 
-		$cronjobs['a2'] = '0 10 * * *';
-		$cronjobs['b2'] = '0 19 * * *';
+		$cronjobs['a2'] = '30 15 * * *';
 
-		$cronjobs['a3'] = '0 11 * * *';
-		$cronjobs['b3'] = '0 18 * * *';
+		$cronjobs['a3'] = '45 17 * * *';
 
-		$cronjobs['a5'] = '0 12 * * *';
-		$cronjobs['b5'] = '0 17 * * *';
+		$cronjobs['a4'] = '30 8 * * *';
+		$cronjobs['b4'] = '0 20 * * *';
 
-		$cronjobs['a10'] = '0 13 * * *';
+		$cronjobs['a6'] = '30 9 * * *';
 
-		$cronjobs['a15'] = '0 15 * * *';
+		$cronjobs['a8'] = '0 16 * * *';
 
-		$cronjobs['a30'] = '0 23 * * *';
+		$cronjobs['a9'] = '0 15 * * *';
+
+		$cronjobs['a11'] = '0 14 * * *';
+
+		$cronjobs['a15'] = '30 12 * * *';
+
+		$cronjobs['a20'] = '0 17 * * *';
+
+		$cronjobs['a22'] = '15 19 * * *';
+
+		$cronjobs['a25'] = '30 13 * * *';
+
+		$cronjobs['a30'] = '0 19 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
@@ -307,6 +314,38 @@ class Cronjob extends CI_Controller
 			if (is_time_cron($time, $cron)) {
 				$schedule = substr($method, 1);
 				$response = $this->Site_Cronjob_Model->plan_whatsapp_intrekt_message_2($schedule);
+			}
+		}
+		die;
+	}
+
+	/* Whatsapp Interakt marketing message */
+	public function plan_interakt_remarketing_3()
+	{
+		
+		$this->load->model('Site_Cronjob_Model');
+		$schedule = 'z9999';
+		$schedule_arr = array();
+
+		$cronjobs = array();
+
+		$cronjobs['a3'] = '0 9 * * *';
+
+		$cronjobs['a4'] = '0 10 * * *';
+
+		$cronjobs['a5'] = '0 14 * * *';
+
+		$cronjobs['a8'] = '0 16 * * *';
+
+		$cronjobs['a12'] = '0 19 * * *';
+
+		$cronjobs['a15'] = '0 17 * * *';
+
+		foreach ($cronjobs as $method => $cron) {
+			$time = time();
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->plan_whatsapp_intrekt_message_3($schedule);
 			}
 		}
 		die;

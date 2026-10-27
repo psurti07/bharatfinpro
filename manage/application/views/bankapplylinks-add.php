@@ -42,6 +42,10 @@ window.onload = function() {
                                             <input type="radio" name="loantype" value="12" autocomplete="off">Digital
                                             Business Loan
                                         </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input type="radio" name="loantype" value="21" autocomplete="off">Plan
+                                            Personal Loan
+                                        </label>
                                     </div>
                                 </div>
 

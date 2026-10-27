@@ -94,7 +94,7 @@ class Offers extends CI_Controller
 
 		$profiledata = $this->Plan_Customer_Profile_Model->getprofile($customerid);
 
-
+		
 
 		$directlinks = $this->Site_Info_Model->getdirectlinks($profiledata->cardtype);
 

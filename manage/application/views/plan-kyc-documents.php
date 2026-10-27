@@ -44,11 +44,11 @@ window.onload = function() {
                   if ($kycstatus == 1) {
                     echo '<dd class="col-md-6 text-left"><div class="alert alert-success mb-2" role="alert">All documents are verified.</div></dd>';
 
-                    echo '<dt class="col-md-6 text-right"><a href="' . site_url('users/docverification/0/' . $userdata['id']) . '" class="btn btn-outline-danger">Click to Unverified</a></dt>';
+                    echo '<dt class="col-md-6 text-right"><a href="' . site_url('plan/docverification/0/' . $userdata['id']) . '" class="btn btn-outline-danger">Click to Unverified</a></dt>';
                   } else {
                     echo '<dd class="col-md-6 text-left"><div class="alert alert-danger mb-2" role="alert">Documents are not verified yet.</div></dd>';
 
-                    echo '<dt class="col-md-6 text-right"><a href="' . site_url('users/docverification/1/' . $userdata['id']) . '" class="btn btn-outline-success">Click to Verified</a></dt>';
+                    echo '<dt class="col-md-6 text-right"><a href="' . site_url('plan/docverification/1/' . $userdata['id']) . '" class="btn btn-outline-success">Click to Verified</a></dt>';
                   }
                   ?>
                             </dl>
@@ -61,9 +61,9 @@ window.onload = function() {
                     if ($documentlist->profilephoto == NULL) {
                       echo "No document found.";
                     } else {
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->profilephoto}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->profilephoto}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/profilephoto/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/profilephoto/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -79,9 +79,9 @@ window.onload = function() {
                     } else {
                       echo "<p><strong>" . $documentlist->aadharcard_number . "</strong></p>";
 
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->aadharcard}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->aadharcard}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/aadharcard/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/aadharcard/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -97,9 +97,9 @@ window.onload = function() {
                     } else {
                       echo "<p><strong>" . $documentlist->pancard_number . "</strong></p>";
 
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->pancard}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->pancard}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/pancard/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/pancard/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -113,9 +113,9 @@ window.onload = function() {
                     if ($documentlist->lightbill == NULL) {
                       echo "No document found.";
                     } else {
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->lightbill}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->lightbill}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/lightbill/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/lightbill/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -129,9 +129,9 @@ window.onload = function() {
                     if ($documentlist->cancelcheque == NULL) {
                       echo "No document found.";
                     } else {
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->cancelcheque}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->cancelcheque}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/cancelcheque/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/cancelcheque/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -145,9 +145,9 @@ window.onload = function() {
                     if ($documentlist->bankstatement == NULL) {
                       echo "No document found.";
                     } else {
-                      echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->bankstatement}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                      echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->bankstatement}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                      echo anchor("users/reuploaddoc/bankstatement/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                      echo anchor("plan/reuploaddoc/bankstatement/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                     }
                     ?>
                                 </dd>
@@ -162,9 +162,9 @@ window.onload = function() {
                       if ($documentlist->formsixteen == NULL) {
                         echo "No document found.";
                       } else {
-                        echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->formsixteen}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                        echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->formsixteen}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                        echo anchor("users/reuploaddoc/formsixteen/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                        echo anchor("plan/reuploaddoc/formsixteen/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                       }
                       ?>
                                 </dd>
@@ -178,9 +178,9 @@ window.onload = function() {
                       if ($documentlist->salaryslip == NULL) {
                         echo "No document found.";
                       } else {
-                        echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->salaryslip}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                        echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->salaryslip}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                        echo anchor("users/reuploaddoc/salaryslip/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                        echo anchor("plan/reuploaddoc/salaryslip/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                       }
                       ?>
                                 </dd>
@@ -196,9 +196,9 @@ window.onload = function() {
                       if ($documentlist->businessproof == NULL) {
                         echo "No document found.";
                       } else {
-                        echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->businessproof}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                        echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->businessproof}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                        echo anchor("users/reuploaddoc/businessproof/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                        echo anchor("plan/reuploaddoc/businessproof/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                       }
                       ?>
                                 </dd>
@@ -212,9 +212,9 @@ window.onload = function() {
                       if ($documentlist->itreturn == NULL) {
                         echo "No document found.";
                       } else {
-                        echo anchor("users/downloaddoc/{$userdata['id']}/{$documentlist->itreturn}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
+                        echo anchor("plan/downloaddoc/{$userdata['id']}/{$documentlist->itreturn}", '<i class="la la-download"></i> Download', 'class="btn btn-icon btn-outline-dark btn-sm"');
 
-                        echo anchor("users/reuploaddoc/itreturn/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
+                        echo anchor("plan/reuploaddoc/itreturn/{$userdata['id']}", '<i class="la la-exclamation-triangle"></i> Reupload', 'class="btn btn-icon btn-outline-warning btn-sm ml-1"');
                       }
                       ?>
                                 </dd>

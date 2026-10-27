@@ -10,7 +10,7 @@ $this->load->view('includes/header-plan-apply.php');
                     <span
                         class="badge rounded-pill text-main-top text-wrap text-start success-card mb-4  background-titan-white border text-success">
                         <i class="fa fa-dot-circle text-success"></i>
-                        100% digital · instant disbursal
+                        100% digital · Explore Loan Options
                     </span>
                     <div class="row align-items-center">
                         <div class="col-lg-8 col-md-8 col-8">
@@ -325,15 +325,14 @@ $this->load->view('includes/header-plan-apply.php');
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <div class="p-countdown">
-                                                        <div class="p-countdown-count" id="counttime">
-                                                            <code>New OTP code will generate in <span id="timer">30</span> Sec</code>
+                                                    <div class="p-countdown" data-delay="30">
+                                                        <div class="p-countdown-count">
+                                                            <code>New OTP in  <span class="count-number"></span> Sec</code>
                                                         </div>
-                                                        <div id="resendBtn" class="d-none">
-                                                            <code>Didn’t receive OTP? <a href="javascript:resendotp()">Resend OTP</a></code>
+                                                        <div class="p-countdown-show">
+                                                            <code>Didn’t receive OTP? <a href="javascript:resendotp()">Resend Now</a></code>
                                                         </div>
                                                         <code id="resend-message"></code>
-                                                        <div class="custom-error" id="otpcodeError"></div>
                                                     </div>
                                                 </div>
                                                 <div class="custom-error" id="mobilenoError2"></div>

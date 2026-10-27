@@ -58,9 +58,9 @@ class Support extends CI_Controller
 
 
 
-				$this->load->model('Customer_Profile_Model');
+				$this->load->model('Plan_Customer_Profile_Model');
 
-				$profiledata = $this->Customer_Profile_Model->getmembershipcard($_REQUEST['userid']);
+				$profiledata = $this->Plan_Customer_Profile_Model->getmembershipcard($_REQUEST['userid']);
 
 				$data = array(
 
@@ -68,7 +68,7 @@ class Support extends CI_Controller
 
 					'ticketnumber' => $ticketno,
 
-					'usertype' => 1,
+					'usertype' => 2,
 
 					'fullname' => $profiledata->fullname,
 

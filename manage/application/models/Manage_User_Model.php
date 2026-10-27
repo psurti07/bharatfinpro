@@ -450,9 +450,11 @@ class Manage_User_Model extends CI_Model
 
 		if ($account) {
 			$encpassword = stringCrypt($password, 'encrypt');
+			$new_encpassword = md5($password);
 
 			$data = array(
 				'password' => $encpassword,
+				'new_password' => $new_encpassword,
 			);
 
 			$sql_query = $this->db->where('id', $account->id)

@@ -72,7 +72,7 @@ if ($profiledata->cardtype == 22) {
         </div>
         <?php
 		$hidedata = 0; // 0 = show, 1 = Hide
-		if ($hidedata == 0) {
+		if ($hidedata == 1) {
 		?>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">

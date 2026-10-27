@@ -6,7 +6,7 @@ class Plan_Customer_Digital_Model extends CI_Model
 	public function getlastrecord($customerid)
 	{
 		$query = $this->db->where('isDelete', 0)
-			->where('userid', $customerid)
+			->where('id', $customerid)
 			->order_by('id desc')
 			->limit(1)
 			->get('plan_user_registration')

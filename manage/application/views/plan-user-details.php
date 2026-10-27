@@ -11,7 +11,7 @@ window.onload = function() {
 
 <div class="content-header row">
     <div class="content-header-left col-md-8 col-12 mb-1">
-        <div class="badge badge-pill badge-light badge-square">Customer</div>
+        <div class="badge badge-pill badge-light badge-square">Plan Customer</div>
         <h1 class="content-header-title text-uppercase">Customer Details</h1>
         <h1 class="text-primary text-uppercase"><?php echo $userdata['fullname'] . " - " . $userdata['mobile']; ?></h1>
     </div>

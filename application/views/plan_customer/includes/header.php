@@ -65,8 +65,8 @@
                                     Profile</a></li>
                             <li><a class="cust-color" href="<?php echo site_url('plan_customer/profile/documents'); ?>"><i
                                         class="fa fa-file"></i> KYC Documents</a></li>
-                            <li><a class="cust-color" href="<?php echo site_url('plan_customer/profile/mcard'); ?>"><i
-                                        class="fa fa-credit-credit"></i> Membership Card</a></li>
+                            <!--<li><a class="cust-color" href="<?php echo site_url('plan_customer/profile/mcard'); ?>"><i
+                                        class="fa fa-credit-credit"></i> Membership Card</a></li>-->
                             <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers'); ?>"><i class="fa fa-cube"></i>
                                     Apply Now</a></li>
                             <li><a class="cust-color" href="<?php echo site_url('plan_customer/offers/preapproved'); ?>"><i

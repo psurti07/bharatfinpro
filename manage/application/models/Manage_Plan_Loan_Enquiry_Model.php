@@ -150,12 +150,13 @@ class Manage_Plan_Loan_Enquiry_Model extends CI_Model
 			$content = $this->Manage_General_Model->simpleemailtemplate($message);
 
 			if ($content != '') {
-				/* $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content); */
-				$maildata = array(
+				 $mailresponse = sendHTMLmail($emailid, COMPANY_EMAIL, $subject, $content);
+				 
+				/*$maildata = array(
 					'fullname' => $mobile,
 					'email' => $emailid
 				);
-				//$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);
+				$mailresponse = sendinblueHTMLmail($maildata, $subject, $content);*/
 			}
 		}
 

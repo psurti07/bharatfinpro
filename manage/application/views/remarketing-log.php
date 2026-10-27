@@ -22,7 +22,9 @@ window.onload = function() {
 										<option value="1" <?php echo ($parentid == 1) ? 'selected' : ''; ?>>Digital Loan SMS</option>
 										<option value="3" <?php echo ($parentid == 3) ? 'selected' : ''; ?>>Digital Loan Whatsapp</option>
 										<option value="9" <?php echo ($parentid == 9) ? 'selected' : ''; ?>>Digital Loan Whatsapp - 2</option>
+                                        <option value="2" <?php echo ($parentid == 2) ? 'selected' : ''; ?>>Whatsapp Intrekt</option>
                                         <option value="6" <?php echo ($parentid == 6) ? 'selected' : ''; ?>>Plan Intrekt</option>
+                                        <option value="11" <?php echo ($parentid == 11) ? 'selected' : ''; ?>>Plan Intrekt 3</option>
 									</select>
 								</div>
 

@@ -5,9 +5,9 @@ $pllink = $bllink = "#";
 
 if ($profiledata->cardtype == 21) {
 	$pllink = site_url('plan_customer/digital/personalLoan');
-	$bllink = site_url('digital/businessLoan');
+	$bllink = site_url('plan/businessLoan');
 } else if ($profiledata->cardtype == 22) {
-	$pllink = site_url('digital/personalLoan');
+	$pllink = site_url('plan/personalLoan');
 	$bllink = site_url('plan_customer/digital/businessloan');
 }
 ?>

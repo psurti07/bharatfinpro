@@ -51,7 +51,7 @@
     <?php echo link_tag('assets/plugins/jquery-steps/jquery.steps.css'); ?>
     <?php echo link_tag('assets/css/custome.css'); ?>
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600%7CRaleway:100,300,600,700,800"
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,600%7CRaleway:100,300,600,700,800"
         rel="stylesheet" type="text/css" />
 
     <!-- Facebook Domain + Pixel Code -->

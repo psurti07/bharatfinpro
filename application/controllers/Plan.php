@@ -607,7 +607,7 @@ class Plan extends CI_Controller
 		);
 		
 		$restrack3 = interakt_user_track($data3, INTERAKT_KEY_PLAN_UE_1);
-		log_message('error', 'getoffer user -- '. json_encode($response3));	
+		
 		$data2 = array(
 			'phoneNumber' => $userdata->mobile,
 			'countryCode' => '+91',
@@ -617,7 +617,28 @@ class Plan extends CI_Controller
 			)
 		);
 		$restrack4 = interakt_event_track($data4, INTERAKT_KEY_PLAN_UE_1);
-		log_message('error', 'getoffer event -- '. json_encode($restrack4));
+		
+		$data5 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'traits' => array(
+			 'name' => $userdata->fullname
+			),
+			'tags' => array('B2 Get Offer')
+		);
+		
+		$restrack5 = interakt_user_track($data5, INTERAKT_KEY_PLAN_UE_2);
+		log_message('error', 'getoffer user -- '. json_encode($response5));	
+		$data6 = array(
+			'phoneNumber' => $userdata->mobile,
+			'countryCode' => '+91',
+			'event' => 'B2 Get Offer',
+			'traits' => array(
+			 	'EligibleAmount' => $eligibilityamt
+			)
+		);
+		$restrack6 = interakt_event_track($data6, INTERAKT_KEY_PLAN_UE_2);
+		log_message('error', 'getoffer event -- '. json_encode($restrack6));
 
 		$key = stringCrypt($_REQUEST['applyid'], 'encrypt');
 		redirect("plan/membershiporder/" . $key);
@@ -933,6 +954,28 @@ class Plan extends CI_Controller
 						),
 					);
 					$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE_1);
+
+					$data6 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'traits' => array(
+						'name' => $userdata->fullname
+						),
+						'tags' => array('B2 Payment Successful')
+					);
+					$restrack6 = interakt_user_track($data6, INTERAKT_KEY_PLAN_UE_2);
+					log_message('error', 'payment success user -- '. json_encode($response6));	
+					$data7 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'B2 Payment Successful',
+						'traits' => array(
+							'userid' => $userdata->mobile,
+							'userpass' => $this->session->tempdata('userpass')
+						),
+					);
+					$restrack7 = interakt_event_track($data7, INTERAKT_KEY_PLAN_UE_2);
+					log_message('error', 'payment success event -- '. json_encode($response7));
 					
 
 				$this->load->view('plan-payment-response', ['meta' => $meta, 'responsedata' => $data, 'userdata' => $userdata]);
@@ -950,6 +993,13 @@ class Plan extends CI_Controller
 				);
 				$restrack5 = interakt_event_track($data5, INTERAKT_KEY_PLAN_UE_1);
 
+				$data6 = array(
+						'phoneNumber' => $userdata->mobile,
+						'countryCode' => '+91',
+						'event' => 'B2 Payment Fail',
+				);
+				$restrack6 = interakt_event_track($data6, INTERAKT_KEY_PLAN_UE_2);
+				log_message('error', 'payment fail event -- '. json_encode($response6));
 
 				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 

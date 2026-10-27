@@ -33,7 +33,7 @@ $this->load->view('plan_customer/includes/header.php');
             </div>
 
             <div class="col-lg-7">
-                <?php echo form_open('customer/support/submitrequest', array('id' => 'submitForm', 'class' => 'form-horizontal p-cb process border-top-dark', 'novalidate' => 'novalidate')); ?>
+                <?php echo form_open('plan_customer/support/submitrequest', array('id' => 'submitForm', 'class' => 'form-horizontal p-cb process border-top-dark', 'novalidate' => 'novalidate')); ?>
                 <input type="hidden" name="do" value="generateticket" class="form-control" required>
                 <input type="hidden" name="userid" id="userid" value="<?php echo $userid; ?>" required>
                 <div class="form-group">
