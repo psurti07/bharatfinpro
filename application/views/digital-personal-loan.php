@@ -14,12 +14,12 @@ $this->load->view('includes/header-apply.php');
                     <h2 class="text-blue font-weight-bold display-4 mt-3">Personal loans up to <br> <span
                             class="text-orange ">₹10 Lakhs </span> <br> made simple for<br>modern India.</h2>
                     
-                    <ul
-                        class="d-flex list-unstyled   d-flex align-items-center mb-7 align-middle flex-sm-nowrap flex-wrap justify-content-between">
-                        <li class="mr-5 text-blue mb-lg-0 mb-2"><i class="fas fa-magic mr-2 text-orange"></i>Trusted Loan Services</li>
-                        <li class="mr-5 text-blue mb-lg-0 mb-2"><i class="fa fa-lock mr-2 text-orange"></i>Easy & Fast Process</li>
-                        <li class="text-blue"><i class="fa fa-award mr-2 text-orange"></i>Secure Online Process</li>
-                    </ul>
+                        <ul
+                            class="d-flex list-unstyled   d-flex align-items-center mb-7 align-middle flex-sm-nowrap flex-wrap justify-content-between">
+                            <li class="mr-5 text-blue mb-lg-0 mb-2"><i class="fas fa-magic mr-2 text-orange"></i>Trusted Loan Services</li>
+                            <li class="mr-5 text-blue mb-lg-0 mb-2"><i class="fa fa-lock mr-2 text-orange"></i>Easy & Fast Process</li>
+                            <li class="text-blue"><i class="fa fa-award mr-2 text-orange"></i>Secure Online Process</li>
+                        </ul>
                     <div class="carousel client-logos" data-items="2" data-dots="false">
                         <div>
                             <img src="<?php echo base_url('assets/images/customers/testimonial-1.jpeg'); ?>"
