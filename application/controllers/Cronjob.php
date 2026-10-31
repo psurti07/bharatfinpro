@@ -155,6 +155,28 @@ class Cronjob extends CI_Controller
 		die;
 	}
 
+	/* Whatsapp marketing message */
+	public function whatsappremarketing_3()
+	{
+		
+		$this->load->model('Site_Cronjob_Model');
+		//$schedule = 'z9999';
+		$schedule_arr = array();
+
+		$cronjobs = array();
+
+		$cronjobs['a0'] = '0 21 * * *';
+
+		foreach ($cronjobs as $method => $cron) {
+			$time = time();
+			if (is_time_cron($time, $cron)) {
+				$schedule = substr($method, 1);
+				$response = $this->Site_Cronjob_Model->whatsapp_marketing_message_3($schedule);
+			}
+		}
+		die;
+	}
+
 	/* Whatsapp Interakt marketing message */
 	public function whatsappinteraktremarketing()
 	{
@@ -165,32 +187,43 @@ class Cronjob extends CI_Controller
 
 		$cronjobs = array();
 
-		$cronjobs['a1'] = '30 14 * * *';
+		$cronjobs['a1'] = '0 10 * * *';
+		$cronjobs['b1'] = '30 14 * * *';
 
-		$cronjobs['a2'] = '30 15 * * *';
+		$cronjobs['a2'] = '0 11 * * *';
+		$cronjobs['b2'] = '30 15 * * *';
 
-		$cronjobs['a3'] = '45 17 * * *';
+		$cronjobs['a3'] = '30 11 * * *';
+		$cronjobs['b3'] = '30 23 * * *';
 
-		$cronjobs['a4'] = '30 8 * * *';
-		$cronjobs['b4'] = '0 20 * * *';
+		$cronjobs['a4'] = '30 7 * * *';
+		$cronjobs['b4'] = '0 12 * * *';
+
+		$cronjobs['a5'] = '30 8 * * *';
+		$cronjobs['b5'] = '0 22 * * *';
 
 		$cronjobs['a6'] = '30 9 * * *';
+		$cronjobs['b6'] = '30 22 * * *';
 
-		$cronjobs['a8'] = '0 16 * * *';
+		$cronjobs['a7'] = '30 12 * * *';
+		$cronjobs['b7'] = '30 21 * * *';
 
 		$cronjobs['a9'] = '0 15 * * *';
+		$cronjobs['b9'] = '0 19 * * *';
 
-		$cronjobs['a11'] = '0 14 * * *';
+		$cronjobs['a10'] = '0 14 * * *';
+
+		$cronjobs['a11'] = '30 16 * * *';
+
+		$cronjobs['a14'] = '0 13 * * *';
+		$cronjobs['b14'] = '30 20 * * *';
 
 		$cronjobs['a15'] = '30 12 * * *';
+		$cronjobs['b15'] = '30 18 * * *';
 
 		$cronjobs['a20'] = '0 17 * * *';
 
-		$cronjobs['a22'] = '15 19 * * *';
-
-		$cronjobs['a25'] = '30 13 * * *';
-
-		$cronjobs['a30'] = '0 19 * * *';
+		$cronjobs['a25'] = '30 10 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();
@@ -257,25 +290,17 @@ class Cronjob extends CI_Controller
 
 		$cronjobs = array();
 
-		$cronjobs['a0'] = '15 9 * * *';
+		$cronjobs['a3'] = '0 9 * * *';
 
-		$cronjobs['a1'] = '15 10 * * *';
-		$cronjobs['b1'] = '15 22 * * *';
+		$cronjobs['a4'] = '0 10 * * *';
 
-		$cronjobs['a3'] = '15 11 * * *';
-		$cronjobs['b3'] = '15 17 * * *';
+		$cronjobs['a5'] = '0 14 * * *';
 
-		$cronjobs['a7'] = '15 12 * * *';
-		$cronjobs['b7'] = '45 20 * * *';
+		$cronjobs['a8'] = '0 16 * * *';
 
-		$cronjobs['a10'] = '45 14 * * *';
-		$cronjobs['b10'] = '15 23 * * *';
+		$cronjobs['a12'] = '0 19 * * *';
 
-		$cronjobs['a13'] = '15 18 * * *';
-
-		$cronjobs['a16'] = '30 16 * * *';
-
-		$cronjobs['a20'] = '15 19 * * *';
+		$cronjobs['a15'] = '0 17 * * *';
 
 		foreach ($cronjobs as $method => $cron) {
 			$time = time();

@@ -288,7 +288,6 @@ class Site_Cronjob_Model extends CI_Model
 		return true;
 	}
 	/* END : Whatsapp marketing message */
-
 	
 	/* START : Whatsapp marketing message */
 	public function whatsapp_marketing_message_2($schedule = 9999)
@@ -378,6 +377,119 @@ class Site_Cronjob_Model extends CI_Model
 					'media' => array(
 						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6abe23c2c004bfc20b12ce78/5b48941e-73c1-4418-a7ca-363b09a88f2e_cycle2.jpeg',
 						'filename' => 'cycle2.jpeg'
+					),
+					'userName' => '$Name',
+					'templateParams' => array('$Name', '$EligibleAmount'),
+					'tags' => array('Get Offer'),
+					'attributes' => array(
+						'EligibleAmount' => strval($eligibilityamt)
+					)
+				);
+				$restrack2 = aisensy_track($data2);
+				$airesponse .= $row2 . "-" . $restrack2 . "|";
+				$data4 = array(
+					'msgcount' => $cnt,
+					'msgresponse' => $airesponse
+				);
+
+				$query = $this->db->where('id', $logid)
+					->update('sms_log', $data4);
+				$cnt++;
+			}
+		}
+
+		return true;
+	}
+	/* END : Whatsapp marketing message */
+
+	/* START : Whatsapp marketing message */
+	public function whatsapp_marketing_message_3($schedule = 9999)
+	{
+		$airesponse = "";
+		$cnt = 1;
+
+		$this->load->model('Site_Info_Model');
+		$wpcampaignname = $this->Site_Info_Model->getsmsmessage('wpcampaignmain');
+
+		$wheredate = "CAST(r.rec_date as DATE) = DATE_ADD(CURDATE(),INTERVAL -" . $schedule . " DAY) ";
+
+		$userlist = $this->db->select('r.id, r.update_date, r.fullname, r.mobile, r.email, r.cardtype, a.income, a.currentemi, a.loanamount')
+			->from('user_registration r')
+			->join('user_application a', 'a.userid=r.id')
+			->where($wheredate)
+			->where('r.isUser', 1)
+			->where('r.isActive', 1)
+			->where('r.isDnd', 0)
+			->where('r.isDelete', 0)
+			->where('r.cardtype', 11)
+			->where('a.status', 1)
+			->where('a.isDelete', 0)
+			->group_by('r.mobile')
+			->order_by('r.id asc')
+			->get()
+			->result();
+
+		if (count($userlist) > 0) {
+			$data3 = array(
+				'rec_date' => date('Y-m-d H:i:s'),
+				'crontype' => 'whatsapp digital 3 ',
+				'parentid' => 12,
+				'cronname' => 'whatsapp - ' . $schedule,
+				'msgcount' => $cnt,
+				'msgresponse' => $airesponse
+			);
+
+			$this->db->insert('sms_log', $data3);
+			$logid = $this->db->insert_id();
+
+			foreach ($userlist as $row) {
+				if ($row->mobile != '') {
+					$eligibilityamt = "5,00,000";
+
+					if ($row->loanamount != 0 && $row->income != 0) {
+						$eligibilityamtsimple = calEligiblity($row->income, $row->currentemi, 11, $row->loanamount);
+						$eligibilityamt = formatePriceIndia($eligibilityamtsimple, 0);
+					}
+
+					$data1 = array(
+						'apiKey' => AISENSY_KEY_2,
+						'campaignName' => '30oct_uty_auto',
+						'destination' => '+91' . $row->mobile,
+						'media' => array(
+							'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6ae1bc348843de88b5fabd67/c86361fd-7c27-4a50-9ed8-0f0c95e46740_qimg.jpeg',
+							'filename' => 'q_img.jpeg'
+						),
+						'userName' => $row->fullname,
+						'templateParams' => array('$Name', '$EligibleAmount'),
+						'tags' => array('Get Offer'),
+						'attributes' => array(
+							'EligibleAmount' => strval($eligibilityamt)
+						)
+					);
+					$restrack1 = aisensy_track($data1);
+					$airesponse .= $row->mobile . "-" . $restrack1 . "|";
+					$data4 = array(
+						'msgcount' => $cnt,
+						'msgresponse' => $airesponse
+					);
+
+					$query = $this->db->where('id', $logid)
+						->update('sms_log', $data4);
+					$cnt++;
+				}
+			}
+
+			$adminlist = ['9586935595', '7567072993', '7984310891'];
+			$eligibilityamt = "5,00,000";
+
+			foreach ($adminlist as $row2) {
+				$data2 = array(
+					'apiKey' => AISENSY_KEY_2,
+					'campaignName' => '30oct_uty_auto',
+					'destination' => '+91' . $row2,
+					'media' => array(
+						'url' => 'https://d3jt6ku4g6z5l8.cloudfront.net/IMAGE/6ae1bc348843de88b5fabd67/c86361fd-7c27-4a50-9ed8-0f0c95e46740_qimg.jpeg',
+						'filename' => 'q_img.jpeg'
 					),
 					'userName' => '$Name',
 					'templateParams' => array('$Name', '$EligibleAmount'),
@@ -687,10 +799,10 @@ class Site_Cronjob_Model extends CI_Model
 					"callbackData" => "some text here",
 					"type" => "Template",
 					"template" => array(
-						"name" => "10oct_rm_1",
+						"name" => "29oct_rm_2",
 						"languageCode" => "en",
 						"headerValues" => array(
-							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/g1W2q2jiSdaI/WhatsApp%20Image%202026-10-10%20at%202.20.30%20PM.jpeg?se=2031-10-04T09%3A28%3A06Z&sp=r&sv=2025-01-05&sr=b&sig=CcuFkOrwLNUF2w0ch3PwDV8yEtBEmqgjdoX4jhYNSYw%3D"
+							"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/q3062FUqjsgd/bharatpro.jpeg?se=2031-10-23T09%3A50%3A10Z&sp=r&sv=2025-01-05&sr=b&sig=2Y7SiqECEyn1CuorDj/7hRZmObRyJT6leMl4BxWU6gQ%3D"
 						),
 						"bodyValues" => array(
 							'$name',
@@ -735,10 +847,10 @@ class Site_Cronjob_Model extends CI_Model
 							"callbackData" => "some text here",
 							"type" => "Template",
 							"template" => array(
-								"name" => "10oct_rm_1",
+								"name" => "29oct_rm_2",
 								"languageCode" => "en",
 								"headerValues" => array(
-									"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/g1W2q2jiSdaI/WhatsApp%20Image%202026-10-10%20at%202.20.30%20PM.jpeg?se=2031-10-04T09%3A28%3A06Z&sp=r&sv=2025-01-05&sr=b&sig=CcuFkOrwLNUF2w0ch3PwDV8yEtBEmqgjdoX4jhYNSYw%3D"
+									"https://interaktprodmediastorage.blob.core.windows.net/mediaprodstoragecontainer/35c32c39-b50b-4646-85f8-8e7d9281de56/message_template_sample/q3062FUqjsgd/bharatpro.jpeg?se=2031-10-23T09%3A50%3A10Z&sp=r&sv=2025-01-05&sr=b&sig=2Y7SiqECEyn1CuorDj/7hRZmObRyJT6leMl4BxWU6gQ%3D"
 								),
 								"bodyValues" => array(
 									$fullname,
