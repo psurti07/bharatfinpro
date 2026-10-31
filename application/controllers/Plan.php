@@ -889,7 +889,7 @@ class Plan extends CI_Controller
 				$orderid = "MC" . date('md') . random_code(4);
 
 				$fbdata = array(
-					'version' => 'v21.0',
+					'version' => 'v26.0',
 					'type' => 'plan',
 					'userid' => $userdata->userid,
 					'firstname' => $firstname,
