@@ -888,7 +888,7 @@ $data = array(
 
 
 				$fbdata = array(
-					'version' => 'v21.0',
+					'version' => 'v16.0',
 					'type' => 'digital',
 					'userid' => $userdata->userid,
 					'firstname' => $firstname,
@@ -907,7 +907,8 @@ $data = array(
 				$fbdata['fbclid'] = $fbclidpl;
 
 				$fbresponse = fbconversioncurl($fbdata);
-
+					
+				log_message('error', 'applyid userdata main -- ' . json_encode($fbresponse));
 				$this->load->helper('interakt');
 					
 					$data2 = array(
