@@ -68,6 +68,7 @@ class Site_Cronjob_Model extends CI_Model
 			$dataset .= "<sms><user>" . SMS_OBB_USERNAME . "</user><password>" . SMS_OBB_PASSWORD . "</password><mobiles>8154909702</mobiles><message>" . $premessage . "</message><accusage>1</accusage><senderid>" . $smssenderid . "</senderid></sms>";
 
 			$dataset .= "<sms><user>" . SMS_OBB_USERNAME . "</user><password>" . SMS_OBB_PASSWORD . "</password><mobiles>9586935595</mobiles><message>" . $premessage . "</message><accusage>1</accusage><senderid>" . $smssenderid . "</senderid></sms>";
+			$dataset .= "<sms><user>" . SMS_OBB_USERNAME . "</user><password>" . SMS_OBB_PASSWORD . "</password><mobiles>7567032993</mobiles><message>" . $premessage . "</message><accusage>1</accusage><senderid>" . $smssenderid . "</senderid></sms>";
 
 			$smsresponse = sendxmlSMSobb($dataset);
 
@@ -255,7 +256,7 @@ class Site_Cronjob_Model extends CI_Model
 				}
 			}
 
-			$adminlist = ['9586935595', '7567072993', '7984310891'];
+			$adminlist = ['9586935595', '7567072993', '7984310891', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -368,7 +369,7 @@ class Site_Cronjob_Model extends CI_Model
 				}
 			}
 
-			$adminlist = ['9586935595', '7567072993', '7984310891'];
+			$adminlist = ['9586935595', '7567072993', '7984310891', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -481,7 +482,7 @@ class Site_Cronjob_Model extends CI_Model
 				}
 			}
 
-			$adminlist = ['9586935595', '7567072993', '7984310891'];
+			$adminlist = ['9586935595', '7567072993', '7984310891','7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -555,7 +556,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595'];
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -671,7 +672,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595'];
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -792,7 +793,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595'];
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -913,7 +914,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595'];
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595','7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -1034,7 +1035,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data1);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595'];
+			$adminlist = ['9998892746', '6358988761', '9023987358', '8154909702', '9586935595', '7567032993'];
 			$eligibilityamt = "5,00,000";
 
 			foreach ($adminlist as $row2) {
@@ -1177,7 +1178,7 @@ class Site_Cronjob_Model extends CI_Model
 				"campaignName" => "cmp_11nov_4_" . $random_number,
 				"TemplateName" => "9nov",
 				"param_json" => array("[custom_param]" => "Dear Customer", "[custom_param1]" => "5,00,000"),
-				"To Mobile Number" => '[' . $usermobile . ' , 9998892746, 6358988761,9023987358,8154909702]',
+				"To Mobile Number" => '[' . $usermobile . ' , 9998892746, 6358988761,9023987358,8154909702, 7567032993]',
 			);
 
 			$smsresponse = sendRCSSMS(json_encode($data1));
@@ -1232,7 +1233,7 @@ class Site_Cronjob_Model extends CI_Model
 			$this->db->insert('sms_log', $data3);
 			$logid = $this->db->insert_id();
 
-			$adminlist = ['7984310891', '7359876109'];
+			$adminlist = ['7984310891', '7359876109', '7567032993'];
 
 			foreach ($adminlist as $row2) {
 				$processPath  = 'webinar/user-register';
