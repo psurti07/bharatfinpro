@@ -306,7 +306,7 @@ class Plan extends CI_Controller
 				$response = $this->Site_Plan_Model->referraluserentry($data2);
 			}
 
-			$offerresponse = $this->Site_Plan_Model->sendProcessMessage($cardtype, $mobile, $email);
+			//$offerresponse = $this->Site_Plan_Model->sendProcessMessage($cardtype, $mobile, $email);
 
 			$key = stringCrypt($applyid, 'encrypt');
 			$redirect_url = site_url("plan/checkeligibility/" . $key);
@@ -608,7 +608,7 @@ class Plan extends CI_Controller
 		
 		$restrack3 = interakt_user_track($data3, INTERAKT_KEY_PLAN_UE_1);
 		
-		$data2 = array(
+		$data4 = array(
 			'phoneNumber' => $userdata->mobile,
 			'countryCode' => '+91',
 			'event' => 'BHPF Get Offer',
@@ -798,7 +798,7 @@ class Plan extends CI_Controller
 					$igstamount = $netamount * 0.18;
 				}
 
-				$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+				$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
 
 				$invdata3 = array(
 				 'rec_date' => date('Y-m-d H:i:s'),
@@ -999,7 +999,7 @@ class Plan extends CI_Controller
 						'event' => 'B2 Payment Fail',
 				);
 				$restrack6 = interakt_event_track($data6, INTERAKT_KEY_PLAN_UE_2);
-				log_message('error', 'payment fail event -- '. json_encode($response6));
+				log_message('error', 'payment fail event -- '. json_encode($restrack6));
 
 				$sent = $this->Site_Plan_Model->sendPaymentFailedGreetings($userdata->mobile, $userdata->email);
 

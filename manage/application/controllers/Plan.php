@@ -96,6 +96,7 @@ class Plan extends MY_Controller
 			$refcode .= substr($_REQUEST['mobile'], -4);
 
 			$grandtotal = $netamount = $cgstamount = $sgstamount = $igstamount = 0;
+
 			$cardno = random_code(16);
 			$paymentid = 'cash_' . random_password(13);
 
@@ -160,7 +161,7 @@ class Plan extends MY_Controller
 						$igstamount = $netamount * 0.18;
 					}
 
-					$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+					$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
 				}
 
 				if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
@@ -587,7 +588,7 @@ class Plan extends MY_Controller
 					$igstamount = $netamount * 0.18;
 				}
 
-				$grandtotal = $netamount + $cgstamount + $sgstamount + $igstamount;
+				$grandtotal = floor($netamount + $cgstamount + $sgstamount + $igstamount);
 			}
 
 			if (isset($_REQUEST['paymentid']) && $_REQUEST['paymentid'] != '') {
